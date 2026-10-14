@@ -1,0 +1,88 @@
+{
+ "standard_id": "TSS_WW_2026",
+ "rules": [
+  {
+   "type": "VELOCITY_MIN",
+   "param": "min_velocity",
+   "cond": {
+    "system": "separate"
+   },
+   "flow": "design",
+   "state": "full",
+   "resolution": "33.41 만관 시 평균유속 기준"
+  },
+  {
+   "type": "VELOCITY_MAX",
+   "param": "max_velocity",
+   "cond": {},
+   "state": "full",
+   "enforce": "protect",
+   "text": "33.45 초과 시 침식·변위 보호조치 — 경사 상한 아님"
+  },
+  {
+   "type": "SLOPE_TABLE",
+   "param": "min_slope",
+   "cond": {
+    "system": "separate"
+   }
+  },
+  {
+   "type": "CAPACITY",
+   "kind": "full",
+   "clause": "33.43",
+   "text": "첨두 유량을 만관 이내로(수심비 규정 없음)"
+  },
+  {
+   "type": "MIN_DIAMETER",
+   "param": "min_pipe_diameter",
+   "cond": {
+    "system": "separate"
+   },
+   "allow": [
+    "other"
+   ]
+  },
+  {
+   "type": "MIN_COVER",
+   "kind": "project",
+   "key": "cover",
+   "clause": "33.2 (수치 없음)"
+  },
+  {
+   "type": "JUNCTION",
+   "kind": "depth_ratio",
+   "ratio": 0.8,
+   "clause": "33.6"
+  },
+  {
+   "type": "MANHOLE_SPACING",
+   "param": "manhole_max_spacing"
+  },
+  {
+   "type": "DESIGN_FLOW",
+   "per_capita": {
+    "param": "per_capita_wastewater",
+    "cond": {
+     "system": "separate"
+    },
+    "allow": [
+     "other"
+    ]
+   },
+   "infiltration": {
+    "kind": "included",
+    "clause": "11.243(b)"
+   },
+   "peak": {
+    "kind": "formula",
+    "expr": "(18 + sqrt(P/1000)) / (4 + sqrt(P/1000))",
+    "clause": "11.243(b) Figure 1"
+   }
+  }
+ ],
+ "pipe": {
+  "nominal": "inch25",
+  "min_dia_compare": "inch_mm",
+  "table_lookup": "nominal"
+ }
+}

@@ -1,0 +1,103 @@
+{
+ "KDS_61_40_00_20251001": {
+  "country": "KR",
+  "issuer": "국토교통부/국가건설기준센터",
+  "title": "KDS 61 40 00 관로시설 설계기준",
+  "edition": "2025-10-01",
+  "effective_date": "2025-10-01",
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6004",
+  "redistributable": "unknown",
+  "license_note": "국가건설기준(공개). 공공누리 유형 미확인"
+ },
+ "KDS_61_10_00_20251001": {
+  "country": "KR",
+  "issuer": "국토교통부/국가건설기준센터",
+  "title": "KDS 61 10 00 하수도설계 일반사항",
+  "edition": "2025-10-01",
+  "effective_date": "2025-10-01",
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6001",
+  "redistributable": "unknown",
+  "license_note": "국가건설기준(공개). 공공누리 유형 미확인"
+ },
+ "TSS_WW_2026": {
+  "country": "US",
+  "issuer": "GLUMRB",
+  "title": "Recommended Standards for Wastewater Facilities (Ten States Standards)",
+  "edition": "2026",
+  "effective_date": null,
+  "is_latest": true,
+  "access": "paid",
+  "source_url": "https://www.health.state.mn.us/communities/environment/water/tenstates/standards.html",
+  "note": "사용자 구매본(PDF, 2026-06-11 수정). 판매처 다운로드 약관(복사·공유 불가)과 문서 내 저작권 고지가 다름",
+  "redistributable": "values_only",
+  "license_note": "p.3: may be reproduced without permission if credit is given to the Board and to this publication. 본문은 사용자 결정(10-13)으로 비공개 DB에만"
+ },
+ "JP_YOKOHAMA_SEKKEI_202604": {
+  "country": "JP",
+  "issuer": "横浜市環境創造局",
+  "title": "横浜市下水道設計指針(管きょ編)・同解説",
+  "edition": "令和8年度改訂版 + 2026-04-17 正誤",
+  "effective_date": null,
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://www.city.yokohama.lg.jp/business/nyusatsu/youshiki/gesui/gesuishiryo/kijunshokankei.files/0034_20260702.pdf",
+  "note": "지자체 기준. 일부 값은 국가 지침(下水道施設計画・設計指針と解説, 유료) 근거",
+  "redistributable": "values_only",
+  "license_note": "지자체 저작물. 이용 조건 미확인"
+ },
+ "JP_GESUIDOHO_SEKOREI_20260817": {
+  "country": "JP",
+  "issuer": "国土交通省",
+  "title": "下水道法施行令",
+  "edition": "令和8年政令第257号",
+  "effective_date": "2026-08-17",
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://laws.e-gov.go.jp/law/334CO0000000147",
+  "redistributable": "full_text",
+  "license_note": "법령은 저작권 대상 아님(著作権法 第13条第1号)"
+ },
+ "CPHEEO_SEW_2013": {
+  "country": "IN",
+  "issuer": "CPHEEO, Ministry of Housing and Urban Affairs",
+  "title": "Manual on Sewerage and Sewage Treatment Systems, Part A: Engineering",
+  "edition": "2013",
+  "effective_date": null,
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://web.archive.org/web/20200811102516/http://cpheeo.gov.in/upload/uploadfiles/files/engineering_chapter3.pdf",
+  "note": "공식 사이트 업로드본(Wayback). 표지 없어 발행연도 문서 내 직접 확인 못 함",
+  "redistributable": "full_text",
+  "license_note": "CPHEEO Copyright Policy(2018-01-17 갱신, Wayback): 무료 복제 허용, 정확히 복제·오해 소지 없게·출처 명시 조건"
+ },
+ "CO_RAS_0330_2017_COMP2021": {
+  "country": "CO",
+  "issuer": "Ministerio de Vivienda, Ciudad y Territorio",
+  "title": "Reglamento Técnico del Sector de Agua Potable y Saneamiento Básico (RAS) — Resolución 0330 de 2017, compilado con Res. 799 y 908 de 2021",
+  "edition": "Anexo 2 compilatorio (2021)",
+  "effective_date": null,
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://www.minvivienda.gov.co/sites/default/files/documentos/anexo-2-articulado-definitivo-rev-sspd-1.pdf",
+  "note": "법령 원문. Res. 0548/2022(경과규정) 이후 개정은 RAS 페이지 기준 미확인",
+  "redistributable": "full_text",
+  "license_note": "법령 원문 — Ley 23 de 1982 Art.41 '헌법·법률·명령 등은 누구나 복제 가능'"
+ },
+ "KDS_61_45_00_20251001": {
+  "country": "KR",
+  "issuer": "국토교통부/국가건설기준센터",
+  "title": "KDS 61 45 00 펌프장시설 설계기준",
+  "edition": "2025-10-01",
+  "effective_date": "2025-10-01",
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6005",
+  "note": "KDS 61 계열의 유일한 펌프장 코드(그룹 목록 API 확인). 압송관로는 KDS 61 40 00 17.2·17.4(2)",
+  "redistributable": "unknown",
+  "license_note": "국가건설기준(공개). 공공누리 유형 미확인"
+ }
+}

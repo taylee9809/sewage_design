@@ -1,0 +1,125 @@
+{
+ "standard_id": "CPHEEO_SEW_2013",
+ "rules": [
+  {
+   "type": "VELOCITY_MIN",
+   "param": "min_velocity",
+   "cond": {
+    "system": "separate"
+   },
+   "basis": {
+    "horizon": "initial"
+   },
+   "flow": "initial",
+   "state": "actual",
+   "resolution": "Table 3.9 + 3.15.5·부록 A 3.4(Table 3.12 비율로 실수심 유속)"
+  },
+  {
+   "type": "VELOCITY_MIN",
+   "param": "min_velocity",
+   "cond": {
+    "system": "separate"
+   },
+   "basis": {
+    "horizon": "ultimate"
+   },
+   "flow": "design",
+   "state": "actual",
+   "resolution": "Table 3.9 + 3.15.5·부록 A 3.4"
+  },
+  {
+   "type": "VELOCITY_MAX",
+   "param": "max_velocity",
+   "cond": {
+    "system": "separate"
+   },
+   "state": "actual",
+   "enforce": "hard"
+  },
+  {
+   "type": "SLOPE_TABLE",
+   "param": "min_slope",
+   "cond": {
+    "system": "separate"
+   }
+  },
+  {
+   "type": "CAPACITY",
+   "kind": "depth_ratio",
+   "param": "max_depth_ratio",
+   "cond": {
+    "shape": "circular"
+   }
+  },
+  {
+   "type": "MIN_DIAMETER",
+   "param": "min_pipe_diameter",
+   "cond": {
+    "system": "separate",
+    "shape": "circular"
+   },
+   "allow": [
+    "other"
+   ]
+  },
+  {
+   "type": "MIN_COVER",
+   "kind": "project",
+   "key": "cover",
+   "clause": "3.20.3 (시점부 1 m 참고값)"
+  },
+  {
+   "type": "JUNCTION",
+   "kind": "crown",
+   "clause": "3.17.1"
+  },
+  {
+   "type": "MANHOLE_SPACING",
+   "param": "manhole_max_spacing",
+   "receives_house_connections": true
+  },
+  {
+   "type": "NO_DECREASE",
+   "enforce": "hard",
+   "clause": "3.17.1",
+   "text": "Transition from larger to smaller diameters shall not be made",
+   "rationale": "CPHEEO 3.17.1: 관정 연속 유지(The crowns of sewers are always kept continuous), 역류 방지"
+  },
+  {
+   "type": "LOW_FLOW_FALLBACK",
+   "applies_to": "VELOCITY_MIN",
+   "action": "flushing_device",
+   "clause": "3.29",
+   "text": "평탄해 자기세정 유속을 얻을 수 없으면 플러싱 장치"
+  },
+  {
+   "type": "DESIGN_FLOW",
+   "per_capita": {
+    "param": "per_capita_wastewater",
+    "cond": {
+     "system": "separate",
+     "facility": "conventional sewers"
+    },
+    "allow": [
+     "facility"
+    ]
+   },
+   "infiltration": {
+    "kind": "excluded",
+    "text": "Table 3.3 면적·연장·맨홀당 — 미포함"
+   },
+   "peak": {
+    "kind": "table_by_population",
+    "param": "peak_factor_hourly",
+    "cond": {
+     "system": "separate"
+    }
+   }
+  }
+ ],
+ "pipe": {
+  "nominal": "as_is",
+  "min_dia_compare": "inner",
+  "table_lookup": "nearest_inner"
+ }
+}

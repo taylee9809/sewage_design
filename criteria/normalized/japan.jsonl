@@ -1,0 +1,147 @@
+{"row_key": "2d1d3c1cfd63", "condition": {"wastewater_type": "domestic"}, "basis": {"flow": "design_daily_avg", "per": "capita_day"}, "tag_note": ""}
+{"row_key": "be49d891cf53", "condition": {"wastewater_type": "domestic"}, "basis": {"flow": "design_daily_max", "per": "capita_day"}, "tag_note": ""}
+{"row_key": "51d92593cd74", "condition": {"wastewater_type": "domestic", "other": {"use": "管きょ設計(Qs)"}}, "basis": {"flow": "design_peak_hourly", "per": "capita_day"}, "tag_note": ""}
+{"row_key": "aece01dcc4e4", "condition": {"wastewater_type": "domestic"}, "basis": {"flow": "design_daily_max", "per": "ratio_to_avg", "ref_param": "per_capita_wastewater"}, "tag_note": ""}
+{"row_key": "bb881e47bb6d", "condition": {"wastewater_type": "commercial"}, "basis": {"flow": "design_daily_max", "per": "ratio_to_avg", "ref_param": "commercial_wastewater_unit"}, "tag_note": ""}
+{"row_key": "f243dfcdfab4", "condition": {"wastewater_type": "industrial"}, "basis": {"flow": "design_daily_max", "per": "ratio_to_avg"}, "tag_note": ""}
+{"row_key": "9820e35f376e", "condition": {"wastewater_type": "groundwater"}, "basis": {"flow": "design_daily_max", "per": "ratio_to_avg", "ref_param": "infiltration_allowance"}, "tag_note": ""}
+{"row_key": "2748ba4326b2", "condition": {"system": "combined", "wastewater_type": "channel_drainage"}, "basis": {"flow": "design_daily_max", "per": "ratio_to_avg", "ref_param": "waterway_inflow_allowance"}, "tag_note": ""}
+{"row_key": "cc2af58dae24", "condition": {"wastewater_type": "domestic"}, "basis": {"flow": "design_peak_hourly", "per": "ratio_to_avg", "ref_param": "per_capita_wastewater"}, "tag_note": ""}
+{"row_key": "0023c9db2d4e", "condition": {"wastewater_type": "commercial"}, "basis": {"flow": "design_peak_hourly", "per": "ratio_to_avg", "ref_param": "commercial_wastewater_unit"}, "tag_note": ""}
+{"row_key": "2c16dbcfc693", "condition": {"wastewater_type": "industrial"}, "basis": {"flow": "design_peak_hourly", "per": "ratio_to_avg"}, "tag_note": ""}
+{"row_key": "bd5a20ac0a91", "condition": {"wastewater_type": "groundwater"}, "basis": {"flow": "design_peak_hourly", "per": "ratio_to_avg", "ref_param": "infiltration_allowance"}, "tag_note": ""}
+{"row_key": "f568e6be9e32", "condition": {"system": "combined", "wastewater_type": "channel_drainage"}, "basis": {"flow": "design_peak_hourly", "per": "ratio_to_avg", "ref_param": "waterway_inflow_allowance"}, "tag_note": ""}
+{"row_key": "8f87b89fb81c", "condition": {"wastewater_type": "groundwater", "system": ["separate", "combined"], "other": {"area": "事業計画区域(緑の10大拠点の市街化調整区域除く)"}}, "basis": {"flow": "design_daily_avg", "per": "area_day"}, "tag_note": ""}
+{"row_key": "7ff3979e32b7", "condition": {"wastewater_type": "groundwater", "system": ["separate", "combined"], "other": {"area": "事業計画区域(緑の10大拠点の市街化調整区域除く)"}}, "basis": {"flow": "design_peak_hourly", "per": "area"}, "tag_note": ""}
+{"row_key": "0b67e254cc9e", "condition": {"system": "combined", "other": {"by": "処理区別"}, "wastewater_type": "channel_drainage"}, "basis": {"flow": "design_daily_avg", "per": "area_day"}, "tag_note": ""}
+{"row_key": "0b6e1527d218", "condition": {"wastewater_type": "commercial", "other": {"by": "用途地域・容積率・処理区別(表3.10)"}}, "basis": {"flow": "design_peak_hourly", "per": "area"}, "tag_note": ""}
+{"row_key": "0b0336b013af", "condition": {"other": {"by": "処理区×用途地域(表3.9)"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "2d1d56cebcca", "condition": {"system": "separate"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate"}, "tag_note": ""}
+{"row_key": "b5fea136d82c", "condition": {"system": "combined"}, "basis": {"flow": "combined_design", "horizon": "ultimate"}, "tag_note": ""}
+{"row_key": "ca0ab02bda12", "condition": {"system": "combined", "pipe_role": "interceptor"}, "basis": {"flow": "wet_weather", "horizon": "ultimate"}, "tag_note": ""}
+{"row_key": "d1a82d91ae1d", "condition": {"system": "separate"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "hydraulic_state": "unspecified"}, "tag_note": ""}
+{"row_key": "a66b7a238dcc", "condition": {"system": "combined", "other": {"component": "汚水量分のみ(雨水量分は余裕なし)"}}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "hydraulic_state": "unspecified"}, "tag_note": ""}
+{"row_key": "252d5230e59e", "condition": {"system": "separate"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "de693ca4883f", "condition": {"system": ["combined", "storm"]}, "basis": {"flow": "design_flow", "horizon": "ultimate", "hydraulic_state": "actual"}, "tag_note": ""}
+{"row_key": "01689df4cd20", "condition": {"system": "separate"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "c00fe2361771", "condition": {"system": ["combined", "storm"]}, "basis": {"flow": "design_flow", "horizon": "ultimate", "hydraulic_state": "actual"}, "tag_note": ""}
+{"row_key": "cd3b3173cc5f", "condition": {"system": ["separate", "combined", "storm"]}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "4474c0abcea3", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "d76e79741996", "condition": {"material": "rc"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "645126bfe628", "condition": {"material": "vcp"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "c8a05d4c59d6", "condition": {"material": "rc", "shape": "rectangular"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "93f2ae0cecb9", "condition": {"material": "pvc"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "da514c446bf5", "condition": {"material": "frp"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "5f42519e21d7", "condition": {"shape": "circular"}, "basis": {"flow": "design_flow", "horizon": "ultimate", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "a0152c681cc0", "condition": {"shape": "rectangular"}, "basis": {"flow": "design_flow", "horizon": "ultimate", "hydraulic_state": "partial"}, "tag_note": ""}
+{"row_key": "709b97a35555", "condition": {"shape": "horseshoe"}, "basis": {"flow": "design_flow", "horizon": "ultimate", "hydraulic_state": "partial"}, "tag_note": ""}
+{"row_key": "0e916b6335a2", "condition": {"shape": "circular"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "37f2a4f15962", "condition": {"system": "separate", "shape": "circular", "exception": "取付管 접속 가능한 재질이거나 장래에도 取付管이 접속되지 않는 경우"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "258d72e667c4", "condition": {"system": "separate", "dia_mm": {"eq": 250}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "f9c796aa10ad", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 250}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "340511325ba4", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 300}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "cd9e98b5797a", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 350}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "0a90f12cac96", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 400}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "9b4509be15d4", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 450}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "fe92f16b9b24", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 500}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "17bd9cbe08a5", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 600}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "85649796e8e5", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 700}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "57c768a6c992", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 800}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "1388d5364f20", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 900}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "f99ea2dfc5cf", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 1000}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "a246074cd865", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 1100}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "bc56219ed0f4", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 1200}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "aa0b62f20a96", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 1350}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "122f12a9f4e6", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 1500}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "b0c9dbb30aca", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 1650}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "6d648b94821e", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 1800}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "264e214f80f5", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 2000}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "ba9860c4880c", "condition": {"material": "rigid", "shape": "circular", "dia_mm": {"eq": 2200}, "other": {"n": 0.013}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "e8f2590cfe25", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 250}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "e51895b20fa0", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 300}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "5874072d14a3", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 350}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "6ffeb31b7f2c", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 400}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "b6090f47d19e", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 450}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "7a14cf315e85", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 500}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "69229bebbef3", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 600}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "a5f733b497f7", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 700}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "abed5ea18356", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 800}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "bc2a91737cec", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 900}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "113c32e11476", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 1000}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "c057951b705f", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 1100}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "6c8405d75cd3", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 1200}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "b8eee61520f8", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 1350}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "0bc79d054e24", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 1500}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "b3dfe801c21f", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 1650}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "57a8985e893a", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 1800}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "57035666861f", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 2000}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "5f467eb244f4", "condition": {"material": "flexible", "shape": "circular", "dia_mm": {"eq": 2200}, "other": {"n": 0.01}}, "basis": {"flow": "full_pipe", "hydraulic_state": "full", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "9084b054cb5d", "condition": {"location": ["sidewalk", "roadway"], "road_width_m": {"le": 6.5}, "other": {"note": "歩道, 또는 交通量少(表3.26 L・A)이고 幅員6.50m以下の車道"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "8658a27ec293", "condition": {"location": ["planned_road", "roadway"], "road_width_m": {"gt": 6.5}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "04c531f98518", "condition": {"exception": "やむを得ない場合, 道路管理者と協議"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "58ccb3aee617", "condition": {"pipe_role": "trunk"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "25dcebbb019a", "condition": {"pipe_role": "sub_main", "dia_mm": {"lt": 1000}, "other": {"includes": "圧送管"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "59528997f7c4", "condition": {"pipe_role": "branch", "other": {"dia_def": "汚水管・雨水管 口径300mm以下 / 合流管 450mm以下"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "e3e7062fcdbb", "condition": {"other": {"source": "道路法施行令第11条第4号(引用)"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "22286ed6c538", "condition": {"receives_house_connections": true}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "6fc1e181d882", "condition": {"dia_mm": {"le": 300}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3f5621f05e06", "condition": {"dia_mm": {"ge": 350, "le": 600}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9dc481d425bc", "condition": {"dia_mm": {"ge": 700, "le": 1000}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "66adccb758dd", "condition": {"dia_mm": {"ge": 1100, "le": 1500}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "10c1105d0295", "condition": {"dia_mm": {"ge": 1650}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "30e5dfe13eaa", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "786f1d53e6c3", "condition": {"system": ["separate", "combined"], "exception": "分流式雨水管人孔には一般に使用しない"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "dfdf7fbede19", "condition": {"dia_mm": {"le": 200}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "89a38a3ea449", "condition": {"dia_mm": {"ge": 250, "le": 350}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "fe3e3c4ec0d6", "condition": {"dia_mm": {"ge": 400, "le": 500}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "a01582efd04a", "condition": {"dia_mm": {"ge": 600}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "758707fb55ec", "condition": {"joint_method": "water_surface"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4618bba15baa", "condition": {"joint_method": "crown"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9e27c8b4181f", "condition": {"joint_method": "invert", "manhole_type": "中間人孔"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "51264e3ab389", "condition": {"joint_method": "invert", "manhole_type": "会合人孔(一方向流入)"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "495eba3f930e", "condition": {"joint_method": "invert", "manhole_type": "会合人孔(二方向流入)"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "e51fce39e5c0", "condition": {"joint_method": "step"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "b736f28119ea", "condition": {"joint_method": "step"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "5d103dbc1ec6", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "7a93239a5b31", "condition": {"pipe_role": "house_connection", "item": "布設方向"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9b92fffa6f44", "condition": {"pipe_role": "house_connection", "item": "最大延長"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "becc9fc10bec", "condition": {"pipe_role": "house_connection", "item": "本管接続位置"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "cd81450e4d64", "condition": {"pipe_role": "house_connection", "item": "最小土被り"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "293bf6c75668", "condition": {"pipe_role": "house_connection", "other": {"from": "接続汚水桝・接続雨水桝"}, "item": "最小内径"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "c0bba15f3eeb", "condition": {"pipe_role": "house_connection", "other": {"from": "雨水桝(道路)"}, "item": "最小内径"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "2741feed84ca", "condition": {"pipe_role": "house_connection", "item": "本管直接接続の最大内径"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4aa3699ad22c", "condition": {"pipe_role": "house_connection", "dia_mm": {"eq": 150}, "dia_basis": "inner", "item": "最小勾配"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "cea662f18187", "condition": {"pipe_role": "house_connection", "dia_mm": {"eq": 200}, "dia_basis": "inner", "item": "最小勾配"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4a0887c0a11e", "condition": {"pipe_role": "house_connection", "other": {"selection_by": "排水人口(表6.4) / 排水面積(表6.5)"}, "item": "内径選定"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "14b620c61017", "condition": {"pipe_role": "house_connection", "manhole_type": "接続桝(公共ます)", "system": "separate", "item": "接続桝(公共ます)設置位置・個数"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "29a8d499ca1a", "condition": {"pipe_role": "house_connection", "manhole_type": "接続桝(公共ます)", "material": "concrete", "depth_m": {"lt": 0.9}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f91b63a8a868", "condition": {"pipe_role": "house_connection", "manhole_type": "接続桝(公共ます)", "material": "concrete", "depth_m": {"ge": 0.9, "lt": 1.2}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "07aed3f58c98", "condition": {"pipe_role": "house_connection", "manhole_type": "接続桝(公共ます)", "material": "concrete", "depth_m": {"ge": 1.2, "lt": 1.5}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "40762d1f8711", "condition": {"pipe_role": "house_connection", "manhole_type": "接続桝(公共ます)", "material": "concrete", "depth_m": {"ge": 1.5}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3770bb859aa3", "condition": {"pipe_role": "house_connection", "manhole_type": "接続桝(公共ます)", "material": "pvc", "depth_m": {"le": 1}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "20023b3b92bc", "condition": {"pipe_role": "house_connection", "manhole_type": "接続桝(公共ます)", "material": "pvc", "depth_m": {"lt": 1.5}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "157463b6a03f", "condition": {"system": "separate"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ba2a21e946db", "condition": {"system": "combined"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "1708028a715c", "condition": {"other": {"crossing": "雨水管と汚水管"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "d6dd7ae826e8", "condition": {"dia_mm": {"ge": 200, "le": 900}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "897866918bf9", "condition": {"dia_mm": {"ge": 1000}, "exception": "分流式汚水幹線は除く"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "cbb2bcf537da", "condition": {"depth_m": {"ge": 5}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "71afecd3aa85", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "6f8dc1f5bf77", "condition": {"facility": "排水施設(公共下水道・流域下水道)"}, "basis": {"flow": "any"}, "tag_note": "施行令 第5条の9第1号 기하·구조 규정(수치 없음 포함)"}
+{"row_key": "02dce6031a4d", "condition": {"facility": "排水施設"}, "basis": {"flow": "design_flow", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "第5条の9第1号 計画下水量に応じ…流下; 산정방법 규정 없음"}, "tag_note": "第5条の9第1号 계획하수량 언급만, 유량 정의 없음"}
+{"row_key": "2e62c41f7b1d", "condition": {"wastewater_type": "groundwater", "facility": "排水施設及び処理施設"}, "basis": {"flow": "unspecified", "note": "第5条の8第2号 浸入 최소화 조치(수치 없음)"}, "tag_note": "第5条の8第2号 정성 규정, 수치 없음"}
+{"row_key": "194ecd1d81af", "condition": {"facility": "排水施設(暗渠)"}, "basis": {"flow": "any"}, "tag_note": "施行令 第5条の9第4号 기하·구조 규정(수치 없음 포함)"}
+{"row_key": "b0bbed241c64", "condition": {"facility": "汚水を排除すべきます・マンホール"}, "basis": {"flow": "any"}, "tag_note": "施行令 第5条の9第5号 기하·구조 규정(수치 없음 포함)"}
+{"row_key": "5cb383e17b74", "condition": {"facility": "排水施設"}, "basis": {"flow": "any"}, "tag_note": "施行令 第5条の9第2号 기하·구조 규정(수치 없음 포함)"}
+{"row_key": "4fff4179704b", "condition": {"facility": "暗渠等"}, "basis": {"flow": "any"}, "tag_note": "施行令 第5条の9第3号 기하·구조 규정(수치 없음 포함)"}
+{"row_key": "270a9b1c859d", "condition": null, "basis": {"flow": "none", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "施行令 第5条の3～11에 수치 규정 없음 → 비교 대상 아님"}, "tag_note": "施行令에 규정 없음, flow 미기재"}
+{"row_key": "014214f519ff", "condition": null, "basis": {"flow": "none", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "施行令 第5条の3～11에 수치 규정 없음 → 비교 대상 아님"}, "tag_note": "施行令에 규정 없음, flow 미기재"}
+{"row_key": "d8bc14c2ffbf", "condition": null, "basis": {"flow": "none"}, "tag_note": "施行令 第5条の3～第5条の11 기하·구조 규정(수치 없음 포함)"}
+{"row_key": "7b4ad84d1d75", "condition": null, "basis": {"flow": "none"}, "tag_note": "施行令 第5条の3～第5条の11 기하·구조 규정(수치 없음 포함)"}
+{"row_key": "592c496007b1", "condition": null, "basis": {"flow": "none", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "施行令 第5条の3～11에 수치 규정 없음 → 비교 대상 아님"}, "tag_note": "施行令에 규정 없음, flow 미기재"}
+{"row_key": "545542509ca6", "condition": {"facility": "公共下水道・流域下水道"}, "basis": {"flow": "none"}, "tag_note": "施行令 第5条の9第4号 기하·구조 규정(수치 없음 포함)"}
+{"row_key": "d5272c2c7c0a", "condition": {"pipe_role": "building_drain", "item": "管渠勾配"}, "basis": {"flow": "any"}, "tag_note": "施行令 第8条第5号 排水設備(택지 내) 기준, 기하 규정"}
+{"row_key": "cb670bc08429", "condition": {"pipe_role": "building_drain", "item": "ます・マンホール間隔"}, "basis": {"flow": "any"}, "tag_note": "施行令 第8条第8号ハ 排水設備(택지 내) 기준, 기하 규정"}
+{"row_key": "762a79645656", "condition": {"pipe_role": "building_drain", "item": "雨水ますのどろため深さ"}, "basis": {"flow": "any"}, "tag_note": "施行令 第8条第10号 排水設備(택지 내) 기준, 기하 규정"}
+{"row_key": "1641f9324db7", "condition": {"pipe_role": "building_drain", "item": "接続先"}, "basis": {"flow": "any"}, "tag_note": "施行令 第8条第1号 排水設備(택지 내) 기준, 기하 규정"}
+{"row_key": "151ee38ba3ed", "condition": {"pipe_role": "building_drain", "system": "separate"}, "basis": {"flow": "any"}, "tag_note": "施行令 第8条第4号 排水設備(택지 내) 기준, 기하 규정"}

@@ -1,0 +1,54 @@
+{"row_key": "d6675c90e3d7", "condition": null, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate"}, "tag_note": ""}
+{"row_key": "2bd36877d09a", "condition": null, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate"}, "tag_note": ""}
+{"row_key": "6b1e1f22d48b", "condition": null, "basis": {"flow": "none"}, "tag_note": ""}
+{"row_key": "abe952c72d8b", "condition": null, "basis": {"flow": "none"}, "tag_note": ""}
+{"row_key": "8f35cb701339", "condition": {"dia_basis": "nominal_in", "item": "펌프 흡입·토출구"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "87bc1f0f93cb", "condition": {"other": {"wastewater": "raw"}, "item": "통과 구형 고형물 크기"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "8af3860c3fe7", "condition": null, "basis": {"flow": "design_daily_avg", "horizon": "ultimate"}, "tag_note": ""}
+{"row_key": "2c5fbbe00a33", "condition": {"other": {"flow_case": "초기 유량 < 설계 평균유량"}}, "basis": {"flow": "design_daily_avg", "horizon": "initial"}, "tag_note": ""}
+{"row_key": "0083d0e9e59d", "condition": null, "basis": {"flow": "unspecified"}, "tag_note": ""}
+{"row_key": "bf37c0005f13", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "485167c394f1", "condition": {"exception": "흡입양정형 펌프장(43절)"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "16e55eceaaaa", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "74bfca4e7b20", "condition": {"other": {"pump_type": "자흡식 흡입양정형"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "eaa101fe940f", "condition": {"other": {"pump_type": "진공 프라이밍 흡입양정형"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "15ccfb43c9b6", "condition": {"other": {"pump_type": "suction-lift"}, "exception": "43.11/43.12 한계 초과 시 상세계산으로 승인"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "a84be463553b", "condition": {"other": {"pump_type": "자흡식 흡입양정형"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "55120f6101fb", "condition": {"other": {"pump_type": "자흡식 흡입양정형"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f160d34a9b3e", "condition": {"other": {"pump_type": "suction-lift"}, "item": "습정 출입구"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ccb419199d6e", "condition": null, "basis": {"flow": "none"}, "tag_note": ""}
+{"row_key": "8ade69b1000f", "condition": {"exception": "저류 용량으로 월류 방지 가능"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "a4e9c3bd38d9", "condition": null, "basis": {"flow": "unspecified"}, "tag_note": ""}
+{"row_key": "5459e5c6082f", "condition": {"other": {"emergency_option": "독립 변전소"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4774008a4bff", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "425ebc66f3e1", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3627092c5af1", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "719e451e329c", "condition": {"system": "combined"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3291aae21133", "condition": {"system": "separate", "other": {"upstream_sewer_dia_mm": {"ge": 750}, "dia_basis": "nominal_in"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "65b17eec4e88", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "3ee4bef16c48", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "eeae08de6a41", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "58b1f23e895d", "condition": {"pipe_role": "force_main", "dia_basis": "nominal_in", "other": {"wastewater": "raw"}, "exception": "grinder pumps 등 특수용도 개별 검토"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "c71aeb2a8dd9", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "9fd617134bdd", "condition": {"pipe_role": "force_main", "material": ["ci_di", "steel"], "lining": "unlined"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "cf92c5190b35", "condition": {"pipe_role": "force_main", "material": ["pvc", "pe", "ci_di"], "lining": "smooth / lined"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "691dda603f8b", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any", "horizon": "both", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "ad62a79ed0ec", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "2117088e6426", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "d26de089a9cc", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "d360da2793ef", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ac25189b403f", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "de2e3f48d37d", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9981ac5023b7", "condition": {"pipe_role": "force_main", "item": "유하선 위 유입구 높이"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f5dede03be73", "condition": {"pipe_role": "force_main", "location": "crossing_water_main"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "98161b310923", "condition": {"other": {"case": "유량조정용 습정(처리장)"}}, "basis": {"flow": "unspecified"}, "tag_note": ""}
+{"row_key": "67356ea7d24d", "condition": null, "basis": {"flow": "none"}, "tag_note": ""}
+{"row_key": "43be43e17a43", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "48c20b8b3a15", "condition": {"other": {"requirement": "상시 가동·접근 가능"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "17d39f70785c", "condition": {"other": {"space": "wet well", "ventilation": "continuous"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "b27c5485bb66", "condition": {"other": {"space": "wet well", "ventilation": "intermittent"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "03abd85be0c8", "condition": {"other": {"space": "dry well", "ventilation": "continuous"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "28fab897cec3", "condition": {"other": {"space": "dry well", "ventilation": "intermittent"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "89f97daee203", "condition": null, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate"}, "tag_note": ""}
+{"row_key": "07c64a7ef64b", "condition": {"other": {"station": "현장 설치형"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "63220205b825", "condition": {"other": {"station": "factory-built"}, "depth_m": {"gt": 4.57}}, "basis": {"flow": "any"}, "tag_note": ""}

@@ -1,0 +1,134 @@
+{
+  "project_id": "SYN01",
+  "note": "가상 관망 비교용 사업 채택값. 원문에 수치가 없거나 선택지를 주는 값만 여기에 둔다 (기준값 아님).",
+  "material": "pvc",
+  "standards": {
+    "KDS_61_40_00_20251001": {
+      "qpc": {
+        "value": 300,
+        "rationale": "KDS 1.7.2 (1) 수치 없음, 예시값 300 L/인·일 (사용자 결정 2026-10-14)"
+      },
+      "pf_hourly": {
+        "value": "max",
+        "rationale": "1.7.2 (6) 1.3~1.8 범위 상한"
+      },
+      "gw_ratio": {
+        "value": "max",
+        "rationale": "1.7.2 (3) 20% 이하 — 상한"
+      },
+      "junction": {
+        "value": "crown",
+        "rationale": "5.1 (1) 수면접합 또는 관정접합 중 관정접합"
+      },
+      "pipe_product": {
+        "value": "product_type LIKE '고강성 PVC 이중벽관%'",
+        "rationale": "KS M 3600 PVC 이중벽관, 같은 호칭은 최소 내경"
+      }
+    },
+    "TSS_WW_2026": {
+      "cover": {
+        "value": 1.0,
+        "rationale": "33.2 수치 없음, 비교용 1.0 m"
+      },
+      "pipe_product": {
+        "value": "standard_ref LIKE 'ASTM D3034%' AND class_or_stiffness LIKE 'SDR 35%' OR standard_ref LIKE 'ASTM F679%' AND product_type = 'solid_wall_gravity_sewer_PSM' AND class_or_stiffness = 'PS 46'",
+        "rationale": "ASTM D3034 SDR35(≤15in) + F679 PS46(18~36in)"
+      }
+    },
+    "JP_YOKOHAMA_SEKKEI_202604": {
+      "pipe_product": {
+        "value": "product_type = '下水道用硬質塩化ビニル管 直管'",
+        "rationale": "JSWAS K-1 直管"
+      }
+    },
+    "CPHEEO_SEW_2013": {
+      "cover": {
+        "value": 1.0,
+        "rationale": "3.20.3 시점부 1 m(참고값) 사용"
+      },
+      "pipe_product": {
+        "value": "product_type = 'upvc_solid_wall' AND class_or_stiffness LIKE 'SN4%'",
+        "rationale": "IS 15328 UPVC SN4(SDR41), 호칭=외경"
+      }
+    },
+    "CO_RAS_0330_2017_COMP2021": {
+      "altitude_masl": {
+        "value": 1500,
+        "rationale": "가상 관망 표고 가정 1,500 m → Art.43 순급수 130 L/인·일"
+      },
+      "peak_formula": {
+        "value": "1 + 14 / (4 + sqrt(P/1000))",
+        "rationale": "Art.134 num.4 '근사식'(식 미지정) — Harmon식 채택, 1.4~3.8로 자름"
+      },
+      "manning_n": {
+        "value": 0.01,
+        "rationale": "RAS에 조도계수 수치 없음 — PVC 0.010 가정(일본·인도 PVC와 동일)"
+      },
+      "street_location": {
+        "value": "roadway",
+        "rationale": "Art.139 Tabla 18 차도 1.20 m 적용(가상 관망은 도로 매설 가정)"
+      },
+      "pipe_product": {
+        "value": "product_type LIKE 'Novafort S8%'",
+        "rationale": "PAVCO Novafort S8 (NTC 3722-3), 호칭=외경 — 바랑키야 Triple A 승인 6~20인치"
+      }
+    }
+  },
+  "practice": {
+    "note": "실무 판정 층 (기준서 아님). 사용자 실무 방식(2026-10-14)을 틀로 넣고 수치는 예시 — 실제 사업은 업체 적용표·내역 단가로 교체",
+    "shoring": {
+      "rationale": "사용자: 지하수 있으면 시트파일, 깊으면 H-pile 또는 조절식 간이흙막이 더블, 얕으면 싱글. 적용 깊이는 가시설 업체가 토질 보고 산정 — 아래 깊이는 예시",
+      "table": [
+        {
+          "method": "무지보(개착)",
+          "max_depth": 1.5,
+          "gw": false
+        },
+        {
+          "method": "조절식 간이흙막이 싱글",
+          "max_depth": 2.5,
+          "gw": false
+        },
+        {
+          "method": "조절식 간이흙막이 더블",
+          "max_depth": 4.0,
+          "gw": false
+        },
+        {
+          "method": "H-pile+토류판",
+          "max_depth": 10.0,
+          "gw": false
+        },
+        {
+          "method": "시트파일",
+          "max_depth": 10.0,
+          "gw": true
+        }
+      ]
+    },
+    "unit_costs": {
+      "rationale": "예시 단가(원) — 실제 사업 내역 단가로 교체",
+      "earthwork_per_m3": 20000,
+      "trench_extra_width_m": 0.6,
+      "trench_min_width_m": 0.8,
+      "shoring_per_m2": {
+        "무지보(개착)": 0,
+        "조절식 간이흙막이 싱글": 35000,
+        "조절식 간이흙막이 더블": 55000,
+        "H-pile+토류판": 140000,
+        "시트파일": 170000
+      },
+      "pump_station_capex": 350000000,
+      "pump_om_per_year": 25000000,
+      "om_years": 20,
+      "discount_rate": 0.03
+    },
+    "pump": {
+      "rationale": "사용자: (터파기+가시설) 비용 > (펌프장+유지관리) 비용이면 압송·중계펌프장. 펌프장은 국공유지",
+      "site_filter": {
+        "land_owner": "public"
+      },
+      "type": "lift_station"
+    }
+  }
+}

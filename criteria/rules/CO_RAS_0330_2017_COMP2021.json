@@ -1,0 +1,120 @@
+{
+ "standard_id": "CO_RAS_0330_2017_COMP2021",
+ "rules": [
+  {
+   "type": "WALL_SHEAR_MIN",
+   "param": "min_wall_shear_stress",
+   "cond": {
+    "system": "separate"
+   },
+   "flows": [
+    "initial",
+    "design"
+   ],
+   "resolution": "Art.141 τ≥1.0 Pa, 계획기간 초기·말기 모두 (실수심)"
+  },
+  {
+   "type": "VELOCITY_MAX",
+   "param": "max_velocity",
+   "cond": {
+    "system": "separate"
+   },
+   "state": "actual",
+   "enforce": "hard"
+  },
+  {
+   "type": "CAPACITY",
+   "kind": "depth_ratio",
+   "param": "max_depth_ratio",
+   "cond": {
+    "system": "separate"
+   }
+  },
+  {
+   "type": "MIN_DIAMETER",
+   "param": "min_pipe_diameter",
+   "cond": {
+    "system": "separate"
+   }
+  },
+  {
+   "type": "MIN_COVER",
+   "kind": "value",
+   "param": "min_cover",
+   "cond": {
+    "system": "separate"
+   },
+   "cond_from_project": {
+    "location": "street_location"
+   },
+   "allow": [
+    "location",
+    "other"
+   ],
+   "clause": "Art.139 Tabla 18"
+  },
+  {
+   "type": "JUNCTION",
+   "kind": "crown",
+   "min_drop_param": "junction_drop_min",
+   "clause": "Art.137",
+   "resolution": "국부손실 ≤0일 때 관정 간 최소 0.02 m — 손실 계산 미구현으로 항상 적용"
+  },
+  {
+   "type": "MANHOLE_SPACING",
+   "param": "manhole_max_spacing",
+   "receives_house_connections": true
+  },
+  {
+   "type": "DESIGN_FLOW",
+   "per_capita": {
+    "kind": "product",
+    "factors": [
+     {
+      "param": "per_capita_water_net",
+      "ctx_from_project": {
+       "altitude_masl": "altitude_masl"
+      },
+      "allow": [
+       "altitude_masl",
+       "other"
+      ]
+     },
+     {
+      "param": "return_coefficient",
+      "cond": {
+       "wastewater_type": "domestic"
+      },
+      "allow": [
+       "wastewater_type",
+       "exception"
+      ]
+     }
+    ],
+    "clause": "Art.43 Tabla 1 × Art.134 num.1 CR"
+   },
+   "infiltration": {
+    "kind": "excluded",
+    "text": "Art.134 num.5·6 침입수 0.1 L/s·ha(도로 면적), 오접 0.2 L/s·ha — 관망 면적 입력 없음"
+   },
+   "peak": {
+    "kind": "range_clamp_project",
+    "param": "peak_factor_hourly",
+    "key": "peak_formula",
+    "clause": "Art.134 num.4 (1.4~3.8)"
+   },
+   "floor": {
+    "param": "min_design_flow",
+    "cond": {
+     "system": "separate"
+    },
+    "clause": "Art.134 num.7 구간 최소 1.5 L/s"
+   }
+  }
+ ],
+ "pipe": {
+  "nominal": "as_is",
+  "min_dia_compare": "inner",
+  "table_lookup": "nominal"
+ }
+}

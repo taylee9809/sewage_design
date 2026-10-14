@@ -1,0 +1,57 @@
+{"row_key": "06939ec7b961", "condition": {"item": "screen primera (100 mm)"}, "basis": {"flow": "any"}, "tag_note": "Art.160-1 primera 스크린 100 mm — 스크린 순번 조건 키 없음(item)"}
+{"row_key": "24f296dc0afc", "condition": {"item": "screen segunda (50 mm)"}, "basis": {"flow": "any"}, "tag_note": "Art.160-1 segunda 스크린 50 mm — 스크린 순번 조건 키 없음(item)"}
+{"row_key": "dde4b7bb5148", "condition": null, "basis": {"flow": "any"}, "tag_note": "Art.160-1 스크린 높이 ≤ 1.50 m"}
+{"row_key": "4a22d86eb029", "condition": {"item": "screen 100 mm"}, "basis": {"flow": "unspecified"}, "tag_note": "Art.160-3 100 mm 스크린 손실 ≤ 0.15 m (유량 조건 미명시)"}
+{"row_key": "876da9b95231", "condition": {"item": "screen 50 mm"}, "basis": {"flow": "unspecified"}, "tag_note": "Art.160-3 50 mm 스크린 손실 ≤ 0.70 m (유량 조건 미명시)"}
+{"row_key": "0a2220776ba1", "condition": {"other": {"cleaning": "manual"}}, "basis": {"flow": "any"}, "tag_note": "Art.160-4 수동 ≤ 45°"}
+{"row_key": "5f53a190a091", "condition": {"other": {"cleaning": "mechanical"}}, "basis": {"flow": "any"}, "tag_note": "Art.160-4 기계식 ≤ 75°"}
+{"row_key": "70aec3f182be", "condition": {"system": ["separate", "storm"]}, "basis": {"flow": "unspecified"}, "tag_note": "Art.160-5 스크린 통과유속 > 0.3 m/s (유량 조건 미명시)"}
+{"row_key": "b79b6562bb0d", "condition": {"system": ["separate", "storm"]}, "basis": {"flow": "unspecified"}, "tag_note": "Art.160-6 습정 유입 ≥ 0.60 m/s"}
+{"row_key": "30566baf5663", "condition": {"system": ["separate", "storm"]}, "basis": {"flow": "unspecified", "note": "pump capacity at maximum operating point × 2.5 min"}, "tag_note": "Art.160-7 V = 2.5 × 펌프 최대양수량 — 펌프 양수율 basis 값 없음"}
+{"row_key": "76bd21655931", "condition": {"system": "separate"}, "basis": {"flow": "unspecified"}, "tag_note": "Art.160-8 오수 체류 ≤ 20분"}
+{"row_key": "b9461f8f7e55", "condition": {"system": "storm"}, "basis": {"flow": "unspecified"}, "tag_note": "Art.160-8 우수 체류 ≤ 30분"}
+{"row_key": "0384ef26d02e", "condition": {"system": ["separate", "storm"]}, "basis": {"flow": "unspecified"}, "tag_note": "Art.160-8 악취 제어 필수"}
+{"row_key": "6d6d2240545c", "condition": null, "basis": {"flow": "any"}, "tag_note": "Art.160-9 습정 2분할"}
+{"row_key": "35e9da8b3b0d", "condition": {"flow_lps": {"lt": 30}, "other": {"tdh_m": {"lt": 4}, "station": "in-line lift"}}, "basis": {"flow": "design_flow"}, "tag_note": "Art.160-2 인라인 양수 허용 Q<30 L/s·TDH<4 m — 양정 조건 키 없음"}
+{"row_key": "02575524d6a4", "condition": {"other": {"pump_type": "centrifugal"}}, "basis": {"flow": "design_flow", "note": "active pump = caudal máximo de diseño"}, "tag_note": "Art.161-1 원심 2대(1+1)"}
+{"row_key": "67be39a32c9f", "condition": null, "basis": {"flow": "design_flow", "horizon": "unspecified", "note": "caudal máximo de diseño"}, "tag_note": "Art.161-1 설계용량 = 최대 계획유량"}
+{"row_key": "73e8d1bbc62e", "condition": {"facility": "PTAR (> 30 L/s)", "flow_lps": {"gt": 30}}, "basis": {"flow": "design_peak_hourly", "note": "caudal máximo horario (PTAR)"}, "tag_note": "Art.166 Tabla 22 처리장 펌프 = 시간최대"}
+{"row_key": "74a4583cef00", "condition": {"other": {"pump_type": "centrifugal"}, "system": ["separate", "storm"]}, "basis": {"flow": "unspecified", "hydraulic_state": "full"}, "tag_note": "Art.161-2 흡입관 0.9~1.5 m/s (유량 조건 미명시)"}
+{"row_key": "77d1d19d8122", "condition": {"other": {"pump_type": "centrifugal"}, "system": ["separate", "storm"]}, "basis": {"flow": "unspecified", "hydraulic_state": "full"}, "tag_note": "Art.161-3 토출(impulsión) 1.5~2.4 m/s"}
+{"row_key": "b797bcbb8c67", "condition": {"pipe_role": "force_main", "other": {"pump_type": "centrifugal"}}, "basis": {"flow": "unspecified", "hydraulic_state": "full"}, "tag_note": "Art.161-3 압송관 ≥ 1.5 m/s"}
+{"row_key": "4db9e17c58fc", "condition": {"pipe_role": "force_main", "other": {"pump_type": "centrifugal"}}, "basis": {"flow": "unspecified", "hydraulic_state": "full"}, "tag_note": "Art.161-3 압송관 ≤ 2.4 m/s"}
+{"row_key": "f3d4cdc5cd03", "condition": {"other": {"pump_type": "centrifugal"}}, "basis": {"flow": "any"}, "tag_note": "Art.161-4 NPSH 여유 ≥ 0.5 m"}
+{"row_key": "a2f10cacc625", "condition": {"other": {"pump_type": "centrifugal"}}, "basis": {"flow": "any"}, "tag_note": "Art.161-5 VFD 필수·최저 40 Hz"}
+{"row_key": "c3c94e2ffdf3", "condition": {"other": {"pump_type": "centrifugal", "power_kw": {"le": 5}}}, "basis": {"flow": "unspecified", "note": "para los caudales de operación"}, "tag_note": "Art.161-6 효율 ≥ 50% (Pot ≤ 5 kW) — 동력 조건 키 없음"}
+{"row_key": "757731fa7822", "condition": {"other": {"pump_type": "centrifugal", "power_kw": {"gt": 5, "le": 100}}}, "basis": {"flow": "unspecified", "note": "para los caudales de operación"}, "tag_note": "Art.161-6 효율 ≥ 65% (5 kW < Pot ≤ 100 kW) — 동력 조건 키 없음"}
+{"row_key": "6112bb5ba890", "condition": {"other": {"pump_type": "centrifugal", "power_kw": {"gt": 100}}}, "basis": {"flow": "unspecified", "note": "para los caudales de operación"}, "tag_note": "Art.161-6 효율 ≥ 70% (Pot > 100 kW) — 동력 조건 키 없음"}
+{"row_key": "291393560980", "condition": {"other": {"pump_type": "centrifugal"}}, "basis": {"flow": "any"}, "tag_note": "Art.161-7 침수깊이 ≥ 2.5D"}
+{"row_key": "9a2f29c66c8d", "condition": {"pipe_role": "force_main", "other": {"pump_type": "centrifugal"}}, "basis": {"flow": "any"}, "tag_note": "Art.161-8 최소비용 관경"}
+{"row_key": "c017870fccf5", "condition": null, "basis": {"flow": "unspecified"}, "tag_note": "Art.161-9 수위·타이머 자동운전"}
+{"row_key": "999d1020ccf9", "condition": null, "basis": {"flow": "unspecified"}, "tag_note": "Art.161-10·162-14 비상전원 ≥ 12 h"}
+{"row_key": "a7aa7d4213bd", "condition": {"other": {"pump_type": "archimedean screw"}}, "basis": {"flow": "design_flow"}, "tag_note": "Art.162-1 스크루 2대"}
+{"row_key": "c2cbaf6d73d0", "condition": {"other": {"pump_type": "archimedean screw"}}, "basis": {"flow": "any"}, "tag_note": "Art.162-2 축경비 0.50"}
+{"row_key": "285c55ac4c3e", "condition": {"other": {"pump_type": "archimedean screw"}}, "basis": {"flow": "any"}, "tag_note": "Art.162-3 경사 25~40°"}
+{"row_key": "1c91c6fe8802", "condition": {"other": {"pump_type": "archimedean screw"}}, "basis": {"flow": "any"}, "tag_note": "Art.162-4 피치 = 외경"}
+{"row_key": "0d48c08ca79c", "condition": {"other": {"pump_type": "archimedean screw"}}, "basis": {"flow": "unspecified"}, "tag_note": "Art.162-5 스크루 운전수위"}
+{"row_key": "e2ebade400df", "condition": {"other": {"pump_type": "archimedean screw"}}, "basis": {"flow": "any"}, "tag_note": "Art.162-6 틈새 0.045√D"}
+{"row_key": "57c28bd047bf", "condition": {"other": {"pump_type": "archimedean screw"}}, "basis": {"flow": "any"}, "tag_note": "Art.162-7 길이 90√D"}
+{"row_key": "d09d18390e8b", "condition": {"other": {"pump_type": "archimedean screw"}}, "basis": {"flow": "design_flow"}, "tag_note": "Art.162-9 스크루 효율 ≥ 60%"}
+{"row_key": "f6a4451769cc", "condition": {"other": {"pump_type": "archimedean screw"}}, "basis": {"flow": "any"}, "tag_note": "Art.162-10 30~80 rpm"}
+{"row_key": "8d3f74e5dbf2", "condition": {"other": {"pump_type": "archimedean screw"}}, "basis": {"flow": "any"}, "tag_note": "Art.162-11 양정 ≤ 6 m"}
+{"row_key": "be249a59eabf", "condition": {"pipe_role": "force_main", "item": "invert drop at discharge chamber"}, "basis": {"flow": "any"}, "tag_note": "Art.163-4 압송관 관저 0.20 m 낮게"}
+{"row_key": "cd211c847350", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": "Art.163 배출실 필수"}
+{"row_key": "6285b7b1f2eb", "condition": {"pipe_role": "force_main", "location": "discharge to water body"}, "basis": {"flow": "any"}, "tag_note": "Art.163 수역 방류 잠김 ≥ 0.20 m"}
+{"row_key": "e92e3c7f03de", "condition": {"facility": "PTAR"}, "basis": {"flow": "any"}, "tag_note": "Art.188 펌프장 전 침사지(가능 시)"}
+{"row_key": "c718569ecbff", "condition": null, "basis": {"flow": "any"}, "tag_note": "Art.237 에너지 대안 3개"}
+{"row_key": "afd6d0d2daf0", "condition": null, "basis": {"flow": "unspecified"}, "tag_note": "Art.238-2 최고효율 펌프"}
+{"row_key": "9c1acbee99df", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "규정 없음"}
+{"row_key": "8d690423efd4", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "규정 없음"}
+{"row_key": "40ac91b380ca", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "규정 없음"}
+{"row_key": "1378a7457f15", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "규정 없음"}
+{"row_key": "8ac779017a50", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "규정 없음"}
+{"row_key": "cf99e5e29d23", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "규정 없음"}
+{"row_key": "903c6d693397", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "규정 없음"}
+{"row_key": "073e89e306aa", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "규정 없음"}
+{"row_key": "4665e8f3c1be", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "규정 없음"}
+{"row_key": "681605a4a767", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "규정 없음"}

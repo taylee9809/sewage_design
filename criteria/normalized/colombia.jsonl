@@ -1,0 +1,93 @@
+{"row_key": "ef85299eebfc", "condition": null, "basis": {"flow": "any", "note": "계획기간 25년 고정"}, "tag_note": "Art.40 상하수도·폐기물 전 시설 25년 채택"}
+{"row_key": "0c664030baef", "condition": {"altitude_masl": {"gt": 2000}}, "basis": {"flow": "design_daily_avg", "horizon": "ultimate", "per": "capita_day", "note": "상수 순급수량(dotación neta) 상한, 오수량 = CR × 이 값"}, "tag_note": "Tabla 1 표고 > 2000 m → 표고 조건 키 없음(other에 둠). 상수 원단위라 오수 원단위와 직접 비교 불가"}
+{"row_key": "ab3d62600f85", "condition": {"altitude_masl": {"ge": 1000, "le": 2000}}, "basis": {"flow": "design_daily_avg", "horizon": "ultimate", "per": "capita_day", "note": "상수 순급수량(dotación neta) 상한, 오수량 = CR × 이 값"}, "tag_note": "Tabla 1 표고 1000 – 2000 m → 표고 조건 키 없음(other에 둠). 상수 원단위라 오수 원단위와 직접 비교 불가"}
+{"row_key": "293f238f31d8", "condition": {"altitude_masl": {"lt": 1000}}, "basis": {"flow": "design_daily_avg", "horizon": "ultimate", "per": "capita_day", "note": "상수 순급수량(dotación neta) 상한, 오수량 = CR × 이 값"}, "tag_note": "Tabla 1 표고 < 1000 m → 표고 조건 키 없음(other에 둠). 상수 원단위라 오수 원단위와 직접 비교 불가"}
+{"row_key": "309d2a38f555", "condition": {"wastewater_type": "domestic"}, "basis": {"flow": "design_daily_avg", "horizon": "ultimate", "per": "capita_day", "ref_param": "per_capita_water_net", "note": "CR × DNETA"}, "tag_note": "인당 오수량은 수식(CR×DNETA)으로만 정의"}
+{"row_key": "e8f89d1e8116", "condition": {"wastewater_type": "domestic", "exception": "현장 자료 없을 때 기본값"}, "basis": {"flow": "design_daily_avg", "per": "ratio_to_per_capita", "ref_param": "per_capita_water_net", "note": "오수/순급수 비"}, "tag_note": "반환계수 = 오수량/순급수량 → ratio_to_per_capita, ref=per_capita_water_net"}
+{"row_key": "0a7deeff62f0", "condition": null, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "per": "ratio_to_avg", "note": "caudal máximo horario / caudal medio diario"}, "tag_note": "첨두계수 상하한(식은 미지정) → 일평균 대비"}
+{"row_key": "bf8a415dfff1", "condition": {"system": "separate", "exception": "현지 정보 없을 때"}, "basis": {"flow": "design_flow", "per": "area", "note": "오접 유입 L/s·ha, 배수면적 기준(면적 종류 미명시)"}, "tag_note": "오접 유입 상한 — 계획하수량 가산 항목"}
+{"row_key": "a480780120ed", "condition": {"system": "separate", "exception": "자료 없을 때 기본값"}, "basis": {"flow": "design_flow", "per": "area", "note": "L/s·ha, 면적 = 도로 면적(área de las calles)"}, "tag_note": "침입수 면적 기준 — 면적 정의가 '도로 면적'이라 다른 나라 ha당 값과 직접 비교 불가"}
+{"row_key": "931daa2f02ff", "condition": {"system": "separate"}, "basis": {"flow": "design_flow", "horizon": "both", "note": "QMH + 침입수 + 오접, 초기·말기 모두"}, "tag_note": "계획하수량 정의 — 초기·말기 둘 다(horizon 양쪽 값 없음)"}
+{"row_key": "48ec63be43c3", "condition": {"system": "separate"}, "basis": {"flow": "design_flow", "horizon": "unspecified", "note": "구간 계산 계획하수량 하한"}, "tag_note": "최소 설계유량 1.5 L/s — 저유량 대체 규칙"}
+{"row_key": "346a47c16fac", "condition": {"system": "separate"}, "basis": {"flow": "design_flow", "horizon": "both", "hydraulic_state": "actual", "note": "τ, 계획하수량·초기와 말기 모두"}, "tag_note": "전단응력 기준 — basis에 τ 전용 값 없음, horizon 초기+말기 동시 값 없음"}
+{"row_key": "dcc1b065f6a4", "condition": {"system": "separate"}, "basis": {"flow": "design_flow", "horizon": "unspecified", "hydraulic_state": "actual", "note": "τ ≥ 1.0 Pa에 대응하는 유속"}, "tag_note": "최소유속 = 전단응력 기준 대체"}
+{"row_key": "7a39dfeab5aa", "condition": {"system": "separate"}, "basis": {"flow": "none", "note": "규정 없음 (τ로 대체)"}, "tag_note": "최소경사 규정 없음"}
+{"row_key": "fefff38027de", "condition": {"system": "separate"}, "basis": {"flow": "design_flow", "horizon": "unspecified", "hydraulic_state": "actual", "note": "계획하수량 시 실유속"}, "tag_note": "최대유속 5.0 m/s 실유속"}
+{"row_key": "61ce364608d7", "condition": {"system": "separate", "slope": {"gt": 0.3}, "exception": "지형 경사 30% 초과"}, "basis": {"flow": "design_flow", "horizon": "unspecified", "hydraulic_state": "actual", "note": "예외 시 상한 10 m/s + 재료 한계"}, "tag_note": "최대유속 예외 지형경사 > 30% → 10 m/s"}
+{"row_key": "b8a5f7f13bed", "condition": {"system": "separate", "dia_mm": {"ge": 600}, "exception": "대구경 600 mm 이상"}, "basis": {"flow": "design_flow", "horizon": "unspecified", "hydraulic_state": "actual", "note": "예외 시 상한 10 m/s + 재료 한계"}, "tag_note": "최대유속 예외 관경 ≥ 600 mm → 10 m/s"}
+{"row_key": "68d8ec573ff8", "condition": {"system": "separate", "exception": "유량 500 L/s 초과", "flow_lps": {"gt": 500}}, "basis": {"flow": "design_flow", "horizon": "unspecified", "hydraulic_state": "actual", "note": "예외 시 상한 10 m/s + 재료 한계"}, "tag_note": "최대유속 예외 유량 > 500 L/s → 10 m/s"}
+{"row_key": "af7dfcd8e07c", "condition": {"system": "separate", "dia_basis": "inner"}, "basis": {"flow": "design_flow", "horizon": "unspecified", "hydraulic_state": "partial", "note": "y/D, D=실내경"}, "tag_note": "최대 수심비 0.85 (실내경 기준)"}
+{"row_key": "37f4bfdfe9af", "condition": null, "basis": {"flow": "any"}, "tag_note": "계산 관경 기준 = 실내경"}
+{"row_key": "228864355a3b", "condition": null, "basis": {"flow": "design_flow", "note": "등류 + 부정류 검증"}, "tag_note": "부정류 모델 검증 요구 — 엔진 표현 범위 밖"}
+{"row_key": "ccbc2f74ffac", "condition": {"system": "separate", "population": {"ge": 2500}, "dia_basis": "inner"}, "basis": {"flow": "any"}, "tag_note": "최소관경 170 mm 실내경(일반)"}
+{"row_key": "b893e5aeddff", "condition": {"system": "separate", "population": {"lt": 2500}, "dia_basis": "inner"}, "basis": {"flow": "any"}, "tag_note": "최소관경 140 mm 실내경(인구<2500)"}
+{"row_key": "1558d0360fbb", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "관경 축소 금지 규정 없음"}
+{"row_key": "68875aeef42c", "condition": {"system": "separate", "location": "sidewalk", "other": {"location_raw": "Vías peatonales o zonas verdes"}}, "basis": {"flow": "any", "note": "노면~관 외면 정점(cota clave)"}, "tag_note": "Tabla 18 Vías peatonales o zonas verdes — 측정기준 '외면 관정' 표현할 키 없음"}
+{"row_key": "e8576b354536", "condition": {"system": "separate", "location": "roadway", "other": {"location_raw": "Vías vehiculares"}}, "basis": {"flow": "any", "note": "노면~관 외면 정점(cota clave)"}, "tag_note": "Tabla 18 Vías vehiculares — 측정기준 '외면 관정' 표현할 키 없음"}
+{"row_key": "6d0a93c67eaa", "condition": {"system": "separate", "exception": "교차·방류점·지형 함몰부, 관 보호 시"}, "basis": {"flow": "any"}, "tag_note": "최소토피 예외"}
+{"row_key": "257027fb879f", "condition": {"system": "separate", "item": "연결관 자연유하 접속 깊이"}, "basis": {"flow": "any"}, "tag_note": "토피 = 연결관 접속 조건(수치 없음)"}
+{"row_key": "8fb7bd8f263c", "condition": null, "basis": {"flow": "any"}, "tag_note": "맨홀 설치 위치"}
+{"row_key": "35f9aaae36e7", "condition": {"receives_house_connections": true}, "basis": {"flow": "any"}, "tag_note": "맨홀 최대간격 120 m(유입 있는 구간)"}
+{"row_key": "233f8b8008f9", "condition": {"pipe_role": "interceptor", "receives_house_connections": false, "other": {"pipe_role_raw": "interceptores y emisarios finales"}}, "basis": {"flow": "any"}, "tag_note": "맨홀 최대간격 300 m(유입 없는 차집·방류관) — 방류관(emisario) 역할값 없음"}
+{"row_key": "18432e2f1450", "condition": {"dia_mm": {"ge": 200, "le": 500}, "other": {"dia_ref": "접속관 최대 관경"}}, "basis": {"flow": "any"}, "tag_note": "Tabla 19 De 200 a 500 mm → 맨홀 내경 1.20 m"}
+{"row_key": "97e3b2b4effd", "condition": {"dia_mm": {"gt": 500, "le": 750}, "other": {"dia_ref": "접속관 최대 관경"}}, "basis": {"flow": "any"}, "tag_note": "Tabla 19 Mayor que 500 hasta 750 mm → 맨홀 내경 1.50 m"}
+{"row_key": "142aa4011ee7", "condition": {"dia_mm": {"gt": 750, "le": 900}, "other": {"dia_ref": "접속관 최대 관경"}}, "basis": {"flow": "any"}, "tag_note": "Tabla 19 Mayor que 750 hasta 900 mm → 맨홀 내경 1.80 m"}
+{"row_key": "b683178b02b9", "condition": {"exception": "사람 미출입, 장비 유지관리"}, "basis": {"flow": "any"}, "tag_note": "무인 점검실 0.6 m"}
+{"row_key": "fdc89c9a938c", "condition": {"other": {"dia_mm": {"gt": 900}, "or_depth_m": {"gt": 7.0}}}, "basis": {"flow": "any"}, "tag_note": "대구경·심층 맨홀 개별설계"}
+{"row_key": "be00efd744b9", "condition": {"pipe_role": "branch", "other": {"segment": "tramos iniciales"}}, "basis": {"flow": "any"}, "tag_note": "시점부 청소구 200 mm — '시점 구간' 역할값 없음"}
+{"row_key": "ec100c34505d", "condition": null, "basis": {"flow": "design_flow", "note": "인버트 단면 = 계획하수량 통수"}, "tag_note": "맨홀 인버트 의무"}
+{"row_key": "b208a81f545d", "condition": {"joint_method": "crown", "exception": "계산 국부손실 ≤ 0일 때"}, "basis": {"flow": "design_flow", "note": "관정 간 최소 낙차"}, "tag_note": "최소 낙차 2 cm(관정 기준, 손실≤0 조건)"}
+{"row_key": "1a0391ab32ef", "condition": null, "basis": {"flow": "design_flow", "note": "국부손실 계산 기반 낙차"}, "tag_note": "접합 = 손실 계산식 기반(고정 접합방식 없음)"}
+{"row_key": "e180113d9a23", "condition": null, "basis": {"flow": "any"}, "tag_note": "유입·유출 편향각 90° 이하 지침"}
+{"row_key": "31da25aabbee", "condition": {"joint_method": "invert"}, "basis": {"flow": "any"}, "tag_note": "낙차맨홀 기준 관저차 > 0.75 m"}
+{"row_key": "1d52546ad957", "condition": null, "basis": {"flow": "any"}, "tag_note": "7 m 초과 → 감쇠구조 (상한이 아닌 전환 기준)"}
+{"row_key": "3030a468c1f8", "condition": {"dia_mm": {"le": 300}, "dia_basis": "inner", "other": {"dia_ref": "유입관"}}, "basis": {"flow": "any"}, "tag_note": "Tabla 20 D ≤ 300 mm"}
+{"row_key": "b2747bcca4e5", "condition": {"dia_mm": {"gt": 300, "le": 450}, "dia_basis": "inner", "other": {"dia_ref": "유입관"}}, "basis": {"flow": "any"}, "tag_note": "Tabla 20 300 mm > D ≤ 450 mm"}
+{"row_key": "aef9770099f3", "condition": {"dia_mm": {"gt": 450, "le": 900}, "dia_basis": "inner", "other": {"dia_ref": "유입관"}}, "basis": {"flow": "any"}, "tag_note": "Tabla 20 450 mm > D ≤ 900 mm"}
+{"row_key": "3d4f74e76461", "condition": {"dia_mm": {"gt": 900}, "dia_basis": "inner"}, "basis": {"flow": "any"}, "tag_note": "D>900 전이구조"}
+{"row_key": "5227c900b382", "condition": {"other": {"inlet_velocity_ms": {"gt": 5}}}, "basis": {"flow": "design_flow", "hydraulic_state": "actual", "note": "유입관 실유속 임계"}, "tag_note": "유입유속 > 5 m/s 감쇠"}
+{"row_key": "9b64bdd7e72d", "condition": {"system": "separate", "pipe_role": "house_connection", "dia_basis": "inner", "item": "최소 실내경"}, "basis": {"flow": "any"}, "tag_note": "연결관 최소 140 mm"}
+{"row_key": "9df4c41c1c18", "condition": {"system": "separate", "pipe_role": "house_connection", "item": "최소 경사"}, "basis": {"flow": "any"}, "tag_note": "연결관 최소경사 2%"}
+{"row_key": "542632c32108", "condition": {"system": "separate", "pipe_role": "house_connection", "joint_method": "crown", "item": "본관 접속 위치"}, "basis": {"flow": "any"}, "tag_note": "연결관 관정접합"}
+{"row_key": "e16285ea44fa", "condition": {"system": "separate", "pipe_role": "house_connection", "item": "점검박스"}, "basis": {"flow": "any"}, "tag_note": "연결관 시점 점검박스"}
+{"row_key": "2eb3def995fe", "condition": {"system": "separate", "pipe_role": "house_connection", "item": "직접접속 허용 본관 관경", "other": {"main_dia_mm": {"gt": 600}}}, "basis": {"flow": "any"}, "tag_note": "본관 600 mm 초과 직접접속 금지"}
+{"row_key": "5b875369cecb", "condition": {"system": "separate", "location": "roadway"}, "basis": {"flow": "any"}, "tag_note": "오수관 평면 위치"}
+{"row_key": "ebc7cd3d4ff4", "condition": {"other": {"from": "acera/sardinel"}}, "basis": {"flow": "any"}, "tag_note": "보도에서 0.5 m"}
+{"row_key": "c439fa036b96", "condition": {"other": {"from": "paramento"}}, "basis": {"flow": "any"}, "tag_note": "건축선에서 1.5 m"}
+{"row_key": "21b5b9efc9fb", "condition": {"location": "crossing_water_main"}, "basis": {"flow": "any"}, "tag_note": "상수관 하부 매설"}
+{"row_key": "74d77f883734", "condition": {"other": {"direction": "horizontal", "target": "otras redes de servicios públicos"}}, "basis": {"flow": "any"}, "tag_note": "타 시설 수평 1.0 m"}
+{"row_key": "d9a9791f0f9d", "condition": {"other": {"direction": "vertical", "target": "otras redes de servicios públicos"}}, "basis": {"flow": "any"}, "tag_note": "타 시설 수직 0.3 m"}
+{"row_key": "c55daaef73bc", "condition": {"other": {"road": "separador central"}}, "basis": {"flow": "any"}, "tag_note": "분리대 도로 양측 관로"}
+{"row_key": "6e516c6c5769", "condition": {"location": "stream_crossing", "other": {"crossing": "aéreo"}}, "basis": {"flow": "any"}, "tag_note": "공중 횡단 최고수위 + 0.5 m"}
+{"row_key": "42ed22235af0", "condition": {"location": "stream_crossing", "other": {"reference": "최대 세굴고"}}, "basis": {"flow": "any"}, "tag_note": "하천 하저 횡단 세굴고 - 0.5 m"}
+{"row_key": "5cf7f829c2df", "condition": {"location": "stream_crossing", "other": {"crossing_length_m": {"lt": 10}}}, "basis": {"flow": "any"}, "tag_note": "Tabla 17 L < 10 m"}
+{"row_key": "b2c0c2cf41c9", "condition": {"location": "stream_crossing", "other": {"crossing_length_m": {"ge": 10, "le": 50}}}, "basis": {"flow": "any"}, "tag_note": "Tabla 17 10 m ≤ L ≤ 50 m"}
+{"row_key": "457ce5783be5", "condition": {"location": "stream_crossing", "other": {"crossing_length_m": {"gt": 50}}}, "basis": {"flow": "any"}, "tag_note": "Tabla 17 L > 50 m"}
+{"row_key": "a8a4a57d2c88", "condition": {"system": "separate", "pipe_role": "inverted_siphon", "dia_basis": "inner"}, "basis": {"flow": "any"}, "tag_note": "역사이펀 최소 170 mm"}
+{"row_key": "5b59ee2a6452", "condition": {"system": "separate", "pipe_role": "inverted_siphon"}, "basis": {"flow": "unspecified", "hydraulic_state": "full"}, "tag_note": "역사이펀 최소 1.0 m/s(유량 조건 미명시, 압력관이라 만관)"}
+{"row_key": "01fe50e293a9", "condition": {"pipe_role": "inverted_siphon", "item": "병렬 관 수"}, "basis": {"flow": "any"}, "tag_note": "역사이펀 2열 이상"}
+{"row_key": "c4c2bf0dd828", "condition": {"pipe_role": "inverted_siphon", "item": "최대 경사각"}, "basis": {"flow": "any"}, "tag_note": "역사이펀 경사 ≤ 22.5°"}
+{"row_key": "602d45cda85e", "condition": {"pipe_role": "inverted_siphon", "dia_mm": {"le": 760}, "item": "스크린"}, "basis": {"flow": "any"}, "tag_note": "역사이펀 스크린"}
+{"row_key": "442848f18eac", "condition": null, "basis": {"flow": "any"}, "tag_note": "준공 검사"}
+{"row_key": "abce421844cf", "condition": {"system": "separate", "location": "sidewalk", "sewer_type": "alcantarillado simplificado"}, "basis": {"flow": "any", "note": "노면~관 외면 정점"}, "tag_note": "간이 하수도 토피 0.60 m"}
+{"row_key": "4c9d49812079", "condition": {"system": "separate", "location": "roadway", "exception": "구조 보호 시 면제", "sewer_type": "alcantarillado simplificado"}, "basis": {"flow": "any"}, "tag_note": "간이 하수도 도로횡단 1.0 m"}
+{"row_key": "37250db59007", "condition": {"system": "separate", "dia_basis": "inner", "sewer_type": "alcantarillado simplificado"}, "basis": {"flow": "any"}, "tag_note": "간이 하수도 145 mm"}
+{"row_key": "a2a631de4da9", "condition": {"system": "separate", "sewer_type": "alcantarillado simplificado"}, "basis": {"flow": "design_flow", "horizon": "both", "hydraulic_state": "actual", "note": "초기·말기 모두"}, "tag_note": "간이 하수도 최소 0.40 m/s"}
+{"row_key": "47db03f0f47b", "condition": {"system": "separate", "sewer_type": "alcantarillado simplificado"}, "basis": {"flow": "design_flow", "horizon": "unspecified", "hydraulic_state": "actual"}, "tag_note": "간이 하수도 최대 5.0 m/s"}
+{"row_key": "768ba56e6ff0", "condition": {"system": "separate", "terrain": "hilly", "exception": "경사지 지형, 충분한 정당화", "sewer_type": "alcantarillado simplificado"}, "basis": {"flow": "design_flow", "horizon": "unspecified", "hydraulic_state": "actual"}, "tag_note": "간이 하수도 경사지 10 m/s"}
+{"row_key": "227ee283ae96", "condition": {"system": "separate", "dia_basis": "inner", "sewer_type": "alcantarillado simplificado"}, "basis": {"flow": "design_flow", "horizon": "unspecified", "hydraulic_state": "partial"}, "tag_note": "간이 하수도 y/D 0.80 ('debe ser' — 상한으로 해석)"}
+{"row_key": "da5382863db8", "condition": {"system": "separate", "pipe_role": "house_connection", "dia_basis": "inner", "item": "최소 실내경", "sewer_type": "alcantarillado simplificado"}, "basis": {"flow": "any"}, "tag_note": "간이 연결관 75 mm"}
+{"row_key": "d7ca5fbda23b", "condition": {"system": "separate", "pipe_role": "house_connection", "item": "최소 경사", "sewer_type": "alcantarillado simplificado"}, "basis": {"flow": "any"}, "tag_note": "간이 연결관 2.5%"}
+{"row_key": "07f0cfd8e122", "condition": {"system": "separate", "sewer_type": "alcantarillado simplificado"}, "basis": {"flow": "any"}, "tag_note": "간이 하수도 점검구 120 m"}
+{"row_key": "f1a85288c786", "condition": {"system": "separate", "location": "dentro de lotes residenciales", "sewer_type": "alcantarillado condominial"}, "basis": {"flow": "any", "note": "노면~관 외면 정점"}, "tag_note": "단지형 대지 내 0.30 m"}
+{"row_key": "838dc5ca47ba", "condition": {"system": "separate", "location": "sidewalk", "sewer_type": "alcantarillado condominial"}, "basis": {"flow": "any"}, "tag_note": "단지형 보도 0.60 m"}
+{"row_key": "4ef214c84030", "condition": {"system": "separate", "location": "roadway", "exception": "구조 보호 시 면제", "sewer_type": "alcantarillado condominial"}, "basis": {"flow": "any"}, "tag_note": "단지형 도로횡단 1.0 m"}
+{"row_key": "83c1fb1d0f1f", "condition": {"system": "separate", "dia_basis": "inner", "sewer_type": "alcantarillado condominial"}, "basis": {"flow": "any"}, "tag_note": "단지형 145 mm"}
+{"row_key": "de963917f707", "condition": {"system": "separate", "sewer_type": "alcantarillado condominial"}, "basis": {"flow": "design_flow", "horizon": "both", "hydraulic_state": "actual", "note": "τ, 초기·말기 모두"}, "tag_note": "단지형 τ 1.0 Pa"}
+{"row_key": "7a46a999a3e4", "condition": {"system": "separate", "sewer_type": "alcantarillado condominial"}, "basis": {"flow": "design_flow", "horizon": "unspecified", "hydraulic_state": "actual"}, "tag_note": "단지형 5.0 m/s"}
+{"row_key": "fdf4d693f2a8", "condition": {"system": "separate", "dia_basis": "inner", "sewer_type": "alcantarillado condominial"}, "basis": {"flow": "design_flow", "horizon": "unspecified", "hydraulic_state": "partial"}, "tag_note": "단지형 y/D 0.80"}
+{"row_key": "a5d18ad2feee", "condition": {"system": "separate", "sewer_type": "alcantarillado condominial"}, "basis": {"flow": "any"}, "tag_note": "단지형 점검구 25 m"}
+{"row_key": "b8a482a029ed", "condition": {"system": "separate", "sewer_type": "alcantarillado condominial"}, "basis": {"flow": "any"}, "tag_note": "단지형 점검구 0.60 m"}
+{"row_key": "a0873fc76176", "condition": {"system": "separate", "dia_basis": "inner", "sewer_type": "alcantarillado sin arrastre de sólidos (ASAS)"}, "basis": {"flow": "any"}, "tag_note": "ASAS 95 mm"}
+{"row_key": "4758f7697f62", "condition": {"system": "separate", "pipe_role": "house_connection", "dia_basis": "inner", "item": "최소 실내경", "sewer_type": "alcantarillado sin arrastre de sólidos (ASAS)"}, "basis": {"flow": "any"}, "tag_note": "ASAS 연결관 95 mm"}
+{"row_key": "1ac7335a88c0", "condition": {"system": "separate", "pipe_role": "house_connection", "item": "최소 경사", "sewer_type": "alcantarillado sin arrastre de sólidos (ASAS)"}, "basis": {"flow": "any"}, "tag_note": "ASAS 연결관 2.5%"}

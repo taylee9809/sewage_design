@@ -1,0 +1,188 @@
+{"row_key": "1fd07f8ec3d8", "condition": null, "basis": {"flow": "design_daily_max", "horizon": "ultimate", "per": "capita_day", "note": "1인1일최대오수량, 계획목표년도 급수량 감안"}, "tag_note": "1.7.2(1) '계획목표년도 … 1인1일 최대급수량 감안' → 일최대·목표연도·인당"}
+{"row_key": "e99b458c667b", "condition": null, "basis": {"flow": "design_daily_avg", "horizon": "ultimate", "per": "ratio_to_daily_max", "note": "일평균/일최대 = 0.70~0.80"}, "tag_note": "1.7.2(5) 계획1일평균 = 계획1일최대의 70~80% → 일최대 대비 비율"}
+{"row_key": "fe16a27a1254", "condition": null, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "per": "ratio_to_daily_max", "note": "계획1일최대오수량의 1시간당 수량 대비 배수"}, "tag_note": "1.7.2(6) 시간최대 = 일최대 1시간당 수량×1.3~1.8 → 일최대 대비(일평균 대비 아님)"}
+{"row_key": "3a75cc4c8873", "condition": null, "basis": {"flow": "design_daily_max", "horizon": "ultimate", "per": "ratio_to_per_capita", "ref_param": "per_capita_wastewater", "note": "1인1일최대오수량의 20% 이하"}, "tag_note": "1.7.2(3) 지하수량 = 1인1일최대오수량의 20% 이하 → 인당 일최대 대비"}
+{"row_key": "b057e009fc23", "condition": null, "basis": {"flow": "design_daily_max", "horizon": "ultimate", "note": "1인1일최대×계획인구+공장폐수+지하수+기타"}, "tag_note": "1.7.2(4) 계획1일최대오수량 구성"}
+{"row_key": "72b535a63ff4", "condition": {"system": "separate"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "note": "오수관로는 계획시간최대오수량 기준"}, "tag_note": "61 10 1.6.1(1) 오수관로=계획시간최대오수량; 계획=목표연도(1.7.2(1))"}
+{"row_key": "d2ee313d7768", "condition": {"system": "separate"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "note": "오수관로 계획하수량=계획시간최대오수량"}, "tag_note": "1.1(1) 오수관로는 계획시간최대오수량"}
+{"row_key": "a874c8ae2a5b", "condition": {"system": "combined"}, "basis": {"flow": "combined_design", "horizon": "ultimate", "note": "계획시간최대오수량 + 계획우수량"}, "tag_note": "1.1(3) 합류식=시간최대오수량+계획우수량"}
+{"row_key": "5dd7bb9a2652", "condition": {"system": "combined", "pipe_role": "interceptor"}, "basis": {"flow": "wet_weather", "horizon": "ultimate", "note": "우천시 계획오수량 = 계획시간최대오수량의 3배 이상", "per": "ratio_to_peak_hourly"}, "tag_note": "1.7.2(7)·1.6.1(2) 합류식 차집관로 우천시 계획오수량, 계획시간최대 대비 3배"}
+{"row_key": "32df0f5adebe", "condition": {"system": "separate"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "hydraulic_state": "unspecified", "note": "오수관로 관경결정 시 계획하수량에 여유율(수치 없음)"}, "tag_note": "1.1(5) 오수관로 관경결정 시 여유율 — 원문이 오수관로로 한정"}
+{"row_key": "8216bbb15993", "condition": {"system": "separate"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "hydraulic_state": "unspecified"}, "tag_note": "1.3(1)① '계획시간최대오수량에 대하여' — 만관/실수심 유속 여부 원문 미명시"}
+{"row_key": "2642ac1345dc", "condition": {"system": "separate"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "hydraulic_state": "unspecified"}, "tag_note": "1.3(1)① 최소유속과 같은 정의 유량"}
+{"row_key": "6719494863f1", "condition": {"system": ["combined", "storm"]}, "basis": {"flow": "design_storm", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "계획우수량에 대하여 최소 0.8 m/s"}, "tag_note": "1.3(2)① 우수관로 및 합류식관로, '계획우수량에 대하여' — 원 condition의 combined에 storm 추가"}
+{"row_key": "55a4b12fa55a", "condition": {"system": ["combined", "storm"]}, "basis": {"flow": "design_storm", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "계획우수량에 대하여 최대 3.0 m/s"}, "tag_note": "1.3(2)① 우수관로 및 합류식관로, 계획우수량 기준 — storm 추가"}
+{"row_key": "6f44297441c8", "condition": {"material": "rc"}, "basis": {"flow": "any", "note": "Manning/Kutter 조도계수 표준값"}, "tag_note": "1.2(2)② 철근콘크리트관 0.013"}
+{"row_key": "0d67ba27beb1", "condition": {"material": "vcp"}, "basis": {"flow": "any", "note": "Manning/Kutter 조도계수 표준값"}, "tag_note": "1.2(2)② 도관 0.013"}
+{"row_key": "bccff19471fd", "condition": {"material": "pvc"}, "basis": {"flow": "any", "note": "Manning/Kutter 조도계수 표준값"}, "tag_note": "1.2(2)② 경질염화비닐관 0.011"}
+{"row_key": "3e250bffa914", "condition": {"material": "frp"}, "basis": {"flow": "any", "note": "강화플라스틱복합관; frp/grp 중 frp로 매핑"}, "tag_note": "1.2(2)② 강화플라스틱복합관 0.011 — 어휘에 복합관 전용값 없어 frp"}
+{"row_key": "a6aae44d7283", "condition": {"pipe_role": "force_main", "exception": "직선부만(굴곡손실 별도 계산)인 경우 130, 일반 110"}, "basis": {"flow": "any", "note": "Hazen-Williams C, 압송식"}, "tag_note": "1.2(2)③ 압송식 HW C 110 표준, 직선부만 130"}
+{"row_key": "ca8df3e3179a", "condition": {"system": "separate"}, "basis": {"flow": "any"}, "tag_note": "2.3(1) 오수관로 200 mm 표준"}
+{"row_key": "82fbfc198e6d", "condition": {"system": "separate", "exception": "장래 하수량증가 계획 없는 초기관로에 국지적 제한 사용(유지관리 지장 없는 범위)"}, "basis": {"flow": "any"}, "tag_note": "2.3(3) 150 mm 예외 조건"}
+{"row_key": "d56a5908dd86", "condition": {"system": ["combined", "storm"]}, "basis": {"flow": "any"}, "tag_note": "2.3(2) 우수관로 및 합류관로 250 mm — storm 추가"}
+{"row_key": "0043dc048ad0", "condition": {"system": "separate"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "hydraulic_state": "unspecified", "note": "최소경사 표 없음, 1.3(1)① 유속기준으로 결정"}, "tag_note": "1.3(1)① 경사는 계획시간최대오수량 유속 0.6~3.0으로 판단 — 유속과 같은 basis"}
+{"row_key": "bde047fc516f", "condition": {"system": "separate", "pipe_role": "branch", "exception": "오수관로 시점부, 다른 지선에 접합하지 않는 구간, 계획하수량이 적어 최소유속 확보 불가 시"}, "basis": {"flow": "any", "note": "유속 대신 적용하는 경사 하한, 정의 유량 없음"}, "tag_note": "1.3(1)③ 시점부 5‰ — 값 자체는 유량 무관 경사 하한"}
+{"row_key": "a4be7e804227", "condition": {"shape": "circular"}, "basis": {"flow": "design_flow", "horizon": "ultimate", "hydraulic_state": "full", "note": "계획하수량(1.1, 관 종류별)으로 단면 결정, 원형거 수심=만류"}, "tag_note": "1.2(2)④ 수심 결정 시 원형거는 만류; 단면은 1.1 관 종류별 계획하수량"}
+{"row_key": "c14ac579cc73", "condition": {"shape": "rectangular"}, "basis": {"flow": "design_flow", "horizon": "ultimate", "hydraulic_state": "partial", "note": "직사각형거 높이의 90%"}, "tag_note": "1.2(2)④ 직사각형거 90%"}
+{"row_key": "9ce54dcc725a", "condition": {"shape": "horseshoe"}, "basis": {"flow": "design_flow", "horizon": "ultimate", "hydraulic_state": "partial", "note": "말굽형거 높이의 80%"}, "tag_note": "1.2(2)④ 말굽형거 80%"}
+{"row_key": "c124283792aa", "condition": null, "basis": {"flow": "any"}, "tag_note": "3.2 최소 흙두께 원칙 1 m"}
+{"row_key": "518d62cf2236", "condition": {"dia_mm": {"le": 600}}, "basis": {"flow": "any", "note": "직선부 최대간격"}, "tag_note": "7.1(1)② '600mm 이하'"}
+{"row_key": "3e194dbbd4d6", "condition": {"dia_mm": {"gt": 600, "le": 1000}}, "basis": {"flow": "any", "note": "직선부 최대간격"}, "tag_note": "7.1(1)② '600mm 초과 1,000mm 이하'"}
+{"row_key": "e913270c65a3", "condition": {"dia_mm": {"gt": 1000, "le": 1500}}, "basis": {"flow": "any", "note": "직선부 최대간격"}, "tag_note": "7.1(1)② '1,000mm 초과 1,500mm 이하'"}
+{"row_key": "b00653c6c605", "condition": {"dia_mm": {"ge": 1650}}, "basis": {"flow": "any", "note": "직선부 최대간격; 1500~1650 구간은 원문 공백"}, "tag_note": "7.1(1)② '1,650mm 이상' (1,500 초과~1,650 미만 규정 없음)"}
+{"row_key": "7f3066a3c77a", "condition": null, "basis": {"flow": "any"}, "tag_note": "7.1(1)①·5.1 맨홀 필수 설치 위치"}
+{"row_key": "62aa68cc4a82", "condition": {"system": ["separate", "combined"], "joint_method": "step"}, "basis": {"flow": "any"}, "tag_note": "5.1(2) 단차접합 0.6 m 이상이면 합류관·오수관에 부관"}
+{"row_key": "3bd9dc528616", "condition": {"joint_method": "step"}, "basis": {"flow": "any"}, "tag_note": "5.1(2) 단차접합 1개소당 1.5 m 이내"}
+{"row_key": "b77e40aa16b4", "condition": {"joint_method": "stepped"}, "basis": {"flow": "any"}, "tag_note": "5.1(2) 계단접합 1단당 0.3 m (통상 대구경관로·현장타설관로)"}
+{"row_key": "7277e9bf1de1", "condition": null, "basis": {"flow": "any"}, "tag_note": "5.1(1)(2) 원칙 수면/관정접합, 급경사지 단차·계단"}
+{"row_key": "973b978eb845", "condition": {"exception": "통상 30~45°, 장애물 있으면 60° 이하; 소구경(대구경 1/2 이하)·수면/관정접합 시 90° 이내 가능"}, "basis": {"flow": "any"}, "tag_note": "5.1(3) 합류 중심교각 — 경우별 조건을 exception으로"}
+{"row_key": "e9d1118ba8ab", "condition": null, "basis": {"flow": "any"}, "tag_note": "1.3 본문 하류로 관경 증가·경사 감소 방향(금지 조항 아님)"}
+{"row_key": "279f8f628076", "condition": {"pipe_role": "house_connection", "item": "connection_pipe_min_dia"}, "basis": {"flow": "any"}, "tag_note": "14.5(1)④ 연결관 최소관경 150 mm"}
+{"row_key": "c72b5750df6e", "condition": {"pipe_role": "house_connection", "item": "connection_pipe_min_slope"}, "basis": {"flow": "any", "note": "유량 무관 경사 하한"}, "tag_note": "14.5(1)③ 연결관 경사 1% 이상"}
+{"row_key": "3aaed8d210bf", "condition": {"pipe_role": "house_connection", "item": "connection_angle"}, "basis": {"flow": "any"}, "tag_note": "14.5(1)② 본관연결부 60° 또는 90°"}
+{"row_key": "bb6c79baf8ed", "condition": {"pipe_role": "house_connection", "item": "connection_inspection"}, "basis": {"flow": "any"}, "tag_note": "14.5(3) 평면 연장 20 m 이상 시 점검구"}
+{"row_key": "fbeb759644d0", "condition": {"pipe_role": "house_connection", "item": "sewage_inlet_spacing"}, "basis": {"flow": "any"}, "tag_note": "14.2.1 오수받이 1필지당 1개 원칙"}
+{"row_key": "49095c86b410", "condition": {"system": "separate", "pipe_role": "building_drain", "served_population": {"le": 150}}, "basis": {"flow": "any"}, "tag_note": "15.2(2)① 표1.15.1 배수인구 150 이하"}
+{"row_key": "c64dab1c6cdb", "condition": {"system": "separate", "pipe_role": "building_drain", "served_population": {"gt": 150, "le": 300}}, "basis": {"flow": "any"}, "tag_note": "15.2(2)① 표1.15.1 '300 이하'(앞 칸 150 초과)"}
+{"row_key": "ff733e923e69", "condition": {"system": "separate", "pipe_role": "building_drain", "served_population": {"gt": 300, "le": 600}}, "basis": {"flow": "any"}, "tag_note": "15.2(2)① 표1.15.1 '600 이하'"}
+{"row_key": "975ece0db9b6", "condition": {"system": "separate", "pipe_role": "building_drain", "served_population": {"gt": 600, "le": 1000}}, "basis": {"flow": "any"}, "tag_note": "15.2(2)① 표1.15.1 '1,000 이하'"}
+{"row_key": "ae247bc06e20", "condition": {"pipe_role": "building_drain"}, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "관로내 유속 0.6~1.5 m/s, 정의 유량 원문 없음"}, "tag_note": "15.2(3) 배수설비 유속 — 유량·수리상태 미명시"}
+{"row_key": "79ecb4eaecc1", "condition": {"pipe_role": "building_drain", "location": "건물 부지내"}, "basis": {"flow": "any"}, "tag_note": "15.2(4) 부지내 최소토피 20 cm"}
+{"row_key": "5dd699611321", "condition": {"manhole_type": "1호맨홀(내경 900mm 원형)", "other": {"use": "관로 중간지점(기점 포함), 합류지점은 내경 400mm까지"}}, "basis": {"flow": "any"}, "tag_note": "7.1(2)① 표1.7.1"}
+{"row_key": "b0ee16afe135", "condition": {"manhole_type": "2호맨홀(내경 1,200mm 원형)", "other": {"use": "관로 중간지점, 합류지점은 내경 600mm 이하"}}, "basis": {"flow": "any"}, "tag_note": "7.1(2)① 표1.7.1"}
+{"row_key": "32a1ca5b3139", "condition": {"manhole_type": "3호맨홀(내경 1,500mm 원형)", "other": {"use": "관로 중간지점, 합류지점은 내경 800mm 이하"}}, "basis": {"flow": "any"}, "tag_note": "7.1(2)① 표1.7.1"}
+{"row_key": "ba35fb1716d1", "condition": {"manhole_type": "4호맨홀(내경 1,800mm 원형)", "other": {"use": "관로 중간지점, 합류지점은 내경 900mm 이하"}}, "basis": {"flow": "any"}, "tag_note": "7.1(2)① 표1.7.1"}
+{"row_key": "fed29a51ff7d", "condition": {"manhole_type": "5호맨홀(내경 2,100mm 원형)", "other": {"use": "관로 중간지점"}}, "basis": {"flow": "any"}, "tag_note": "7.1(2)① 표1.7.1"}
+{"row_key": "21a595d53c92", "condition": null, "basis": {"flow": "any"}, "tag_note": "7.2(1)④ 인버트 단차 3~10 cm"}
+{"row_key": "1e383e9f0911", "condition": {"pipe_role": "inverted_siphon"}, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "상류측 유속 대비 20~30% 증가, 정의 유량 원문 없음"}, "tag_note": "6(4) 역사이펀 유속 증가율 — 어느 유량 기준인지 미명시"}
+{"row_key": "6258fcd9a105", "condition": {"material": "rigid"}, "basis": {"flow": "any"}, "tag_note": "4.3(1) 강성관 모래기초"}
+{"row_key": "979ce82d319a", "condition": {"material": "flexible"}, "basis": {"flow": "any"}, "tag_note": "4.3(2) 연성관 모래기초"}
+{"row_key": "9ccd4a314c85", "condition": null, "basis": {"flow": "any"}, "tag_note": "3.3(1) 경고테이프 관상단 20~50 cm"}
+{"row_key": "77421447fec3", "condition": {"system": "separate", "other": {"collection_system": "new"}}, "basis": {"flow": "design_daily_avg", "horizon": "ultimate", "per": "capita_day"}, "tag_note": ""}
+{"row_key": "a4e94d64b4d7", "condition": {"system": "separate", "other": {"collection_system": "new"}}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "per": "ratio_to_avg", "ref_param": "per_capita_wastewater"}, "tag_note": ""}
+{"row_key": "35431eb8506f", "condition": null, "basis": {"flow": "design_daily_max", "horizon": "ultimate", "per": "ratio_to_avg"}, "tag_note": ""}
+{"row_key": "0e3647ba1a58", "condition": {"system": "separate", "other": {"collection_system": "new"}}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "per": "capita_day", "ref_param": "per_capita_wastewater"}, "tag_note": ""}
+{"row_key": "7ffa343c8852", "condition": null, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate"}, "tag_note": ""}
+{"row_key": "8ca956d93ebc", "condition": {"system": "separate"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "hydraulic_state": "unspecified"}, "tag_note": ""}
+{"row_key": "7c83165f6810", "condition": null, "basis": {"flow": "none"}, "tag_note": ""}
+{"row_key": "c61bb28356eb", "condition": {"system": "separate", "dia_mm": {"le": 1050}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "1ae7e6a6219f", "condition": {"system": "separate", "dia_mm": {"ge": 1200}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "387b2e9db822", "condition": null, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified"}, "tag_note": ""}
+{"row_key": "2de6f21d73c3", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3abd4a950b4c", "condition": {"system": "separate", "other": {"sewer": "원수 이송 공공 자연유하 하수관"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "bab13e9f2ee7", "condition": {"system": "separate", "dia_mm": {"eq": 200}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "5adb759673da", "condition": {"system": "separate", "dia_mm": {"eq": 250}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "5136e47084b1", "condition": {"system": "separate", "dia_mm": {"eq": 300}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "a82ddb5af442", "condition": {"system": "separate", "dia_mm": {"eq": 375}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "1bd276e018f3", "condition": {"system": "separate", "dia_mm": {"eq": 450}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "9c4814c37b48", "condition": {"system": "separate", "dia_mm": {"eq": 525}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "ff14270943eb", "condition": {"system": "separate", "dia_mm": {"eq": 600}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "974498bf46e6", "condition": {"system": "separate", "dia_mm": {"eq": 675}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "ed76f80b301e", "condition": {"system": "separate", "dia_mm": {"eq": 750}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "22d1234ddaf4", "condition": {"system": "separate", "dia_mm": {"eq": 825}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "dd7f08834fbf", "condition": {"system": "separate", "dia_mm": {"eq": 900}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "9377a3bc384e", "condition": {"system": "separate", "dia_mm": {"eq": 975}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "f6b360331d53", "condition": {"system": "separate", "dia_mm": {"eq": 1050}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "5c7f1ce422e1", "condition": null, "basis": {"flow": "none"}, "tag_note": ""}
+{"row_key": "e46a4ca7ceae", "condition": {"system": "separate", "exception": "현장 제약으로 33.41 권장 최소경사보다 약간 낮은 경사 허용 시(운영기관 유지관리 서면보증)"}, "basis": {"flow": "design_daily_avg", "horizon": "ultimate", "hydraulic_state": "partial"}, "tag_note": ""}
+{"row_key": "c0913954eaae", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "c4c2ff8dd1bc", "condition": {"location": "stream_crossing", "other": {"bed": "rock"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "07038ecceaf8", "condition": {"location": "stream_crossing", "other": {"bed": "other material"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "a37ee03e26e1", "condition": {"dia_mm": {"le": 375}, "dia_basis": "nominal_in"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "cad6a0c79b28", "condition": {"dia_mm": {"ge": 450, "le": 750}, "dia_basis": "nominal_in"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "60a181546093", "condition": {"exception": "적정 현대식 청소장비 구비 시 승인(관경 조건 없음)"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "eaf718543dbd", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "8d48e7db68b1", "condition": {"exception": "소관이 대관에 합류"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "65c39a5fea55", "condition": null, "basis": {"flow": "none"}, "tag_note": ""}
+{"row_key": "654d10125a84", "condition": {"pipe_role": "house_connection"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "b29d4b2db4e2", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "06284e8107ab", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "8a0dc3e195e3", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3aa4605d7d11", "condition": {"slope": {"ge": 0.2, "lt": 0.35}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "2387ddde7425", "condition": {"slope": {"ge": 0.35, "lt": 0.5}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "56a19b270dab", "condition": {"slope": {"ge": 0.5}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "590397fc1e08", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "55c979a9b2cf", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4b639b60caa2", "condition": {"exception": "관경이 맨홀 직경보다 작을 때 수로 양측 bench"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "76b43f10d0fb", "condition": {"location": "수도관 수평 이격(평행 부설)"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "e0b1a21aedd4", "condition": {"location": "수도관 수평 이격(평행 부설)", "exception": "수평 10 ft 확보 불가 시 심사기관 개별 허용"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "bb1a517afa73", "condition": {"location": "crossing_water_main"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "469177b80c17", "condition": {"location": "crossing_water_main", "exception": "교차 이격 18 in 확보 불가 시 수밀 보호관"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "edb802857f06", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "a04e45ebae75", "condition": {"pipe_role": "inverted_siphon"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "b4aeb096f4c7", "condition": {"pipe_role": "inverted_siphon"}, "basis": {"flow": "design_daily_avg", "horizon": "ultimate", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "75184bf64d3a", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "b85765d7785a", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "64db1c9c777f", "condition": {"material": "flexible"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "15e3bf0ac52d", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "60088ce6bdb0", "condition": {"location": "가공 횡단(aerial crossing)"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f4d5dc0c74fe", "condition": null, "basis": {"flow": "design_max_week", "horizon": "ultimate"}, "tag_note": ""}
+{"row_key": "b00b4557f513", "condition": {"system": "separate", "facility": "conventional sewers"}, "basis": {"flow": "design_daily_avg", "horizon": "unspecified", "per": "capita_day", "note": "minimum sewage flow 100 lpcd; 첨두계수(최대/평균) 적용 전 평균유량"}, "tag_note": "3.5 'conventional sewers … minimum sewage flow of 100 lpcd' — 평균유량, 목표/초기 구분 없음"}
+{"row_key": "c006ba92f5fa", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "3.5 일최대/일평균 계수 없음"}
+{"row_key": "da96ed173f74", "condition": {"system": "separate", "served_population": {"le": 20000}}, "basis": {"flow": "peak", "horizon": "unspecified", "per": "ratio_to_avg", "ref_param": "per_capita_wastewater", "note": "ratio of maximum to average flows (총괄 첨두), contributory population"}, "tag_note": "3.5 Table 3.2 'up to 20,000' — 시간최대 아닌 최대/평균 총괄 첨두; 'Above 20,001' 문언은 경계 모호, 정수로 ge 처리"}
+{"row_key": "6376e2b4c353", "condition": {"system": "separate", "served_population": {"ge": 20001, "le": 50000}}, "basis": {"flow": "peak", "horizon": "unspecified", "per": "ratio_to_avg", "ref_param": "per_capita_wastewater", "note": "ratio of maximum to average flows (총괄 첨두), contributory population"}, "tag_note": "3.5 Table 3.2 'Above 20,001 to 50,000' — 시간최대 아닌 최대/평균 총괄 첨두; 'Above 20,001' 문언은 경계 모호, 정수로 ge 처리"}
+{"row_key": "a0caebea7a61", "condition": {"system": "separate", "served_population": {"ge": 50001, "le": 750000}}, "basis": {"flow": "peak", "horizon": "unspecified", "per": "ratio_to_avg", "ref_param": "per_capita_wastewater", "note": "ratio of maximum to average flows (총괄 첨두), contributory population"}, "tag_note": "3.5 Table 3.2 'Above 50,001 to 7,50,000' — 시간최대 아닌 최대/평균 총괄 첨두; 'Above 20,001' 문언은 경계 모호, 정수로 ge 처리"}
+{"row_key": "e3d7ef2ee23a", "condition": {"system": "separate", "served_population": {"ge": 750001}}, "basis": {"flow": "peak", "horizon": "unspecified", "per": "ratio_to_avg", "ref_param": "per_capita_wastewater", "note": "ratio of maximum to average flows (총괄 첨두), contributory population"}, "tag_note": "3.5 Table 3.2 'above 7,50,001' — 시간최대 아닌 최대/평균 총괄 첨두; 'Above 20,001' 문언은 경계 모호, 정수로 ge 처리"}
+{"row_key": "f55535ade646", "condition": null, "basis": {"flow": "min_flow", "horizon": "unspecified", "per": "ratio_to_avg", "note": "minimum flow 1/3~1/2 of average"}, "tag_note": "3.5 최소유량 = 평균의 1/3~1/2"}
+{"row_key": "a162553fb63f", "condition": null, "basis": {"flow": "peak", "horizon": "unspecified", "per": "area_day", "note": "worst condition 침입수, 관거 첨두 설계용"}, "tag_note": "3.6 Table 3.3 L/ha/day; '설계는 첨두유량' 문맥"}
+{"row_key": "e3883f9ad85f", "condition": null, "basis": {"flow": "peak", "horizon": "unspecified", "per": "length_day", "note": "worst condition 침입수"}, "tag_note": "3.6 Table 3.3 L/km/day"}
+{"row_key": "e237d7038c77", "condition": null, "basis": {"flow": "peak", "horizon": "unspecified", "per": "manhole_day", "note": "worst condition 침입수"}, "tag_note": "3.6 Table 3.3 L/day/manhole"}
+{"row_key": "95e30d20b787", "condition": null, "basis": {"flow": "peak", "horizon": "unspecified", "note": "설계하수량의 10% 상한", "per": "ratio_to_design_flow"}, "tag_note": "3.6 'limited to a maximum of 10% of the design value of sewage flow'"}
+{"row_key": "9c4b6520f46a", "condition": {"system": "separate"}, "basis": {"flow": "peak", "horizon": "ultimate", "hydraulic_state": "partial", "note": "첨두유량 설계; 지선·부간선은 포화밀도 인구; 0.8 d/D는 ultimate peak"}, "tag_note": "3.2·3.5·3.15.5 peak flows, 포화밀도/목표연도"}
+{"row_key": "368b8bf977d8", "condition": {"facility": "conventional sewers"}, "basis": {"flow": "any", "note": "기준연도부터 30년"}, "tag_note": "2.5 Table 2.1 conventional sewers 30년"}
+{"row_key": "5e5a684029aa", "condition": {"facility": "non-conventional (small bore, shallow, pressure, vacuum) sewers"}, "basis": {"flow": "any", "note": "기준연도부터 15년"}, "tag_note": "2.5 Table 2.1 non-conventional 15년"}
+{"row_key": "b7f59cb19d16", "condition": {"shape": "circular"}, "basis": {"flow": "peak", "horizon": "ultimate", "hydraulic_state": "partial", "note": "0.8 d/D at ultimate peak flow로 여유 확보"}, "tag_note": "3.15.5 별도 여유율 없이 0.8 d/D"}
+{"row_key": "7318df366e13", "condition": {"shape": "circular"}, "basis": {"flow": "peak", "horizon": "ultimate", "hydraulic_state": "partial", "note": "maximum depth of flow 0.8D at ultimate peak flow; shall not run full"}, "tag_note": "3.15.5 'limited to 0.8 of the diameter at ultimate peak flow'"}
+{"row_key": "d3ce30c33080", "condition": {"system": "separate"}, "basis": {"flow": "peak", "horizon": "initial", "hydraulic_state": "actual", "note": "minimum velocity at initial peak flow; 3.15.5 만관 금지라 실수심 유속"}, "tag_note": "3.15.1 Table 3.9 initial peak flow 시 유속 — 만관 유속 아님(3.15.5 not run full)"}
+{"row_key": "5ed90aefe4a9", "condition": {"system": "separate"}, "basis": {"flow": "peak", "horizon": "ultimate", "hydraulic_state": "actual", "note": "minimum velocity at ultimate peak flow"}, "tag_note": "3.15.1 Table 3.9 ultimate peak flow 시 유속 — 만관 유속 아님(3.15.5)"}
+{"row_key": "9cc9fddcf60c", "condition": {"other": {"purpose": "sulphide control safety factor"}, "exception": "유기물 많은 공장폐수 유입 시 50%"}, "basis": {"flow": "peak", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "3.15.1 유속에 25% 여유(공장폐수 50%); 기준 유량은 3.15.1을 따름"}, "tag_note": "3.69.5.1 황화물 방지 안전율 — 기준 유속 정의는 Table 3.9 참조, 자체 정의 없음"}
+{"row_key": "bb894ae60e75", "condition": {"system": "separate"}, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "maximum velocity 3 m/s, 유량 미명시"}, "tag_note": "3.15.3·Table 3.9 최대유속 — 최소유속과 달리 유량 조건 없음"}
+{"row_key": "453b4cd595af", "condition": {"material": "vcp", "other": {"surface": "good"}}, "basis": {"flow": "any", "note": "Manning n, 수심 무관 고정값(3.15.5)"}, "tag_note": "3.15.4 Table 3.11 salt glazed stoneware good"}
+{"row_key": "c886dc938408", "condition": {"material": "vcp", "other": {"surface": "fair"}}, "basis": {"flow": "any", "note": "Manning n, 수심 무관 고정값(3.15.5)"}, "tag_note": "3.15.4 Table 3.11 salt glazed stoneware fair"}
+{"row_key": "26640a183784", "condition": {"material": "concrete", "other": {"surface": "good", "joint": "collar"}}, "basis": {"flow": "any", "note": "Manning n, 수심 무관 고정값(3.15.5)"}, "tag_note": "3.15.4 Table 3.11 cement concrete collar joints good"}
+{"row_key": "0256569da2f4", "condition": {"material": "concrete", "other": {"surface": "fair", "joint": "collar"}}, "basis": {"flow": "any", "note": "Manning n, 수심 무관 고정값(3.15.5)"}, "tag_note": "3.15.4 Table 3.11 cement concrete collar joints fair"}
+{"row_key": "96cf7f1afd60", "condition": {"material": "rc", "other": {"pipe": "spun RCC/PSC, S/S joints"}}, "basis": {"flow": "any", "note": "Manning n, 수심 무관 고정값(3.15.5)"}, "tag_note": "3.15.4 Table 3.11 spun RCC/PSC (Design Value)"}
+{"row_key": "fe27d3608897", "condition": {"material": "masonry", "other": {"surface": "good", "pipe": "brick"}}, "basis": {"flow": "any", "note": "Manning n, 수심 무관 고정값(3.15.5)"}, "tag_note": "3.15.4 Table 3.11 masonry brick good"}
+{"row_key": "9052b662c11a", "condition": {"material": "steel", "other": {"surface": "welded"}}, "basis": {"flow": "any", "note": "Manning n, 수심 무관 고정값(3.15.5)"}, "tag_note": "3.15.4 Table 3.11 steel welded"}
+{"row_key": "8e87cb44e4f8", "condition": {"material": "steel", "lining": "spun cement mortar"}, "basis": {"flow": "any", "note": "Manning n, 수심 무관 고정값(3.15.5)"}, "tag_note": "3.15.4 Table 3.11 steel mortar lined"}
+{"row_key": "857aa539d64e", "condition": {"material": "ci_di", "lining": "unlined"}, "basis": {"flow": "any", "note": "Manning n, 수심 무관 고정값(3.15.5)"}, "tag_note": "3.15.4 Table 3.11 CI/DI unlined"}
+{"row_key": "eba369e51bd9", "condition": {"material": "ci_di", "lining": "spun cement mortar"}, "basis": {"flow": "any", "note": "Manning n, 수심 무관 고정값(3.15.5)"}, "tag_note": "3.15.4 Table 3.11 CI/DI mortar lined"}
+{"row_key": "fe291f570c47", "condition": {"material": "ac"}, "basis": {"flow": "any", "note": "Manning n, 수심 무관 고정값(3.15.5)"}, "tag_note": "3.15.4 Table 3.11 asbestos cement"}
+{"row_key": "412d4c81a1bd", "condition": {"material": "plastic", "other": {"surface": "smooth"}}, "basis": {"flow": "any", "note": "Manning n, 수심 무관 고정값(3.15.5)"}, "tag_note": "3.15.4 Table 3.11 plastic (smooth) — 관종 미특정 플라스틱"}
+{"row_key": "15e5959e4b01", "condition": {"material": "frp"}, "basis": {"flow": "any", "note": "Manning n, 수심 무관 고정값(3.15.5)"}, "tag_note": "3.15.4 Table 3.11 FRP"}
+{"row_key": "3927fe5a6b50", "condition": {"material": ["hdpe", "pvc"]}, "basis": {"flow": "any", "note": "Manning n, 수심 무관 고정값(3.15.5)"}, "tag_note": "3.15.4 Table 3.11 HDPE/UPVC 병기 — 배열"}
+{"row_key": "6c85084220fa", "condition": null, "basis": {"flow": "any", "note": "만관·부분류 모두 고정 n"}, "tag_note": "3.15.5 fixed Manning's n"}
+{"row_key": "956c996aaebf", "condition": {"population": {"gt": 100000}, "other": {"population_basis": "present/base year"}, "exception": "성장잠재력에 따라 150 mm도 고려 가능"}, "basis": {"flow": "any"}, "tag_note": "3.14 'over 1 lakh' → gt 100000, 기준연도 인구"}
+{"row_key": "55070147c107", "condition": {"population": {"lt": 100000}, "other": {"population_basis": "present/base year"}}, "basis": {"flow": "any"}, "tag_note": "3.14 'less than 1 lakh' → lt 100000 (정확히 10만은 원문 공백)"}
+{"row_key": "c54695588d7c", "condition": {"terrain": "hilly"}, "basis": {"flow": "any"}, "tag_note": "3.14 hilly locations 150 mm"}
+{"row_key": "1c2057080954", "condition": {"system": "separate", "dia_mm": {"eq": 150}}, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "Table 3.13 근거 유속·유량 원문 미기재(값은 TSS 33.41 만관표와 200 mm 이상 동일)"}, "tag_note": "3.15.6 Table 3.13 150 mm sanitary sewers — 정의 유량 미명시"}
+{"row_key": "bd3a8730694d", "condition": {"system": "separate", "dia_mm": {"eq": 200}}, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "Table 3.13 근거 유속·유량 원문 미기재(값은 TSS 33.41 만관표와 200 mm 이상 동일)"}, "tag_note": "3.15.6 Table 3.13 200 mm sanitary sewers — 정의 유량 미명시"}
+{"row_key": "787ded8dab31", "condition": {"system": "separate", "dia_mm": {"eq": 250}}, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "Table 3.13 근거 유속·유량 원문 미기재(값은 TSS 33.41 만관표와 200 mm 이상 동일)"}, "tag_note": "3.15.6 Table 3.13 250 mm sanitary sewers — 정의 유량 미명시"}
+{"row_key": "e7969188aa1f", "condition": {"system": "separate", "dia_mm": {"eq": 300}}, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "Table 3.13 근거 유속·유량 원문 미기재(값은 TSS 33.41 만관표와 200 mm 이상 동일)"}, "tag_note": "3.15.6 Table 3.13 300 mm sanitary sewers — 정의 유량 미명시"}
+{"row_key": "776348f4a0dc", "condition": {"system": "separate", "dia_mm": {"eq": 375}}, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "Table 3.13 근거 유속·유량 원문 미기재(값은 TSS 33.41 만관표와 200 mm 이상 동일)"}, "tag_note": "3.15.6 Table 3.13 375 mm sanitary sewers — 정의 유량 미명시"}
+{"row_key": "6da9dbf9f0b6", "condition": {"system": "separate", "dia_mm": {"eq": 450}}, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "Table 3.13 근거 유속·유량 원문 미기재(값은 TSS 33.41 만관표와 200 mm 이상 동일)"}, "tag_note": "3.15.6 Table 3.13 450 mm sanitary sewers — 정의 유량 미명시"}
+{"row_key": "b2c54ef6d256", "condition": {"system": "separate", "dia_mm": {"ge": 525}}, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified", "note": "Table 3.13 근거 유속·유량 원문 미기재(값은 TSS 33.41 만관표와 200 mm 이상 동일)"}, "tag_note": "3.15.6 Table 3.13 ≥525 mm sanitary sewers — 정의 유량 미명시"}
+{"row_key": "964926ff509d", "condition": {"system": "separate", "location": "하수관망 시점부(start of network)"}, "basis": {"flow": "any", "note": "우수관은 0.5 m"}, "tag_note": "3.20.3 sanitary 시점 최소토피 1 m"}
+{"row_key": "cf8ba71b66b5", "condition": {"pipe_role": "house_connection"}, "basis": {"flow": "any"}, "tag_note": "3.70 house service sewer 관정 위 최소 토피 90 cm"}
+{"row_key": "45d516d66ac9", "condition": {"exception": "방류관 등 DPR에서 정당화 시 더 깊게 가능"}, "basis": {"flow": "any", "note": "6 m 초과 시 중계펌프장"}, "tag_note": "3.21 Table 3.15 note"}
+{"row_key": "536c2af54b4b", "condition": {"receives_house_connections": true, "exception": "저소득층 지역은 대지폭에 맞춰 더 좁게"}, "basis": {"flow": "any"}, "tag_note": "3.71·3.71.1 30 m, 관경 무관"}
+{"row_key": "c93c4925ea6d", "condition": {"receives_house_connections": false, "pipe_role": "trunk", "dia_mm": {"le": 600}}, "basis": {"flow": "any"}, "tag_note": "3.71.2 Table 3.31 'Up to 600' outfall/trunk — 경계 중복 표기, 포함여부 원문 없어 ge/le"}
+{"row_key": "eefed606c556", "condition": {"receives_house_connections": false, "pipe_role": "trunk", "dia_mm": {"ge": 600, "le": 900}}, "basis": {"flow": "any"}, "tag_note": "3.71.2 Table 3.31 '600 to 900' outfall/trunk — 경계 중복 표기, 포함여부 원문 없어 ge/le"}
+{"row_key": "894b0ce100ae", "condition": {"receives_house_connections": false, "pipe_role": "trunk", "dia_mm": {"ge": 900, "le": 1200}}, "basis": {"flow": "any"}, "tag_note": "3.71.2 Table 3.31 '900 to 1200' outfall/trunk — 경계 중복 표기, 포함여부 원문 없어 ge/le"}
+{"row_key": "8dd6590f819d", "condition": {"receives_house_connections": false, "pipe_role": "trunk", "dia_mm": {"ge": 1200, "le": 1500}}, "basis": {"flow": "any"}, "tag_note": "3.71.2 Table 3.31 '1200 to 1500' outfall/trunk — 경계 중복 표기, 포함여부 원문 없어 ge/le"}
+{"row_key": "16c0af6591fd", "condition": null, "basis": {"flow": "any"}, "tag_note": "3.20.3·3.17.1·3.26 맨홀 설치 위치"}
+{"row_key": "69106f0da1af", "condition": null, "basis": {"flow": "any"}, "tag_note": "3.25·3.17.1 표고차 60 cm 초과 시 drop"}
+{"row_key": "55e2ab9d4cee", "condition": {"exception": "관경 변화 없이 맨홀에서 방향 전환"}, "basis": {"flow": "any"}, "tag_note": "3.20.3 drop usually 30 mm"}
+{"row_key": "05c02da93cb1", "condition": {"joint_method": "crown"}, "basis": {"flow": "any"}, "tag_note": "3.17.1·3.20.3 관정 연속(crown)"}
+{"row_key": "6d832ccd6588", "condition": {"dia_mm": {"lt": 400}}, "basis": {"flow": "any"}, "tag_note": "3.17.1 'less than 400 mm' 관경차의 1/2"}
+{"row_key": "54417fa2b452", "condition": {"dia_mm": {"ge": 400, "le": 900}}, "basis": {"flow": "any"}, "tag_note": "3.17.1 '400 mm to 900 mm' 2/3"}
+{"row_key": "87cf72143301", "condition": {"dia_mm": {"gt": 900}}, "basis": {"flow": "any"}, "tag_note": "3.17.1 'Above 900 mm' 4/5 (상·하류 어느 관경 기준인지 불명)"}
+{"row_key": "b926bdd0e298", "condition": {"other": {"branch_to_main_dia_ratio": {"le": 0.5}}}, "basis": {"flow": "any"}, "tag_note": "3.17.3 지관/본관 ≤1/2일 때 30° 또는 45°"}
+{"row_key": "9a09bed050a7", "condition": null, "basis": {"flow": "any"}, "tag_note": "3.17.1 대→소 전이 금지"}
+{"row_key": "6464f988a85c", "condition": {"pipe_role": "house_connection", "exception": "연결 세대수에 따라 상향, 수용 공공관이 더 커야 함", "item": "min diameter"}, "basis": {"flow": "any"}, "tag_note": "3.14 house sewer connection 최소 100 mm"}
+{"row_key": "80a9c2de6a4f", "condition": {"pipe_role": "house_connection", "item": "connection point"}, "basis": {"flow": "any"}, "tag_note": "3.70 맨홀에만 연결"}
+{"row_key": "69be43d96741", "condition": {"pipe_role": "house_connection", "item": "connections per manhole"}, "basis": {"flow": "any"}, "tag_note": "3.70·3.71 맨홀당 통상 6개"}
+{"row_key": "6dfa112c241e", "condition": {"exception": "깊이 3 m 초과 시 청소·유지관리 가능한 치수"}, "basis": {"flow": "any"}, "tag_note": "3.32(c) access shaft 최소 750 mm"}
+{"row_key": "9c626a8eea11", "condition": {"depth_m": {"gt": 0.9}}, "basis": {"flow": "any"}, "tag_note": "3.34 'exceeding 0.9 m depth' → gt"}
+{"row_key": "eb13347f1765", "condition": {"pipe_role": "branch", "exception": "연장 계획 없는 지선 말단에만, 맨홀 대체 불가"}, "basis": {"flow": "any"}, "tag_note": "3.31 맨홀에서 50 m 이내"}
+{"row_key": "6293c81697ec", "condition": {"pipe_role": "inverted_siphon"}, "basis": {"flow": "any", "note": "값=최소관경 0.2 m; 같은 행의 자정속도 1.0 m/s는 최소유량 기준(3.17.7)"}, "tag_note": "3.17.5 관경 200 mm 이상 2열 — 값은 기하 규정. 동봉 유속 1.0 m/s는 min_flow 기준"}

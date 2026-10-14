@@ -1,0 +1,86 @@
+{"row_key": "09f16564dbcd", "condition": {"facility": "하수이송용 펌프장"}, "basis": {"flow": "any", "note": "정의문: 자연유하 곤란·매설심도 과대·처리장 자연유하 불가"}, "tag_note": "1 총설: 펌프장 설치 조건 3가지(수치 없음)"}
+{"row_key": "f6ffb75258fe", "condition": {"facility": "방류펌프장"}, "basis": {"flow": "any", "note": "방류구에서 자연유하 불가 시"}, "tag_note": "1 총설: 방류 펌프 설치 조건"}
+{"row_key": "8d4d938d95e5", "condition": {"system": "separate", "facility": "중계펌프장, 소규모펌프장, 유입·방류펌프장"}, "basis": {"flow": "design_peak_hourly", "horizon": "unspecified"}, "tag_note": "표 1.1.1 분류식 오수 펌프장"}
+{"row_key": "2262b4e00840", "condition": {"system": "storm", "facility": "빗물펌프장"}, "basis": {"flow": "design_storm", "horizon": "unspecified"}, "tag_note": "표 1.1.1 분류식 빗물펌프장"}
+{"row_key": "3990c48a023e", "condition": {"system": "combined", "facility": "중계펌프장, 소규모펌프장, 유입·방류펌프장"}, "basis": {"flow": "wet_weather", "horizon": "unspecified"}, "tag_note": "표 1.1.1 합류식 오수 펌프장"}
+{"row_key": "1b7fffeb6fd9", "condition": {"system": "combined", "facility": "빗물펌프장"}, "basis": {"flow": "combined_design", "horizon": "unspecified", "note": "합류식관로 계획하수량에서 우천시 계획오수량을 뺀 값 (어휘 공백: 차감 유량)"}, "tag_note": "표 1.1.1 합류식 빗물펌프장. flow 어휘에 '합류 계획하수량 - 우천시 계획오수량' 없음 → combined_design + note"}
+{"row_key": "fa51017785ad", "condition": {}, "basis": {"flow": "any"}, "tag_note": "1.3 (3) 캐비테이션·서어징·수충격 검토 의무"}
+{"row_key": "937d792cf0c9", "condition": {"item": "흡입수위", "wastewater_type": "domestic"}, "basis": {"flow": "design_daily_avg", "note": "유입관로 일평균 오수량 유입시 수위"}, "tag_note": "1.4 (1) 오수펌프 흡입수위"}
+{"row_key": "4e5882550c27", "condition": {"item": "흡입수위", "system": "storm"}, "basis": {"flow": "design_flow", "note": "유입관로 계획하수량 유입시 수위"}, "tag_note": "1.4 (2) 빗물펌프 흡입수위"}
+{"row_key": "73558ad929da", "condition": {"item": "최고배출수위", "facility": "빗물펌프장"}, "basis": {"flow": "any"}, "tag_note": "1.5 배출수위(정성)"}
+{"row_key": "cefb2b7ad3a1", "condition": {}, "basis": {"flow": "any"}, "tag_note": "2.1 침사 대상 입경"}
+{"row_key": "038bf0a968e8", "condition": {"system": "combined"}, "basis": {"flow": "wet_weather", "note": "약 3Q"}, "tag_note": "2.1 합류식 침사지 용량 = 우천시 계획오수량"}
+{"row_key": "6a2f804771a0", "condition": {"other": {"grit_type": "gravity"}}, "basis": {"flow": "any"}, "tag_note": "2.2.1 (1) 침사지 2지 이상"}
+{"row_key": "97bfd4dc5e67", "condition": {"other": {"grit_type": "gravity"}}, "basis": {"flow": "any"}, "tag_note": "2.2.1 (2) ③"}
+{"row_key": "6c57ba739db5", "condition": {"other": {"grit_type": "gravity"}}, "basis": {"flow": "unspecified", "note": "평균유속"}, "tag_note": "2.2.1 (3)"}
+{"row_key": "ebf132c95291", "condition": {"other": {"grit_type": "gravity"}}, "basis": {"flow": "unspecified"}, "tag_note": "2.2.1 (4)"}
+{"row_key": "5db856d6e933", "condition": {"other": {"grit_type": "gravity"}, "system": "separate"}, "basis": {"flow": "unspecified", "per": "area_day"}, "tag_note": "2.2.1 (6) 오수침사지"}
+{"row_key": "3d55b143613a", "condition": {"other": {"grit_type": "gravity"}, "system": "storm"}, "basis": {"flow": "unspecified", "per": "area_day"}, "tag_note": "2.2.1 (6) 우수침사지"}
+{"row_key": "29f4b177f519", "condition": {"other": {"grit_type": "aerated"}}, "basis": {"flow": "unspecified"}, "tag_note": "2.2.2 (3)"}
+{"row_key": "e32974f8cbef", "condition": {"other": {"grit_type": "aerated"}}, "basis": {"flow": "any"}, "tag_note": "2.2.2 (4)"}
+{"row_key": "8a6a6923cdd5", "condition": {"other": {"grit_type": "aerated"}}, "basis": {"flow": "unspecified", "note": "하수량 1 m3당"}, "tag_note": "2.2.2 (5)"}
+{"row_key": "d711da63c687", "condition": {"other": {"grit_type": "mechanical_integrated"}, "exception": "소규모 처리시설 1대 가능(바이패스관 필수)"}, "basis": {"flow": "any"}, "tag_note": "2.2.4 (1)"}
+{"row_key": "52fe629d89b3", "condition": {}, "basis": {"flow": "any"}, "tag_note": "2.4 (1)"}
+{"row_key": "92a103e06cf4", "condition": {}, "basis": {"flow": "any"}, "tag_note": "2.4 (2)"}
+{"row_key": "c51b9f461b0b", "condition": {}, "basis": {"flow": "none"}, "tag_note": "스크린 눈간격 수치 규정 없음"}
+{"row_key": "bfe8e7081ada", "condition": {}, "basis": {"flow": "unspecified"}, "tag_note": "3.1"}
+{"row_key": "0dca8ff73899", "condition": {}, "basis": {"flow": "any"}, "tag_note": "3.2 부관"}
+{"row_key": "e1cbe33577c2", "condition": {}, "basis": {"flow": "design_flow", "note": "계획오수량·계획우수량 각각"}, "tag_note": "4.1 (2) 대수 2~6, 예비기 규정 없음"}
+{"row_key": "6658102a8a77", "condition": {"facility": "소규모 하수처리시설"}, "basis": {"flow": "any"}, "tag_note": "4.1 (3)"}
+{"row_key": "af2fb9d21611", "condition": {"other": {"pump_type": "축류펌프", "min_pump_dia_mm": 400}}, "basis": {"flow": "any"}, "tag_note": "표 1.4.1 전양정별 펌프형식"}
+{"row_key": "e4cd1d6c36d0", "condition": {"other": {"pump_type": "사류펌프", "min_pump_dia_mm": 400}}, "basis": {"flow": "any"}, "tag_note": "표 1.4.1 전양정별 펌프형식"}
+{"row_key": "c9236f0f00d9", "condition": {"other": {"pump_type": "원심사류펌프", "min_pump_dia_mm": 300}}, "basis": {"flow": "any"}, "tag_note": "표 1.4.1 전양정별 펌프형식"}
+{"row_key": "4c2ba3d9995f", "condition": {"other": {"pump_type": "원심펌프", "min_pump_dia_mm": 80}}, "basis": {"flow": "any"}, "tag_note": "표 1.4.1 전양정별 펌프형식"}
+{"row_key": "e1f7b4d10dcf", "condition": {}, "basis": {"flow": "any"}, "tag_note": "4.2 (5) 참조표 누락"}
+{"row_key": "23a0e5260f6f", "condition": {}, "basis": {"flow": "any", "note": "Q=전체용량을 대수로 나눈 단위펌프용량"}, "tag_note": "식 1.4.1"}
+{"row_key": "7b0e2008c39d", "condition": {}, "basis": {"flow": "unspecified", "note": "단위펌프 토출량 기준"}, "tag_note": "4.3 (1)"}
+{"row_key": "215cd6d39d3c", "condition": {}, "basis": {"flow": "none"}, "tag_note": "토출유속 수치 없음"}
+{"row_key": "fc0b4b2ca5f6", "condition": {}, "basis": {"flow": "any"}, "tag_note": "식 1.4.2"}
+{"row_key": "1ba09a778cbb", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": "4.4 (1) 통합 압송관 최고점까지 손실"}
+{"row_key": "a30986a85b36", "condition": {}, "basis": {"flow": "any"}, "tag_note": "식 1.4.3"}
+{"row_key": "d8491bff7483", "condition": {}, "basis": {"flow": "any"}, "tag_note": "식 1.4.4"}
+{"row_key": "786e0521a890", "condition": {"other": {"pump_type": "원심펌프", "drive": "motor", "head_variation": "A"}}, "basis": {"flow": "any", "note": "축동력 Ps 대비 여유율"}, "tag_note": "표 1.4.2"}
+{"row_key": "9bccae19034c", "condition": {"other": {"pump_type": "원심펌프", "drive": "motor", "head_variation": "B"}}, "basis": {"flow": "any", "note": "축동력 Ps 대비 여유율"}, "tag_note": "표 1.4.2"}
+{"row_key": "47c699e5d2fa", "condition": {"other": {"pump_type": "원심펌프", "drive": "engine", "head_variation": "A"}}, "basis": {"flow": "any", "note": "축동력 Ps 대비 여유율"}, "tag_note": "표 1.4.2"}
+{"row_key": "6922b5fac36d", "condition": {"other": {"pump_type": "원심펌프", "drive": "engine", "head_variation": "B"}}, "basis": {"flow": "any", "note": "축동력 Ps 대비 여유율"}, "tag_note": "표 1.4.2"}
+{"row_key": "caeffa5ce9a9", "condition": {"other": {"pump_type": "사류펌프", "drive": "motor", "head_variation": "A"}}, "basis": {"flow": "any", "note": "축동력 Ps 대비 여유율"}, "tag_note": "표 1.4.2"}
+{"row_key": "5f13f3191d9f", "condition": {"other": {"pump_type": "사류펌프", "drive": "motor", "head_variation": "B"}}, "basis": {"flow": "any", "note": "축동력 Ps 대비 여유율"}, "tag_note": "표 1.4.2"}
+{"row_key": "715744ec6271", "condition": {"other": {"pump_type": "사류펌프", "drive": "engine", "head_variation": "A"}}, "basis": {"flow": "any", "note": "축동력 Ps 대비 여유율"}, "tag_note": "표 1.4.2"}
+{"row_key": "0ab567ef58b2", "condition": {"other": {"pump_type": "사류펌프", "drive": "engine", "head_variation": "B"}}, "basis": {"flow": "any", "note": "축동력 Ps 대비 여유율"}, "tag_note": "표 1.4.2"}
+{"row_key": "58d422f9cd8f", "condition": {"other": {"pump_type": "축류펌프", "drive": "motor", "head_variation": "A"}}, "basis": {"flow": "any", "note": "축동력 Ps 대비 여유율"}, "tag_note": "표 1.4.2"}
+{"row_key": "49cef75b6af3", "condition": {"other": {"pump_type": "축류펌프", "drive": "motor", "head_variation": "B"}}, "basis": {"flow": "any", "note": "축동력 Ps 대비 여유율"}, "tag_note": "표 1.4.2"}
+{"row_key": "e67beaef3e76", "condition": {"other": {"pump_type": "축류펌프", "drive": "engine", "head_variation": "A"}}, "basis": {"flow": "any", "note": "축동력 Ps 대비 여유율"}, "tag_note": "표 1.4.2"}
+{"row_key": "777f07c5b67c", "condition": {"other": {"pump_type": "축류펌프", "drive": "engine", "head_variation": "B"}}, "basis": {"flow": "any", "note": "축동력 Ps 대비 여유율"}, "tag_note": "표 1.4.2"}
+{"row_key": "bf86fc1e6e8a", "condition": {}, "basis": {"flow": "design_flow"}, "tag_note": "4.9 (10) 정성"}
+{"row_key": "c73ae6cb4cb5", "condition": {}, "basis": {"flow": "any"}, "tag_note": "4.9 (1)(2)"}
+{"row_key": "cca76580dedc", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": "4.10"}
+{"row_key": "e843265dff67", "condition": {}, "basis": {"flow": "any"}, "tag_note": "4.12 (1)-(3)"}
+{"row_key": "b4cfef85b51c", "condition": {}, "basis": {"flow": "any"}, "tag_note": "4.12 (5)"}
+{"row_key": "f526eee86170", "condition": {"facility": "소규모 펌프장"}, "basis": {"flow": "any"}, "tag_note": "9 (11) 시동간격 정성"}
+{"row_key": "bdf1c9fc2a56", "condition": {"other": {"engine_output_PS": {"lt": 30}}}, "basis": {"flow": "any"}, "tag_note": "표 1.7.1"}
+{"row_key": "e49e674d89d3", "condition": {"other": {"engine_output_PS": {"ge": 30}}}, "basis": {"flow": "any"}, "tag_note": "표 1.7.1"}
+{"row_key": "0e558e5f57e8", "condition": {}, "basis": {"flow": "any"}, "tag_note": "식 1.7.1"}
+{"row_key": "f02f04bab0e5", "condition": {}, "basis": {"flow": "any"}, "tag_note": "7.2"}
+{"row_key": "b344674149d5", "condition": {"facility": "소규모시설"}, "basis": {"flow": "any"}, "tag_note": "7.3 (6)"}
+{"row_key": "e0e1b0ebff06", "condition": {}, "basis": {"flow": "any"}, "tag_note": "7.5"}
+{"row_key": "1f5f1e083d84", "condition": {}, "basis": {"flow": "any"}, "tag_note": "9 (8)"}
+{"row_key": "b8e61738a55f", "condition": {}, "basis": {"flow": "any"}, "tag_note": "9 (10)"}
+{"row_key": "0d3efb9cf03a", "condition": {"other": {"residual_head_m": {"ge": 2}}, "flow_lps": {"ge": 200}}, "basis": {"flow": "any"}, "tag_note": "10 (4)"}
+{"row_key": "7d3c9dd4f0fc", "condition": {"facility": "하수이송용 펌프장"}, "basis": {"flow": "any"}, "tag_note": "11 악취"}
+{"row_key": "c172d2f67b5c", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": "17.2 (1) 자연유하와 비교"}
+{"row_key": "0d59dec82430", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": "17.2 (3)"}
+{"row_key": "373248a172da", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "17.2 (4)"}
+{"row_key": "bac075df3703", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "unspecified", "hydraulic_state": "full"}, "tag_note": "17.2 (4)"}
+{"row_key": "0c525f16f853", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "unspecified", "hydraulic_state": "full"}, "tag_note": "17.2 (4)"}
+{"row_key": "f903c407d997", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": "17.2 (5)"}
+{"row_key": "679c5f02cd10", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": "17.2 (6)"}
+{"row_key": "50693efcbf2d", "condition": {"pipe_role": "force_main", "sewer_type": "pressure_grinder_pump"}, "basis": {"flow": "design_flow", "note": "펌프 토출량 × 동시운전 대수 (어휘 공백: pump_discharge)"}, "tag_note": "17.4 (2) ② 가."}
+{"row_key": "915b0a7aaa76", "condition": {"pipe_role": "force_main", "sewer_type": "pressure_grinder_pump"}, "basis": {"flow": "any"}, "tag_note": "17.4 (2) ② 나."}
+{"row_key": "d217cc692e49", "condition": {"sewer_type": "pressure_grinder_pump"}, "basis": {"flow": "any"}, "tag_note": "17.4 GP 전양정"}
+{"row_key": "8d9471209ea1", "condition": {"sewer_type": "pressure_grinder_pump"}, "basis": {"flow": "any"}, "tag_note": "17.4 저수탱크"}
+{"row_key": "24dc59282faf", "condition": {"sewer_type": "pressure_grinder_pump"}, "basis": {"flow": "any"}, "tag_note": "17.4 수위 자동운전"}
+{"row_key": "99851e1bc778", "condition": {"sewer_type": "vacuum"}, "basis": {"flow": "any"}, "tag_note": "17.3 집수탱크"}
+{"row_key": "16361a01fb1d", "condition": {"sewer_type": "vacuum"}, "basis": {"flow": "design_flow", "note": "최고 진공도·최고 실양정 조건"}, "tag_note": "17.3 펌프 능력"}
+{"row_key": "cf1c7f931c08", "condition": {"pipe_role": "force_main", "material": "flexible"}, "basis": {"flow": "any"}, "tag_note": "4.3 (2) 압송관 기초"}
+{"row_key": "9d0abe16fb38", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "none"}, "tag_note": "최소관경 없음"}
+{"row_key": "1f0c45e9691b", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "none"}, "tag_note": "토피 없음"}

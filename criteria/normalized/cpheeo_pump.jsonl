@@ -1,0 +1,92 @@
+{"row_key": "338fa96ce45c", "condition": null, "basis": {"flow": "design_daily_avg", "per": "ratio_to_avg", "note": "pump capacity in multiples of DWF (dry weather flow)"}, "tag_note": "4.5.4 DWF 배수 — DWF 전용 basis 값 없음, design_daily_avg로 근사"}
+{"row_key": "f942c9d79ef8", "condition": {"other": {"station_size": "small"}}, "basis": {"flow": "design_daily_avg", "per": "ratio_to_avg", "note": "1 / 2 / 3 DWF"}, "tag_note": "4.5.4 소규모 3대 — station_size 키 없음(other)"}
+{"row_key": "7ce93495a421", "condition": {"other": {"station_size": "large"}}, "basis": {"flow": "design_daily_avg", "per": "ratio_to_avg", "note": "1/2, 1, 3 DWF incl. standby"}, "tag_note": "4.5.4 대규모 5대(예비 포함)"}
+{"row_key": "16b2911f9bd0", "condition": {"other": {"alternative": "pumps in multiples of DWF"}}, "basis": {"flow": "peak", "per": "ratio_to_peak_hourly", "note": "100% standby for peak flow"}, "tag_note": "4.5.4 대안: 첨두 대비 100% 예비"}
+{"row_key": "92d19d1c80e4", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "규정 없음"}
+{"row_key": "b4832e8e8e68", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "규정 없음"}
+{"row_key": "f49d3c292181", "condition": {"item": "ball passing size"}, "basis": {"flow": "any"}, "tag_note": "4.5.1 구 통과경 ≥ 80 mm"}
+{"row_key": "b6cfd34c0017", "condition": null, "basis": {"flow": "any"}, "tag_note": "4.5.1 부압 흡입 회피"}
+{"row_key": "f273efd74694", "condition": null, "basis": {"flow": "any"}, "tag_note": "4.8 NPSHa > NPSHr"}
+{"row_key": "c90306c8e132", "condition": null, "basis": {"flow": "any"}, "tag_note": "4.7.1 비속도 식"}
+{"row_key": "7e35ae883247", "condition": null, "basis": {"flow": "any"}, "tag_note": "4.1.2 습정 최소 2"}
+{"row_key": "d58431add133", "condition": null, "basis": {"flow": "any"}, "tag_note": "4.6 2조 각 50%"}
+{"row_key": "1fc44cd7930a", "condition": null, "basis": {"flow": "unspecified", "note": "Q = pumping rate (m3/min); V = T·Q/4"}, "tag_note": "4.6.6 식(4.1) — 펌프 양수율 basis 값 없음"}
+{"row_key": "0a5b8d8e7371", "condition": {"other": {"pump_capacity": "smaller"}}, "basis": {"flow": "unspecified", "note": "pump cycle time T"}, "tag_note": "4.6.6 T=10분(소용량)"}
+{"row_key": "a77e34e02ab0", "condition": null, "basis": {"flow": "unspecified", "note": "pump cycle time T"}, "tag_note": "4.6.6 T=15분 권장"}
+{"row_key": "986a504202a4", "condition": null, "basis": {"flow": "unspecified"}, "tag_note": "4.6.6 기동 ≤ 6회/h"}
+{"row_key": "e8034f8cfb97", "condition": {"other": {"per_pump": true}}, "basis": {"flow": "unspecified"}, "tag_note": "4.6.6 펌프 1대 기동 ≤ 3회/h"}
+{"row_key": "a21deb2e5a71", "condition": {"exception": "대형 펌프장 등 관저 아래 체적 확보 불가"}, "basis": {"flow": "any", "per": "ratio_to_design_flow", "note": "0.8 × sewer volume"}, "tag_note": "4.6.6 관거 저류 0.8배 산입 — 체적 비율 per 값 없음(근사)"}
+{"row_key": "2c144fe820ac", "condition": {"item": "suction level below incoming invert"}, "basis": {"flow": "any"}, "tag_note": "4.1.4 흡수위 = 유입관저 −0.5~1.0 m"}
+{"row_key": "b759361aa242", "condition": {"other": {"pump_type": "submersible"}}, "basis": {"flow": "any"}, "tag_note": "4.6·4.6.7 수중펌프 항상 잠김 — pump_type 키 없음"}
+{"row_key": "9ddaba0ec674", "condition": {"other": {"pump_type": "horizontal centrifugal, dry well"}}, "basis": {"flow": "any"}, "tag_note": "4.6.3 호퍼 1:1"}
+{"row_key": "8ef9fa4edb15", "condition": {"other": {"pump_type": "submersible / immersible"}}, "basis": {"flow": "any"}, "tag_note": "4.6.3 수중펌프 바닥 수평"}
+{"row_key": "849878595e29", "condition": null, "basis": {"flow": "unspecified", "hydraulic_state": "full"}, "tag_note": "4.7.2 총양정 4요소"}
+{"row_key": "3e8f516386f5", "condition": {"pipe_role": "force_main", "item": "Sudden contraction"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 4.2 Sudden contraction"}
+{"row_key": "f050a93d01b3", "condition": {"pipe_role": "force_main", "item": "Entrance shape well rounded"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 4.2 Entrance shape well rounded"}
+{"row_key": "6e43d4668f9d", "condition": {"pipe_role": "force_main", "item": "Elbow 90 degrees"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 4.2 Elbow 90 degrees"}
+{"row_key": "2d0b388561b2", "condition": {"pipe_role": "force_main", "item": "Elbow 45 degrees"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 4.2 Elbow 45 degrees"}
+{"row_key": "4f750aa4f2a2", "condition": {"pipe_role": "force_main", "item": "Elbow 22 degrees"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 4.2 Elbow 22 degrees"}
+{"row_key": "fb98694ce9fc", "condition": {"pipe_role": "force_main", "item": "Tee 90 degrees"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 4.2 Tee 90 degrees"}
+{"row_key": "e5d005b5f507", "condition": {"pipe_role": "force_main", "item": "Tee in straight pipe"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 4.2 Tee in straight pipe"}
+{"row_key": "fd6ad9be871f", "condition": {"pipe_role": "force_main", "item": "Gate valve open"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 4.2 Gate valve open"}
+{"row_key": "ad6980f39f68", "condition": {"pipe_role": "force_main", "item": "Valve with reducer and increaser"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 4.2 Valve with reducer and increaser"}
+{"row_key": "2d21f5899639", "condition": {"pipe_role": "force_main", "item": "Globe valve"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 4.2 Globe valve"}
+{"row_key": "254f1958d596", "condition": {"pipe_role": "force_main", "item": "Angle"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 4.2 Angle"}
+{"row_key": "71d648e9910a", "condition": {"pipe_role": "force_main", "item": "Swing check"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 4.2 Swing check"}
+{"row_key": "befb0dfed1e2", "condition": {"pipe_role": "force_main", "item": "Venturi meter"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 4.2 Venturi meter"}
+{"row_key": "f1c4fdda7373", "condition": {"pipe_role": "force_main", "item": "Orifice"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 4.2 Orifice"}
+{"row_key": "058634fa9d21", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "peak", "horizon": "unspecified", "hydraulic_state": "full", "note": "유량 조건 원문 미명시"}, "tag_note": "4.1.5 동수경사선 여유 ≥ 1 m"}
+{"row_key": "03c59ced10b3", "condition": {"pipe_role": "force_main", "other": {"main": "relay / injection"}}, "basis": {"flow": "peak", "hydraulic_state": "full"}, "tag_note": "4.20.4 중계·주입 압송관 HGL ≥ GL+2 m"}
+{"row_key": "5bea590e5caf", "condition": {"other": {"pump_type": "Horizontal foot mounted centrifugal pump sets"}}, "basis": {"flow": "any"}, "tag_note": "Table 4.3 Horizontal foot mounted centrifugal pump sets"}
+{"row_key": "08ff8b53a5ae", "condition": {"other": {"pump_type": "Vertical shaft centrifugal pump sets"}}, "basis": {"flow": "any"}, "tag_note": "Table 4.3 Vertical shaft centrifugal pump sets"}
+{"row_key": "530cdd53ac16", "condition": {"other": {"pump_type": "Submersible pump sets"}}, "basis": {"flow": "any"}, "tag_note": "Table 4.3 Submersible pump sets"}
+{"row_key": "06fcc0b7baee", "condition": {"other": {"pump_type": "Positive displacement pump sets"}}, "basis": {"flow": "any"}, "tag_note": "Table 4.3 Positive displacement pump sets"}
+{"row_key": "464e14d64b4d", "condition": null, "basis": {"flow": "unspecified"}, "tag_note": "4.20.2 식(4.3)"}
+{"row_key": "e9e79c717a32", "condition": null, "basis": {"flow": "any"}, "tag_note": "4.20.2 모터효율 0.9"}
+{"row_key": "91c2b3c3f812", "condition": null, "basis": {"flow": "any"}, "tag_note": "4.19 기초 하중"}
+{"row_key": "943ccd2b6351", "condition": null, "basis": {"flow": "any"}, "tag_note": "4.1.6 전용 배전선"}
+{"row_key": "52b4134bb414", "condition": {"other": {"station_size": "large"}}, "basis": {"flow": "any"}, "tag_note": "4.1.6 대형: 독립 배전선 2회선"}
+{"row_key": "a162a77b8572", "condition": {"other": {"dwf_m3d": {"lt": 1000}}}, "basis": {"flow": "design_daily_avg", "note": "DWF < 1 MLD"}, "tag_note": "4.1.6 1 MLD 미만 일반 배전 허용 — 유량 조건 키는 L/s(flow_lps)만 있음"}
+{"row_key": "60f070a0af86", "condition": {"other": {"station": "intermediate lift station"}}, "basis": {"flow": "any"}, "tag_note": "4.18 중계펌프장 전용 배전"}
+{"row_key": "48ad5c586b9e", "condition": null, "basis": {"flow": "any"}, "tag_note": "4.1.2 부지 배수펌프 100% 예비"}
+{"row_key": "f25ca931b7de", "condition": null, "basis": {"flow": "any"}, "tag_note": "4.1.2 100년 홍수"}
+{"row_key": "8b4a20d850b7", "condition": {"other": {"reference": "100-yr flood level"}}, "basis": {"flow": "any"}, "tag_note": "4.1.2 기단 +0.45 m"}
+{"row_key": "c41f9f82af63", "condition": null, "basis": {"flow": "any"}, "tag_note": "4.6.5 환기 ≥ 10회/h"}
+{"row_key": "5ef18efbd8cd", "condition": null, "basis": {"flow": "any"}, "tag_note": "4.3 기계실 층고"}
+{"row_key": "24a650cb4910", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "스크린 간격 규정 없음"}
+{"row_key": "ffa40951d21e", "condition": {"item": "screen channel upstream length"}, "basis": {"flow": "any"}, "tag_note": "4.2.2 상류 직선부 ≥ 3W"}
+{"row_key": "b7145b42f8a4", "condition": {"item": "screen channel downstream length"}, "basis": {"flow": "any"}, "tag_note": "4.2.2 하류 직선부 ≥ 2W"}
+{"row_key": "2f4bf2f1962f", "condition": null, "basis": {"flow": "any"}, "tag_note": "4.2.4 그릿 함몰부"}
+{"row_key": "7979e6dc3269", "condition": null, "basis": {"flow": "any"}, "tag_note": "4.2.4 그릿 배출 10분"}
+{"row_key": "e74119035796", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "peak", "horizon": "both", "hydraulic_state": "full", "note": "low & peak flows, 10-year segments over 30 years"}, "tag_note": "4.20 저·평균·첨두 — 초기~목표 10년 단위"}
+{"row_key": "1bf93f0d37bf", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "min_flow", "horizon": "both", "hydraulic_state": "full"}, "tag_note": "4.20.3 저유량 ≥ 1 m/s"}
+{"row_key": "a670af767ecf", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any", "horizon": "both", "hydraulic_state": "full", "note": "at any time"}, "tag_note": "4.20.3 언제나 ≥ 0.8 m/s"}
+{"row_key": "9d7eb49fc797", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any", "horizon": "both", "hydraulic_state": "full", "note": "at any time"}, "tag_note": "4.20.3 언제나 ≤ 3 m/s"}
+{"row_key": "6f85528e20b8", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "peak", "horizon": "both", "hydraulic_state": "full"}, "tag_note": "4.20.3 첨두 ≤ 3 m/s"}
+{"row_key": "0d766617e944", "condition": {"pipe_role": "force_main", "other": {"rule": "rule of thumb"}}, "basis": {"flow": "peak", "horizon": "both", "hydraulic_state": "full"}, "tag_note": "4.20.3 첨두 ≤ 2.7 m/s (경험칙)"}
+{"row_key": "e528756a3364", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "unspecified", "hydraulic_state": "full"}, "tag_note": "4.20.3 US EPA 인용 범위"}
+{"row_key": "73c80e4acf85", "condition": {"pipe_role": "force_main", "other": {"length_m": {"lt": 600}, "static_lift_m": {"lt": 10}}}, "basis": {"flow": "unspecified", "hydraulic_state": "full"}, "tag_note": "4.20.3 단거리·저양정 — 관로 연장·양정 조건 키 없음"}
+{"row_key": "cff93bb913d3", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "규정 없음"}
+{"row_key": "83d526107a37", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "4.20.1 Hazen-Williams"}
+{"row_key": "2fdb58bb92c2", "condition": {"pipe_role": "force_main", "material": ["ci_di"], "lining": "unlined"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 3.14 설계 C 100"}
+{"row_key": "3dd955b4633d", "condition": {"pipe_role": "force_main", "material": ["steel"], "lining": "unlined"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 3.14 설계 C 100"}
+{"row_key": "3f32d661aa80", "condition": {"pipe_role": "force_main", "material": ["ci_di", "steel"], "lining": "centrifugally lined cement mortar / epoxy", "dia_mm": {"le": 1200}, "dia_basis": "nominal_mm"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 3.14 설계 C 140"}
+{"row_key": "61512e6f244a", "condition": {"pipe_role": "force_main", "material": ["ci_di", "steel"], "lining": "centrifugally lined cement mortar / epoxy", "dia_mm": {"gt": 1200}, "dia_basis": "nominal_mm"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 3.14 설계 C 145"}
+{"row_key": "7a695fca871c", "condition": {"pipe_role": "force_main", "material": ["ci_di", "steel"], "lining": "projection method cement mortar"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 3.14 설계 C 110"}
+{"row_key": "64b2a57f6dc0", "condition": {"pipe_role": "force_main", "material": ["rc"], "dia_mm": {"le": 1200}, "dia_basis": "nominal_mm"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 3.14 설계 C 140"}
+{"row_key": "0352d7ab0849", "condition": {"pipe_role": "force_main", "material": ["rc"], "dia_mm": {"gt": 1200}, "dia_basis": "nominal_mm"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 3.14 설계 C 145"}
+{"row_key": "d1064d9bcda0", "condition": {"pipe_role": "force_main", "material": ["concrete"], "dia_mm": {"le": 1200}, "dia_basis": "nominal_mm"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 3.14 설계 C 140"}
+{"row_key": "f75f9fe35a40", "condition": {"pipe_role": "force_main", "material": ["concrete"], "dia_mm": {"gt": 1200}, "dia_basis": "nominal_mm"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 3.14 설계 C 145"}
+{"row_key": "0506f6f8316d", "condition": {"pipe_role": "force_main", "material": ["ac"]}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 3.14 설계 C 140"}
+{"row_key": "84f295748bf1", "condition": {"pipe_role": "force_main", "material": ["hdpe", "pvc", "grp", "frp"]}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 3.14 설계 C 140"}
+{"row_key": "760bdb763913", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": "Table 3.14 주: 하수 C=140"}
+{"row_key": "34c7ccf51eae", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": "4.12.1 공기·진공밸브"}
+{"row_key": "73e60edd8663", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any"}, "tag_note": "4.12.2 배수 연결"}
+{"row_key": "4060232d6300", "condition": null, "basis": {"flow": "none", "note": "규정 없음"}, "tag_note": "규정 없음(예시 1 m)"}
+{"row_key": "9c7387526922", "condition": {"pipe_role": "force_main", "material": ["ci_di", "rc"]}, "basis": {"flow": "any"}, "tag_note": "4.11 DI>CI>RCC, MS 비권장"}
+{"row_key": "922b7ec11f00", "condition": {"pipe_role": "force_main", "material": "rc"}, "basis": {"flow": "any"}, "tag_note": "4.11 RCC 희생 콘크리트 15~20 mm"}
+{"row_key": "4931ce4450b2", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any", "note": "water hammer / transient"}, "tag_note": "4.10 수격 안전율 1.5 — 과도 basis 값 없음"}
+{"row_key": "58688a4fca70", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any", "note": "transient"}, "tag_note": "4.10 서지해석 기준 25%"}
+{"row_key": "0ea8b34b03e9", "condition": null, "basis": {"flow": "unspecified"}, "tag_note": "4.4 악취 — 체류시간 없음"}
+{"row_key": "37bdd06e1c3a", "condition": null, "basis": {"flow": "any"}, "tag_note": "4.1 펌프장 필요 조건"}
+{"row_key": "d5e36f53dbb1", "condition": {"depth_m": {"gt": 3}, "other": {"terrain": "high water table / rocky"}}, "basis": {"flow": "any"}, "tag_note": "4.18 굴착 >약 3 m 지하수·암반 → 중계펌프장"}

@@ -1,0 +1,1427 @@
+{
+ "KR": {
+  "summary": {
+   "total_len_m": 2466,
+   "max_dia": 400,
+   "outfall_depth_m": 1.4,
+   "max_depth_m": 2.22,
+   "depth_x_len_m2": 3556,
+   "extra_manholes": 22,
+   "drops": 10,
+   "flushing_devices": 0,
+   "warnings": 0
+  },
+  "links": {
+   "A00-A01": {
+    "dia": 200,
+    "S": 0.0311111,
+    "inv_up": 53.79,
+    "inv_dn": 50.99,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "A01-A02": {
+    "dia": 200,
+    "S": 0.0311111,
+    "inv_up": 50.99,
+    "inv_dn": 48.19,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "A02-A03": {
+    "dia": 200,
+    "S": 0.0311111,
+    "inv_up": 48.09,
+    "inv_dn": 45.29,
+    "extra_mh": 1,
+    "drop": 0.1,
+    "flush": false,
+    "warn": false
+   },
+   "A03-A04": {
+    "dia": 200,
+    "S": 0.0311111,
+    "inv_up": 44.2789,
+    "inv_dn": 41.79,
+    "extra_mh": 1,
+    "drop": 1.0111,
+    "flush": false,
+    "warn": false
+   },
+   "A04-T03": {
+    "dia": 200,
+    "S": 0.0311111,
+    "inv_up": 41.2567,
+    "inv_dn": 39.39,
+    "extra_mh": 0,
+    "drop": 0.5333,
+    "flush": false,
+    "warn": false
+   },
+   "B00-B01": {
+    "dia": 200,
+    "S": 0.0022159,
+    "inv_up": 39.54,
+    "inv_dn": 39.2963,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B01-B02": {
+    "dia": 200,
+    "S": 0.0022159,
+    "inv_up": 39.2963,
+    "inv_dn": 39.0525,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B02-B03": {
+    "dia": 200,
+    "S": 0.0022159,
+    "inv_up": 39.0525,
+    "inv_dn": 38.8088,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B03-B04": {
+    "dia": 200,
+    "S": 0.0022159,
+    "inv_up": 38.8088,
+    "inv_dn": 38.6093,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B04-B05": {
+    "dia": 200,
+    "S": 0.0022159,
+    "inv_up": 38.6093,
+    "inv_dn": 38.4321,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B05-T06": {
+    "dia": 200,
+    "S": 0.0022159,
+    "inv_up": 38.4321,
+    "inv_dn": 38.3102,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C00-C01": {
+    "dia": 200,
+    "S": 0.0088889,
+    "inv_up": 40.59,
+    "inv_dn": 39.79,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C01-C02": {
+    "dia": 200,
+    "S": 0.0088889,
+    "inv_up": 39.79,
+    "inv_dn": 38.99,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C02-C03": {
+    "dia": 200,
+    "S": 0.008,
+    "inv_up": 38.99,
+    "inv_dn": 38.39,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C03-T09": {
+    "dia": 200,
+    "S": 0.008,
+    "inv_up": 38.25,
+    "inv_dn": 37.89,
+    "extra_mh": 0,
+    "drop": 0.14,
+    "flush": false,
+    "warn": false
+   },
+   "T00-T01": {
+    "dia": 200,
+    "S": 0.005,
+    "inv_up": 40.79,
+    "inv_dn": 40.49,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T01-T02": {
+    "dia": 200,
+    "S": 0.005,
+    "inv_up": 40.3908,
+    "inv_dn": 39.99,
+    "extra_mh": 1,
+    "drop": 0.0992,
+    "flush": false,
+    "warn": false
+   },
+   "T02-T03": {
+    "dia": 200,
+    "S": 0.005,
+    "inv_up": 39.8407,
+    "inv_dn": 39.39,
+    "extra_mh": 1,
+    "drop": 0.1493,
+    "flush": false,
+    "warn": false
+   },
+   "T03-T04": {
+    "dia": 200,
+    "S": 0.004,
+    "inv_up": 39.39,
+    "inv_dn": 38.99,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T04-T05": {
+    "dia": 200,
+    "S": 0.0022159,
+    "inv_up": 38.99,
+    "inv_dn": 38.7893,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T05-T06": {
+    "dia": 250,
+    "S": 0.0016927,
+    "inv_up": 38.7423,
+    "inv_dn": 38.539,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T06-T07": {
+    "dia": 300,
+    "S": 0.0013472,
+    "inv_up": 38.2152,
+    "inv_dn": 38.0805,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T07-T08": {
+    "dia": 300,
+    "S": 0.0013472,
+    "inv_up": 38.0805,
+    "inv_dn": 37.9187,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T08-T09": {
+    "dia": 400,
+    "S": 0.0012367,
+    "inv_up": 37.8267,
+    "inv_dn": 37.703,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T09-T10": {
+    "dia": 400,
+    "S": 0.0012367,
+    "inv_up": 37.2515,
+    "inv_dn": 37.103,
+    "extra_mh": 1,
+    "drop": 0.4515,
+    "flush": false,
+    "warn": false
+   },
+   "T10-T11": {
+    "dia": 400,
+    "S": 0.0012367,
+    "inv_up": 36.7019,
+    "inv_dn": 36.603,
+    "extra_mh": 1,
+    "drop": 0.4011,
+    "flush": false,
+    "warn": false
+   },
+   "T11-T12": {
+    "dia": 400,
+    "S": 0.0012367,
+    "inv_up": 35.9763,
+    "inv_dn": 35.803,
+    "extra_mh": 1,
+    "drop": 0.6267,
+    "flush": false,
+    "warn": false
+   }
+  }
+ },
+ "US": {
+  "summary": {
+   "total_len_m": 2466,
+   "max_dia": 450,
+   "outfall_depth_m": 1.37,
+   "max_depth_m": 2.73,
+   "depth_x_len_m2": 4033,
+   "extra_manholes": 1,
+   "drops": 0,
+   "flushing_devices": 0,
+   "warnings": 0
+  },
+  "links": {
+   "A00-A01": {
+    "dia": 200,
+    "S": 0.0311111,
+    "inv_up": 53.7988,
+    "inv_dn": 50.9988,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "A01-A02": {
+    "dia": 200,
+    "S": 0.0311111,
+    "inv_up": 50.9988,
+    "inv_dn": 48.1988,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "A02-A03": {
+    "dia": 200,
+    "S": 0.0322222,
+    "inv_up": 48.1988,
+    "inv_dn": 45.2988,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "A03-A04": {
+    "dia": 200,
+    "S": 0.04375,
+    "inv_up": 45.2988,
+    "inv_dn": 41.7988,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "A04-T03": {
+    "dia": 200,
+    "S": 0.04,
+    "inv_up": 41.7988,
+    "inv_dn": 39.3988,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B00-B01": {
+    "dia": 200,
+    "S": 0.004,
+    "inv_up": 39.5488,
+    "inv_dn": 39.1088,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B01-B02": {
+    "dia": 200,
+    "S": 0.004,
+    "inv_up": 39.1088,
+    "inv_dn": 38.6688,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B02-B03": {
+    "dia": 200,
+    "S": 0.004,
+    "inv_up": 38.6688,
+    "inv_dn": 38.2288,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B03-B04": {
+    "dia": 200,
+    "S": 0.004,
+    "inv_up": 38.2288,
+    "inv_dn": 37.8688,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B04-B05": {
+    "dia": 250,
+    "S": 0.0028,
+    "inv_up": 37.8286,
+    "inv_dn": 37.6046,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B05-T06": {
+    "dia": 250,
+    "S": 0.0028,
+    "inv_up": 37.6046,
+    "inv_dn": 37.4506,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C00-C01": {
+    "dia": 200,
+    "S": 0.0088889,
+    "inv_up": 40.5988,
+    "inv_dn": 39.7988,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C01-C02": {
+    "dia": 200,
+    "S": 0.0088889,
+    "inv_up": 39.7988,
+    "inv_dn": 38.9988,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C02-C03": {
+    "dia": 200,
+    "S": 0.008,
+    "inv_up": 38.9988,
+    "inv_dn": 38.3988,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C03-T09": {
+    "dia": 200,
+    "S": 0.0111111,
+    "inv_up": 38.3988,
+    "inv_dn": 37.8988,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T00-T01": {
+    "dia": 200,
+    "S": 0.005,
+    "inv_up": 40.7988,
+    "inv_dn": 40.4988,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T01-T02": {
+    "dia": 200,
+    "S": 0.0062378,
+    "inv_up": 40.4988,
+    "inv_dn": 39.9988,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T02-T03": {
+    "dia": 200,
+    "S": 0.0066564,
+    "inv_up": 39.9988,
+    "inv_dn": 39.3988,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T03-T04": {
+    "dia": 250,
+    "S": 0.004,
+    "inv_up": 39.3485,
+    "inv_dn": 38.9485,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T04-T05": {
+    "dia": 300,
+    "S": 0.0022,
+    "inv_up": 38.9008,
+    "inv_dn": 38.7016,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T05-T06": {
+    "dia": 375,
+    "S": 0.001523,
+    "inv_up": 38.6478,
+    "inv_dn": 38.4649,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T06-T07": {
+    "dia": 450,
+    "S": 0.0012,
+    "inv_up": 37.292,
+    "inv_dn": 37.172,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T07-T08": {
+    "dia": 450,
+    "S": 0.0012,
+    "inv_up": 37.172,
+    "inv_dn": 37.0279,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T08-T09": {
+    "dia": 450,
+    "S": 0.0012,
+    "inv_up": 37.0279,
+    "inv_dn": 36.9079,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T09-T10": {
+    "dia": 450,
+    "S": 0.0012,
+    "inv_up": 36.9079,
+    "inv_dn": 36.7638,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T10-T11": {
+    "dia": 450,
+    "S": 0.0026681,
+    "inv_up": 36.7638,
+    "inv_dn": 36.5503,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T11-T12": {
+    "dia": 375,
+    "S": 0.0055917,
+    "inv_up": 36.6169,
+    "inv_dn": 35.8336,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   }
+  }
+ },
+ "JP": {
+  "summary": {
+   "total_len_m": 2466,
+   "max_dia": 400,
+   "outfall_depth_m": 2.19,
+   "max_depth_m": 2.86,
+   "depth_x_len_m2": 4322,
+   "extra_manholes": 30,
+   "drops": 12,
+   "flushing_devices": 0,
+   "warnings": 0
+  },
+  "links": {
+   "A00-A01": {
+    "dia": 250,
+    "S": 0.0311111,
+    "inv_up": 53.5498,
+    "inv_dn": 50.7498,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "A01-A02": {
+    "dia": 250,
+    "S": 0.0311111,
+    "inv_up": 50.7498,
+    "inv_dn": 47.9498,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "A02-A03": {
+    "dia": 250,
+    "S": 0.0311111,
+    "inv_up": 47.8498,
+    "inv_dn": 45.0498,
+    "extra_mh": 1,
+    "drop": 0.1,
+    "flush": false,
+    "warn": false
+   },
+   "A03-A04": {
+    "dia": 250,
+    "S": 0.0311111,
+    "inv_up": 44.0387,
+    "inv_dn": 41.5498,
+    "extra_mh": 1,
+    "drop": 1.0111,
+    "flush": false,
+    "warn": false
+   },
+   "A04-T03": {
+    "dia": 250,
+    "S": 0.0311111,
+    "inv_up": 41.0165,
+    "inv_dn": 39.1498,
+    "extra_mh": 1,
+    "drop": 0.5333,
+    "flush": false,
+    "warn": false
+   },
+   "B00-B01": {
+    "dia": 250,
+    "S": 0.0014499,
+    "inv_up": 39.2998,
+    "inv_dn": 39.1403,
+    "extra_mh": 2,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B01-B02": {
+    "dia": 250,
+    "S": 0.0014499,
+    "inv_up": 39.1403,
+    "inv_dn": 38.9808,
+    "extra_mh": 2,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B02-B03": {
+    "dia": 250,
+    "S": 0.0014499,
+    "inv_up": 38.9808,
+    "inv_dn": 38.8213,
+    "extra_mh": 2,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B03-B04": {
+    "dia": 250,
+    "S": 0.0014499,
+    "inv_up": 38.8213,
+    "inv_dn": 38.6908,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B04-B05": {
+    "dia": 250,
+    "S": 0.0014499,
+    "inv_up": 38.6908,
+    "inv_dn": 38.5749,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B05-T06": {
+    "dia": 250,
+    "S": 0.0014499,
+    "inv_up": 38.5749,
+    "inv_dn": 38.4951,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C00-C01": {
+    "dia": 250,
+    "S": 0.0088889,
+    "inv_up": 40.3498,
+    "inv_dn": 39.5498,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C01-C02": {
+    "dia": 250,
+    "S": 0.0088889,
+    "inv_up": 39.5498,
+    "inv_dn": 38.7498,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C02-C03": {
+    "dia": 250,
+    "S": 0.008,
+    "inv_up": 38.7498,
+    "inv_dn": 38.1498,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C03-T09": {
+    "dia": 250,
+    "S": 0.008,
+    "inv_up": 38.0098,
+    "inv_dn": 37.6498,
+    "extra_mh": 0,
+    "drop": 0.14,
+    "flush": false,
+    "warn": false
+   },
+   "T00-T01": {
+    "dia": 250,
+    "S": 0.005,
+    "inv_up": 40.5498,
+    "inv_dn": 40.2498,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T01-T02": {
+    "dia": 250,
+    "S": 0.005,
+    "inv_up": 40.1506,
+    "inv_dn": 39.7498,
+    "extra_mh": 1,
+    "drop": 0.0992,
+    "flush": false,
+    "warn": false
+   },
+   "T02-T03": {
+    "dia": 250,
+    "S": 0.005,
+    "inv_up": 39.6005,
+    "inv_dn": 39.1498,
+    "extra_mh": 1,
+    "drop": 0.1493,
+    "flush": false,
+    "warn": false
+   },
+   "T03-T04": {
+    "dia": 250,
+    "S": 0.004,
+    "inv_up": 39.1498,
+    "inv_dn": 38.7498,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T04-T05": {
+    "dia": 250,
+    "S": 0.0016565,
+    "inv_up": 38.7498,
+    "inv_dn": 38.5998,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T05-T06": {
+    "dia": 300,
+    "S": 0.0011474,
+    "inv_up": 38.5518,
+    "inv_dn": 38.414,
+    "extra_mh": 2,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T06-T07": {
+    "dia": 350,
+    "S": 0.0009353,
+    "inv_up": 37.8024,
+    "inv_dn": 37.7089,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T07-T08": {
+    "dia": 400,
+    "S": 0.0009353,
+    "inv_up": 37.5175,
+    "inv_dn": 37.4052,
+    "extra_mh": 1,
+    "drop": 0.1441,
+    "flush": false,
+    "warn": false
+   },
+   "T08-T09": {
+    "dia": 400,
+    "S": 0.0009353,
+    "inv_up": 36.9987,
+    "inv_dn": 36.9052,
+    "extra_mh": 1,
+    "drop": 0.4065,
+    "flush": false,
+    "warn": false
+   },
+   "T09-T10": {
+    "dia": 400,
+    "S": 0.0009353,
+    "inv_up": 36.4175,
+    "inv_dn": 36.3052,
+    "extra_mh": 1,
+    "drop": 0.4877,
+    "flush": false,
+    "warn": false
+   },
+   "T10-T11": {
+    "dia": 400,
+    "S": 0.0009353,
+    "inv_up": 35.88,
+    "inv_dn": 35.8052,
+    "extra_mh": 1,
+    "drop": 0.4252,
+    "flush": false,
+    "warn": false
+   },
+   "T11-T12": {
+    "dia": 400,
+    "S": 0.0009353,
+    "inv_up": 35.1362,
+    "inv_dn": 35.0052,
+    "extra_mh": 1,
+    "drop": 0.669,
+    "flush": false,
+    "warn": false
+   }
+  }
+ },
+ "IN": {
+  "summary": {
+   "total_len_m": 2466,
+   "max_dia": 250,
+   "outfall_depth_m": 3.25,
+   "max_depth_m": 4.25,
+   "depth_x_len_m2": 5578,
+   "extra_manholes": 66,
+   "drops": 0,
+   "flushing_devices": 14,
+   "warnings": 0
+  },
+  "links": {
+   "A00-A01": {
+    "dia": 160,
+    "S": 0.0311111,
+    "inv_up": 53.848,
+    "inv_dn": 51.048,
+    "extra_mh": 2,
+    "drop": 0.0,
+    "flush": true,
+    "warn": false
+   },
+   "A01-A02": {
+    "dia": 160,
+    "S": 0.0311111,
+    "inv_up": 51.048,
+    "inv_dn": 48.248,
+    "extra_mh": 2,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "A02-A03": {
+    "dia": 160,
+    "S": 0.0322222,
+    "inv_up": 48.248,
+    "inv_dn": 45.348,
+    "extra_mh": 2,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "A03-A04": {
+    "dia": 160,
+    "S": 0.04375,
+    "inv_up": 45.348,
+    "inv_dn": 41.848,
+    "extra_mh": 2,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "A04-T03": {
+    "dia": 160,
+    "S": 0.04,
+    "inv_up": 41.848,
+    "inv_dn": 39.448,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B00-B01": {
+    "dia": 160,
+    "S": 0.006,
+    "inv_up": 39.598,
+    "inv_dn": 38.938,
+    "extra_mh": 3,
+    "drop": 0.0,
+    "flush": true,
+    "warn": false
+   },
+   "B01-B02": {
+    "dia": 160,
+    "S": 0.006,
+    "inv_up": 38.938,
+    "inv_dn": 38.278,
+    "extra_mh": 3,
+    "drop": 0.0,
+    "flush": true,
+    "warn": false
+   },
+   "B02-B03": {
+    "dia": 160,
+    "S": 0.006,
+    "inv_up": 38.278,
+    "inv_dn": 37.618,
+    "extra_mh": 3,
+    "drop": 0.0,
+    "flush": true,
+    "warn": false
+   },
+   "B03-B04": {
+    "dia": 160,
+    "S": 0.006,
+    "inv_up": 37.618,
+    "inv_dn": 37.078,
+    "extra_mh": 2,
+    "drop": 0.0,
+    "flush": true,
+    "warn": false
+   },
+   "B04-B05": {
+    "dia": 160,
+    "S": 0.006,
+    "inv_up": 37.078,
+    "inv_dn": 36.598,
+    "extra_mh": 2,
+    "drop": 0.0,
+    "flush": true,
+    "warn": false
+   },
+   "B05-T06": {
+    "dia": 160,
+    "S": 0.006,
+    "inv_up": 36.598,
+    "inv_dn": 36.268,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": true,
+    "warn": false
+   },
+   "C00-C01": {
+    "dia": 160,
+    "S": 0.0088889,
+    "inv_up": 40.648,
+    "inv_dn": 39.848,
+    "extra_mh": 2,
+    "drop": 0.0,
+    "flush": true,
+    "warn": false
+   },
+   "C01-C02": {
+    "dia": 160,
+    "S": 0.0088889,
+    "inv_up": 39.848,
+    "inv_dn": 39.048,
+    "extra_mh": 2,
+    "drop": 0.0,
+    "flush": true,
+    "warn": false
+   },
+   "C02-C03": {
+    "dia": 160,
+    "S": 0.008,
+    "inv_up": 39.048,
+    "inv_dn": 38.448,
+    "extra_mh": 2,
+    "drop": 0.0,
+    "flush": true,
+    "warn": false
+   },
+   "C03-T09": {
+    "dia": 160,
+    "S": 0.0111111,
+    "inv_up": 38.448,
+    "inv_dn": 37.948,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": true,
+    "warn": false
+   },
+   "T00-T01": {
+    "dia": 160,
+    "S": 0.006,
+    "inv_up": 40.848,
+    "inv_dn": 40.488,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": true,
+    "warn": false
+   },
+   "T01-T02": {
+    "dia": 160,
+    "S": 0.006,
+    "inv_up": 40.488,
+    "inv_dn": 40.0071,
+    "extra_mh": 2,
+    "drop": 0.0,
+    "flush": true,
+    "warn": false
+   },
+   "T02-T03": {
+    "dia": 160,
+    "S": 0.0062023,
+    "inv_up": 40.0071,
+    "inv_dn": 39.448,
+    "extra_mh": 3,
+    "drop": 0.0,
+    "flush": true,
+    "warn": false
+   },
+   "T03-T04": {
+    "dia": 160,
+    "S": 0.006,
+    "inv_up": 39.448,
+    "inv_dn": 38.848,
+    "extra_mh": 3,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T04-T05": {
+    "dia": 160,
+    "S": 0.006,
+    "inv_up": 38.848,
+    "inv_dn": 38.3047,
+    "extra_mh": 3,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T05-T06": {
+    "dia": 160,
+    "S": 0.006,
+    "inv_up": 38.3047,
+    "inv_dn": 37.5841,
+    "extra_mh": 4,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T06-T07": {
+    "dia": 200,
+    "S": 0.004,
+    "inv_up": 36.2298,
+    "inv_dn": 35.8298,
+    "extra_mh": 3,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T07-T08": {
+    "dia": 200,
+    "S": 0.004,
+    "inv_up": 35.8298,
+    "inv_dn": 35.3494,
+    "extra_mh": 4,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T08-T09": {
+    "dia": 200,
+    "S": 0.004,
+    "inv_up": 35.3494,
+    "inv_dn": 34.9494,
+    "extra_mh": 3,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T09-T10": {
+    "dia": 250,
+    "S": 0.0028,
+    "inv_up": 34.902,
+    "inv_dn": 34.5657,
+    "extra_mh": 4,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T10-T11": {
+    "dia": 250,
+    "S": 0.0028,
+    "inv_up": 34.5657,
+    "inv_dn": 34.3417,
+    "extra_mh": 2,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T11-T12": {
+    "dia": 250,
+    "S": 0.0028,
+    "inv_up": 34.3417,
+    "inv_dn": 33.9494,
+    "extra_mh": 4,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   }
+  }
+ },
+ "CO": {
+  "summary": {
+   "total_len_m": 2466,
+   "max_dia": 315,
+   "outfall_depth_m": 1.57,
+   "max_depth_m": 3.28,
+   "depth_x_len_m2": 4921,
+   "extra_manholes": 4,
+   "drops": 0,
+   "flushing_devices": 0,
+   "warnings": 0
+  },
+  "links": {
+   "A00-A01": {
+    "dia": 200,
+    "S": 0.0311111,
+    "inv_up": 53.618,
+    "inv_dn": 50.818,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "A01-A02": {
+    "dia": 200,
+    "S": 0.0308889,
+    "inv_up": 50.798,
+    "inv_dn": 48.018,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "A02-A03": {
+    "dia": 200,
+    "S": 0.032,
+    "inv_up": 47.998,
+    "inv_dn": 45.118,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "A03-A04": {
+    "dia": 200,
+    "S": 0.0435,
+    "inv_up": 45.098,
+    "inv_dn": 41.618,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "A04-T03": {
+    "dia": 200,
+    "S": 0.0396667,
+    "inv_up": 41.598,
+    "inv_dn": 39.218,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B00-B01": {
+    "dia": 200,
+    "S": 0.0054361,
+    "inv_up": 39.368,
+    "inv_dn": 38.77,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B01-B02": {
+    "dia": 200,
+    "S": 0.0054361,
+    "inv_up": 38.75,
+    "inv_dn": 38.1521,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B02-B03": {
+    "dia": 200,
+    "S": 0.0042844,
+    "inv_up": 38.1321,
+    "inv_dn": 37.6608,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B03-B04": {
+    "dia": 200,
+    "S": 0.0035206,
+    "inv_up": 37.6408,
+    "inv_dn": 37.3239,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B04-B05": {
+    "dia": 200,
+    "S": 0.003156,
+    "inv_up": 37.3039,
+    "inv_dn": 37.0514,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "B05-T06": {
+    "dia": 200,
+    "S": 0.0028871,
+    "inv_up": 37.0314,
+    "inv_dn": 36.8726,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C00-C01": {
+    "dia": 200,
+    "S": 0.0088889,
+    "inv_up": 40.418,
+    "inv_dn": 39.618,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C01-C02": {
+    "dia": 200,
+    "S": 0.0086667,
+    "inv_up": 39.598,
+    "inv_dn": 38.818,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C02-C03": {
+    "dia": 200,
+    "S": 0.0077333,
+    "inv_up": 38.798,
+    "inv_dn": 38.218,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "C03-T09": {
+    "dia": 200,
+    "S": 0.0106667,
+    "inv_up": 38.198,
+    "inv_dn": 37.718,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T00-T01": {
+    "dia": 200,
+    "S": 0.0054361,
+    "inv_up": 40.618,
+    "inv_dn": 40.2918,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T01-T02": {
+    "dia": 200,
+    "S": 0.0056619,
+    "inv_up": 40.2718,
+    "inv_dn": 39.818,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T02-T03": {
+    "dia": 200,
+    "S": 0.0064345,
+    "inv_up": 39.798,
+    "inv_dn": 39.218,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T03-T04": {
+    "dia": 200,
+    "S": 0.0038,
+    "inv_up": 39.198,
+    "inv_dn": 38.818,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T04-T05": {
+    "dia": 200,
+    "S": 0.0021946,
+    "inv_up": 38.798,
+    "inv_dn": 38.5993,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T05-T06": {
+    "dia": 200,
+    "S": 0.0020633,
+    "inv_up": 38.5793,
+    "inv_dn": 38.3315,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T06-T07": {
+    "dia": 250,
+    "S": 0.0016797,
+    "inv_up": 36.8076,
+    "inv_dn": 36.6397,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T07-T08": {
+    "dia": 250,
+    "S": 0.0016283,
+    "inv_up": 36.6197,
+    "inv_dn": 36.4241,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T08-T09": {
+    "dia": 315,
+    "S": 0.0015809,
+    "inv_up": 36.3471,
+    "inv_dn": 36.189,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T09-T10": {
+    "dia": 315,
+    "S": 0.0015195,
+    "inv_up": 36.169,
+    "inv_dn": 35.9865,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T10-T11": {
+    "dia": 315,
+    "S": 0.0014707,
+    "inv_up": 35.9665,
+    "inv_dn": 35.8489,
+    "extra_mh": 0,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   },
+   "T11-T12": {
+    "dia": 315,
+    "S": 0.0014337,
+    "inv_up": 35.8289,
+    "inv_dn": 35.628,
+    "extra_mh": 1,
+    "drop": 0.0,
+    "flush": false,
+    "warn": false
+   }
+  }
+ }
+}

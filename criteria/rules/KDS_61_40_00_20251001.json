@@ -1,0 +1,99 @@
+{
+ "standard_id": "KDS_61_40_00_20251001",
+ "flow_standard_id": "KDS_61_10_00_20251001",
+ "rules": [
+  {
+   "type": "VELOCITY_MIN",
+   "param": "min_velocity",
+   "cond": {
+    "system": "separate"
+   },
+   "flow": "design",
+   "state": "design_depth",
+   "resolution": "1.3 (1) ① 수리상태 미지정 → 1.2 (2) ④ 원형거 설계수심(만류)으로 해소"
+  },
+  {
+   "type": "VELOCITY_MAX",
+   "param": "max_velocity",
+   "cond": {
+    "system": "separate"
+   },
+   "state": "design_depth",
+   "enforce": "hard"
+  },
+  {
+   "type": "CAPACITY",
+   "kind": "depth_ratio",
+   "param": "max_depth_ratio",
+   "cond": {
+    "shape": "circular"
+   }
+  },
+  {
+   "type": "MIN_DIAMETER",
+   "param": "min_pipe_diameter",
+   "cond": {
+    "system": "separate"
+   }
+  },
+  {
+   "type": "MIN_COVER",
+   "kind": "value",
+   "param": "min_cover",
+   "cond": {}
+  },
+  {
+   "type": "JUNCTION",
+   "kind": "project_choice",
+   "options": [
+    "water_surface",
+    "crown"
+   ],
+   "clause": "5.1 (1)"
+  },
+  {
+   "type": "MANHOLE_SPACING",
+   "param": "manhole_max_spacing"
+  },
+  {
+   "type": "NO_DECREASE",
+   "enforce": "standard",
+   "clause": "1.3 본문",
+   "text": "하류방향 흐름에 따라 관경이 점차 커지고, 관로경사는 점차 작아지도록",
+   "rationale": "KDS 61 40 00 1.3: 저유속은 입자물질 침전·통수능 부족·준설 유지관리, 고유속은 관로손상·내용연수 감소를 유발하므로"
+  },
+  {
+   "type": "DESIGN_FLOW",
+   "per_capita": {
+    "source": "project",
+    "key": "qpc",
+    "clause": "1.7.2 (1) '급수량을 감안하여 결정'(수치 없음)"
+   },
+   "infiltration": {
+    "kind": "ratio_project",
+    "param": "infiltration_allowance",
+    "key": "gw_ratio"
+   },
+   "peak": {
+    "kind": "range_project",
+    "param": "peak_factor_hourly",
+    "key": "pf_hourly"
+   }
+  },
+  {
+   "type": "MONOTONIC_DOWNSTREAM",
+   "param": "pipe_size_no_decrease",
+   "slope": "non_increasing",
+   "velocity": "non_decreasing",
+   "clause": "1.3 본문",
+   "text": "하류방향 흐름에 따라 관경이 점차 커지고, 관로경사는 점차 작아지도록",
+   "rationale": "저유속은 침전·통수능 부족·준설, 고유속은 관로손상·내용연수 감소",
+   "resolution": "합류점에서는 유량이 가장 큰 유입관을 상류 기준으로 봄(원문 미지정). 유속 점증은 경사 상한 안에서 관경으로 맞추고, 안 되면 경고"
+  }
+ ],
+ "pipe": {
+  "nominal": "as_is",
+  "min_dia_compare": "nominal",
+  "table_lookup": "nominal"
+ }
+}

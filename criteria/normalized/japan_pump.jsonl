@@ -1,0 +1,18 @@
+{"row_key": "4a0ed645d518", "condition": {"system": "separate", "facility": "ポンプ施設"}, "basis": {"flow": "design_peak_hourly", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "eb754224b314", "condition": {"system": "combined", "facility": "ポンプ施設"}, "basis": {"flow": "wet_weather", "horizon": "unspecified"}, "tag_note": ""}
+{"row_key": "23485f9f8dd7", "condition": {"facility": "ポンプ排水区域"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3723b8e0e61b", "condition": {"facility": "ポンプ排水区域"}, "basis": {"flow": "design_storm"}, "tag_note": ""}
+{"row_key": "11893c152faa", "condition": {"facility": "自然排水区域"}, "basis": {"flow": "design_storm"}, "tag_note": ""}
+{"row_key": "cdbc18ac385f", "condition": {"facility": "自然排水区域/ポンプ排水区域 境界"}, "basis": {"flow": "design_storm"}, "tag_note": ""}
+{"row_key": "df9bad05d1f0", "condition": {"facility": "ポンプ排水区域"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "6225d23ad2e9", "condition": {"location": "sea_or_canal_outfall"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "e372e413c934", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "c1b4d2a049e5", "condition": {"pipe_role": "force_main", "other": {"bend_losses": "included"}}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "e2bbae510ede", "condition": {"pipe_role": "force_main", "other": {"bend_losses": "separate"}}, "basis": {"flow": "any", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "9aabea51b192", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "5b7cbe7643d1", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "unspecified", "hydraulic_state": "full"}, "tag_note": ""}
+{"row_key": "62b66b8e063e", "condition": {"pipe_role": "force_main", "location": "roadway"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3e2fd7fdd203", "condition": {"facility": "ポンプ場・直結幹線"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "8601a690a443", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "none"}, "tag_note": ""}
+{"row_key": "fdf0c8c384a7", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "none"}, "tag_note": ""}
+{"row_key": "b785eb51d528", "condition": {"pipe_role": "force_main"}, "basis": {"flow": "none"}, "tag_note": ""}
