@@ -15,7 +15,10 @@ ROOT = Path(__file__).resolve().parent.parent
 KNOWN_TYPES = {"VELOCITY_MIN", "VELOCITY_MAX", "SLOPE_TABLE", "CAPACITY", "MIN_DIAMETER", "MIN_COVER", "JUNCTION",
                "MANHOLE_SPACING", "NO_DECREASE", "LOW_FLOW_FALLBACK", "DESIGN_FLOW",
                "WALL_SHEAR_MIN",       # v2 (2026-10-14, 콜롬비아 RAS Art.141)
-               "MONOTONIC_DOWNSTREAM"}  # v2 (2026-10-14, KDS 1.3 본문·요코하마 3.5.4: 하류로 경사 점감·유속 점증)
+               "MONOTONIC_DOWNSTREAM",
+               # v3 (2026-10-15) 펌프장·압송관
+               "PUMP_TRIGGER", "FORCE_MAIN_VELOCITY", "FORCE_MAIN_FRICTION", "FORCE_MAIN_MIN_DIAMETER", "PUMP_COUNT",
+               "WET_WELL_VOLUME", "PUMP_HEAD_POWER"}  # v2 (2026-10-14, KDS 1.3 본문·요코하마 3.5.4: 하류로 경사 점감·유속 점증)
 REQUIRED = ("mandatory", "standard")
 
 
@@ -47,6 +50,8 @@ class Standard:
         self.rows = db.load(standard_id, dsn)
         fsid = spec.get("flow_standard_id")
         self.flow_rows = db.load(fsid, dsn) if fsid else self.rows
+        psid = spec.get("pump_standard_id")  # 펌프장 기준이 별도 코드인 경우(KDS 61 45 00)
+        self.pump_rows = db.load(psid, dsn) if psid else self.rows
         self.choice = {k: v["value"] for k, v in project["standards"].get(standard_id, {}).items()}
         self.material = project.get("material", "pvc")
         self.by_type = {}
@@ -115,7 +120,11 @@ class Standard:
         return max(x.value_min for x in self._pick(r, {}))
 
     # ── 설계유량 ──
-    def peak_flow(self, P):
+    def avg_flow(self, P):
+        """첨두계수를 빼고 침입수·하한 없이 본 평균 유량 (습정 충수·체류 판정용)."""
+        return self.peak_flow(P, peak=False)
+
+    def peak_flow(self, P, peak=True):
         if P <= 0:
             return 0.0
         r = self.rule("DESIGN_FLOW")
@@ -135,6 +144,8 @@ class Standard:
         if inf["kind"] == "ratio_project":
             f_inf += self._choice(inf["key"], db.one(self.flow_rows, inf["param"], inf.get("cond", {})))
         pk = r["peak"]
+        if not peak:
+            return P * q / 1000 / 86400 * f_inf
         if pk["kind"] == "range_project":
             pf = self._choice(pk["key"], db.one(self.flow_rows, pk["param"], pk.get("cond", {})))
         elif pk["kind"] == "formula":

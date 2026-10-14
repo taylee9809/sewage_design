@@ -108,6 +108,48 @@
    "text": "(요약) 유속은 하류로 갈수록 커지게, 경사는 하류로 갈수록 완만하게 정한다 — 원문은 비공개",
    "rationale": "(요약) 3.5.4 해설: 경사가 완만하고 유속이 작으면 침전물 퇴적·상시 청소, 유속이 크면 관거 손상",
    "resolution": "원문의 '일반적으로' 단서 — 경사 점감은 적용, 유속 점증은 판정 후 미충족 시 표시. 합류점은 유량 최대 유입관 기준"
+  },
+  {
+   "type": "PUMP_TRIGGER",
+   "kind": "review",
+   "param": "pump_station_required_condition",
+   "clause": "3.2.3 解説·5.1.2",
+   "text": "자연배수 불가 구역에 펌프 배수, 가능한 한 자연배수 — 수치 없음 → 판정 보류(설계자 검토)"
+  },
+  {
+   "type": "FORCE_MAIN_VELOCITY",
+   "min_param": "force_main_min_velocity",
+   "max_param": "force_main_max_velocity",
+   "cond": {
+    "pipe_role": "force_main"
+   },
+   "allow": [
+    "pipe_role"
+   ],
+   "flow": "design_pumping_rate"
+  },
+  {
+   "type": "FORCE_MAIN_FRICTION",
+   "param": "hazen_williams_c",
+   "cond": {
+    "pipe_role": "force_main"
+   },
+   "allow": [
+    "pipe_role",
+    "other"
+   ],
+   "pick": "min",
+   "resolution": "3.5.2 解説(4) 굴곡손실 포함 110 / 직선부만 130 → 110"
+  },
+  {
+   "type": "WET_WELL_VOLUME",
+   "kind": "review",
+   "text": "관거편에 펌프장 습정 규정 없음(펌프장 편 없음)"
+  },
+  {
+   "type": "PUMP_HEAD_POWER",
+   "efficiency": "project",
+   "clause": "규정 없음"
   }
  ],
  "pipe": {

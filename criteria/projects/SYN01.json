@@ -23,6 +23,10 @@
       "pipe_product": {
         "value": "product_type LIKE '고강성 PVC 이중벽관%'",
         "rationale": "KS M 3600 PVC 이중벽관, 같은 호칭은 최소 내경"
+      },
+      "pump_efficiency": {
+        "value": 0.7,
+        "rationale": "펌프+전동기 효율 가정(원문 표 없음 또는 구간 미정리) — 비교용"
       }
     },
     "TSS_WW_2026": {
@@ -33,12 +37,20 @@
       "pipe_product": {
         "value": "standard_ref LIKE 'ASTM D3034%' AND class_or_stiffness LIKE 'SDR 35%' OR standard_ref LIKE 'ASTM F679%' AND product_type = 'solid_wall_gravity_sewer_PSM' AND class_or_stiffness = 'PS 46'",
         "rationale": "ASTM D3034 SDR35(≤15in) + F679 PS46(18~36in)"
+      },
+      "pump_efficiency": {
+        "value": 0.7,
+        "rationale": "펌프+전동기 효율 가정(원문 표 없음 또는 구간 미정리) — 비교용"
       }
     },
     "JP_YOKOHAMA_SEKKEI_202604": {
       "pipe_product": {
         "value": "product_type = '下水道用硬質塩化ビニル管 直管'",
         "rationale": "JSWAS K-1 直管"
+      },
+      "pump_efficiency": {
+        "value": 0.7,
+        "rationale": "펌프+전동기 효율 가정(원문 표 없음 또는 구간 미정리) — 비교용"
       }
     },
     "CPHEEO_SEW_2013": {
@@ -49,6 +61,10 @@
       "pipe_product": {
         "value": "product_type = 'upvc_solid_wall' AND class_or_stiffness LIKE 'SN4%'",
         "rationale": "IS 15328 UPVC SN4(SDR41), 호칭=외경"
+      },
+      "pump_efficiency": {
+        "value": 0.7,
+        "rationale": "펌프+전동기 효율 가정(원문 표 없음 또는 구간 미정리) — 비교용"
       }
     },
     "CO_RAS_0330_2017_COMP2021": {
@@ -71,6 +87,14 @@
       "pipe_product": {
         "value": "product_type LIKE 'Novafort S8%'",
         "rationale": "PAVCO Novafort S8 (NTC 3722-3), 호칭=외경 — 바랑키야 Triple A 승인 6~20인치"
+      },
+      "pump_efficiency": {
+        "value": 0.7,
+        "rationale": "펌프+전동기 효율 가정(원문 표 없음 또는 구간 미정리) — 비교용"
+      },
+      "hazen_c": {
+        "value": 140,
+        "rationale": "RAS 하수 조항에 C 없음 — PVC 140 가정(CPHEEO PVC 값과 동일)"
       }
     }
   },

@@ -78,6 +78,67 @@
     "expr": "(18 + sqrt(P/1000)) / (4 + sqrt(P/1000))",
     "clause": "11.243(b) Figure 1"
    }
+  },
+  {
+   "type": "PUMP_TRIGGER",
+   "kind": "none"
+  },
+  {
+   "type": "FORCE_MAIN_VELOCITY",
+   "min_param": "force_main_min_velocity",
+   "max_param": "force_main_max_velocity",
+   "cond": {
+    "pipe_role": "force_main"
+   },
+   "allow": [
+    "pipe_role"
+   ],
+   "flow": "design_pumping_rate"
+  },
+  {
+   "type": "FORCE_MAIN_FRICTION",
+   "param": "hazen_williams_c",
+   "cond": {
+    "pipe_role": "force_main",
+    "material": "pvc"
+   },
+   "allow": [
+    "pipe_role",
+    "lining"
+   ],
+   "pick": "max",
+   "resolution": "49.61 평활관 C ≤ 120(참고) — PVC는 상한 120"
+  },
+  {
+   "type": "FORCE_MAIN_MIN_DIAMETER",
+   "param": "force_main_min_diameter",
+   "cond": {
+    "pipe_role": "force_main"
+   },
+   "allow": [
+    "pipe_role",
+    "other"
+   ]
+  },
+  {
+   "type": "PUMP_COUNT",
+   "param": "pump_count_rule",
+   "cond": {},
+   "kind": "firm_capacity",
+   "min": 2,
+   "text": "42.31 복수 펌프, 1대 정지 시 나머지로 첨두 처리"
+  },
+  {
+   "type": "WET_WELL_VOLUME",
+   "kind": "fill_time_max",
+   "param": "wet_well_volume_or_detention",
+   "flow": "design_avg",
+   "clause": "42.62"
+  },
+  {
+   "type": "PUMP_HEAD_POWER",
+   "efficiency": "project",
+   "clause": "효율 규정 없음"
   }
  ],
  "pipe": {

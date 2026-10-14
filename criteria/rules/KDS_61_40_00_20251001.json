@@ -89,11 +89,64 @@
    "text": "하류방향 흐름에 따라 관경이 점차 커지고, 관로경사는 점차 작아지도록",
    "rationale": "저유속은 침전·통수능 부족·준설, 고유속은 관로손상·내용연수 감소",
    "resolution": "합류점에서는 유량이 가장 큰 유입관을 상류 기준으로 봄(원문 미지정). 유속 점증은 경사 상한 안에서 관경으로 맞추고, 안 되면 경고"
+  },
+  {
+   "type": "PUMP_TRIGGER",
+   "kind": "review",
+   "param": "pump_station_required_condition",
+   "standard": "pump",
+   "clause": "KDS 61 45 00 1; KDS 61 40 00 17.2 (1)",
+   "text": "자연유하 곤란·매설깊이가 현저히 깊어질 때, 자연유하와 비교 검토 — 수치 없음 → 판정 보류(설계자 검토)"
+  },
+  {
+   "type": "FORCE_MAIN_VELOCITY",
+   "min_param": "force_main_min_velocity",
+   "max_param": "force_main_max_velocity",
+   "cond": {
+    "pipe_role": "force_main"
+   },
+   "allow": [
+    "pipe_role"
+   ],
+   "flow": "design_pumping_rate"
+  },
+  {
+   "type": "FORCE_MAIN_FRICTION",
+   "param": "hazen_williams_c",
+   "cond": {
+    "pipe_role": "force_main"
+   },
+   "allow": [
+    "pipe_role",
+    "exception"
+   ],
+   "pick": "min",
+   "resolution": "1.2 (2) ③ C=110 표준(굴곡손실 포함), 직선부만 130 → 110"
+  },
+  {
+   "type": "PUMP_COUNT",
+   "param": "pump_count_rule",
+   "standard": "pump",
+   "cond": {},
+   "kind": "min_count"
+  },
+  {
+   "type": "WET_WELL_VOLUME",
+   "kind": "review",
+   "param": "wet_well_volume_or_detention",
+   "standard": "pump",
+   "text": "KDS 61 45 00 4.9(10) '가능한 한 충분한 용량' — 수치 없음"
+  },
+  {
+   "type": "PUMP_HEAD_POWER",
+   "efficiency": "project",
+   "clause": "KDS 61 45 00 4.4·4.6 (최저효율 <표 3.4.7>은 본문에 없음)"
   }
  ],
  "pipe": {
   "nominal": "as_is",
   "min_dia_compare": "nominal",
   "table_lookup": "nominal"
- }
+ },
+ "pump_standard_id": "KDS_61_45_00_20251001"
 }

@@ -110,6 +110,56 @@
     },
     "clause": "Art.134 num.7 구간 최소 1.5 L/s"
    }
+  },
+  {
+   "type": "PUMP_TRIGGER",
+   "kind": "none",
+   "text": "설치 조건 규정 없음(Art.160-2 인라인 양수 허용 조건만)"
+  },
+  {
+   "type": "FORCE_MAIN_VELOCITY",
+   "min_param": "force_main_min_velocity",
+   "max_param": "force_main_max_velocity",
+   "cond": {
+    "pipe_role": "force_main"
+   },
+   "allow": [
+    "pipe_role",
+    "other"
+   ],
+   "flow": "design_pumping_rate"
+  },
+  {
+   "type": "FORCE_MAIN_FRICTION",
+   "kind": "project",
+   "key": "hazen_c",
+   "text": "RAS 하수 조항에 마찰식·C 없음"
+  },
+  {
+   "type": "PUMP_COUNT",
+   "param": "pump_count_rule",
+   "cond": {},
+   "allow": [
+    "other"
+   ],
+   "kind": "firm_capacity",
+   "min": 2,
+   "text": "Art.161-1 가동 1 + 휴지 1"
+  },
+  {
+   "type": "WET_WELL_VOLUME",
+   "kind": "multiple_of_pumping_rate",
+   "param": "wet_well_volume_or_detention",
+   "cond": {
+    "system": "separate"
+   },
+   "retention_param": "wet_well_retention_max",
+   "clause": "Art.160-7·8"
+  },
+  {
+   "type": "PUMP_HEAD_POWER",
+   "efficiency": "project",
+   "clause": "Art.161-6 효율 하한 50/65/70%(동력 구간별) — 사업값"
   }
  ],
  "pipe": {

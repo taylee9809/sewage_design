@@ -115,6 +115,74 @@
      "system": "separate"
     }
    }
+  },
+  {
+   "type": "PUMP_TRIGGER",
+   "kind": "depth_limit",
+   "param": "max_sewer_depth",
+   "cond": {},
+   "clause": "3.21 Table 3.15 note",
+   "text": "매설 깊이 6 m 초과 시 중계펌프장(의무). 4.18 지하수 높음·암반 3 m 이상 유리(참고)는 미적용",
+   "allow": [
+    "exception"
+   ],
+   "resolution": "표 3.15 주: 6 m 한도(의무), 단서(방류관 등 정당화 시 더 깊게)는 설계자 검토"
+  },
+  {
+   "type": "FORCE_MAIN_VELOCITY",
+   "min_param": "force_main_min_velocity",
+   "max_param": "force_main_max_velocity",
+   "cond": {
+    "pipe_role": "force_main"
+   },
+   "allow": [
+    "pipe_role"
+   ],
+   "flow": "design_pumping_rate",
+   "binding_filter": "mandatory",
+   "resolution": "4.20.3 '언제나 0.8~3 m/s'(의무) 적용, 저유량 1.0·경험칙 2.7은 기준 단계라 표시만"
+  },
+  {
+   "type": "FORCE_MAIN_FRICTION",
+   "param": "hazen_williams_c",
+   "cond": {
+    "pipe_role": "force_main",
+    "material": "pvc"
+   },
+   "allow": [
+    "pipe_role"
+   ],
+   "pick": "min"
+  },
+  {
+   "type": "PUMP_COUNT",
+   "param": "pump_count_rule",
+   "cond": {
+    "other": {
+     "station_size": "small"
+    }
+   },
+   "allow": [
+    "other"
+   ],
+   "kind": "dwf_multiples",
+   "multiples": [
+    1,
+    2,
+    3
+   ],
+   "text": "4.5.4 소규모 1·2·3 DWF(참고)"
+  },
+  {
+   "type": "WET_WELL_VOLUME",
+   "kind": "cycle_formula",
+   "cycle_param": "pump_cycle_time",
+   "clause": "4.6.6 V = T·Q/4"
+  },
+  {
+   "type": "PUMP_HEAD_POWER",
+   "efficiency": "project",
+   "clause": "Table 4.3 효율표(구간 조건 미정리) — 사업값"
   }
  ],
  "pipe": {
