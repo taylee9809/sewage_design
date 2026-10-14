@@ -139,6 +139,31 @@
    "type": "PUMP_HEAD_POWER",
    "efficiency": "project",
    "clause": "효율 규정 없음"
+  },
+  {
+   "type": "WET_WELL_LEVEL",
+   "kind": "review",
+   "text": "42.34 압입 운전 — 수위 수치 없음"
+  },
+  {
+   "type": "MINOR_LOSS",
+   "kind": "review",
+   "text": "전양정 구성 규정 없음"
+  },
+  {
+   "type": "SUCTION_PIPE",
+   "kind": "min_opening",
+   "param": "pump_opening_min_diameter",
+   "cond": {},
+   "allow": [
+    "item"
+   ],
+   "clause": "42.33"
+  },
+  {
+   "type": "PUMP_SUBMERGENCE_NPSH",
+   "kind": "review",
+   "text": "압입 운전 원칙, 흡입양정형은 43.11·43.12 한도(이 모델은 압입형)"
   }
  ],
  "pipe": {

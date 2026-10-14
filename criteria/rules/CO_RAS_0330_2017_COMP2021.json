@@ -160,6 +160,52 @@
    "type": "PUMP_HEAD_POWER",
    "efficiency": "project",
    "clause": "Art.161-6 효율 하한 50/65/70%(동력 구간별) — 사업값"
+  },
+  {
+   "type": "WET_WELL_LEVEL",
+   "kind": "review",
+   "text": "수위는 자동운전 기준만(Art.161-9), 수치 없음"
+  },
+  {
+   "type": "MINOR_LOSS",
+   "kind": "review",
+   "text": "하수 조항에 전양정 구성 없음"
+  },
+  {
+   "type": "SUCTION_PIPE",
+   "kind": "velocity_range",
+   "param": "pump_suction_velocity",
+   "cond": {
+    "other": {
+     "pump_type": "centrifugal"
+    },
+    "system": "separate"
+   },
+   "allow": [
+    "other"
+   ],
+   "clause": "Art.161-2"
+  },
+  {
+   "type": "PUMP_SUBMERGENCE_NPSH",
+   "kind": "submergence_ratio",
+   "param": "pump_submergence_min",
+   "cond": {
+    "other": {
+     "pump_type": "centrifugal"
+    }
+   },
+   "allow": [
+    "other"
+   ],
+   "npsh_param": "pump_npsh_margin",
+   "npsh": "Art.161-4 NPSHd > NPSHr + 0.5 m — 펌프 NPSHr 입력 필요",
+   "npsh_cond": {
+    "other": {
+     "pump_type": "centrifugal"
+    }
+   },
+   "text": "Art.161-7 잠김 ≥ 2.5 × 흡입관경(원심펌프)"
   }
  ],
  "pipe": {

@@ -18,7 +18,8 @@ KNOWN_TYPES = {"VELOCITY_MIN", "VELOCITY_MAX", "SLOPE_TABLE", "CAPACITY", "MIN_D
                "MONOTONIC_DOWNSTREAM",
                # v3 (2026-10-15) 펌프장·압송관
                "PUMP_TRIGGER", "FORCE_MAIN_VELOCITY", "FORCE_MAIN_FRICTION", "FORCE_MAIN_MIN_DIAMETER", "PUMP_COUNT",
-               "WET_WELL_VOLUME", "PUMP_HEAD_POWER"}  # v2 (2026-10-14, KDS 1.3 본문·요코하마 3.5.4: 하류로 경사 점감·유속 점증)
+               "WET_WELL_VOLUME", "PUMP_HEAD_POWER",
+               "WET_WELL_LEVEL", "MINOR_LOSS", "SUCTION_PIPE", "PUMP_SUBMERGENCE_NPSH"}  # v3.1 흡입수위·부속손실·흡입관·잠김
 REQUIRED = ("mandatory", "standard")
 
 

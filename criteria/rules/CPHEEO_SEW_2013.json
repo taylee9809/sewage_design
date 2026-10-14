@@ -183,6 +183,52 @@
    "type": "PUMP_HEAD_POWER",
    "efficiency": "project",
    "clause": "Table 4.3 효율표(구간 조건 미정리) — 사업값"
+  },
+  {
+   "type": "WET_WELL_LEVEL",
+   "kind": "below_inlet_invert",
+   "param": "pump_operating_levels",
+   "cond": {
+    "item": "suction level below incoming invert"
+   },
+   "allow": [
+    "item"
+   ],
+   "pick": "max",
+   "resolution": "4.1.4 흡입수위는 유입관저 아래 0.5~1.0 m(기준) — 실양정을 크게 보는 1.0 m"
+  },
+  {
+   "type": "MINOR_LOSS",
+   "kind": "k_table",
+   "param": "fitting_loss_coefficient",
+   "cond": {
+    "pipe_role": "force_main"
+   },
+   "allow": [
+    "item",
+    "pipe_role"
+   ],
+   "velocity_head": true,
+   "clause": "4.7.2 전양정 = 정수두+속도수두+마찰수두 / 4.7.3 Table 4.2 K — 부속 구성은 펌프장별 입력, 없으면 판정 보류"
+  },
+  {
+   "type": "SUCTION_PIPE",
+   "kind": "review",
+   "text": "흡입 유속 규정 없음(4.5.1 구 통과경 ≥80 mm는 펌프 사양)"
+  },
+  {
+   "type": "PUMP_SUBMERGENCE_NPSH",
+   "kind": "submergence_above_pump",
+   "param": "pump_operating_levels",
+   "cond": {
+    "other": {
+     "pump_type": "submersible"
+    }
+   },
+   "allow": [
+    "other"
+   ],
+   "npsh": "4.8 NPSHa > NPSHr — 펌프 NPSHr 입력 필요"
   }
  ],
  "pipe": {

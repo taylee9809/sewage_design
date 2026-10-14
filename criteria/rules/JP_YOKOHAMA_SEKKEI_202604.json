@@ -150,6 +150,27 @@
    "type": "PUMP_HEAD_POWER",
    "efficiency": "project",
    "clause": "규정 없음"
+  },
+  {
+   "type": "WET_WELL_LEVEL",
+   "kind": "review",
+   "text": "관거편에 흡입수위 규정 없음"
+  },
+  {
+   "type": "MINOR_LOSS",
+   "kind": "c_includes_bends",
+   "exit_velocity_head": false,
+   "clause": "3.5.2 解説(4) C=110 굴곡손실 등 포함"
+  },
+  {
+   "type": "SUCTION_PIPE",
+   "kind": "review",
+   "text": "규정 없음"
+  },
+  {
+   "type": "PUMP_SUBMERGENCE_NPSH",
+   "kind": "review",
+   "text": "규정 없음"
   }
  ],
  "pipe": {

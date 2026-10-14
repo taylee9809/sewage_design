@@ -178,5 +178,17 @@
   "pump_stations": {
     "value": [],
     "rationale": "정해진 펌프장 위치 없음 — 기준 전환 조건으로만 판정"
+  },
+  "station_fittings": {
+    "value": {
+      "*": {
+        "Entrance shape well rounded": 1,
+        "Swing check": 1,
+        "Gate valve open": 2,
+        "Elbow 90 degrees": 3,
+        "Tee 90 degrees": 1
+      }
+    },
+    "rationale": "예시 부속 구성(실제 설계 아님) — 부속은 펌프장마다 입력. '*'=모든 펌프장, 맨홀 ID로 개별 지정. 항목명은 K 표 item과 같게"
   }
 }
