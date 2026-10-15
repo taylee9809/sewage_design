@@ -21,8 +21,9 @@ def load_project(pid):
     return json.loads((ROOT / "criteria" / "projects" / ("%s.json" % pid)).read_text(encoding="utf-8"))
 
 
-def design(st, nodes, links, sizes, lifts=()):
-    """lifts: 중계펌프장을 두는 맨홀 — 그 맨홀에서 나가는 관은 유입관 깊이와 무관하게 최소토피에서 다시 시작."""
+def design(st, nodes, links, sizes, lifts=(), fm_links=()):
+    """lifts: 중계펌프장을 두는 맨홀 — 그 맨홀에서 나가는 관은 유입관 깊이와 무관하게 최소토피에서 다시 시작.
+    fm_links: 압송관으로 대체하는 구간 — 자연유하로 설계하지 않고, 하류 접합 계산에서도 뺀다(압송관 끝 맨홀은 최소토피에서 시작)."""
     order, into = topo(links)
     p0, p1 = tributary_pop(order, into, nodes)
     dmin = st.min_diameter()
@@ -32,8 +33,10 @@ def design(st, nodes, links, sizes, lifts=()):
     mono = st.monotonic()
     out, res = [], {}
     for l in order:
+        if l["id"] in fm_links:
+            continue
         Q, Qi = st.peak_flow(p1[l["id"]]), st.peak_flow(p0[l["id"]])
-        ups = [res[i["id"]] for i in into.get(l["up"], [])]
+        ups = [res[i["id"]] for i in into.get(l["up"], []) if i["id"] not in fm_links]
         # 하류 관경 감소 금지: 의무(hard)는 항상, 기준(standard)은 사업 파일에 근거 있는 예외(allow_decrease)가 없으면 적용
         enforce_nodec = nodec == "hard" or (nodec == "standard" and "allow_decrease" not in st.choice)
         floor_inner = max((u["D"] * 1000 for u in ups), default=0) if enforce_nodec else 0

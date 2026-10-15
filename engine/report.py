@@ -75,7 +75,8 @@ def pump_section(w, plans, hidden):
     w("## 5-2. 펌프장·압송관\n")
     w("전환 조건에 원문 수치가 있으면 자동 배치, 없으면 판정 보류(설계자 검토)로 표시한다. 토구 지정 관저고에 자연유하로 닿지 못하면 "
       "기준과 무관한 물리적 필요로 토구 직전에 펌프장을 둔다. 원문에 없는 항목(흡입수위·부속손실·잠김 등)은 판정 보류이며, "
-      "부속 구성은 펌프장마다 사업 입력(`station_fittings`)이다.\n")
+      "부속 구성은 펌프장마다 사업 입력(`station_fittings`)이다. 펌프장 칸의 A→B는 원거리 압송관(사이 구간은 압송관으로 대체되어 "
+      "5절 자연유하 굴착 지표에서 빠짐), 화살표 없는 것은 인라인 양수장(압송관 길이 = 실양정 + 사업값)이다.\n")
     w("| 기준 | 펌프장 | 판정 메모 |\n|---|---|---|")
     for sid, p in plans.items():
         notes = "<br>".join(_scrub(sid, n, hidden[sid]) for n in p["notes"]) or "—"
@@ -85,12 +86,12 @@ def pump_section(w, plans, hidden):
         w("")
         return
     w("\n### 양정·동력\n")
-    w("| 기준 | 펌프장 | 첨두 Q (L/s) | 실양정 (m) | 압송관 (내경) | 유속 (m/s) / 원문 범위 | C | 마찰 (m) | 부속 (m) | 전양정 (m) | 동력 (kW) |")
+    w("| 기준 | 펌프장 | 첨두 Q (L/s) | 실양정 (m) | 압송관 (내경) × 연장 | 유속 (m/s) / 원문 범위 | C | 마찰 (m) | 부속 (m) | 전양정 (m) | 동력 (kW) |")
     w("|---|---|---|---|---|---|---|---|---|---|---|")
     for sid, s in rows:
         lo, hi = s["fm_v_range"]
-        w("| %s | %s | %.1f | %.2f | %d (%.0f) | %.2f / %s~%s | %g | %.2f | %s | %.2f | %.1f |" % (
-            sid, s["node"], s["Q"] * 1000, s["static_m"], s["fm_dia"], s["fm_inner"], s["fm_v"], lo, hi, s["C"], s["hf"],
+        w("| %s | %s | %.1f | %.2f | %d (%.0f) × %.0f m | %.2f / %s~%s | %g | %.2f | %s | %.2f | %.1f |" % (
+            sid, s["node"] + ("→" + s["to"] if s["mode"] == "remote" else ""), s["Q"] * 1000, s["static_m"], s["fm_dia"], s["fm_inner"], s["fm_len"], s["fm_v"], lo, hi, s["C"], s["hf"],
             "보류" if s["hm_note"].startswith("판정 보류") else "%.2f" % s["hm"], s["tdh"], s["power_kw"]))
     w("\n### 흡입수위·펌프·흡수정\n")
     w("| 기준 | 펌프장 | 흡입수위 | 부속손실 | 펌프 대수 | 흡입관 | 잠김·NPSH | 흡수정 |\n|---|---|---|---|---|---|---|---|")

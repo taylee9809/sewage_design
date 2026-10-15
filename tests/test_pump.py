@@ -70,3 +70,27 @@ def test_suction_and_submergence(plans):
     assert "102 mm" in plans["TSS_WW_2026"]["stations"][-1]["suction"]
     assert "2.5 ×" in plans["CO_RAS_0330_2017_COMP2021"]["stations"][-1]["submergence"]
     assert "NPSH 판정 보류" in plans["CPHEEO_SEW_2013"]["stations"][-1]["submergence"]
+
+
+def test_terminal_station_is_force_main_to_outfall(plans):
+    # 토구 관저고 미달 → 토구 직전 펌프장 + 토구까지 압송관(자연유하 설계에서 제외)
+    for p in plans.values():
+        st = [s for s in p["stations"] if s["node"] == "U12"][0]
+        assert st["mode"] == "remote" and st["to"] == "U13" and st["fm_links"] == ["U12-U13"]
+        assert st["fm_len"] == pytest.approx(100.0)
+        assert "U12-U13" not in {r["link"] for r in p["out"]}
+
+
+def test_remote_force_main_from_project_input():
+    from engine.design import load_project
+    pj = load_project("SYN02")
+    pj["pump_stations"] = {"value": [{"node": "U08", "to": "U13"}]}
+    p = plan("SYN02", "CPHEEO_SEW_2013", project=pj)
+    assert p["lifts"] == ["U08"]  # 원거리 압송으로 깊은 구간이 사라져 매설 한도 중계펌프장 불필요
+    st = p["stations"][0]
+    assert st["mode"] == "remote" and st["fm_len"] == pytest.approx(500.0)
+    assert st["static_m"] == pytest.approx(22.0 - st["lwl"])  # 토구 지정 관저고까지
+    gravity = {r["link"] for r in p["out"]}
+    assert not gravity & {"U08-U09", "U09-U10", "U10-U11", "U11-U12", "U12-U13"}
+    # 압송 구간 중간 맨홀 자체 유입은 설계자 검토로 표시
+    assert sum("압송 구간 중간 맨홀" in n for n in p["notes"]) == 4

@@ -4,7 +4,9 @@
 추가 유형: WET_WELL_LEVEL·MINOR_LOSS·SUCTION_PIPE·PUMP_SUBMERGENCE_NPSH — 원문 수치 없으면 판정 보류. 부속 구성은 사업 파일 station_fittings(펌프장별).
 - 전환 조건 kind: depth_limit(매설 깊이 한도 초과 시 자동 배치) | review(수치 없음 → 판정 보류·설계자 검토 표시) | none
 - 사업 파일 "pump_stations"에 맨홀을 지정하면 기준과 무관하게 그 위치에 둔다(정해진 펌프장 위치)
-- 모델 한계: 인라인 양수장(양수 후 같은 맨홀에서 자연유하 재개). 압송관 길이 = 실양정 + 사업값 lift_main_extra_m
+  · "U10" = 인라인 양수장(양수 후 같은 맨홀에서 자연유하 재개, 압송관 길이 = 실양정 + 사업값 lift_main_extra_m)
+  · {"node": "U07", "to": "U12"} = 원거리 압송관(사이 구간은 자연유하 설계 없이 압송관, 길이 = 경로 구간 연장 합)
+- 토구 관저고 미달(물리적 필요)은 토구 직전 맨홀 → 토구 원거리 압송관으로 처리
 사용: py -3 -m engine.pump SYN02
 """
 import math
@@ -41,12 +43,47 @@ def outfall_check(out, nodes, links):
     return msgs
 
 
+def fm_path(links, a, b):
+    """펌프장 a에서 압송관 끝 b까지 하류로 따라가는 구간 목록."""
+    path, n = [], a
+    while n != b:
+        nxt = next((l for l in links if l["up"] == n), None)
+        if nxt is None:
+            raise ValueError("압송관 경로 없음: %s → %s" % (a, b))
+        path.append(nxt)
+        n = nxt["dn"]
+    return path
+
+
+def parse_stations(fixed, links, nodes):
+    """사업 입력 pump_stations: "U10"(인라인) 또는 {"node": "U07", "to": "U12"}(원거리 압송관).
+    반환: (인라인 맨홀 집합, {펌프장: 압송관 구간 목록}, 메모)."""
+    inline, remote, notes = set(), {}, []
+    into = {}
+    for l in links:
+        into.setdefault(l["dn"], []).append(l["id"])
+    for x in fixed:
+        if isinstance(x, str):
+            inline.add(x)
+            continue
+        path = fm_path(links, x["node"], x["to"])
+        remote[x["node"]] = path
+        ids = {l["id"] for l in path}
+        for l in path[:-1]:  # 압송관이 지나는 중간 맨홀
+            m = l["dn"]
+            side = [i for i in into.get(m, []) if i not in ids]
+            if side or nodes[m]["p1"]:
+                notes.append("설계자 검토: 압송 구간 중간 맨홀 %s에 %s — 압송관에 자연유하 직접 접속 불가, 별도 처리 필요"
+                             % (m, ("지선 유입 %s" % side) if side else "자체 유입 인구 %d인" % nodes[m]["p1"]))
+    return inline, remote, notes
+
+
 def place_lifts(st, nodes, links, sizes, fixed):
-    """전환 조건으로 펌프장 위치를 정한다. 반환: (lifts, 설계 결과, 판정 메모)."""
+    """전환 조건으로 펌프장 위치를 정한다. 반환: (인라인 lifts, 원거리 {펌프장: 압송 구간}, 설계 결과, 판정 메모)."""
     trig = st.rule("PUMP_TRIGGER") or {"kind": "none"}
-    lifts = set(fixed)
-    out = design(st, nodes, links, sizes, lifts)
-    notes = []
+    lifts, remote, notes = parse_stations(fixed, links, nodes)
+    fm = {l["id"] for p in remote.values() for l in p}
+    out = design(st, nodes, links, sizes, lifts, fm)
     if trig["kind"] == "depth_limit":
         row = [x for x in db.pick(_rows(st, trig), trig["param"], trig.get("cond", {}), allow=tuple(trig.get("allow", ())))
                if x.binding in ("mandatory", "standard")][0]
@@ -56,27 +93,26 @@ def place_lifts(st, nodes, links, sizes, fixed):
             if not over:
                 break
             up = next(l["up"] for l in links if l["id"] == over["link"])
-            if up in lifts:
+            if up in lifts or up in remote:
                 notes.append("%s: 펌프장 다음 구간도 한도 초과" % over["link"])
                 break
             lifts.add(up)
             notes.append("%s 매설 %.2f m > %.1f m (%s) → %s에 중계펌프장" % (over["link"], depth(over), limit, row.clause_ref, up))
-            out = design(st, nodes, links, sizes, lifts)
+            out = design(st, nodes, links, sizes, lifts, fm)
     elif trig["kind"] == "review":
         deep = max(out, key=depth)
         notes.append("판정 보류(설계자 검토): %s — 최대 매설 %.2f m (%s)" % (trig.get("text", ""), depth(deep), deep["link"]))
-    # 물리적 필요: 토구 지정 관저고에 자연유하로 못 닿으면 토구 직전 맨홀에 펌프장 (기준 판단 아님)
-    for _ in range(3):
-        bad = outfall_check(out, nodes, links)
-        if not bad:
-            break
+    # 물리적 필요: 토구 지정 관저고에 자연유하로 못 닿으면 토구 직전 맨홀에 펌프장, 토구까지 압송관 (기준 판단 아님)
+    bad = outfall_check(out, nodes, links)
+    if bad:
         last = next(l for l in links if nodes[l["dn"]]["kind"] == "outfall")
-        if last["up"] in lifts:
-            break
-        lifts.add(last["up"])
-        notes.append("물리적 필요(토구 관저고): %s → %s에 펌프장" % (bad[0], last["up"]))
-        out = design(st, nodes, links, sizes, lifts)
-    return lifts, out, notes
+        if last["id"] not in fm:
+            lifts.discard(last["up"])
+            remote[last["up"]] = [last]
+            fm.add(last["id"])
+            notes.append("물리적 필요(토구 관저고): %s → %s에 펌프장, 토구까지 압송관" % (bad[0], last["up"]))
+            out = design(st, nodes, links, sizes, lifts, fm)
+    return lifts, remote, out, notes
 
 
 def hazen_c(st, dia):
@@ -225,7 +261,10 @@ def size_station(st, node, Q, Qavg, inlet, inv_out, sizes, project, fittings=Non
                 break
     nom, inner, v = pick
     C, ccl = hazen_c(st, nom)
-    Lfm = max(out["static_m"], 0) + project.get("lift_main_extra_m", {}).get("value", 10.0)
+    if "fm_length_m" in project:  # 원거리 압송관: 경로 구간 연장 합
+        Lfm = project["fm_length_m"]["value"]
+    else:  # 인라인 양수장: 실양정 + 사업값
+        Lfm = max(out["static_m"], 0) + project.get("lift_main_extra_m", {}).get("value", 10.0)
     hf = 10.67 * Lfm * Q ** 1.852 / (C ** 1.852 * (inner / 1000) ** 4.87)
     out.update({"fm_dia": nom, "fm_inner": inner, "fm_v": v, "fm_v_range": (vmin, vmax), "fm_clause": vcl, "C": C, "C_clause": ccl,
                 "fm_len": Lfm, "hf": hf})
@@ -259,9 +298,9 @@ def size_station(st, node, Q, Qavg, inlet, inv_out, sizes, project, fittings=Non
     return out
 
 
-def plan(pid, sid, dsn=None):
+def plan(pid, sid, dsn=None, project=None):
     dsn = dsn or os.environ["SEWAGE_DB_DSN"]
-    project = load_project(pid)
+    project = project or load_project(pid)
     with psycopg.connect(dsn) as con, con.cursor() as cur:
         nodes, links = load_network(cur, pid)
         cur.execute("SELECT node_id, min_invert_el::float FROM network.node WHERE project_id=%s", (pid,))
@@ -270,18 +309,16 @@ def plan(pid, sid, dsn=None):
         st = Standard(sid, project, dsn)
         sizes = st.pipe_sizes(cur)
     fixed = project.get("pump_stations", {}).get("value", [])
-    lifts, out, notes = place_lifts(st, nodes, links, sizes, fixed)
-    last = next(l for l in links if nodes[l["dn"]]["kind"] == "outfall")
-    terminal = last["up"] in lifts and nodes[last["dn"]].get("min_inv") is not None
-    if not terminal:
-        notes += ["남은 문제: " + m for m in outfall_check(out, nodes, links)]
+    lifts, remote, out, notes = place_lifts(st, nodes, links, sizes, fixed)
+    notes += ["남은 문제: " + m for m in outfall_check(out, nodes, links)]
     order, into = topo(links)
     _, p1 = tributary_pop(order, into, nodes)
     res = {r["link"]: r for r in out}
     stations = []
-    for n in sorted(lifts):
-        l_out = next(l for l in links if l["up"] == n)
-        ins = [res[i["id"]] for i in into.get(n, [])]
+    for n in sorted(lifts | set(remote)):
+        path = remote.get(n)
+        l_out = path[0] if path else next(l for l in links if l["up"] == n)
+        ins = [res[i["id"]] for i in into.get(n, []) if i["id"] in res]
         if ins:  # 가장 낮게 들어오는 유입관
             r_in = min(ins, key=lambda r: r["inv_dn"])
             inlet = {"inv": r_in["inv_dn"], "D": r_in["D"], "S": r_in["S"], "Qavg": st.avg_flow(p1[r_in["link"]])}
@@ -292,14 +329,18 @@ def plan(pid, sid, dsn=None):
         fits = project.get("station_fittings", {}).get("value", {})
         fits = fits.get(n, fits.get("*"))
         pj = dict(project["standards"].get(sid, {}))
-        if terminal and n == last["up"]:  # 토구 직전 펌프장: 압송관으로 지정 관저고까지 직접 송수
-            inv_to = nodes[last["dn"]]["min_inv"]
-            pj["lift_main_extra_m"] = {"value": last["L"]}
-            res[last["id"]]["governing"] = "압송관 (펌프장 %s → 토구 지정 관저고 %.2f m)" % (n, inv_to)
+        if path:  # 원거리 압송관: 끝 맨홀의 토구 지정 관저고 또는 하류 자연유하 시작 관저고까지
+            to = path[-1]["dn"]
+            nxt = next((res[l["id"]] for l in links if l["up"] == to and l["id"] in res), None)
+            inv_to = nodes[to]["min_inv"] if nodes[to].get("min_inv") is not None else nxt["inv_up"]
+            pj["fm_length_m"] = {"value": sum(l["L"] for l in path)}
         else:
-            inv_to = res[l_out["id"]]["inv_up"]
-        stations.append(size_station(st, n, st.peak_flow(P), st.avg_flow(P), inlet, inv_to, sizes, pj, fits))
-    return {"standard_id": sid, "lifts": sorted(lifts), "notes": notes, "stations": stations, "summary": summarize(out), "out": out}
+            to, inv_to = n, res[l_out["id"]]["inv_up"]
+        s = size_station(st, n, st.peak_flow(P), st.avg_flow(P), inlet, inv_to, sizes, pj, fits)
+        s.update({"mode": "remote" if path else "inline", "to": to, "fm_links": [l["id"] for l in path] if path else []})
+        stations.append(s)
+    return {"standard_id": sid, "lifts": sorted(lifts | set(remote)), "notes": notes, "stations": stations,
+            "summary": summarize(out), "out": out}
 
 
 def main(pid):
@@ -310,7 +351,7 @@ def main(pid):
         for n in p["notes"]:
             print("   ·", n)
         for s in p["stations"]:
-            print("   [%s] Q %.1f L/s, 흡입수위 %.2f m (%s), 실양정 %.2f m" % (s["node"], s["Q"] * 1000, s["lwl"], s["lwl_note"], s["static_m"]))
+            print("   [%s→%s %s, 압송관 %.0f m] Q %.1f L/s, 흡입수위 %.2f m (%s), 실양정 %.2f m" % (s["node"], s["to"], s["mode"], s["fm_len"], s["Q"] * 1000, s["lwl"], s["lwl_note"], s["static_m"]))
             print("        압송관 %d(내경 %.0f) v=%.2f m/s (범위 %s~%s, %s), C=%g, 마찰 %.2f m, 부속 %.3f m (%s)"
                   % (s["fm_dia"], s["fm_inner"], s["fm_v"], s["fm_v_range"][0], s["fm_v_range"][1], s["fm_clause"], s["C"], s["hf"],
                      s["hm"], s["hm_note"]))
