@@ -2,7 +2,7 @@
 
 구성: 1 적용 기준(판본·최신 여부·공개 조건) / 2 기준별 설계 항목 채택값(값·조항·구속력·원문 구절) /
       3 사업 채택값(원문에 없거나 선택지인 값과 근거) / 4 기준 비교(같은 basis끼리만 나란히) /
-      5 설계 결과 요약과 결정 조항 / 6 원문 한계·주의
+      5 설계 결과 요약과 결정 조항(펌프장 반영) / 5-2 펌프장·압송관 / 6 원문 한계·주의
 사용: py -3 -m engine.report SYN01 docs/SYN01_design_criteria_report.md
 """
 import collections
@@ -12,9 +12,9 @@ import sys
 
 import psycopg
 
-from engine.design import load_project, run
-from engine.generic import Standard
+from engine.design import load_project
 from engine.network import summarize
+from engine.pump import plan
 
 ITEMS = [  # (param_key, 한글명) — 보고서 2·4절 순서
     ("per_capita_wastewater", "1인1일 오수량"), ("per_capita_water_net", "1인1일 순급수량"), ("return_coefficient", "회귀계수"),
@@ -56,11 +56,58 @@ def basis_txt(b):
     return "/".join(str(b[k]) for k in ("flow", "horizon", "hydraulic_state", "per") if b.get(k))
 
 
+def _scrub(sid, msg, hide):
+    """재배포 불가 기준은 규칙 설명 문장(rules의 text)을 빼고 수치·조항만 남긴다."""
+    if not hide:
+        return msg
+    for r in _rules(sid):
+        if r.get("text"):
+            msg = msg.replace(r["text"], "원문 수치 없음")
+    return msg
+
+
+def _rules(sid):
+    from engine.generic import ROOT
+    return json.loads((ROOT / "criteria" / "rules" / ("%s.json" % sid)).read_text(encoding="utf-8"))["rules"]
+
+
+def pump_section(w, plans, hidden):
+    w("## 5-2. 펌프장·압송관\n")
+    w("전환 조건에 원문 수치가 있으면 자동 배치, 없으면 판정 보류(설계자 검토)로 표시한다. 토구 지정 관저고에 자연유하로 닿지 못하면 "
+      "기준과 무관한 물리적 필요로 토구 직전에 펌프장을 둔다. 원문에 없는 항목(흡입수위·부속손실·잠김 등)은 판정 보류이며, "
+      "부속 구성은 펌프장마다 사업 입력(`station_fittings`)이다.\n")
+    w("| 기준 | 펌프장 | 판정 메모 |\n|---|---|---|")
+    for sid, p in plans.items():
+        notes = "<br>".join(_scrub(sid, n, hidden[sid]) for n in p["notes"]) or "—"
+        w("| %s | %s | %s |" % (sid, ", ".join(p["lifts"]) or "없음", notes.replace("|", "/")))
+    rows = [(sid, s) for sid, p in plans.items() for s in p["stations"]]
+    if not rows:
+        w("")
+        return
+    w("\n### 양정·동력\n")
+    w("| 기준 | 펌프장 | 첨두 Q (L/s) | 실양정 (m) | 압송관 (내경) | 유속 (m/s) / 원문 범위 | C | 마찰 (m) | 부속 (m) | 전양정 (m) | 동력 (kW) |")
+    w("|---|---|---|---|---|---|---|---|---|---|---|")
+    for sid, s in rows:
+        lo, hi = s["fm_v_range"]
+        w("| %s | %s | %.1f | %.2f | %d (%.0f) | %.2f / %s~%s | %g | %.2f | %s | %.2f | %.1f |" % (
+            sid, s["node"], s["Q"] * 1000, s["static_m"], s["fm_dia"], s["fm_inner"], s["fm_v"], lo, hi, s["C"], s["hf"],
+            "보류" if s["hm_note"].startswith("판정 보류") else "%.2f" % s["hm"], s["tdh"], s["power_kw"]))
+    w("\n### 흡입수위·펌프·흡수정\n")
+    w("| 기준 | 펌프장 | 흡입수위 | 부속손실 | 펌프 대수 | 흡입관 | 잠김·NPSH | 흡수정 |\n|---|---|---|---|---|---|---|---|")
+    for sid, s in rows:
+        h = hidden[sid]
+        cells = ["%.2f m — %s" % (s["lwl"], s["lwl_note"]), s["hm_note"], s["pumps"], s["suction"], s["submergence"], s["wet_well"]]
+        w("| %s | %s | %s |" % (sid, s["node"], " | ".join(_scrub(sid, c, h).replace("|", "/") for c in cells)))
+    w("")
+
+
 def main(pid, out_path):
     dsn = os.environ["SEWAGE_DB_DSN"]
     project = load_project(pid)
     sids = list(project["standards"])
-    results = run(pid, sids, dsn)
+    plans = {sid: plan(pid, sid, dsn) for sid in sids}  # 펌프장 판정 포함 설계 (펌프장 없으면 자연유하 설계와 같음)
+    results = {sid: p["out"] for sid, p in plans.items()}
+    hidden = {}
     L = []
     w = L.append
     with psycopg.connect(dsn) as con, con.cursor() as cur:
@@ -76,6 +123,7 @@ def main(pid, out_path):
             cur.execute("SELECT title, edition, is_latest, redistributable, license_note, note FROM criteria.standard WHERE standard_id=%s", (sid,))
             t, ed, latest, red, lic, note = cur.fetchone()
             w("| %s<br>`%s` | %s | %s | %s | %s |" % (t, sid, ed or "", "예" if latest else "아니오", red, (note or "").replace("|", "/")))
+            hidden[sid] = red != "full_text"
         w("")
         # 2
         w("## 2. 기준별 설계 항목 (원문 그대로)\n")
@@ -137,6 +185,7 @@ def main(pid, out_path):
         c = collections.Counter(o["governing"].split(" — ")[0].split(" [")[0][:70] for o in out)
         w("- **%s**: " % sid + "; ".join("%s ×%d" % (k, v) for k, v in c.most_common(4)))
     w("")
+    pump_section(w, plans, hidden)
     # 6
     w("## 6. 원문 한계·주의\n")
     w("- 각 기준의 판정 규칙 해석(원문 미지정 해소)은 `criteria/rules/<기준>.json`의 `resolution`에 근거 조항과 함께 적혀 있다.")

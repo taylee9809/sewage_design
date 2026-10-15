@@ -299,7 +299,7 @@ def plan(pid, sid, dsn=None):
         else:
             inv_to = res[l_out["id"]]["inv_up"]
         stations.append(size_station(st, n, st.peak_flow(P), st.avg_flow(P), inlet, inv_to, sizes, pj, fits))
-    return {"standard_id": sid, "lifts": sorted(lifts), "notes": notes, "stations": stations, "summary": summarize(out)}
+    return {"standard_id": sid, "lifts": sorted(lifts), "notes": notes, "stations": stations, "summary": summarize(out), "out": out}
 
 
 def main(pid):
