@@ -3,3 +3,5 @@ __pycache__/
 *.tmp
 .env
 # 재배포 불가 원문은 ../sewage_design_private 에만 둔다 (db/paths.py)
+
+.claude/settings.local.json
