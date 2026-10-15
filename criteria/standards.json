@@ -8,8 +8,8 @@
   "is_latest": true,
   "access": "free",
   "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6004",
-  "redistributable": "unknown",
-  "license_note": "국가건설기준(공개). 공공누리 유형 미확인"
+  "redistributable": "full_text",
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
  },
  "KDS_61_10_00_20251001": {
   "country": "KR",
@@ -20,8 +20,8 @@
   "is_latest": true,
   "access": "free",
   "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6001",
-  "redistributable": "unknown",
-  "license_note": "국가건설기준(공개). 공공누리 유형 미확인"
+  "redistributable": "full_text",
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
  },
  "TSS_WW_2026": {
   "country": "US",
@@ -97,7 +97,85 @@
   "access": "free",
   "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6005",
   "note": "KDS 61 계열의 유일한 펌프장 코드(그룹 목록 API 확인). 압송관로는 KDS 61 40 00 17.2·17.4(2)",
-  "redistributable": "unknown",
-  "license_note": "국가건설기준(공개). 공공누리 유형 미확인"
+  "redistributable": "full_text",
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
+ },
+ "KDS_61_15_00_20251001": {
+  "country": "KR",
+  "issuer": "국토교통부/국가건설기준센터",
+  "title": "KDS 61 15 00 하수도 내진설계",
+  "edition": "2025-10-01",
+  "effective_date": "2025-10-01",
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6002",
+  "note": "KCSC 코드 트리 API(standard-code-tree/by-full-code?grpFullCd=102061)로 KDS 61 그룹 확인. 원문 표 캡션·표 뒤 그림 제목 포함",
+  "redistributable": "full_text",
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
+ },
+ "KDS_61_31_05_20251001": {
+  "country": "KR",
+  "issuer": "국토교통부/국가건설기준센터",
+  "title": "KDS 61 31 05 전기·계측제어설비 설계기준",
+  "edition": "2025-10-01",
+  "effective_date": "2025-10-01",
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6003",
+  "note": "KCSC 코드 트리 API(standard-code-tree/by-full-code)로 KDS 61 그룹 확인",
+  "redistributable": "full_text",
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
+ },
+ "KDS_61_50_00_20251001": {
+  "country": "KR",
+  "issuer": "국토교통부/국가건설기준센터",
+  "title": "KDS 61 50 00 수처리시설 설계기준",
+  "edition": "2025-10-01",
+  "effective_date": "2025-10-01",
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6006",
+  "note": "KCSC 코드 트리 API로 KDS 61 그룹 확인. 원문에 번호 중복(4.1 ①~④, 6.3.3, 6.3.4, 11 (1)~(4))이 있어 두 번째 이후 clause_no에 [2] 접미",
+  "redistributable": "full_text",
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
+ },
+ "KDS_61_55_00_20251001": {
+  "country": "KR",
+  "issuer": "국토교통부/국가건설기준센터",
+  "title": "KDS 61 55 00 찌꺼기(슬러지)처리시설 설계기준",
+  "edition": "2025-10-01",
+  "effective_date": "2025-10-01",
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6007",
+  "note": "KCSC 코드 트리 API로 KDS 61 그룹 확인. 원문에 번호 중복(3.3.3, 5.4 (1)~(2))이 있어 두 번째 이후 clause_no에 [2] 접미",
+  "redistributable": "full_text",
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
+ },
+ "KDS_61_60_00_20251001": {
+  "country": "KR",
+  "issuer": "국토교통부/국가건설기준센터",
+  "title": "KDS 61 60 00 분뇨처리시설 설계기준",
+  "edition": "2025-10-01",
+  "effective_date": "2025-10-01",
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6008",
+  "note": "KCSC 코드 트리 API(standard-code-tree/by-full-code)로 KDS 61 그룹 확인",
+  "redistributable": "full_text",
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
+ },
+ "KDS_61_90_05_20251001": {
+  "country": "KR",
+  "issuer": "국토교통부/국가건설기준센터",
+  "title": "KDS 61 90 05 일반관리시설 및 설계시 고려사항",
+  "edition": "2025-10-01",
+  "effective_date": "2025-10-01",
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6009",
+  "note": "KCSC 코드 트리 API(standard-code-tree/by-full-code)로 KDS 61 그룹 확인",
+  "redistributable": "full_text",
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
  }
 }

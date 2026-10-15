@@ -60,7 +60,7 @@ SEWAGE_DB_DSN=<public DB DSN> py -3 -m engine.report SYN01 docs/SYN01_design_cri
 
 ## Copyright of source standards
 
-Full text is published only where redistribution is permitted: Colombia RAS (official legal text), Japan's Sewerage Act Enforcement Order (statutes are not copyrighted), and CPHEEO (free reproduction with attribution). For KDS, Ten States and Yokohama, only values and clause numbers are published. Copyright in every standard remains with its issuer.
+Full text is published only where redistribution is permitted: Colombia RAS (official legal text), Japan's Sewerage Act Enforcement Order (statutes are not copyrighted), CPHEEO (free reproduction with attribution), and the KDS 61 series (identical to the annex of Ministry of Environment Notice No. 2025-165, a government notice excluded from copyright protection under Article 7(2) of the Korean Copyright Act). For Ten States and Yokohama, only values and clause numbers are published. Copyright in every standard remains with its issuer.
 
 - CPHEEO, Manual on Sewerage and Sewage Treatment Systems, Part A: Engineering (2013), Ministry of Housing and Urban Affairs, Government of India.
 - Great Lakes – Upper Mississippi River Board, Recommended Standards for Wastewater Facilities, 2026 Edition.

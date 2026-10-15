@@ -6,7 +6,7 @@
 
 | 기준 | 판본 | 최신 | 공개 조건 | 비고 |
 |---|---|---|---|---|
-| KDS 61 40 00 관로시설 설계기준<br>`KDS_61_40_00_20251001` | 2025-10-01 | 예 | unknown |  |
+| KDS 61 40 00 관로시설 설계기준<br>`KDS_61_40_00_20251001` | 2025-10-01 | 예 | full_text |  |
 | Recommended Standards for Wastewater Facilities (Ten States Standards)<br>`TSS_WW_2026` | 2026 | 예 | values_only | 사용자 구매본(PDF, 2026-06-11 수정). 판매처 다운로드 약관(복사·공유 불가)과 문서 내 저작권 고지가 다름 |
 | 横浜市下水道設計指針(管きょ編)・同解説<br>`JP_YOKOHAMA_SEKKEI_202604` | 令和8年度改訂版 + 2026-04-17 正誤 | 예 | values_only | 지자체 기준. 일부 값은 국가 지침(下水道施設計画・設計指針と解説, 유료) 근거 |
 | Manual on Sewerage and Sewage Treatment Systems, Part A: Engineering<br>`CPHEEO_SEW_2013` | 2013 | 예 | full_text | 공식 사이트 업로드본(Wayback). 표지 없어 발행연도 문서 내 직접 확인 못 함 |
@@ -20,32 +20,32 @@
 
 | 항목 | 조건 | 값 | 정의 조건(basis) | 조항 | 구속력 | 원문 구절 |
 |---|---|---|---|---|---|---|
-| 1인1일 오수량 |  | (원문 비공개) | design_daily_max/ultimate/capita_day | 1.7.2 (1) | 기준 |  |
-| 시간최대(첨두) 계수 |  | 1.3~1.8 ratio | design_peak_hourly/ultimate/ratio_to_daily_max | 1.7.2 (6) | 기준 |  |
-| 지하수·침입수 |  | 0.2 ratio | design_daily_max/ultimate/ratio_to_per_capita | 1.7.2 (3) | 기준 |  |
-| 최소유속 | system separate | 0.6 m/s | design_peak_hourly/ultimate/unspecified | 1.3 (1) ① | 기준 |  |
-| 최소유속 | system ['combined', 'storm'] | 0.8 m/s | design_storm/unspecified/unspecified | 1.3 (2) ① | 기준 |  |
-| 최대유속 | system separate | 3 m/s | design_peak_hourly/ultimate/unspecified | 1.3 (1) ① | 기준 |  |
-| 최대유속 | system ['combined', 'storm'] | 3 m/s | design_storm/unspecified/unspecified | 1.3 (2) ① | 기준 |  |
-| 최소경사 | system separate | (원문 비공개) | design_peak_hourly/ultimate/unspecified | 1.3 (1) ① | 기준 |  |
-| 설계수심비 | shape circular | 1 ratio | design_flow/ultimate/full | 1.2 (2) ④ | 기준 |  |
-| 설계수심비 | shape rectangular | 0.9 ratio | design_flow/ultimate/partial | 1.2 (2) ④ | 기준 |  |
-| 설계수심비 | shape horseshoe | 0.8 ratio | design_flow/ultimate/partial | 1.2 (2) ④ | 기준 |  |
-| 여유율 | system separate | (원문 비공개) | design_peak_hourly/ultimate/unspecified | 1.1 (5) | 참고 |  |
-| 조도계수 n | material rc | 0.013 - | any | 1.2 (2) ② | 기준 |  |
-| 조도계수 n | material vcp | 0.013 - | any | 1.2 (2) ② | 기준 |  |
-| 조도계수 n | material pvc | 0.011 - | any | 1.2 (2) ② | 기준 |  |
-| 조도계수 n | material frp | 0.011 - | any | 1.2 (2) ② | 기준 |  |
-| 최소관경 | system separate | 200 mm | any | 2.3 (1) | 기준 |  |
-| 최소관경 | system ['combined', 'storm'] | 250 mm | any | 2.3 (2) | 기준 |  |
-| 최소토피 |  | 1 m | any | 3.2 | 기준 |  |
-| 맨홀 최대간격 | dia_mm ≤600 | 75 m | any | 7.1 (1) ② | 기준 |  |
-| 맨홀 최대간격 | dia_mm >600 ≤1000 | 100 m | any | 7.1 (1) ② | 기준 |  |
-| 맨홀 최대간격 | dia_mm >1000 ≤1500 | 150 m | any | 7.1 (1) ② | 기준 |  |
-| 맨홀 최대간격 | dia_mm ≥1650 | 200 m | any | 7.1 (1) ② | 기준 |  |
-| 부관(낙차맨홀) 기준 낙차 | system ['separate', 'combined'], joint_method step | 0.6 m | any | 5.1 (2) | 기준 |  |
-| 관 접합 |  | (원문 비공개) | any | 5.1 (1); 5.1 (2) | 기준 |  |
-| 하류 관경 감소 |  | (원문 비공개) | any | 1.3 본문 | 기준 |  |
+| 1인1일 오수량 |  | 1인1일 최대오수량은 상수도계획상 1인1일 최대급수량을 감안하여 결정 (고정 수치·비율 없음) | design_daily_max/ultimate/capita_day | 1.7.2 (1) | 기준 | 1인1일 최대오수량은 ... 1인1일 최대급수량을 감안하여 결정하며 |
+| 시간최대(첨두) 계수 |  | 1.3~1.8 ratio | design_peak_hourly/ultimate/ratio_to_daily_max | 1.7.2 (6) | 기준 | 계획1일 최대오수량의 1시간당 수량의 1.3~1.8배를 표준으로 한다 |
+| 지하수·침입수 |  | 0.2 ratio | design_daily_max/ultimate/ratio_to_per_capita | 1.7.2 (3) | 기준 | 지하수량은 1인1일최대오수량의 20% 이하로 하며 |
+| 최소유속 | system separate | 0.6 m/s | design_peak_hourly/ultimate/unspecified | 1.3 (1) ① | 기준 | 계획시간최대오수량에 대하여 유속을 최소 0.6m/s, 최대 3.0m/s로 한다 |
+| 최소유속 | system ['combined', 'storm'] | 0.8 m/s | design_storm/unspecified/unspecified | 1.3 (2) ① | 기준 | 계획우수량에 대하여 유속을 최소 0.8m/s, 최대 3.0m/s로 한다 |
+| 최대유속 | system separate | 3 m/s | design_peak_hourly/ultimate/unspecified | 1.3 (1) ① | 기준 | 계획시간최대오수량에 대하여 유속을 최소 0.6m/s, 최대 3.0m/s로 한다 |
+| 최대유속 | system ['combined', 'storm'] | 3 m/s | design_storm/unspecified/unspecified | 1.3 (2) ① | 기준 | 계획우수량에 대하여 유속을 최소 0.8m/s, 최대 3.0m/s로 한다 |
+| 최소경사 | system separate | 관경별 최소경사 표 없음 - 유속(0.6~3.0 m/s)으로 판단 | design_peak_hourly/ultimate/unspecified | 1.3 (1) ① | 기준 | 계획시간최대오수량에 대하여 유속을 최소 0.6m/s, 최대 3.0m/s로 한다 |
+| 설계수심비 | shape circular | 1 ratio | design_flow/ultimate/full | 1.2 (2) ④ | 기준 | 수심을 결정할 때 원형거는 만류, 직사각형거는 높이의 90%, 말굽형거는 높이의 80%로 한다 |
+| 설계수심비 | shape rectangular | 0.9 ratio | design_flow/ultimate/partial | 1.2 (2) ④ | 기준 | 직사각형거는 높이의 90% |
+| 설계수심비 | shape horseshoe | 0.8 ratio | design_flow/ultimate/partial | 1.2 (2) ④ | 기준 | 말굽형거는 높이의 80%로 한다 |
+| 여유율 | system separate | 오수관로 관경결정 시 계획하수량에 여유율을 둘 수 있음 (관경별 수치 없음) | design_peak_hourly/ultimate/unspecified | 1.1 (5) | 참고 | 오수관로의 관경결정 시 계획하수량에 여유율을 둘 수 있다 |
+| 조도계수 n | material rc | 0.013 - | any | 1.2 (2) ② | 기준 | 철근콘크리트관 및 도관의 경우 각각 0.013 ... 표준으로 한다 |
+| 조도계수 n | material vcp | 0.013 - | any | 1.2 (2) ② | 기준 | 철근콘크리트관 및 도관의 경우 각각 0.013 ... 표준으로 한다 |
+| 조도계수 n | material pvc | 0.011 - | any | 1.2 (2) ② | 기준 | 경질염화비닐관 및 강화플라스틱복합관의 경우는 0.011을 표준으로 한다 |
+| 조도계수 n | material frp | 0.011 - | any | 1.2 (2) ② | 기준 | 경질염화비닐관 및 강화플라스틱복합관의 경우는 0.011을 표준으로 한다 |
+| 최소관경 | system separate | 200 mm | any | 2.3 (1) | 기준 | 오수관로는 ... 200mm를 표준으로 한다 |
+| 최소관경 | system ['combined', 'storm'] | 250 mm | any | 2.3 (2) | 기준 | 우수관로 및 합류관로는 ... 250mm를 표준으로 한다 |
+| 최소토피 |  | 1 m | any | 3.2 | 기준 | 관로의 최소 흙두께는 원칙적으로 1m로 하나 |
+| 맨홀 최대간격 | dia_mm ≤600 | 75 m | any | 7.1 (1) ② | 기준 | 600mm 이하 관에서 최대간격 75m |
+| 맨홀 최대간격 | dia_mm >600 ≤1000 | 100 m | any | 7.1 (1) ② | 기준 | 600mm 초과 1,000mm 이하에서 100m |
+| 맨홀 최대간격 | dia_mm >1000 ≤1500 | 150 m | any | 7.1 (1) ② | 기준 | 1,000mm 초과 1,500mm 이하에서 150m |
+| 맨홀 최대간격 | dia_mm ≥1650 | 200 m | any | 7.1 (1) ② | 기준 | 1,650mm 이상에서 200m를 표준으로 하며 |
+| 부관(낙차맨홀) 기준 낙차 | system ['separate', 'combined'], joint_method step | 0.6 m | any | 5.1 (2) | 기준 | 0.6m 이상일 경우 합류관 및 오수관에는 부관(副管)을 사용하는 것을 원칙으로 한다 |
+| 관 접합 |  | 관경 변화·합류 시 원칙적으로 수면접합 또는 관정접합 (급경사지는 단차접합·계단접합) | any | 5.1 (1); 5.1 (2) | 기준 | 원칙적으로 수면접합 또는 관정접합으로 한다 |
+| 하류 관경 감소 |  | 하류방향으로 관경이 점차 커지고 경사는 점차 작아지도록 유속·경사 결정 (명시적 '감소 금지' 조항 없음) | any | 1.3 본문 | 기준 | 하류방향 흐름에 따라 관경이 점차 커지고, 관로경사는 점차 작아지도록 |
 
 ### TSS_WW_2026
 
@@ -227,7 +227,7 @@
 
 | 항목 | KDS_61_40_00_20251001 | TSS_WW_2026 | JP_YOKOHAMA_SEKKEI_202604 | CPHEEO_SEW_2013 | CO_RAS_0330_2017_COMP2021 |
 |---|---|---|---|---|---|
-| 1인1일 오수량 | (원문 비공개) (design_daily_max/ultimate/capita_day) | — | 220 L/c/d (design_daily_avg/capita_day)<br>290 L/c/d (design_daily_max/capita_day) | 100 L/c/d (design_daily_avg/unspecified/capita_day) | QD = CR × P × DNETA / 86400 (L/s); 수요 단위면적·가입자 기반 식도 병기 (design_daily_avg/ultimate/capita_day) |
+| 1인1일 오수량 | 1인1일 최대오수량은 상수도계획상 1인1일 최대급수량을 감안하여 결정 (고정 수치·비율 없음) (design_daily_max/ultimate/capita_day) | — | 220 L/c/d (design_daily_avg/capita_day)<br>290 L/c/d (design_daily_max/capita_day) | 100 L/c/d (design_daily_avg/unspecified/capita_day) | QD = CR × P × DNETA / 86400 (L/s); 수요 단위면적·가입자 기반 식도 병기 (design_daily_avg/ultimate/capita_day) |
 | 1인1일 순급수량 | — | — | — | — | 120 L/c/d (design_daily_avg/ultimate/capita_day)<br>130 L/c/d (design_daily_avg/ultimate/capita_day)<br>140 L/c/d (design_daily_avg/ultimate/capita_day) |
 | 회귀계수 | — | — | — | — | — |
 | 시간최대(첨두) 계수 | 1.3~1.8 ratio (design_peak_hourly/ultimate/ratio_to_daily_max) | — | 1.95 ratio (design_peak_hourly/ratio_to_avg)<br>1.95 ratio (design_peak_hourly/ratio_to_avg)<br>2 ratio (design_peak_hourly/ratio_to_avg) | 3 ratio (peak/unspecified/ratio_to_avg)<br>2.5 ratio (peak/unspecified/ratio_to_avg)<br>2.25 ratio (peak/unspecified/ratio_to_avg) | 1.4~3.8 ratio (design_peak_hourly/ultimate/ratio_to_avg) |
@@ -236,16 +236,16 @@
 | 최소유속 | 0.6 m/s (design_peak_hourly/ultimate/unspecified) | 0.61 m/s (full_pipe/unspecified/full)<br>0.914 m/s (full_pipe/unspecified/full) | 0.6 m/s (design_peak_hourly/ultimate/full) | 0.6 m/s (peak/initial/actual)<br>0.8 m/s (peak/ultimate/actual) | 고정값 없음: τ ≥ 1.0 Pa를 만드는 실유속이 최소유속 (design_flow/unspecified/actual) |
 | 최소 벽면 전단응력 | — | — | — | — | 1 Pa (design_flow/both/actual) |
 | 최대유속 | 3 m/s (design_peak_hourly/ultimate/unspecified) | 3.05 m/s (unspecified/unspecified/unspecified) | 3 m/s (design_peak_hourly/ultimate/full) | 3 m/s (unspecified/unspecified/unspecified) | 5 m/s (design_flow/unspecified/actual) |
-| 최소경사 | (원문 비공개) (design_peak_hourly/ultimate/unspecified) | 0.004 m/m (full_pipe/unspecified/full)<br>0.0028 m/m (full_pipe/unspecified/full)<br>0.0022 m/m (full_pipe/unspecified/full) | 0.0025 m/m (full_pipe/unspecified/full) | 0.006 m/m (unspecified/unspecified/unspecified)<br>0.004 m/m (unspecified/unspecified/unspecified)<br>0.0028 m/m (unspecified/unspecified/unspecified) | 규정 없음 |
+| 최소경사 | 관경별 최소경사 표 없음 - 유속(0.6~3.0 m/s)으로 판단 (design_peak_hourly/ultimate/unspecified) | 0.004 m/m (full_pipe/unspecified/full)<br>0.0028 m/m (full_pipe/unspecified/full)<br>0.0022 m/m (full_pipe/unspecified/full) | 0.0025 m/m (full_pipe/unspecified/full) | 0.006 m/m (unspecified/unspecified/unspecified)<br>0.004 m/m (unspecified/unspecified/unspecified)<br>0.0028 m/m (unspecified/unspecified/unspecified) | 규정 없음 |
 | 설계수심비 | 1 ratio (design_flow/ultimate/full)<br>0.9 ratio (design_flow/ultimate/partial)<br>0.8 ratio (design_flow/ultimate/partial) | 규정 없음 | 1 ratio (design_flow/ultimate/full)<br>0.9 ratio (design_flow/ultimate/partial)<br>0.8 ratio (design_flow/ultimate/partial) | 0.8 ratio (peak/ultimate/partial) | 0.85 ratio (design_flow/unspecified/partial) |
-| 여유율 | (원문 비공개) (design_peak_hourly/ultimate/unspecified) | 규정 없음 | 1 ratio (design_peak_hourly/ultimate/unspecified) | 0.8 ratio (peak/ultimate/partial) | — |
+| 여유율 | 오수관로 관경결정 시 계획하수량에 여유율을 둘 수 있음 (관경별 수치 없음) (design_peak_hourly/ultimate/unspecified) | 규정 없음 | 1 ratio (design_peak_hourly/ultimate/unspecified) | 0.8 ratio (peak/ultimate/partial) | — |
 | 조도계수 n | 0.013 - (any)<br>0.013 - (any)<br>0.011 - (any) | 0.013 - (any) | 0.013 - (any)<br>0.013 - (any)<br>0.013 - (any) | 0.011 - (any)<br>0.013 - (any)<br>0.011 - (any) | — |
 | 최소관경 | 200 mm (any) | — | 250 mm (any) | 150 mm (any) | 170 mm (any)<br>140 mm (any) |
 | 최소토피 | 1 m (any) | (원문 비공개) (any) | — | — | — |
 | 맨홀 최대간격 | 75 m (any)<br>100 m (any)<br>150 m (any) | 122 m (any)<br>152 m (any) | 50 m (any)<br>75 m (any)<br>100 m (any) | — | 120 m (any) |
 | 부관(낙차맨홀) 기준 낙차 | 0.6 m (any) | 0.61 m (any) | — | 0.6 m (any) | 0.75 m (any) |
-| 관 접합 | (원문 비공개) (any) | — | 0.7 ratio (any)<br>(원문 비공개) (any) | 관정(crown) 접합: 관경 변경 시 유입·유출관 관정 동일 표고; 유출관 관정은 유입관 관정보다 높지 않게; 소관 관정(soffit)은 대관 관정보다 낮지 않게 (any) | 맨홀 유입·유출관 관저고 차이 = 수리해석(흐름 상태·구조물 형상 손실)으로 결정; 손실 ≤ 0이면 관정 간 2 cm 이상 (design_flow) |
-| 하류 관경 감소 | (원문 비공개) (any) | 규정 없음 | 규정 없음 | 하류로 관경 축소 금지 (any) | 규정 없음 |
+| 관 접합 | 관경 변화·합류 시 원칙적으로 수면접합 또는 관정접합 (급경사지는 단차접합·계단접합) (any) | — | 0.7 ratio (any)<br>(원문 비공개) (any) | 관정(crown) 접합: 관경 변경 시 유입·유출관 관정 동일 표고; 유출관 관정은 유입관 관정보다 높지 않게; 소관 관정(soffit)은 대관 관정보다 낮지 않게 (any) | 맨홀 유입·유출관 관저고 차이 = 수리해석(흐름 상태·구조물 형상 손실)으로 결정; 손실 ≤ 0이면 관정 간 2 cm 이상 (design_flow) |
+| 하류 관경 감소 | 하류방향으로 관경이 점차 커지고 경사는 점차 작아지도록 유속·경사 결정 (명시적 '감소 금지' 조항 없음) (any) | 규정 없음 | 규정 없음 | 하류로 관경 축소 금지 (any) | 규정 없음 |
 
 ## 5. 같은 관망 설계 결과 (SYN01)
 
@@ -271,7 +271,7 @@
 
 | 기준 | 펌프장 | 판정 메모 |
 |---|---|---|
-| KDS_61_40_00_20251001 | 없음 | 판정 보류(설계자 검토): 원문 수치 없음 — 최대 매설 2.22 m (A03-A04) |
+| KDS_61_40_00_20251001 | 없음 | 판정 보류(설계자 검토): 자연유하 곤란·매설깊이가 현저히 깊어질 때, 자연유하와 비교 검토 — 수치 없음 → 판정 보류(설계자 검토) — 최대 매설 2.22 m (A03-A04) |
 | TSS_WW_2026 | 없음 | — |
 | JP_YOKOHAMA_SEKKEI_202604 | 없음 | 판정 보류(설계자 검토): 원문 수치 없음 — 최대 매설 2.86 m (T11-T12) |
 | CPHEEO_SEW_2013 | 없음 | — |
