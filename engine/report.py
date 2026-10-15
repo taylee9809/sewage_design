@@ -186,6 +186,18 @@ def main(pid, out_path):
         c = collections.Counter(o["governing"].split(" — ")[0].split(" [")[0][:70] for o in out)
         w("- **%s**: " % sid + "; ".join("%s ×%d" % (k, v) for k, v in c.most_common(4)))
     w("")
+    hc = {sid: [o for o in out if "배수설비" in o["governing"]] for sid, out in results.items()}
+    if any(hc.values()):
+        w("### 배수설비 연결점 (오수받이 관저고 → 연결관 → 본관)\n")
+        w("연결관 최소경사와 본관 접속 높이(원문)로 본관 관저고 상한을 구하고, 넘으면 경사를 유지한 채 구간을 낮춘다. "
+          "접속 높이 수치가 없는 기준은 판정 보류.\n")
+        w("| 기준 | 낮춘 구간 | 최대 낮춤 (m) | 판정 보류 구간 |\n|---|---|---|---|")
+        for sid, rs in hc.items():
+            low = [(o["link"], float(o["governing"].split("배수설비 연결 위해 ")[1].split(" m")[0])) for o in rs if "연결 위해" in o["governing"]]
+            held = [o["link"] for o in rs if "배수설비 연결 판정 보류" in o["governing"]]
+            w("| %s | %s | %s | %s |" % (sid, ", ".join(x for x, _ in low) or "—", "%.3f" % max(v for _, v in low) if low else "—",
+                                        ", ".join(held) or "—"))
+        w("")
     pump_section(w, plans, hidden)
     # 6
     w("## 6. 원문 한계·주의\n")

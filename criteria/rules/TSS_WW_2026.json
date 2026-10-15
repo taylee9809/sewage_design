@@ -164,6 +164,11 @@
    "type": "PUMP_SUBMERGENCE_NPSH",
    "kind": "review",
    "text": "압입 운전 원칙, 흡입양정형은 43.11·43.12 한도(이 모델은 압입형)"
+  },
+  {
+   "type": "HOUSE_CONNECTION",
+   "kind": "review",
+   "text": "33.92 수밀 접속만, 접속 높이 수치 없음"
   }
  ],
  "pipe": {

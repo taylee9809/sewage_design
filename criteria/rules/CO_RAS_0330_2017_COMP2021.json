@@ -206,6 +206,25 @@
     }
    },
    "text": "Art.161-7 잠김 ≥ 2.5 × 흡입관경(원심펌프)"
+  },
+  {
+   "type": "HOUSE_CONNECTION",
+   "kind": "crown",
+   "param": "house_connection",
+   "allow": [
+    "item",
+    "pipe_role",
+    "other"
+   ],
+   "dia_cond": {
+    "item": "최소 실내경",
+    "system": "separate"
+   },
+   "slope_cond": {
+    "item": "최소 경사",
+    "system": "separate"
+   },
+   "clause": "Art.144-3 관정 이상"
   }
  ],
  "pipe": {

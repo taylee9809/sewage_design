@@ -101,6 +101,22 @@ def design(st, nodes, links, sizes, lifts=(), fm_links=()):
             governing += " [경고: 하류 관경 감소 — %s %s]" % (r["clause"], r.get("text", ""))
         if S_mono is not None and gov.slope > S_mono + 1e-12:
             governing += " [경고: 요구 경사가 상류 경사보다 급함 — 경사 점감 미충족(%s)]" % mono["clause"]
+        # 배수설비 연결점: 본관이 오수받이에서 연결관으로 받을 수 있을 만큼 깊어야 한다 → 경사 유지한 채 구간을 낮춤
+        conn_low = 0.0
+        held = None
+        for c in l.get("conns", []):
+            lim, why = st.house_connection(c["z"], c["Lc"], D)
+            if lim is None:
+                held = why
+                continue
+            over = (inv_up - S * c["x"]) - lim
+            if over > conn_low + 1e-9:
+                conn_low, conn_why = over, "배수설비 %s: %s" % (c["id"], why)
+        if conn_low > 5e-4:
+            inv_up -= conn_low
+            governing += " [배수설비 연결 위해 %.3f m 낮춤 — %s]" % (conn_low, conn_why)
+        if held:
+            governing += " [배수설비 연결 %s]" % held
         v_here = st.v_check(D, S, Q)
         if mono and main_up and mono.get("velocity") == "non_decreasing" and v_here < main_up["v"] - 1e-9:
             governing += " [참고: 유속 점증 미충족 %.2f<%.2f m/s(%s)]" % (v_here, main_up["v"], mono["clause"])

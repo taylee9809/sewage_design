@@ -171,6 +171,29 @@
    "type": "PUMP_SUBMERGENCE_NPSH",
    "kind": "review",
    "text": "규정 없음"
+  },
+  {
+   "type": "HOUSE_CONNECTION",
+   "kind": "angle",
+   "param": "house_connection",
+   "allow": [
+    "item",
+    "pipe_role",
+    "other"
+   ],
+   "dia_cond": {
+    "item": "最小内径",
+    "other": {
+     "from": "接続汚水桝・接続雨水桝"
+    }
+   },
+   "slope_cond": {
+    "item": "最小勾配"
+   },
+   "angle_cond": {
+    "item": "本管接続位置"
+   },
+   "clause": "6.2(1) 중심선 위 45° 부근"
   }
  ],
  "pipe": {

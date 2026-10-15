@@ -19,7 +19,8 @@ KNOWN_TYPES = {"VELOCITY_MIN", "VELOCITY_MAX", "SLOPE_TABLE", "CAPACITY", "MIN_D
                # v3 (2026-10-15) 펌프장·압송관
                "PUMP_TRIGGER", "FORCE_MAIN_VELOCITY", "FORCE_MAIN_FRICTION", "FORCE_MAIN_MIN_DIAMETER", "PUMP_COUNT",
                "WET_WELL_VOLUME", "PUMP_HEAD_POWER",
-               "WET_WELL_LEVEL", "MINOR_LOSS", "SUCTION_PIPE", "PUMP_SUBMERGENCE_NPSH"}  # v3.1 흡입수위·부속손실·흡입관·잠김
+               "WET_WELL_LEVEL", "MINOR_LOSS", "SUCTION_PIPE", "PUMP_SUBMERGENCE_NPSH",  # v3.1 흡입수위·부속손실·흡입관·잠김
+               "HOUSE_CONNECTION"}  # v4 (2026-10-16) 배수설비 연결점 → 본관 관저고 상한
 REQUIRED = ("mandatory", "standard")
 
 
@@ -246,6 +247,28 @@ class Standard:
             k = r["ratio"]
             return u_inv_dn + k * u_D - k * D
         raise NotImplementedError("접합 방식 %s" % kind)
+
+    def house_connection(self, z_box, Lc, D):
+        """배수설비 연결관이 본관에 닿기 위한 본관 관저고 상한. 반환 (상한 또는 None, 설명).
+        연결관 끝 관저고 z = 오수받이 관저고 − 최소경사 × 연장, 접속 높이 kind:
+        center(본관 중심선 위) inv ≤ z − D/2 | angle(중심선 위 a°) inv ≤ z − D/2·(1+sin a) | crown(관정 이상) inv ≤ z + d연결관 − D | review"""
+        r = self.rule("HOUSE_CONNECTION")
+        if not r or r["kind"] == "review":
+            return None, "판정 보류(설계자 검토): " + (r.get("text", "") if r else "규정 없음")
+        dc_row = db.pick(self.rows, r["param"], r["dia_cond"], allow=tuple(r.get("allow", ())))[0]
+        dc = dc_row.value_min
+        sl = db.pick(self.rows, r["param"], {**r["slope_cond"], "dia_mm": round(dc * 1000)}, allow=tuple(r.get("allow", ())))[0]
+        z = z_box - sl.value_min * Lc
+        if r["kind"] == "center":
+            lim = z - D / 2
+        elif r["kind"] == "angle":
+            a = db.pick(self.rows, r["param"], r["angle_cond"], allow=tuple(r.get("allow", ())))[0].value_min
+            lim = z - D / 2 * (1 + math.sin(math.radians(a)))
+        elif r["kind"] == "crown":
+            lim = z + dc - D
+        else:
+            raise NotImplementedError("연결관 접속 방식 %s" % r["kind"])
+        return lim, "연결관 %.0f mm·경사 %g (%s), 접속 %s (%s)" % (dc * 1000, sl.value_min, sl.clause_ref, r["kind"], r["clause"])
 
     def spacing(self, dia):
         r = self.rule("MANHOLE_SPACING")

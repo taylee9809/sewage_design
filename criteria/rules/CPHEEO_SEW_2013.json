@@ -229,6 +229,11 @@
     "other"
    ],
    "npsh": "4.8 NPSHa > NPSHr — 펌프 NPSHr 입력 필요"
+  },
+  {
+   "type": "HOUSE_CONNECTION",
+   "kind": "review",
+   "text": "3.70 맨홀에만 접속(본관 직접 접속 폐지), 접속 높이 수치 없음"
   }
  ],
  "pipe": {

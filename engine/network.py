@@ -7,6 +7,15 @@ def load_network(cur, pid):
     cur.execute("SELECT link_id, from_node, to_node, length_m::float, material, soil_class, gw_depth_m::float "
                 "FROM network.link WHERE project_id=%s", (pid,))
     links = [dict(zip(("id", "up", "dn", "L", "mat", "soil", "gw"), r)) for r in cur.fetchall()]
+    cur.execute("SELECT to_regclass('network.house_connection') IS NOT NULL")
+    conns = {}
+    if cur.fetchone()[0]:  # 배수설비 연결점 (오수받이 관저고·연결관 길이)
+        cur.execute("SELECT conn_id, link_id, chainage_m::float, box_invert_el::float, conn_len_m::float "
+                    "FROM network.house_connection WHERE project_id=%s ORDER BY conn_id", (pid,))
+        for cid, lid, x, z, lc in cur.fetchall():
+            conns.setdefault(lid, []).append({"id": cid, "x": x, "z": z, "Lc": lc})
+    for l in links:
+        l["conns"] = conns.get(l["id"], [])
     return nodes, links
 
 

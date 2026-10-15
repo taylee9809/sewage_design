@@ -20,6 +20,8 @@ NODES = [("U%02d" % i, i * 100, 0, gl, p0, p1) for i, (gl, p0, p1) in enumerate(
 NODES += [("V%02d" % i, 800, -100 * (5 - i), gl, 200, 350) for i, gl in enumerate([20.9, 20.8, 20.6, 20.5, 20.3])]
 CHAINS = [["U%02d" % i for i in range(14)], ["V00", "V01", "V02", "V03", "V04", "U08"]]
 OUTFALL, OUTFALL_INV = "U13", 22.0
+# 배수설비 연결점 예시 (conn_id, 구간 상류, 하류, 상류에서 거리 m, 오수받이 깊이 m, 연결관 길이 m) — 평탄한 V 지선의 깊은 오수받이
+CONNS = [("C01", "V01", "V02", 50, 1.6, 8.0), ("C02", "V02", "V03", 60, 1.6, 8.0), ("C03", "U01", "U02", 40, 1.2, 6.0)]
 
 
 def main(dsn):
@@ -41,6 +43,13 @@ def main(dsn):
                 cur.execute("""INSERT INTO network.link (project_id,link_id,from_node,to_node,material,soil_class,gw_depth_m,geom)
                                VALUES (%s,%s,%s,%s,'pvc','clay',%s,ST_SetSRID(ST_MakeLine(ST_MakePoint(%s,%s),ST_MakePoint(%s,%s)),%s))""",
                             (PID, "%s-%s" % (a, b), a, b, 1.5 if a[0] == "V" or a in ("U07", "U08", "U09") else None, *pos[a], *pos[b], SRID))
+        # 배수설비 연결점 예시: 오수받이 관저고 = 접속점 지반고 − 깊이, 연결관 길이
+        gl = {nid: z for nid, _, _, z, _, _ in NODES}
+        for cid, a, b, x, depth, lc in CONNS:
+            z = gl[a] + (gl[b] - gl[a]) * x / 100.0 - depth
+            px, py = pos[a][0] + (pos[b][0] - pos[a][0]) * x / 100.0, pos[a][1] + (pos[b][1] - pos[a][1]) * x / 100.0
+            cur.execute("""INSERT INTO network.house_connection VALUES (%s,%s,%s,%s,%s,%s,%s,ST_SetSRID(ST_MakePoint(%s,%s),%s))""",
+                        (PID, cid, "%s-%s" % (a, b), x, round(z, 3), lc, "예시 — 오수받이 지표 아래 %.1f m" % depth, px, py, SRID))
         cur.execute("SELECT count(*), round(sum(length_m)) FROM network.link WHERE project_id=%s", (PID,))
         print("links", cur.fetchone())
 

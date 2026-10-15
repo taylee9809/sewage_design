@@ -66,3 +66,17 @@ CREATE TABLE IF NOT EXISTS design_link (
 ALTER TABLE link ADD COLUMN IF NOT EXISTS soil_class text;          -- 토질조사 결과 요약 (예: sand, clay, gravel)
 ALTER TABLE link ADD COLUMN IF NOT EXISTS gw_depth_m numeric;        -- 지하수위 심도 (지표 아래 m), NULL = 지하수 없음/미확인
 ALTER TABLE node ADD COLUMN IF NOT EXISTS land_owner text;           -- 지적 소유 구분 (public = 국공유지)
+
+-- 배수설비 연결점 (2026-10-16): 필지 오수받이에서 본관으로 들어오는 연결관. 본관은 이 높이보다 깊어야 한다.
+CREATE TABLE IF NOT EXISTS house_connection (
+  project_id    text NOT NULL REFERENCES project ON DELETE CASCADE,
+  conn_id       text NOT NULL,
+  link_id       text NOT NULL,                   -- 접속하는 본관 구간
+  chainage_m    numeric NOT NULL,                -- 구간 상류 맨홀에서 접속점까지 거리
+  box_invert_el numeric NOT NULL,                -- 오수받이 유출 관저고 m
+  conn_len_m    numeric NOT NULL,                -- 오수받이~본관 연결관 길이
+  note          text,
+  geom          geometry(Point),
+  PRIMARY KEY (project_id, conn_id),
+  FOREIGN KEY (project_id, link_id) REFERENCES link (project_id, link_id) ON DELETE CASCADE
+);

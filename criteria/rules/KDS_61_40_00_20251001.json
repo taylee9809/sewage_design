@@ -178,6 +178,23 @@
    "type": "PUMP_SUBMERGENCE_NPSH",
    "kind": "review",
    "text": "원문에 잠김·NPSH 수치 없음 — 1.3(3) 캐비테이션 검토 요구"
+  },
+  {
+   "type": "HOUSE_CONNECTION",
+   "kind": "center",
+   "param": "house_connection",
+   "allow": [
+    "item",
+    "pipe_role",
+    "other"
+   ],
+   "dia_cond": {
+    "item": "connection_pipe_min_dia"
+   },
+   "slope_cond": {
+    "item": "connection_pipe_min_slope"
+   },
+   "clause": "14.5 (1) ③ 본관 중심선보다 위쪽"
   }
  ],
  "pipe": {
