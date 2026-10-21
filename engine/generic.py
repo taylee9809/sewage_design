@@ -44,6 +44,8 @@ def _range_ok(spec, x):
 
 class Standard:
     def __init__(self, standard_id, project, dsn=None):
+        if db.doc_type(standard_id) not in db.JUDGING_DOC_TYPES:
+            raise ValueError("%s는 %s — 설계 판정 기준은 %s만" % (standard_id, db.doc_type(standard_id), "/".join(db.JUDGING_DOC_TYPES)))
         spec = json.loads((ROOT / "criteria" / "rules" / ("%s.json" % standard_id)).read_text(encoding="utf-8"))
         unknown = {r["type"] for r in spec["rules"]} - KNOWN_TYPES
         if unknown:

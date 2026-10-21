@@ -21,7 +21,9 @@ CREATE TABLE standard (
   redistributable text CHECK (redistributable IN ('full_text','values_only','unknown')),
   license_note    text,                   -- 근거(저작권 고지 문구·출처)
   source_url      text,
-  note            text
+  note            text,
+  doc_type        text NOT NULL CHECK (doc_type IN ('law','regulation','design_standard','guideline','legacy_commentary','local_study','paper'))
+                                          -- 문서 종류. 엔진 기본 판정은 law·regulation·design_standard만 (나머지는 사업·검토 파일 adopt로만)
 );
 
 -- 2. 항목 사전 (기준 독립)

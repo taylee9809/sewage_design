@@ -77,3 +77,23 @@ basis가 의미 없는 항목(최소관경, 맨홀 간격, 토피 등 기하 규
 ## 3. 비교 그룹
 
 `param_key` + `basis`(`flow`,`horizon`,`hydraulic_state`,`per`)가 같은 행끼리만 직접 비교한다. 다르면 2단계(공통 지표 환산) 또는 3단계(동일 입력 설계 결과 비교)로 넘긴다.
+
+## v1.2 추가 (2026-10-21, 유지관리 기준·문서 종류)
+
+| 키 | 추가 값 | 뜻 |
+|---|---|---|
+| `flow` | `dry_weather` | 청천시 실유량 (합류관 퇴적 판정 등) |
+| condition `flood_risk_area` | `true` | 침수우려지역(하수도정비중점관리지역·자연재해위험개선지구 중 하수 침수위험 지역 등)에서만 적용 |
+
+### 문서 종류 (`criteria/standards.json`의 `doc_type`)
+
+| 값 | 뜻 | 엔진 기본 판정 |
+|---|---|---|
+| `law` | 법률·시행령·시행규칙 | 사용 |
+| `regulation` | 고시·훈령·장관 결의(Resolución) 등 구속력 있는 행정규칙 | 사용 |
+| `design_standard` | 설계기준(KDS, Ten States, CPHEEO Manual 등) | 사용 |
+| `guideline` | 정부 지침·매뉴얼 | 채택(adopt) 시만 |
+| `legacy_commentary` | 대체된 구 기준과 해설 | 채택(adopt) 시만 |
+| `local_study` | 지자체 기본계획·연구 | 채택(adopt) 시만 |
+| `paper` | 학술 논문 | 채택(adopt) 시만 |
+

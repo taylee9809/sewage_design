@@ -1,0 +1,6 @@
+{"row_key": "bb79ce44e37c", "condition": {"flood_risk_area": true}, "basis": {"flow": "any"}, "tag_note": "제3조 적용범위 → flood_risk_area 조건"}
+{"row_key": "2708efa5a8ed", "condition": {"flood_risk_area": true}, "basis": {"flow": "any"}, "tag_note": "제3조 적용범위 → flood_risk_area 조건"}
+{"row_key": "e40d5da64977", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "0b2bd7cb1bb2", "condition": null, "basis": {"flow": "design_peak_hourly", "hydraulic_state": "unspecified"}, "tag_note": "설계기준 최소유속 미달 여부"}
+{"row_key": "8160edd54259", "condition": {"system": "separate"}, "basis": {"flow": "unspecified", "hydraulic_state": "unspecified"}, "tag_note": "어느 유량의 유속인지 원문 미지정"}
+{"row_key": "65f167b756c5", "condition": {"system": "combined"}, "basis": {"flow": "dry_weather", "hydraulic_state": "actual"}, "tag_note": "청천시 실유속"}

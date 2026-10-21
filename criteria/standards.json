@@ -9,7 +9,8 @@
   "access": "free",
   "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6004",
   "redistributable": "full_text",
-  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본",
+  "doc_type": "design_standard"
  },
  "KDS_61_10_00_20251001": {
   "country": "KR",
@@ -21,7 +22,8 @@
   "access": "free",
   "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6001",
   "redistributable": "full_text",
-  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본",
+  "doc_type": "design_standard"
  },
  "TSS_WW_2026": {
   "country": "US",
@@ -34,7 +36,8 @@
   "source_url": "https://www.health.state.mn.us/communities/environment/water/tenstates/standards.html",
   "note": "사용자 구매본(PDF, 2026-06-11 수정). 판매처 다운로드 약관(복사·공유 불가)과 문서 내 저작권 고지가 다름",
   "redistributable": "values_only",
-  "license_note": "p.3: may be reproduced without permission if credit is given to the Board and to this publication. 본문은 사용자 결정(10-13)으로 비공개 DB에만"
+  "license_note": "p.3: may be reproduced without permission if credit is given to the Board and to this publication. 본문은 사용자 결정(10-13)으로 비공개 DB에만",
+  "doc_type": "design_standard"
  },
  "JP_YOKOHAMA_SEKKEI_202604": {
   "country": "JP",
@@ -45,9 +48,10 @@
   "is_latest": true,
   "access": "free",
   "source_url": "https://www.city.yokohama.lg.jp/business/nyusatsu/youshiki/gesui/gesuishiryo/kijunshokankei.files/0034_20260702.pdf",
-  "note": "지자체 기준. 일부 값은 국가 지침(下水道施設計画・設計指針と解説, 유료) 근거",
+  "note": "지자체 기준. 일부 값은 국가 지침(下水道施設計画・設計指針と解説, 유료) 근거 doc_type: 시 설계지침이나 일본 비교 대상 설계기준으로 사용",
   "redistributable": "values_only",
-  "license_note": "지자체 저작물. 이용 조건 미확인"
+  "license_note": "지자체 저작물. 이용 조건 미확인",
+  "doc_type": "design_standard"
  },
  "JP_GESUIDOHO_SEKOREI_20260817": {
   "country": "JP",
@@ -59,7 +63,8 @@
   "access": "free",
   "source_url": "https://laws.e-gov.go.jp/law/334CO0000000147",
   "redistributable": "full_text",
-  "license_note": "법령은 저작권 대상 아님(著作権法 第13条第1号)"
+  "license_note": "법령은 저작권 대상 아님(著作権法 第13条第1号)",
+  "doc_type": "law"
  },
  "CPHEEO_SEW_2013": {
   "country": "IN",
@@ -72,7 +77,8 @@
   "source_url": "https://web.archive.org/web/20200811102516/http://cpheeo.gov.in/upload/uploadfiles/files/engineering_chapter3.pdf",
   "note": "공식 사이트 업로드본(Wayback). 표지 없어 발행연도 문서 내 직접 확인 못 함",
   "redistributable": "full_text",
-  "license_note": "CPHEEO Copyright Policy(2018-01-17 갱신, Wayback): 무료 복제 허용, 정확히 복제·오해 소지 없게·출처 명시 조건"
+  "license_note": "CPHEEO Copyright Policy(2018-01-17 갱신, Wayback): 무료 복제 허용, 정확히 복제·오해 소지 없게·출처 명시 조건",
+  "doc_type": "design_standard"
  },
  "CO_RAS_0330_2017_COMP2021": {
   "country": "CO",
@@ -85,7 +91,8 @@
   "source_url": "https://www.minvivienda.gov.co/sites/default/files/documentos/anexo-2-articulado-definitivo-rev-sspd-1.pdf",
   "note": "법령 원문. Res. 0548/2022(경과규정) 이후 개정은 RAS 페이지 기준 미확인",
   "redistributable": "full_text",
-  "license_note": "법령 원문 — Ley 23 de 1982 Art.41 '헌법·법률·명령 등은 누구나 복제 가능'"
+  "license_note": "법령 원문 — Ley 23 de 1982 Art.41 '헌법·법률·명령 등은 누구나 복제 가능'",
+  "doc_type": "regulation"
  },
  "KDS_61_45_00_20251001": {
   "country": "KR",
@@ -98,7 +105,8 @@
   "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6005",
   "note": "KDS 61 계열의 유일한 펌프장 코드(그룹 목록 API 확인). 압송관로는 KDS 61 40 00 17.2·17.4(2)",
   "redistributable": "full_text",
-  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본",
+  "doc_type": "design_standard"
  },
  "KDS_61_15_00_20251001": {
   "country": "KR",
@@ -111,7 +119,8 @@
   "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6002",
   "note": "KCSC 코드 트리 API(standard-code-tree/by-full-code?grpFullCd=102061)로 KDS 61 그룹 확인. 원문 표 캡션·표 뒤 그림 제목 포함",
   "redistributable": "full_text",
-  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본",
+  "doc_type": "design_standard"
  },
  "KDS_61_31_05_20251001": {
   "country": "KR",
@@ -124,7 +133,8 @@
   "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6003",
   "note": "KCSC 코드 트리 API(standard-code-tree/by-full-code)로 KDS 61 그룹 확인",
   "redistributable": "full_text",
-  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본",
+  "doc_type": "design_standard"
  },
  "KDS_61_50_00_20251001": {
   "country": "KR",
@@ -137,7 +147,8 @@
   "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6006",
   "note": "KCSC 코드 트리 API로 KDS 61 그룹 확인. 원문에 번호 중복(4.1 ①~④, 6.3.3, 6.3.4, 11 (1)~(4))이 있어 두 번째 이후 clause_no에 [2] 접미",
   "redistributable": "full_text",
-  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본",
+  "doc_type": "design_standard"
  },
  "KDS_61_55_00_20251001": {
   "country": "KR",
@@ -150,7 +161,8 @@
   "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6007",
   "note": "KCSC 코드 트리 API로 KDS 61 그룹 확인. 원문에 번호 중복(3.3.3, 5.4 (1)~(2))이 있어 두 번째 이후 clause_no에 [2] 접미",
   "redistributable": "full_text",
-  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본",
+  "doc_type": "design_standard"
  },
  "KDS_61_60_00_20251001": {
   "country": "KR",
@@ -163,7 +175,8 @@
   "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6008",
   "note": "KCSC 코드 트리 API(standard-code-tree/by-full-code)로 KDS 61 그룹 확인",
   "redistributable": "full_text",
-  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본",
+  "doc_type": "design_standard"
  },
  "KDS_61_90_05_20251001": {
   "country": "KR",
@@ -176,6 +189,77 @@
   "source_url": "https://kcsc.re.kr/api/api/v1/tn-document-contents?doc_info_seq=6009",
   "note": "KCSC 코드 트리 API(standard-code-tree/by-full-code)로 KDS 61 그룹 확인",
   "redistributable": "full_text",
-  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본"
+  "license_note": "저작권법 제7조 제2호(보호받지 못하는 저작물: 국가의 고시). 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지(KDS 61 00 00:2025, law.go.kr 행정규칙일련번호 2100000267036)와 본문 동일 — 2026-10-16 대조(61 10·40·45 874조 전수, 문구 차이 0; 나머지 6개 코드도 별지에서 확인). 출처: 고시 별지 / 국가건설기준센터 게재본",
+  "doc_type": "design_standard"
+ },
+ "KR_MOE_SEWER_2011": {
+  "country": "KR",
+  "issuer": "환경부 제정 / 한국상하수도협회 발간",
+  "title": "하수도시설기준 (해설 포함)",
+  "edition": "2011",
+  "effective_date": "2011-04-01",
+  "is_latest": false,
+  "access": "paid",
+  "source_url": "https://www.kira.or.kr/docFile/%EA%B8%B0%EC%A4%80%EB%B0%8F%EA%B3%A0%EC%8B%9C/%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%88%A0%EC%A7%84%ED%9D%A5%EB%B2%95/51.%20%ED%95%98%EC%88%98%EB%8F%84%EC%8B%9C%EC%84%A4%EA%B8%B0%EC%A4%80(11.4.22).pdf",
+  "redistributable": "values_only",
+  "license_note": "구 기준서(KDS 61 계열로 대체). 협회 발간본으로 재배포 조건 미확인 → 값과 조항 번호만",
+  "note": "실무 근거 전용. KDS 본문에 수치가 없는 항목(관경별 여유율 등)을 실무에서 이 해설로 정해 온 것을 기록한다. 엔진 기본 판정에는 쓰지 않고, 사업·검토 파일의 adopt에서 채택할 때만 쓴다. 발행일: 표지·서문 '2011년 4월'(일자 미기재 → 1일로 기록)",
+  "doc_type": "legacy_commentary"
+ },
+ "KR_MOE_SEWER_MAINT_NOTICE_20251001": {
+  "country": "KR",
+  "issuer": "기후에너지환경부 (발령 당시 환경부)",
+  "title": "하수관로 유지관리 기준 (환경부고시 제2025-165호)",
+  "edition": "2025-10-01",
+  "effective_date": "2025-10-01",
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000267022",
+  "redistributable": "full_text",
+  "license_note": "저작권법 제7조 제2호(국가의 고시). 근거: 「하수도법」 제4조의4제3항",
+  "note": "제정 2023-04-10(제2023-71호), 개정 2025-08-29(제2025-151호)·2025-10-01(제2025-165호). 제1조·제3조·제6조② 문구는 제정본과 동일(2026-10-21 대조). 적용범위(제3조): 하수도정비중점관리지역, 자연재해위험개선지구 중 하수 침수위험 지역, 그 밖에 하수 범람 침수피해 발생·우려 지역 — 모든 관로에 적용되지 않음",
+  "doc_type": "regulation"
+ },
+ "KR_MOE_SEWER_MAINT_GUIDE_1999": {
+  "country": "KR",
+  "issuer": "환경부",
+  "title": "하수관거 유지관리지침",
+  "edition": "1999-11",
+  "effective_date": "1999-11-01",
+  "is_latest": false,
+  "access": "free",
+  "source_url": "https://mcee.go.kr/home/file/readHtml.do?fileId=1070&fileSeq=2",
+  "redistributable": "unknown",
+  "license_note": "정부 발간 지침. 재배포 조건 미확인 → 값과 조항 번호만",
+  "note": "발행월만 표기(일자 미기재 → 1일로 기록). 서울시 2030 하수도정비기본계획(2017) 운영관리편이 같은 문구를 인용",
+  "doc_type": "guideline"
+ },
+ "KR_MOE_SEWER_OM_MANUAL_2005": {
+  "country": "KR",
+  "issuer": "환경부",
+  "title": "공공하수도시설 유지관리 실무지침서",
+  "edition": "2005",
+  "effective_date": "2005-01-01",
+  "is_latest": false,
+  "access": "free",
+  "source_url": "https://clik.nanet.go.kr/clikr-collection/policyinfo/228/1076/2012/CLIKC2219957975418476_attach_1.pdf",
+  "redistributable": "unknown",
+  "license_note": "정부 발간 지침서(용역 결과물일 수 있음). 재배포 조건 미확인 → 값과 조항 번호만",
+  "note": "발행연도만 확인(일자 미기재 → 1월 1일로 기록)",
+  "doc_type": "guideline"
+ },
+ "KR_PAPER_PARK_2019_JKSWW33_2": {
+  "country": "KR",
+  "issuer": "박규홍·유순유·이태훈 (중앙대학교 외)",
+  "title": "하수관로내 하수흐름의 전단응력 향상을 위한 저수조의 활용에 관한 수리적 고찰 (상하수도학회지 33권 2호)",
+  "edition": "2019-04",
+  "effective_date": "2019-04-01",
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://www.koreascience.or.kr/article/JAKO201914860241022.pdf",
+  "redistributable": "values_only",
+  "license_note": "학술논문. 값과 서지만",
+  "note": "서울시 연구(2009, 합류관로 청천시 퇴적방지 최소유속)와 서울시 2030 하수도정비기본계획(2017) N-11을 인용한 2차 출처 — 원 보고서 미확인",
+  "doc_type": "paper"
  }
 }

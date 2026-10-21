@@ -5,12 +5,23 @@ DSN은 환경변수 SEWAGE_DB_DSN (예: postgresql://user:pw@localhost:5432/sewa
 import os
 from dataclasses import dataclass, field
 
-import psycopg
-
 # 조건에 이 키가 있으면 '예외·특수 사례' 행이다. 설계 조건(ctx)이 명시적으로 요구할 때만 쓴다.
 SPECIAL_KEYS = {"exception", "other", "item", "facility", "lining", "location", "manhole_type", "joint_method",
                 "pipe_role", "wastewater_type", "terrain", "depth_m", "slope", "road_width_m", "receives_house_connections",
                 "sewer_type", "altitude_masl", "flow_lps"}
+
+
+# 엔진 기본 판정에 쓰는 문서 종류. 나머지(지침·구 기준 해설·지자체 연구·논문)는 사업·검토 파일의 adopt로만 쓴다.
+JUDGING_DOC_TYPES = ("law", "regulation", "design_standard")
+
+
+def doc_type(standard_id):
+    """criteria/standards.json의 문서 종류(doc_type)."""
+    import json
+    from pathlib import Path
+
+    std = json.loads((Path(__file__).resolve().parent.parent / "criteria" / "standards.json").read_text(encoding="utf-8"))
+    return std[standard_id]["doc_type"]
 
 
 @dataclass
@@ -28,6 +39,8 @@ class Row:
 
 
 def load(standard_id, dsn=None):
+    import psycopg  # DB 없이 쓰는 경로(load_csv)에서는 필요 없음
+
     dsn = dsn or os.environ["SEWAGE_DB_DSN"]
     with psycopg.connect(dsn) as con, con.cursor() as cur:
         cur.execute("""SELECT standard_id, param_key, coalesce(condition, '{}'::jsonb), coalesce(basis, '{}'::jsonb),
@@ -35,6 +48,33 @@ def load(standard_id, dsn=None):
                        FROM criteria.criterion WHERE standard_id = %s""", (standard_id,))
         return [Row(r[0], r[1], r[2], r[3], None if r[4] is None else float(r[4]), None if r[5] is None else float(r[5]),
                     r[6], r[7], r[8]) for r in cur.fetchall()]
+
+
+def load_csv(standard_id):
+    """load()와 같은 행을 DB 없이 criteria/*_sewer.csv + normalized/*.jsonl에서 읽는다 (적재 규칙은 db/load_criteria.py와 동일).
+    조문 연결·비공개 원문은 빠진다 — 값·조건·basis·구속력·조항 표기만 필요할 때(검토 모드) 쓴다."""
+    import csv
+    import sys
+    from pathlib import Path
+
+    dbdir = Path(__file__).resolve().parent.parent / "db"
+    if str(dbdir) not in sys.path:
+        sys.path.insert(0, str(dbdir))
+    import load_criteria as lc
+
+    norm = lc.load_normalized()
+    out = []
+    for f in sorted((lc.ROOT / "criteria").glob("*_sewer.csv")):
+        for r in csv.DictReader(open(f, encoding="utf-8")):
+            if r["standard_id"] != standard_id:
+                continue
+            lo, hi, _ = lc.normalize(r)
+            nz = norm.get(lc.row_key(r), {})
+            out.append(Row(r["standard_id"], r["param_key"], nz.get("condition") or {}, nz.get("basis") or {}, lo, hi,
+                           r["binding"], r["clause_no"] or None, r["value_text"] or None))
+    if not out:
+        raise LookupError("기준값 없음: %s" % standard_id)
+    return out
 
 
 def _range_ok(spec, x):

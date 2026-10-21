@@ -19,6 +19,7 @@ The same 27-pipe network, designed with each standard's own clauses: excavation 
   | India | CPHEEO Manual on Sewerage and Sewage Treatment Systems, Part A | 2013 |
   | Colombia | RAS, Resolución 0330 de 2017 (compiled 2021) | 2021 |
 - **A country-agnostic engine.** The core engine (`generic.py`, `design.py`) contains no country names, and a test fails if one appears. Each standard is described by a rules file (`criteria/rules/<standard_id>.json`, 13 rule types) plus its values. Swap the standard set and the same network is redesigned.
+- **Every source typed.** Each source carries a `doc_type` (law, regulation, design standard, guideline, legacy commentary, municipal study, paper). Only laws, regulations and design standards drive the engine; practice sources are used only when a project explicitly adopts them.
 - **Literal, not "practical".** Values are encoded exactly as the source text says. Where a standard is silent, the gap is resolved only from other clauses of the same standard, or left as `unspecified`. Common practice is never filled in.
 - **Comparable, not merged.** Each value carries a `basis` (which flow, which time horizon, full or partial pipe). Two numbers are compared only when their basis matches, so the comparison table never puts an apple next to an orange.
 - **Design criteria report.** `engine.report` writes the full comparison as Markdown: adopted values per standard, side-by-side table, design results, and the clause that governed each pipe's slope and size ([example](docs/SYN01_design_criteria_report.md), in Korean).
@@ -42,6 +43,7 @@ py -3 db/load_criteria.py <public DB DSN> [<private DB DSN>]
 SEWAGE_DB_DSN=<public DB DSN> py -3 -m pytest tests
 SEWAGE_DB_DSN=<public DB DSN> py -3 -m engine.design SYN01
 SEWAGE_DB_DSN=<public DB DSN> py -3 -m engine.report SYN01 docs/SYN01_design_criteria_report.md
+py -3 -m engine.check tests/fixtures/check_case01.json review.md   # review mode, no DB needed
 ```
 
 ## Layout
@@ -55,7 +57,7 @@ SEWAGE_DB_DSN=<public DB DSN> py -3 -m engine.report SYN01 docs/SYN01_design_cri
 | `criteria/pipe_catalog/*.csv` | Real pipe products per country (nominal vs. inner diameter) |
 | `criteria/clauses/`, `criteria/assets/` | Full clause text and figures, only where redistribution is permitted |
 | `criteria/projects/<id>.json` | Project-level choices where a standard gives a range or no number |
-| `engine/` | Hydraulics, generic engine, network, metrics, report |
+| `engine/` | Hydraulics, generic engine, network, metrics, report, review mode (`check.py`: judges given pipes and pump stations against a standard plus explicitly adopted practice values) |
 | `tests/` | Regression tests using the standards' own tables as the answer key |
 
 ## Copyright of source standards

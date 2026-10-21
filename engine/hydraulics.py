@@ -98,3 +98,8 @@ def slope_for_shear_at_flow(D, n, tau, Q, s_hi=1.0, tol=1e-12):
         yr = depth_ratio_for_flow(D, S, n, Q)
         return None if yr is None else shear_stress(D, S, n, yr)
     return _bisect_slope(t_at, tau, s_hi, tol)
+
+
+def hazen_williams_loss(L, Q, C, D):
+    """압송관 마찰손실 hf = 10.67·L·Q^1.852 / (C^1.852·D^4.87) [m] (L[m], Q[m3/s], D[m])."""
+    return 10.67 * L * Q ** 1.852 / (C ** 1.852 * D ** 4.87)

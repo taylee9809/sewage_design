@@ -9,7 +9,7 @@
 나라 추가 방법: [CONTRIBUTING.md](CONTRIBUTING.md) (영문)
 
 - 기준: 한국 KDS 61 40 00·61 10 00(2025-10-01), 미국 Ten States Standards 2026, 일본 요코하마시 하수도설계지침(2026)·하수도법 시행령, 인도 CPHEEO Manual on Sewerage 2013, 콜롬비아 RAS(Res. 0330/2017 통합본)
-- 원칙: 원문 텍스트 그대로 코드화. 원문이 정하지 않은 부분은 같은 기준의 다른 조항으로만 해소하고, 실무 관행은 넣지 않는다.
+- 원칙: 원문 텍스트 그대로 코드화. 원문이 정하지 않은 부분은 같은 기준의 다른 조항으로만 해소하고, 실무 관행은 넣지 않는다. 실무에서 근거로 쓰는 구 기준·해설(예: 하수도시설기준 2011 관경별 여유율)은 별도 standard_id(`guide`)로만 두고, 검토 파일에서 채택(`adopt`)할 때만 판정에 쓴다. 모든 출처에 문서 종류(`doc_type`: 법령·고시·설계기준·지침·구 기준 해설·지자체 연구·논문)를 붙이고, 엔진 기본 판정은 법령·고시·설계기준만 쓴다.
 - 공개 범위: 재배포가 허용된 원문(KDS 61 계열, CPHEEO, 일본 하수도법 시행령, 콜롬비아 RAS)만 본문·원문 구절·이미지 판독본을 포함한다. KDS는 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지와 본문이 같아 저작권법 제7조 제2호(국가의 고시)에 따라 공개한다. 나머지(Ten States 2026, 요코하마 지침)는 값·조항 번호만 두고 원문 본문과 구절(`quote_short`)은 별도 비공개 폴더(`../sewage_design_private`, `SEWAGE_PRIVATE_DIR`)에 둔다.
 
 ## 구조
@@ -18,7 +18,7 @@
 - `criteria/clauses/`, `criteria/assets/` — 재배포 가능한 조문 원문·이미지 판독본
 - `db/` — 스키마(`schema.sql`, `schema_private.sql`)와 적재(`load_criteria.py`)
 - `criteria/rules/<standard_id>.json` — 기준별 규칙(규칙 유형 11종), `criteria/projects/<id>.json` — 사업 채택값
-- `engine/` — 수리 계산(`hydraulics.py`), 일반 엔진(`generic.py`, `design.py`, 나라 분기 없음), 공통 지표(`metrics.py`), 관망(`network.py`)
+- `engine/` — 수리 계산(`hydraulics.py`), 일반 엔진(`generic.py`, `design.py`, 나라 분기 없음), 공통 지표(`metrics.py`), 관망(`network.py`), 검토 모드(`check.py`: 정해진 관로·펌프장의 사용률·유속·펌프 용량·기동횟수·양정 판정, DB 불필요)
 - `tests/` — 원문 표를 정답지로 쓰는 회귀 테스트
 
 ## 실행
@@ -27,6 +27,7 @@ py -3 db/load_criteria.py <공개 DB DSN> <비공개 DB DSN>
 SEWAGE_DB_DSN=<공개 DB DSN> py -3 -m pytest tests
 SEWAGE_DB_DSN=<공개 DB DSN> py -3 -m engine.design SYN01
 SEWAGE_DB_DSN=<공개 DB DSN> py -3 -m engine.metrics SYN01 --dia 200 250 --q 0.002 --q-initial 0.0008
+py -3 -m engine.check tests/fixtures/check_case01.json 검토결과.md   # 검토 모드 (당초/변경 또는 신설)
 ```
 
 ## 출처 표기
