@@ -17,7 +17,7 @@
 - `criteria/normalized/*.jsonl` — 조건 정규화·basis 태깅 (`db/vocabulary.md`)
 - `criteria/clauses/`, `criteria/assets/` — 재배포 가능한 조문 원문·이미지 판독본
 - `db/` — 스키마(`schema.sql`, `schema_private.sql`)와 적재(`load_criteria.py`)
-- `criteria/rules/<standard_id>.json` — 기준별 규칙(규칙 유형 11종), `criteria/projects/<id>.json` — 사업 채택값
+- `criteria/rules/<standard_id>.json` — 기준별 규칙(규칙 유형 26종), `criteria/projects/<id>.json` — 사업 채택값
 - `engine/` — 수리 계산(`hydraulics.py`), 일반 엔진(`generic.py`, `design.py`, 나라 분기 없음), 공통 지표(`metrics.py`), 관망(`network.py`)
 - `tests/` — 원문 표를 정답지로 쓰는 회귀 테스트
 

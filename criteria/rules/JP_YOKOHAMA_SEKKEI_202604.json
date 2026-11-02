@@ -194,6 +194,27 @@
     "item": "本管接続位置"
    },
    "clause": "6.2(1) 중심선 위 45° 부근"
+  },
+  {
+   "type": "DROP_STRUCTURE",
+   "param": "drop_manhole_threshold",
+   "boundary": "ge",
+   "clause": "4.1.8",
+   "max": {
+    "param": "junction_drop_max",
+    "action": "낙차 분할 검토"
+   },
+   "pipe": {
+    "kind": "table",
+    "param": "drop_pipe_diameter",
+    "dia": "nominal",
+    "scale_mm": 1000
+   },
+   "allow": [
+    "joint_method",
+    "exception",
+    "other"
+   ]
   }
  ],
  "pipe": {

@@ -234,6 +234,25 @@
    "type": "HOUSE_CONNECTION",
    "kind": "review",
    "text": "3.70 맨홀에만 접속(본관 직접 접속 폐지), 접속 높이 수치 없음"
+  },
+  {
+   "type": "DROP_STRUCTURE",
+   "param": "drop_manhole_threshold",
+   "boundary": "gt",
+   "clause": "3.25",
+   "pipe": {
+    "kind": "same_as_inlet",
+    "clause": "3.25"
+   },
+   "large": {
+    "above_mm": 450,
+    "text": "450 mm 초과 관은 계단·경사로·선행 맨홀 분할 낙차 등으로 처리(3.25)"
+   },
+   "allow": [
+    "joint_method",
+    "exception",
+    "other"
+   ]
   }
  ],
  "pipe": {

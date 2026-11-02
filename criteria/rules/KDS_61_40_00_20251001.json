@@ -195,6 +195,25 @@
     "item": "connection_pipe_min_slope"
    },
    "clause": "14.5 (1) ③ 본관 중심선보다 위쪽"
+  },
+  {
+   "type": "DROP_STRUCTURE",
+   "param": "drop_manhole_threshold",
+   "boundary": "ge",
+   "clause": "5.1 (2)",
+   "max": {
+    "param": "max_drop_per_manhole",
+    "action": "감세공·드롭샤프트 등 검토"
+   },
+   "pipe": {
+    "kind": "none"
+   },
+   "resolution": "단차 측정 위치 미지정 → 유입·유출 관저고 차로 봄",
+   "allow": [
+    "joint_method",
+    "exception",
+    "other"
+   ]
   }
  ],
  "pipe": {

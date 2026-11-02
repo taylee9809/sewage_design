@@ -117,6 +117,13 @@ def design(st, nodes, links, sizes, lifts=(), fm_links=()):
             governing += " [배수설비 연결 위해 %.3f m 낮춤 — %s]" % (conn_low, conn_why)
         if held:
             governing += " [배수설비 연결 %s]" % held
+        # 맨홀 낙차 판정: 유입관마다 (중계펌프장 맨홀은 낙차가 아니므로 제외)
+        drop_pipes = 0
+        for u in ups if l["up"] not in lifts else ():
+            dc = st.drop_check(u["inv_dn"] - inv_up, u["dia"], u["D"] * 1000)
+            if dc:
+                drop_pipes += 1
+                governing += " [%s 유입 %s]" % (u["link"], dc["note"])
         v_here = st.v_check(D, S, Q)
         if mono and main_up and mono.get("velocity") == "non_decreasing" and v_here < main_up["v"] - 1e-9:
             governing += " [참고: 유속 점증 미충족 %.2f<%.2f m/s(%s)]" % (v_here, main_up["v"], mono["clause"])
@@ -124,7 +131,7 @@ def design(st, nodes, links, sizes, lifts=(), fm_links=()):
         sp = st.spacing(dia)
         r = {"link": l["id"], "dia": dia, "D": D, "S": S, "Q": Q, "Qi": Qi, "inv_up": inv_up, "inv_dn": inv_dn,
              "cover_up": gl_up - inv_up - D, "cover_dn": gl_dn - inv_dn - D, "v": st.v_check(D, S, Q),
-             "extra_mh": max(0, math.ceil(l["L"] / sp) - 1) if sp else None, "drop": drop, "governing": governing, "L": l["L"]}
+             "extra_mh": max(0, math.ceil(l["L"] / sp) - 1) if sp else None, "drop": drop, "drop_pipes": drop_pipes, "governing": governing, "L": l["L"]}
         res[l["id"]] = r
         out.append(r)
     return out

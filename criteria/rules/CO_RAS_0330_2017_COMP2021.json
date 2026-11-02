@@ -225,6 +225,29 @@
     "system": "separate"
    },
    "clause": "Art.144-3 관정 이상"
+  },
+  {
+   "type": "DROP_STRUCTURE",
+   "param": "drop_manhole_threshold",
+   "boundary": "gt",
+   "clause": "Artículo 155 numeral 1",
+   "max": {
+    "param": "max_drop_per_manhole",
+    "action": "에너지 감쇠 구조 설계"
+   },
+   "pipe": {
+    "kind": "table",
+    "param": "drop_pipe_diameter",
+    "dia": "inner",
+    "scale_mm": 1000,
+    "no_value_action": "낙하관 대신 에너지 저감 전이구조 설계"
+   },
+   "resolution": "Tabla 20 부등호는 300<D≤450, 450<D≤900 뜻으로 읽음",
+   "allow": [
+    "joint_method",
+    "exception",
+    "other"
+   ]
   }
  ],
  "pipe": {

@@ -169,6 +169,20 @@
    "type": "HOUSE_CONNECTION",
    "kind": "review",
    "text": "33.92 수밀 접속만, 접속 높이 수치 없음"
+  },
+  {
+   "type": "DROP_STRUCTURE",
+   "param": "drop_manhole_threshold",
+   "boundary": "ge",
+   "clause": "34.2",
+   "pipe": {
+    "kind": "none"
+   },
+   "allow": [
+    "joint_method",
+    "exception",
+    "other"
+   ]
   }
  ],
  "pipe": {

@@ -20,7 +20,8 @@ KNOWN_TYPES = {"VELOCITY_MIN", "VELOCITY_MAX", "SLOPE_TABLE", "CAPACITY", "MIN_D
                "PUMP_TRIGGER", "FORCE_MAIN_VELOCITY", "FORCE_MAIN_FRICTION", "FORCE_MAIN_MIN_DIAMETER", "PUMP_COUNT",
                "WET_WELL_VOLUME", "PUMP_HEAD_POWER",
                "WET_WELL_LEVEL", "MINOR_LOSS", "SUCTION_PIPE", "PUMP_SUBMERGENCE_NPSH",  # v3.1 흡입수위·부속손실·흡입관·잠김
-               "HOUSE_CONNECTION"}  # v4 (2026-10-16) 배수설비 연결점 → 본관 관저고 상한
+               "HOUSE_CONNECTION",  # v4 (2026-10-16) 배수설비 연결점 → 본관 관저고 상한
+               "DROP_STRUCTURE"}    # v5 (2026-11-02) 맨홀 낙차 → 부관 필요·낙차 상한·부관 관경
 REQUIRED = ("mandatory", "standard")
 
 
@@ -269,6 +270,40 @@ class Standard:
         else:
             raise NotImplementedError("연결관 접속 방식 %s" % r["kind"])
         return lim, "연결관 %.0f mm·경사 %g (%s), 접속 %s (%s)" % (dc * 1000, sl.value_min, sl.clause_ref, r["kind"], r["clause"])
+
+    def drop_check(self, drop, nom, inner):
+        """맨홀 낙차(유입관저 − 유출관저) 판정. nom·inner = 유입관 호칭경·내경(mm).
+        반환 {"pipe": 부관 필요 여부, "over": 상한 초과 여부, "note": 설명}, 판정 대상 아니면 None."""
+        r = self.rule("DROP_STRUCTURE")
+        if not r or drop <= 0:
+            return None
+        allow = tuple(r.get("allow", ()))
+        lim = db.one(self.rows, r["param"], {}, allow=allow).value_min
+        need = drop >= lim - 1e-9 if r["boundary"] == "ge" else drop > lim + 1e-9
+        mx = r.get("max")
+        cap = db.one(self.rows, mx["param"], {}, allow=allow).value_max if mx else None
+        over = cap is not None and drop > cap + 1e-9
+        if not need:
+            return None
+        msg = "낙차 %.2f m ≥ 기준 %.2f m" if r["boundary"] == "ge" else "낙차 %.2f m > 기준 %.2f m"
+        note = "부관 필요: " + msg % (drop, lim) + "(%s)" % r["clause"]
+        p = r["pipe"]
+        if p["kind"] == "same_as_inlet":
+            note += ", 부관 관경 %d mm 이상(%s)" % (inner, p["clause"])
+        elif p["kind"] == "table":
+            got = db.pick(self.rows, p["param"], {"dia_mm": inner if p["dia"] == "inner" else nom}, allow=allow)
+            if not got:
+                note += ", 부관 관경 판정 보류(설계자 검토): 표에 없는 유입관 관경"
+            elif got[0].value_min is None:
+                note += ", " + p["no_value_action"]
+            else:
+                note += ", 부관 관경 %d mm 이상(%s)" % (got[0].value_min * p["scale_mm"], got[0].clause_ref)
+        big = r.get("large")
+        if big and inner > big["above_mm"]:
+            note += ", " + big["text"]
+        if over:
+            note += " — 경고: 상한 %.2f m 초과, %s(%s)" % (cap, mx["action"], r["clause"])
+        return {"pipe": True, "over": over, "note": note}
 
     def spacing(self, dia):
         r = self.rule("MANHOLE_SPACING")

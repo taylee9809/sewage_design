@@ -176,11 +176,11 @@ def main(pid, out_path):
         w("")
     # 5
     w("## 5. 같은 관망 설계 결과 (%s)\n" % pid)
-    w("| 기준 | 굴착 지표(m²) | 최대 관경 | 최대 매설깊이(m) | 추가 맨홀 | 부관 | 플러싱 장치 | 경고 |\n|---|---|---|---|---|---|---|---|")
+    w("| 기준 | 굴착 지표(m²) | 최대 관경 | 최대 매설깊이(m) | 추가 맨홀 | 낙차 구간 | 부관 | 플러싱 장치 | 경고 |\n|---|---|---|---|---|---|---|---|---|")
     for sid, out in results.items():
         s = summarize(out)
-        w("| %s | %s | %s | %s | %s | %s | %s | %s |" % (sid, s["depth_x_len_m2"], s["max_dia"], s["max_depth_m"], s["extra_manholes"],
-                                                     s["drops"], s["flushing_devices"], s["warnings"]))
+        w("| %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (sid, s["depth_x_len_m2"], s["max_dia"], s["max_depth_m"], s["extra_manholes"],
+                                                          s["drops"], s["drop_pipes"], s["flushing_devices"], s["warnings"]))
     w("\n### 경사·관경을 결정한 조항 (구간 수)\n")
     for sid, out in results.items():
         c = collections.Counter(o["governing"].split(" — ")[0].split(" [")[0][:70] for o in out)

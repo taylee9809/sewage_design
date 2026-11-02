@@ -50,6 +50,7 @@ def summarize(out):
             "max_depth_m": round(max(max(r["cover_up"], r["cover_dn"]) + r["D"] for r in out), 2),
             "depth_x_len_m2": round(exc), "extra_manholes": sum(r["extra_mh"] or 0 for r in out),
             "drops": sum(1 for r in out if r["drop"] > 0),
+            "drop_pipes": sum(r["drop_pipes"] for r in out),
             "flushing_devices": sum(1 for r in out if "플러싱" in r["governing"]),
             "warnings": sum(1 for r in out if "경고" in r["governing"])}
 
