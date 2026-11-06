@@ -19,7 +19,7 @@ The same 27-pipe network, designed with each standard's own clauses: excavation 
   | India | CPHEEO Manual on Sewerage and Sewage Treatment Systems, Part A | 2013 |
   | Colombia | RAS, Resolución 0330 de 2017 (compiled 2021) | 2021 |
   | United Kingdom (England) | Water UK Design and Construction Guidance v2.3 (values only) | 2023 |
-- **A country-agnostic engine.** The core engine (`generic.py`, `design.py`) contains no country names, and a test fails if one appears. Each standard is described by a rules file (`criteria/rules/<standard_id>.json`, 28 rule types) plus its values. Swap the standard set and the same network is redesigned.
+- **A country-agnostic engine.** The core engine (`generic.py`, `design.py`, `plant.py`) contains no country names, and a test fails if one appears. Each standard is described by a rules file (`criteria/rules/<standard_id>.json`, 34 rule types) plus its values. Swap the standard set and the same network is redesigned.
 - **Literal, not "practical".** Values are encoded exactly as the source text says. Where a standard is silent, the gap is resolved only from other clauses of the same standard, or left as `unspecified`. Common practice is never filled in.
 - **Comparable, not merged.** Each value carries a `basis` (which flow, which time horizon, full or partial pipe). Two numbers are compared only when their basis matches, so the comparison table never puts an apple next to an orange.
 - **Design criteria report.** `engine.report` writes the full comparison as Markdown: adopted values per standard, side-by-side table, design results, and the clause that governed each pipe's slope and size ([example](docs/SYN01_design_criteria_report.md), in Korean).
@@ -32,7 +32,7 @@ The same 27-pipe network, designed with each standard's own clauses: excavation 
 
 ## Status
 
-Early (first public release October 2026). The gravity sewer engine, pump stations and force mains, house connections, drop-pipe checks at manholes, extra manholes placed in the profile, the six standards above, and the report generator work.
+Early (first public release October 2026). The gravity sewer engine, pump stations and force mains, house connections, drop-pipe checks at manholes, extra manholes placed in the profile, the six standards above, and the report generator work. A sewage treatment plant module (`engine/plant.py`, conventional activated sludge: primary clarifier, aeration tank, secondary clarifier, effluent limits from each country's law in `criteria/effluent_limits.csv`) covers Korea, the US, India and Colombia; the Yokohama guideline and the UK DCG have no treatment-plant clauses. Its values are in `criteria/*_treatment_sewer.csv` and can be run before loading the database with `py -3 -m engine.plant SYN01 --population 7845 --csv`.
 
 ## Quick start
 

@@ -22,7 +22,9 @@ KNOWN_TYPES = {"VELOCITY_MIN", "VELOCITY_MAX", "SLOPE_TABLE", "CAPACITY", "MIN_D
                "WET_WELL_LEVEL", "MINOR_LOSS", "SUCTION_PIPE", "PUMP_SUBMERGENCE_NPSH",  # v3.1 흡입수위·부속손실·흡입관·잠김
                "HOUSE_CONNECTION",  # v4 (2026-10-16) 배수설비 연결점 → 본관 관저고 상한
                "DROP_STRUCTURE",    # v5 (2026-11-02) 맨홀 낙차 → 부관 필요·낙차 상한·부관 관경
-               "FRICTION", "PUMP_DESIGN_FLOW"}  # v6 (2026-11-02, 영국 DCG) Colebrook-White·펌프 설계유량
+               "FRICTION", "PUMP_DESIGN_FLOW",  # v6 (2026-11-02, 영국 DCG) Colebrook-White·펌프 설계유량
+               "PLANT_FLOW", "INFLUENT_LOAD", "PRIMARY_CLARIFIER", "AERATION_TANK", "SECONDARY_CLARIFIER",
+               "EFFLUENT_LIMIT"}  # v7 (2026-11-07) 하수처리장 표준활성슬러지법 (engine/plant.py)
 REQUIRED = ("mandatory", "standard")
 
 
@@ -56,6 +58,8 @@ class Standard:
         self.flow_rows = db.load(fsid, dsn) if fsid else self.rows
         psid = spec.get("pump_standard_id")  # 펌프장 기준이 별도 코드인 경우(KDS 61 45 00)
         self.pump_rows = db.load(psid, dsn) if psid else self.rows
+        tsid = spec.get("plant_standard_id")  # 처리장 기준이 별도 코드인 경우(KDS 61 50 00)
+        self.plant_rows = db.load(tsid, dsn) if tsid else self.rows
         self.choice = {k: v["value"] for k, v in project["standards"].get(standard_id, {}).items()}
         self.material = project.get("material", "pvc")
         self.by_type = {}

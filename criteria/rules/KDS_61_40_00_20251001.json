@@ -214,6 +214,185 @@
     "exception",
     "other"
    ]
+  },
+  {
+   "type": "PLANT_FLOW",
+   "flows": {
+    "max_daily": {
+     "kind": "sewer_no_peak",
+     "clause": "KDS 61 10 00 1.7.2 (4) 1인1일최대오수량×인구+지하수량"
+    },
+    "average": {
+     "kind": "ratio",
+     "of": "max_daily",
+     "standard": "flow",
+     "param": "peak_factor_daily",
+     "key": "plant_avg_ratio",
+     "clause": "KDS 61 10 00 1.7.2 (5) 일최대의 70~80%"
+    },
+    "peak_hourly": {
+     "kind": "sewer_peak",
+     "clause": "KDS 61 10 00 1.7.2 (6)"
+    }
+   },
+   "system": "separate",
+   "resolution": "처리시설은 계획1일최대오수량(1.7.5 (5)·표 1.1.1 2차처리 처리시설). 관망과 같은 사업 채택 원단위·지하수 비율"
+  },
+  {
+   "type": "INFLUENT_LOAD",
+   "bod": {
+    "source": "project",
+    "key": "bod_per_capita_kg"
+   },
+   "ss": {
+    "source": "project",
+    "key": "ss_per_capita_kg"
+   },
+   "concentration_flow": "average",
+   "resolution": "KDS 61 10 00 1.7.3 (4) 원단위를 기초로 한다는 규정만 있고 수치 없음 → 사업 채택값. 계획유입수질 = 부하량 ÷ 계획1일평균오수량(1.7.3 (2))"
+  },
+  {
+   "type": "PRIMARY_CLARIFIER",
+   "flow": "max_daily",
+   "loading": [
+    {
+     "param": "primary_surface_loading",
+     "cond": {
+      "system": "separate",
+      "flow_basis": "max_daily"
+     },
+     "flow": "max_daily"
+    }
+   ],
+   "time": [
+    {
+     "param": "primary_detention_time",
+     "cond": {
+      "system": "separate",
+      "flow_basis": "max_daily"
+     },
+     "flow": "max_daily"
+    }
+   ],
+   "depth": {
+    "param": "primary_side_water_depth"
+   },
+   "weir": [
+    {
+     "param": "primary_weir_loading",
+     "flow": "max_daily"
+    }
+   ],
+   "count": [
+    {
+     "param": "primary_tank_count_min"
+    }
+   ],
+   "bod_removal": {
+    "source": "project",
+    "key": "primary_bod_removal"
+   },
+   "ss_removal": {
+    "source": "project",
+    "key": "primary_ss_removal"
+   },
+   "resolution": "제거율은 원문 수치 없음 → 사업 채택값(없으면 처리수 수질 판정 보류)"
+  },
+  {
+   "type": "AERATION_TANK",
+   "flow": "max_daily",
+   "hrt": {
+    "param": "asp_hrt",
+    "cond": {
+     "process": "conventional_asp"
+    }
+   },
+   "mlss": {
+    "param": "asp_mlss",
+    "cond": {
+     "process": "conventional_asp"
+    },
+    "design": "mid"
+   },
+   "return": {
+    "source": "project",
+    "key": "return_ratio"
+   },
+   "bod_removal": {
+    "source": "project",
+    "key": "asp_bod_removal"
+   },
+   "ss_removal": {
+    "source": "project",
+    "key": "asp_ss_removal"
+   },
+   "resolution": "F/M·BOD 용적부하·SRT·반송비·Y·kd 수치 없음(5.1.3~5.1.6, 5.4.2) → 해당 판정 보류. MLSS 설계값은 범위 중앙(사업 채택 없을 때)"
+  },
+  {
+   "type": "SECONDARY_CLARIFIER",
+   "flow": "max_daily",
+   "loading": [
+    {
+     "param": "secondary_surface_loading",
+     "cond": {
+      "process": "conventional_asp",
+      "flow_basis": "max_daily"
+     },
+     "flow": "max_daily"
+    }
+   ],
+   "solids": [
+    {
+     "param": "secondary_solids_loading",
+     "cond": {
+      "process": "activated_sludge_general"
+     },
+     "flow": "max_daily",
+     "return": "design"
+    }
+   ],
+   "time": [
+    {
+     "param": "secondary_detention_time",
+     "cond": {
+      "settleability": "standard"
+     },
+     "flow": "max_daily"
+    }
+   ],
+   "depth": {
+    "param": "secondary_side_water_depth"
+   },
+   "weir": [
+    {
+     "param": "secondary_weir_loading",
+     "flow": "max_daily"
+    }
+   ],
+   "count": [
+    {
+     "param": "primary_tank_count_min"
+    }
+   ],
+   "resolution": "지수는 3.1.1 (3) 침전지 2지 이상을 이차침전지에도 적용(3.2.1이 같은 사항을 고려하도록 함)"
+  },
+  {
+   "type": "EFFLUENT_LIMIT",
+   "country": "KR",
+   "match": {
+    "facility": "공공하수처리시설",
+    "period": "2029-12-01~"
+   },
+   "params": {
+    "bod": "^BOD \\(",
+    "ss": "^SS \\("
+   },
+   "capacity": {
+    "key": "capacity_m3_per_day",
+    "from": "max_daily"
+   },
+   "group": "region",
+   "resolution": "하수도법 시행규칙 별표 1 중 최근 표(2029-12-01부터). 처리용량은 처리시설 기준 유량(KDS 61 10 00 1.7.5 (5) 계획1일최대오수량)으로 구간 판정. 지역은 입력받지 않고 Ⅰ~Ⅳ 모두 판정"
   }
  ],
  "pipe": {
@@ -221,5 +400,6 @@
   "min_dia_compare": "nominal",
   "table_lookup": "nominal"
  },
- "pump_standard_id": "KDS_61_45_00_20251001"
+ "pump_standard_id": "KDS_61_45_00_20251001",
+ "plant_standard_id": "KDS_61_50_00_20251001"
 }

@@ -55,7 +55,7 @@ The `basis` says which flow and pipe state the value is defined under. It is wha
 
 ### 4. Describe how to apply it: `criteria/rules/<standard_id>.json`
 
-The rules file tells the engine how your standard is applied: velocity limits, slope tables, capacity, minimum diameter, cover, junctions, manhole spacing, and how design flow is built up. There are 28 rule types; copy them from the existing files. Every interpretation goes in a `resolution` field together with the clause it comes from.
+The rules file tells the engine how your standard is applied: velocity limits, slope tables, capacity, minimum diameter, cover, junctions, manhole spacing, and how design flow is built up. There are 34 rule types (6 of them for the treatment plant); copy them from the existing files. Every interpretation goes in a `resolution` field together with the clause it comes from.
 
 If your standard needs a rule the engine doesn't have, open an issue. New rule types are added in a country-neutral way. The test `test_no_country_branches_in_generic_engine` fails if a country name appears in the core engine.
 

@@ -253,6 +253,248 @@
     "exception",
     "other"
    ]
+  },
+  {
+   "type": "PLANT_FLOW",
+   "flows": {
+    "average": {
+     "kind": "sewer_no_peak",
+     "clause": "3장 1인 하수량 × 인구"
+    },
+    "peak_hourly": {
+     "kind": "sewer_peak",
+     "clause": "Table 3.2 첨두계수(관로와 같은 값, 처리장 첨두 정의 없음)"
+    },
+    "max_daily": {
+     "kind": "none",
+     "why": "처리 단위별 최대일유량 정의 없음"
+    }
+   }
+  },
+  {
+   "type": "INFLUENT_LOAD",
+   "bod": {
+    "param": "influent_bod_per_capita",
+    "cond": {
+     "item": "BOD"
+    }
+   },
+   "ss": {
+    "param": "influent_ss_per_capita",
+    "cond": {
+     "item": "TSS"
+    }
+   },
+   "concentration_flow": "average",
+   "resolution": "5.1.4.1 Table 5.4 (생물학적 STP 설계에 이 표를 따른다)"
+  },
+  {
+   "type": "PRIMARY_CLARIFIER",
+   "loading": [
+    {
+     "param": "primary_surface_loading",
+     "cond": {
+      "settling_type": "followed_by_secondary_treatment",
+      "flow_basis": "average"
+     },
+     "flow": "average"
+    },
+    {
+     "param": "primary_surface_loading",
+     "cond": {
+      "settling_type": "followed_by_secondary_treatment",
+      "flow_basis": "peak"
+     },
+     "flow": "peak_hourly"
+    }
+   ],
+   "depth": {
+    "param": "primary_side_water_depth",
+    "cond": {
+     "settling_type": "followed_by_secondary_treatment"
+    }
+   },
+   "weir": [
+    {
+     "param": "primary_weir_loading",
+     "cond": {
+      "flow_basis": "average"
+     },
+     "flow": "average"
+    }
+   ],
+   "count": [
+    {
+     "param": "primary_tank_count_min"
+    }
+   ],
+   "bod_removal": {
+    "param": "primary_bod_removal",
+    "cond": {
+     "use": "design"
+    },
+    "design": "max"
+   },
+   "ss_removal": {
+    "param": "primary_ss_removal",
+    "cond": {
+     "use": "design"
+    },
+    "design": "max"
+   },
+   "resolution": "Table 5.8 이차처리 앞 일차침전지. 5.7.5 설계 제거율 BOD 최대 35%·SS 최대 60%(shall)"
+  },
+  {
+   "type": "AERATION_TANK",
+   "flow": "average",
+   "hrt": {
+    "param": "asp_hrt",
+    "cond": {
+     "process": "conventional_asp"
+    }
+   },
+   "fm": {
+    "param": "asp_fm_ratio",
+    "cond": {
+     "process": "conventional_asp"
+    },
+    "basis": "mlss"
+   },
+   "mlss": {
+    "param": "asp_mlss",
+    "cond": {
+     "process": "conventional_asp"
+    },
+    "design": "mid"
+   },
+   "srt": {
+    "param": "asp_srt",
+    "cond": {
+     "process": "conventional_asp"
+    },
+    "design": "mid"
+   },
+   "return": {
+    "param": "asp_return_ratio",
+    "cond": {
+     "process": "conventional_asp"
+    },
+    "design": "mid"
+   },
+   "yield": {
+    "param": "asp_yield",
+    "cond": {
+     "process": "activated_sludge_general"
+    }
+   },
+   "decay": {
+    "param": "asp_decay",
+    "cond": {
+     "process": "activated_sludge_general"
+    }
+   },
+   "sludge": {
+    "kind": "yobs_divisor",
+    "divisor": {
+     "param": "asp_sludge_production",
+     "cond": {
+      "process": "conventional_asp",
+      "coefficient": "divisor_for_A",
+      "item": "none"
+     },
+     "allow": [
+      "item"
+     ]
+    }
+   },
+   "oxygen": {
+    "kind": "per_bod_removed",
+    "param": "asp_oxygen_requirement",
+    "cond": {
+     "process": "conventional_asp"
+    },
+    "design": "max"
+   },
+   "bod_removal": {
+    "param": "asp_bod_removal",
+    "cond": {
+     "process": "conventional_asp"
+    },
+    "design": "min"
+   },
+   "ss_removal": {
+    "source": "project",
+    "key": "asp_ss_removal"
+   },
+   "resolution": "5.8.1.4 Table 5.9 재래식 행. 잉여슬러지 = Q·Yobs·(S0−S)/0.8 (5.8.1.7.5.10, 불활성 고형물 B는 수치 없어 제외). 산소량은 제거 BOD당 상한"
+  },
+  {
+   "type": "SECONDARY_CLARIFIER",
+   "loading": [
+    {
+     "param": "secondary_surface_loading",
+     "cond": {
+      "settling_type": "secondary_settling_for_activated_sludge",
+      "flow_basis": "average"
+     },
+     "flow": "average"
+    },
+    {
+     "param": "secondary_surface_loading",
+     "cond": {
+      "settling_type": "secondary_settling_for_activated_sludge",
+      "flow_basis": "peak"
+     },
+     "flow": "peak_hourly"
+    }
+   ],
+   "solids": [
+    {
+     "param": "secondary_solids_loading",
+     "cond": {
+      "settling_type": "secondary_settling_for_activated_sludge",
+      "flow_basis": "average"
+     },
+     "flow": "average",
+     "return": "design"
+    },
+    {
+     "param": "secondary_solids_loading",
+     "cond": {
+      "settling_type": "secondary_settling_for_activated_sludge",
+      "flow_basis": "peak"
+     },
+     "flow": "peak_hourly",
+     "return": "design"
+    }
+   ],
+   "depth": {
+    "param": "secondary_side_water_depth"
+   },
+   "weir": [
+    {
+     "param": "secondary_weir_loading",
+     "flow": "average"
+    }
+   ],
+   "count": [
+    {
+     "param": "primary_tank_count_min"
+    }
+   ],
+   "resolution": "Table 5.8 활성슬러지 이차침전지. 5.7.4.2.5 2기 이상은 일차·이차 공통"
+  },
+  {
+   "type": "EFFLUENT_LIMIT",
+   "country": "IN",
+   "match_prefix": {
+    "location": "all of India"
+   },
+   "params": {
+    "bod": "^BOD$",
+    "ss": "^TSS$"
+   },
+   "resolution": "최근 값: NGT O.A. 1069/2018 2019-04-30 명령(전국에 메트로 값 적용). 2017 고시 값은 시행 정지(2018-12-21)"
   }
  ],
  "pipe": {

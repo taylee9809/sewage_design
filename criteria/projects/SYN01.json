@@ -27,6 +27,10 @@
       "pump_efficiency": {
         "value": 0.7,
         "rationale": "펌프+전동기 효율 가정(원문 표 없음 또는 구간 미정리) — 비교용"
+      },
+      "plant_avg_ratio": {
+        "value": "max",
+        "rationale": "KDS 61 10 00 1.7.2 (5) 계획1일평균 = 계획1일최대의 70~80% — 상한(관망 첨두 채택과 같은 방식)"
       }
     },
     "TSS_WW_2026": {

@@ -183,6 +183,221 @@
     "exception",
     "other"
    ]
+  },
+  {
+   "type": "PLANT_FLOW",
+   "flows": {
+    "average": {
+     "kind": "sewer_no_peak",
+     "clause": "11.243 설계평균유량(1인 100 gal/일, 침입수 포함)"
+    },
+    "peak_hourly": {
+     "kind": "sewer_peak",
+     "clause": "11.243(b) 첨두시간유량"
+    },
+    "max_daily": {
+     "kind": "none",
+     "why": "11.241 설계최대일유량 정의만 있고 산정 계수 없음"
+    }
+   }
+  },
+  {
+   "type": "INFLUENT_LOAD",
+   "bod": {
+    "param": "influent_bod_per_capita",
+    "cond": {
+     "parameter": "BOD5",
+     "garbage_grinders": "none"
+    }
+   },
+   "ss": {
+    "param": "influent_ss_per_capita",
+    "cond": {
+     "garbage_grinders": "none"
+    }
+   },
+   "concentration_flow": "average",
+   "resolution": "11.253 1인 BOD5 0.17 lb·SS 0.20 lb (디스포저 보급 지역 값은 제외)"
+  },
+  {
+   "type": "PRIMARY_CLARIFIER",
+   "loading": [
+    {
+     "param": "primary_surface_loading",
+     "cond": {
+      "was_received": "no",
+      "flow_basis": "design_average"
+     },
+     "flow": "average"
+    },
+    {
+     "param": "primary_surface_loading",
+     "cond": {
+      "was_received": "no",
+      "flow_basis": "design_peak_hourly"
+     },
+     "flow": "peak_hourly",
+     "limit": "min"
+    }
+   ],
+   "depth": {
+    "param": "primary_side_water_depth"
+   },
+   "weir": [
+    {
+     "param": "primary_weir_loading",
+     "cond": {
+      "average_plant_capacity_mgd": "<=1.0"
+     },
+     "flow": "peak_hourly",
+     "when": "average <= 3785.41"
+    },
+    {
+     "param": "primary_weir_loading",
+     "cond": {
+      "average_plant_capacity_mgd": ">1.0"
+     },
+     "flow": "peak_hourly",
+     "when": "average > 3785.41"
+    }
+   ],
+   "count": [
+    {
+     "param": "primary_tank_count_min",
+     "when": "average > 378.541"
+    }
+   ],
+   "bod_removal": {
+    "param": "primary_bod_removal",
+    "design": "min"
+   },
+   "ss_removal": {
+    "source": "project",
+    "key": "primary_ss_removal"
+   },
+   "resolution": "72.21 평균·첨두시간 두 조건 중 큰 면적. 첨두시간 상한이 1,500~2,000 gpd/ft2 범위로 주어져 엄격한 값(1,500) 적용. 잉여슬러지 미유입 처리장으로 봄"
+  },
+  {
+   "type": "AERATION_TANK",
+   "flow": "average",
+   "lv": {
+    "param": "asp_volumetric_bod_loading",
+    "cond": {
+     "process": "conventional_asp"
+    }
+   },
+   "fm": {
+    "param": "asp_fm_ratio",
+    "cond": {
+     "process": "conventional_asp"
+    },
+    "basis": "mlvss"
+   },
+   "mlss": {
+    "param": "asp_mlss",
+    "cond": {
+     "process": "conventional_asp"
+    },
+    "design": "mid"
+   },
+   "srt": {
+    "param": "asp_srt",
+    "cond": {
+     "process": "conventional_asp"
+    },
+    "design": "mid"
+   },
+   "return": {
+    "param": "asp_return_ratio",
+    "cond": {
+     "process": "conventional_asp"
+    },
+    "design": "mid"
+   },
+   "oxygen": {
+    "kind": "per_bod_load",
+    "param": "asp_oxygen_requirement",
+    "cond": {
+     "process": "activated_sludge_general",
+     "excluding": "extended_aeration",
+     "nitrification": "none"
+    },
+    "load_flow": "peak_hourly"
+   },
+   "bod_removal": {
+    "source": "project",
+    "key": "asp_bod_removal"
+   },
+   "ss_removal": {
+    "source": "project",
+    "key": "asp_ss_removal"
+   },
+   "resolution": "92.31 공정계산서 미제출 시 표 값(shall). F/M은 MLVSS 기준인데 MLVSS 비율 수치 없음 → F/M 판정 보류. 92.331 산소량은 첨두시간 BOD5 부하(유입 농도 일정 가정 × 첨두시간유량)"
+  },
+  {
+   "type": "SECONDARY_CLARIFIER",
+   "loading": [
+    {
+     "param": "secondary_surface_loading",
+     "cond": {
+      "process": "conventional_asp",
+      "flow_basis": "design_peak_hourly",
+      "effluent_ss_limit_mg_l": "none"
+     },
+     "flow": "peak_hourly"
+    }
+   ],
+   "solids": [
+    {
+     "param": "secondary_solids_loading",
+     "cond": {
+      "process": "conventional_asp"
+     },
+     "flow": "max_daily",
+     "return": "max"
+    }
+   ],
+   "depth": {
+    "param": "secondary_side_water_depth"
+   },
+   "weir": [
+    {
+     "param": "secondary_weir_loading",
+     "cond": {
+      "average_plant_capacity_mgd": "<=1.0"
+     },
+     "flow": "peak_hourly",
+     "when": "average <= 3785.41"
+    },
+    {
+     "param": "secondary_weir_loading",
+     "cond": {
+      "average_plant_capacity_mgd": ">1.0"
+     },
+     "flow": "peak_hourly",
+     "when": "average > 3785.41"
+    }
+   ],
+   "count": [
+    {
+     "param": "primary_tank_count_min",
+     "when": "average > 378.541"
+    }
+   ],
+   "resolution": "72.232 고형물부하는 설계최대일유량 + 최대 반송 → 최대일유량 수치 없음이라 판정 보류. 71.1 2기 이상은 침전지 공통"
+  },
+  {
+   "type": "EFFLUENT_LIMIT",
+   "country": "US",
+   "match": {
+    "facility": "POTW secondary treatment"
+   },
+   "averaging": "^30-day average",
+   "params": {
+    "bod": "^BOD5$",
+    "ss": "^SS \\(total suspended solids\\)$"
+   },
+   "resolution": "40 CFR 133.102 30일 평균 (Ten States 52는 허가·주 기준을 따르라고만 함)"
   }
  ],
  "pipe": {

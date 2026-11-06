@@ -249,6 +249,215 @@
     "exception",
     "other"
    ]
+  },
+  {
+   "type": "PLANT_FLOW",
+   "flows": {
+    "average": {
+     "kind": "sewer_no_peak",
+     "clause": "Art.134 건기 일평균(침입수·오접합 제외)"
+    },
+    "max_daily": {
+     "kind": "factor_table",
+     "of": "average",
+     "param": "plant_peak_factor_daily"
+    },
+    "peak_hourly": {
+     "kind": "factor_table",
+     "of": "average",
+     "param": "plant_peak_factor_hourly"
+    },
+    "max_monthly": {
+     "kind": "factor_table",
+     "of": "average",
+     "param": "plant_peak_factor_monthly"
+    }
+   },
+   "small_plant": {
+    "max_lps": 30,
+    "param": "plant_design_flow_basis",
+    "cond": {
+     "flow_basis": "dry_weather_average"
+    },
+    "allow": [
+     "exception"
+    ],
+    "clause": "Art.166 30 L/s 이하: 설계유량 = 건기 일평균 × 3 (모든 단위)"
+   },
+   "resolution": "Art.166 Tabla 23 첨두계수는 평균유량 10·90·700 L/s 사이 선형보간(원문 지시). 30 L/s 초과 시 침입수 0.1 L/s·ha는 관망 면적 입력 없어 제외"
+  },
+  {
+   "type": "INFLUENT_LOAD",
+   "bod": {
+    "param": "influent_bod_per_capita",
+    "cond": {
+     "wastewater_type": "domestic",
+     "value_type": "suggested"
+    },
+    "allow": [
+     "wastewater_type"
+    ]
+   },
+   "ss": {
+    "param": "influent_ss_per_capita",
+    "cond": {
+     "wastewater_type": "domestic",
+     "value_type": "suggested"
+    },
+    "allow": [
+     "wastewater_type"
+    ]
+   },
+   "concentration_flow": "average",
+   "resolution": "Art.169 Tabla 24 권장값(Valor sugerido). 범위(25~80 등)는 기준선 정의라 설계값으로 쓰지 않음"
+  },
+  {
+   "type": "PRIMARY_CLARIFIER",
+   "loading": [
+    {
+     "param": "primary_surface_loading",
+     "cond": {
+      "flow_basis": "average_daily"
+     },
+     "flow": "average"
+    },
+    {
+     "param": "primary_surface_loading",
+     "cond": {
+      "flow_basis": "peak"
+     },
+     "flow": "peak_hourly"
+    }
+   ],
+   "time": [
+    {
+     "param": "primary_detention_time",
+     "flow": "peak_hourly"
+    }
+   ],
+   "depth": {
+    "param": "primary_side_water_depth"
+   },
+   "count": [
+    {
+     "param": "primary_tank_count_min",
+     "when": "average_lps >= 100"
+    }
+   ],
+   "bod_removal": {
+    "param": "primary_bod_removal",
+    "design": "min"
+   },
+   "ss_removal": {
+    "param": "primary_ss_removal",
+    "design": "min"
+   },
+   "resolution": "Art.189: 평균·첨두 두 조건으로 면적을 구해 큰 쪽(의무). 체류시간은 시간최대 설계유량(Art.189 3호). Tabla 29 최소 효율 범위의 하한을 설계 제거율로"
+  },
+  {
+   "type": "AERATION_TANK",
+   "flow": "max_monthly",
+   "hrt": {
+    "param": "asp_hrt",
+    "cond": {
+     "process": "conventional_asp"
+    }
+   },
+   "fm": {
+    "param": "asp_fm_ratio",
+    "cond": {
+     "process": "conventional_asp",
+     "climate": "tropical_colombia"
+    },
+    "basis": "mlvss"
+   },
+   "lv": {
+    "param": "asp_volumetric_bod_loading",
+    "cond": {
+     "process": "conventional_asp",
+     "climate": "tropical_colombia"
+    }
+   },
+   "mlvss": {
+    "param": "asp_mlvss",
+    "cond": {
+     "process": "conventional_asp"
+    },
+    "design": "mid"
+   },
+   "srt": {
+    "param": "asp_srt",
+    "cond": {
+     "process": "conventional_asp"
+    },
+    "design": "mid"
+   },
+   "bod_removal": {
+    "param": "asp_bod_removal",
+    "cond": {
+     "process": "conventional_asp"
+    },
+    "design": "min"
+   },
+   "ss_removal": {
+    "param": "asp_ss_removal",
+    "cond": {
+     "process": "conventional_asp"
+    },
+    "design": "min"
+   },
+   "resolution": "Tabla 36 Convencional, 열대 조건 F/M·Lv 최고값(의무). 반응조는 월최대유량(Tabla 22). MLVSS 단위 미표기 → mg/L. 반송비 수치 없음"
+  },
+  {
+   "type": "SECONDARY_CLARIFIER",
+   "loading": [
+    {
+     "param": "secondary_surface_loading",
+     "cond": {
+      "flow_basis": "average_daily"
+     },
+     "flow": "average"
+    },
+    {
+     "param": "secondary_surface_loading",
+     "cond": {
+      "flow_basis": "peak"
+     },
+     "flow": "peak_hourly"
+    }
+   ],
+   "time": [
+    {
+     "param": "secondary_detention_time",
+     "flow": "peak_hourly"
+    }
+   ],
+   "depth": {
+    "param": "secondary_side_water_depth"
+   },
+   "count": [
+    {
+     "param": "secondary_tank_count_min",
+     "when": "average_lps >= 250"
+    }
+   ],
+   "resolution": "Art.195 평균·첨두 두 조건 중 큰 면적, 체류시간은 시간최대. 고형물부하 수치 없음"
+  },
+  {
+   "type": "EFFLUENT_LIMIT",
+   "country": "CO",
+   "match_contains": {
+    "discharger": "prestadores"
+   },
+   "params": {
+    "bod": "^DBO5",
+    "ss": "^SST"
+   },
+   "capacity": {
+    "key": "load_kg_d_DBO5",
+    "from": "bod_load_kg_d"
+   },
+   "resolution": "Res. 0631/2015 Art.8 하수도 사업자 생활하수, 유입 BOD5 부하(kg/d) 구간"
   }
  ],
  "pipe": {

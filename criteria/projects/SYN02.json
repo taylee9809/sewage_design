@@ -31,6 +31,10 @@
       "lift_main_extra_m": {
         "value": 10.0,
         "rationale": "인라인 양수장 압송관 길이 = 실양정 + 10 m 가정"
+      },
+      "plant_avg_ratio": {
+        "value": "max",
+        "rationale": "KDS 61 10 00 1.7.2 (5) 계획1일평균 = 계획1일최대의 70~80% — 상한(관망 첨두 채택과 같은 방식)"
       }
     },
     "TSS_WW_2026": {
