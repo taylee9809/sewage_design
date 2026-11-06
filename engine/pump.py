@@ -126,6 +126,16 @@ def hazen_c(st, dia):
     return c, rows[0].clause_ref + (" — " + r["resolution"] if r.get("resolution") else "")
 
 
+def fm_friction(st, nom, inner, Q, v, L):
+    """압송관 마찰손실 hf [m]와 조도 설명. FORCE_MAIN_FRICTION kind colebrook_white면 유속 구간별 ks, 아니면 Hazen-Williams."""
+    r = st.rule("FORCE_MAIN_FRICTION")
+    if r.get("kind") == "colebrook_white":
+        row = db.pick(st.rows, r["param"], {**r["cond"], "velocity_ms": v}, allow=tuple(r.get("allow", ())))[0]
+        return L * h.slope_for_velocity(inner / 1000, h.ColebrookWhite(row.value_min / 1000, st.n.nu), v), None, "ks=%g mm" % row.value_min, row.clause_ref
+    C, ccl = hazen_c(st, nom)
+    return 10.67 * L * Q ** 1.852 / (C ** 1.852 * (inner / 1000) ** 4.87), C, "C=%g" % C, ccl
+
+
 def fm_velocity_range(st):
     r = st.rule("FORCE_MAIN_VELOCITY")
     bf = r.get("binding_filter")
@@ -163,6 +173,8 @@ def unit_flow(st, Q, Qavg):
         return Q, "규정 없음"
     if pr["kind"] == "firm_capacity":
         return Q, "%d대 × %.1f L/s (1대 정지 시 첨두 처리)" % (pr.get("min", 2), Q * 1000)
+    if pr["kind"] == "duty_standby":
+        return Q, "%d대(주·예비) × %.1f L/s (%s)" % (pr["count"], Q * 1000, pr["clause"])
     if pr["kind"] == "min_count":
         row = db.one(_rows(st, pr), pr["param"], pr.get("cond", {}))
         n = int(row.value_min)
@@ -245,10 +257,16 @@ def size_station(st, node, Q, Qavg, inlet, inv_out, sizes, project, fittings=Non
         xs = [x for x in db.pick(st.rows, mr["param"], mr["cond"], allow=tuple(mr.get("allow", ()))) if x.value_min]
         dmin = max((x.value_min for x in xs), default=0)
     pick = None
+    fr = st.rule("PUMP_DESIGN_FLOW")
+
+    def rate(inner):  # 펌프 설계유량: 규칙이 있으면 첨두 비율과 압송관 최소유속 유량 중 큰 값
+        A = math.pi * (inner / 1000) ** 2 / 4
+        return max(Q * fr["peak_fraction"], vmin * A) if fr else Q
+
     for nom, inner in sizes:
         if inner < dmin - 1e-6:
             continue
-        v = Q / (math.pi * (inner / 1000) ** 2 / 4)
+        v = rate(inner) / (math.pi * (inner / 1000) ** 2 / 4)
         if (vmax is None or v <= vmax) and (vmin is None or v >= vmin):
             pick = (nom, inner, v)
             break
@@ -260,14 +278,14 @@ def size_station(st, node, Q, Qavg, inlet, inv_out, sizes, project, fittings=Non
                 out["notes"].append("최소유속 %.2f m/s 미달(유량 작음) — 설계자 검토" % vmin)
                 break
     nom, inner, v = pick
-    C, ccl = hazen_c(st, nom)
+    Q = rate(inner)
     if "fm_length_m" in project:  # 원거리 압송관: 경로 구간 연장 합
         Lfm = project["fm_length_m"]["value"]
     else:  # 인라인 양수장: 실양정 + 사업값
         Lfm = max(out["static_m"], 0) + project.get("lift_main_extra_m", {}).get("value", 10.0)
-    hf = 10.67 * Lfm * Q ** 1.852 / (C ** 1.852 * (inner / 1000) ** 4.87)
+    hf, C, fric, ccl = fm_friction(st, nom, inner, Q, v, Lfm)
     out.update({"fm_dia": nom, "fm_inner": inner, "fm_v": v, "fm_v_range": (vmin, vmax), "fm_clause": vcl, "C": C, "C_clause": ccl,
-                "fm_len": Lfm, "hf": hf})
+                "friction": fric, "Q_pump": Q, "fm_len": Lfm, "hf": hf})
     hm, hm_msg = minor_loss(st, v, fittings)
     out.update({"hm": hm, "hm_note": hm_msg, "tdh": max(out["static_m"], 0) + hf + hm})
     # 펌프 대수·1대 양수량, 흡입관, 잠김·NPSH
@@ -352,8 +370,8 @@ def main(pid):
             print("   ·", n)
         for s in p["stations"]:
             print("   [%s→%s %s, 압송관 %.0f m] Q %.1f L/s, 흡입수위 %.2f m (%s), 실양정 %.2f m" % (s["node"], s["to"], s["mode"], s["fm_len"], s["Q"] * 1000, s["lwl"], s["lwl_note"], s["static_m"]))
-            print("        압송관 %d(내경 %.0f) v=%.2f m/s (범위 %s~%s, %s), C=%g, 마찰 %.2f m, 부속 %.3f m (%s)"
-                  % (s["fm_dia"], s["fm_inner"], s["fm_v"], s["fm_v_range"][0], s["fm_v_range"][1], s["fm_clause"], s["C"], s["hf"],
+            print("        압송관 %d(내경 %.0f) v=%.2f m/s (범위 %s~%s, %s), %s, 마찰 %.2f m, 부속 %.3f m (%s)"
+                  % (s["fm_dia"], s["fm_inner"], s["fm_v"], s["fm_v_range"][0], s["fm_v_range"][1], s["fm_clause"], s["friction"], s["hf"],
                      s["hm"], s["hm_note"]))
             print("        전양정 %.2f m, 동력 %.1f kW | %s | %s" % (s["tdh"], s["power_kw"], s["suction"], s["submergence"]))
             print("        펌프: %s | 습정: %s %s" % (s["pumps"], s["wet_well"], "; ".join(s["notes"])))

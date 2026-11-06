@@ -102,7 +102,7 @@ class Stub:
     def __init__(self, st):
         self.drop_check = st.drop_check
 
-    min_diameter = lambda self: 200
+    min_diameter = lambda self, P=None: 200
     vmax = lambda self: (3.0, "full", "hard")
     no_decrease = lambda self: None
     fallback = lambda self: None

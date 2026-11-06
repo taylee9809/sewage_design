@@ -96,6 +96,40 @@
         "value": 140,
         "rationale": "RAS 하수 조항에 C 없음 — PVC 140 가정(CPHEEO PVC 값과 동일)"
       }
+    },
+    "GB_DCG_V2_3_20231111": {
+      "persons_per_dwelling": {
+        "value": 2.4,
+        "rationale": "DCG는 세대 단위, 관망 입력은 인구 — 세대당 인원 원문 없음, 비교용 가정 2.4인"
+      },
+      "kinematic_viscosity": {
+        "value": 1.141e-06,
+        "rationale": "DCG 수온 미지정, 15℃ 물의 동점성계수 가정 (ks 1.5 mm 조건에서 영향 작음)"
+      },
+      "capacity_basis": {
+        "value": "depth",
+        "rationale": "B3.1.4 '75% of pipe full' 수심비·유량비 원문 미지정 → 수심비 y/D 0.75 채택. 영국 관행 근거: Approved Document H Diagram 9(0.75 proportional depth), BPDA 기술지침(2021) 오수관 예제 ¾ 수심 → 유량계수 0.92"
+      },
+      "wc_connected": {
+        "value": "at_least_one",
+        "rationale": "B6.9(b) WC 연결 가정"
+      },
+      "street_location": {
+        "value": "highway_unrestricted",
+        "rationale": "B5.1.7(e) 차도 가정 — 다른 기준의 비교 조건과 맞춤"
+      },
+      "access_pair": {
+        "value": "manhole-manhole",
+        "rationale": "B5.2.6 전 구간 맨홀 가정. 11가구 이상 구간은 B5.2.4(d)로 맨홀"
+      },
+      "pipe_product": {
+        "value": "product_type = 'nominal_internal_diameter'",
+        "rationale": "DCG 공칭 내경 표기 — criteria/pipe_catalog/gb_pipes.csv"
+      },
+      "pump_efficiency": {
+        "value": 0.7,
+        "rationale": "펌프+전동기 효율 가정(원문 표 없음) — 비교용"
+      }
     }
   },
   "practice": {

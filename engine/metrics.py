@@ -28,6 +28,11 @@ def m2(st, dia, S):
     if r["kind"] == "margin":
         m = db.one(st.rows, r["param"], r["cond"])
         return {"Q": h.flow(D, S, st.n) / (1 + m.value_min), "basis": "만관 ÷ (1+여유 %.0f%%)" % (m.value_min * 100), "clause": m.clause_ref}
+    if r["kind"] == "fraction_project":
+        m = db.one(st.rows, r["param"], r["cond"])
+        if st.choice[r["key"]] == "depth":
+            return {"Q": h.flow(D, S, st.n, m.value_max), "basis": "수심비 y/D=%.2f" % m.value_max, "clause": m.clause_ref}
+        return {"Q": h.flow(D, S, st.n) * m.value_max, "basis": "만관 × %.0f%%" % (m.value_max * 100), "clause": m.clause_ref}
     return {"Q": h.flow(D, S, st.n), "basis": "만관", "clause": r.get("clause")}
 
 

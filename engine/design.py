@@ -26,7 +26,6 @@ def design(st, nodes, links, sizes, lifts=(), fm_links=()):
     fm_links: 압송관으로 대체하는 구간 — 자연유하로 설계하지 않고, 하류 접합 계산에서도 뺀다(압송관 끝 맨홀은 최소토피에서 시작)."""
     order, into = topo(links)
     p0, p1 = tributary_pop(order, into, nodes)
-    dmin = st.min_diameter()
     vmax, vstate, venf = st.vmax()
     nodec = st.no_decrease()
     fb = st.fallback()
@@ -36,6 +35,7 @@ def design(st, nodes, links, sizes, lifts=(), fm_links=()):
         if l["id"] in fm_links:
             continue
         Q, Qi = st.peak_flow(p1[l["id"]]), st.peak_flow(p0[l["id"]])
+        dmin = st.min_diameter(p1[l["id"]])
         ups = [res[i["id"]] for i in into.get(l["up"], []) if i["id"] not in fm_links]
         # 하류 관경 감소 금지: 의무(hard)는 항상, 기준(standard)은 사업 파일에 근거 있는 예외(allow_decrease)가 없으면 적용
         enforce_nodec = nodec == "hard" or (nodec == "standard" and "allow_decrease" not in st.choice)

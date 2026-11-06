@@ -1,12 +1,22 @@
-"""원형관 자연유하 수리 계산 (Manning 공식, 부분류 포함).
+"""원형관 자연유하 수리 계산 (Manning 또는 Colebrook-White, 부분류 포함).
 
-모든 입력·출력은 SI: D[m], y[m], S[m/m], n[-], V[m/s], Q[m3/s].
+모든 입력·출력은 SI: D[m], y[m], S[m/m], n[-], V[m/s], Q[m3/s]. n 자리에 ColebrookWhite를 주면 그 식으로 계산한다.
 기준별 판정 규칙(어떤 유량·수심에서 유속을 볼지 등)은 engine/standards/에 두고, 여기선 순수 기하·수리만 계산한다.
 """
 import math
+from dataclasses import dataclass
+
+G = 9.81
 
 # 원형관 최대 유량이 나는 수심비 (dQ/dy=0). 이보다 깊으면 유량이 줄어 만관 유량과 겹친다.
 Y_QMAX = 0.9382
+
+
+@dataclass(frozen=True)
+class ColebrookWhite:
+    """마찰 조건: ks = 등가 조도[m], nu = 동점성계수[m2/s]."""
+    ks: float
+    nu: float
 
 
 def _theta(yr):
@@ -30,7 +40,12 @@ def hydraulic_radius(D, yr=1.0):
 
 
 def velocity(D, S, n, yr=1.0):
-    """수심비 yr에서의 평균유속 V = (1/n)·R^(2/3)·S^(1/2)."""
+    """수심비 yr에서의 평균유속. Manning V = (1/n)·R^(2/3)·S^(1/2),
+    Colebrook-White V = −2√(8gRS)·log10(ks/14.8R + 2.51ν/(4R√(8gRS))) (원형 만관 식의 D를 4R로 일반화)."""
+    if isinstance(n, ColebrookWhite):
+        R = hydraulic_radius(D, yr)
+        root = math.sqrt(8 * G * R * S)
+        return max(-2 * root * math.log10(n.ks / (14.8 * R) + 2.51 * n.nu / (4 * R * root)), 0.0)
     return hydraulic_radius(D, yr) ** (2 / 3) * math.sqrt(S) / n
 
 
@@ -56,7 +71,24 @@ def depth_ratio_for_flow(D, S, n, Q, tol=1e-10):
 
 def slope_for_velocity(D, n, V, yr=1.0):
     """수심비 yr에서 유속 V가 나오는 경사."""
+    if isinstance(n, ColebrookWhite):
+        return _solve_slope(lambda S: velocity(D, S, n, yr), V)
     return (V * n / hydraulic_radius(D, yr) ** (2 / 3)) ** 2
+
+
+def slope_for_flow(D, n, Q, yr=1.0):
+    """수심비 yr에서 유량 Q가 나오는 경사."""
+    if isinstance(n, ColebrookWhite):
+        return _solve_slope(lambda S: flow(D, S, n, yr), Q)
+    return (Q * n / (area(D, yr) * hydraulic_radius(D, yr) ** (2 / 3))) ** 2
+
+
+def _solve_slope(metric, target):
+    """metric(S) = target 인 경사. Manning 역산처럼 1을 넘는 경사도 값으로 돌려준다(작은 관경 시험값 비교용)."""
+    hi = 1.0
+    while metric(hi) < target:
+        hi *= 4
+    return _bisect_slope(metric, target, hi)
 
 
 def _bisect_slope(metric, target, s_hi=1.0, tol=1e-12):

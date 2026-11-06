@@ -8,7 +8,7 @@
 
 나라 추가 방법: [CONTRIBUTING.md](CONTRIBUTING.md) (영문)
 
-- 기준: 한국 KDS 61 40 00·61 10 00(2025-10-01), 미국 Ten States Standards 2026, 일본 요코하마시 하수도설계지침(2026)·하수도법 시행령, 인도 CPHEEO Manual on Sewerage 2013, 콜롬비아 RAS(Res. 0330/2017 통합본)
+- 기준: 한국 KDS 61 40 00·61 10 00(2025-10-01), 영국(잉글랜드) Water UK DCG v2.3(2023, 값만), 미국 Ten States Standards 2026, 일본 요코하마시 하수도설계지침(2026)·하수도법 시행령, 인도 CPHEEO Manual on Sewerage 2013, 콜롬비아 RAS(Res. 0330/2017 통합본)
 - 원칙: 원문 텍스트 그대로 코드화. 원문이 정하지 않은 부분은 같은 기준의 다른 조항으로만 해소하고, 실무 관행은 넣지 않는다.
 - 공개 범위: 재배포가 허용된 원문(KDS 61 계열, CPHEEO, 일본 하수도법 시행령, 콜롬비아 RAS)만 본문·원문 구절·이미지 판독본을 포함한다. KDS는 환경부(현 기후에너지환경부) 고시 제2025-165호 「하수도설계기준」 별지와 본문이 같아 저작권법 제7조 제2호(국가의 고시)에 따라 공개한다. 나머지(Ten States 2026, 요코하마 지침)는 값·조항 번호만 두고 원문 본문과 구절(`quote_short`)은 별도 비공개 폴더(`../sewage_design_private`, `SEWAGE_PRIVATE_DIR`)에 둔다.
 
@@ -33,6 +33,7 @@ SEWAGE_DB_DSN=<공개 DB DSN> py -3 -m engine.metrics SYN01 --dia 200 250 --q 0.
 - CPHEEO, Manual on Sewerage and Sewage Treatment Systems, Part A: Engineering (2013), Ministry of Housing and Urban Affairs, Government of India.
 - Great Lakes – Upper Mississippi River Board, Recommended Standards for Wastewater Facilities, 2026 Edition.
 - Ministerio de Vivienda, Ciudad y Territorio (Colombia), Resolución 0330 de 2017 (RAS), texto compilado.
+- Water UK, Design and Construction Guidance (Sewerage Sector Guidance Appendix C), Approved Version 2.3, 2023.
 
 ## 라이선스
 AGPL-3.0-or-later ([LICENSE](LICENSE)). 기준서 원문의 저작권은 각 발행 기관에 있다.

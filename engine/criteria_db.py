@@ -55,7 +55,8 @@ def matches(row, ctx, allow=()):
     for k, spec in row.condition.items():
         if k in ctx:
             v = ctx[k]
-            if k in ("dia_mm", "population", "served_population", "depth_m", "slope", "road_width_m", "altitude_masl", "flow_lps"):
+            if k in ("dia_mm", "population", "served_population", "depth_m", "slope", "road_width_m", "altitude_masl", "flow_lps", "dwellings",
+                     "properties", "velocity_ms"):
                 if not _range_ok(spec, v):
                     return False
             elif not _value_ok(spec, v):

@@ -17,10 +17,10 @@ from engine.network import summarize
 from engine.pump import plan
 
 ITEMS = [  # (param_key, 한글명) — 보고서 2·4절 순서
-    ("per_capita_wastewater", "1인1일 오수량"), ("per_capita_water_net", "1인1일 순급수량"), ("return_coefficient", "회귀계수"),
+    ("per_capita_wastewater", "1인1일 오수량"), ("peak_flow_per_dwelling", "세대당 첨두유량"), ("per_capita_water_net", "1인1일 순급수량"), ("return_coefficient", "회귀계수"),
     ("peak_factor_hourly", "시간최대(첨두) 계수"), ("infiltration_allowance", "지하수·침입수"), ("min_design_flow", "구간 최소 설계유량"),
     ("min_velocity", "최소유속"), ("min_wall_shear_stress", "최소 벽면 전단응력"), ("max_velocity", "최대유속"),
-    ("min_slope", "최소경사"), ("max_depth_ratio", "설계수심비"), ("capacity_margin", "여유율"), ("manning_n", "조도계수 n"),
+    ("min_slope", "최소경사"), ("max_depth_ratio", "설계수심비"), ("max_pipe_full_fraction", "만관 대비 상한"), ("capacity_margin", "여유율"), ("manning_n", "조도계수 n"), ("colebrook_ks", "Colebrook-White ks"),
     ("min_pipe_diameter", "최소관경"), ("min_cover", "최소토피"), ("manhole_max_spacing", "맨홀 최대간격"),
     ("drop_manhole_threshold", "부관(낙차맨홀) 기준 낙차"), ("junction_method", "관 접합"), ("pipe_size_no_decrease", "하류 관경 감소"),
 ]
@@ -86,12 +86,12 @@ def pump_section(w, plans, hidden):
         w("")
         return
     w("\n### 양정·동력\n")
-    w("| 기준 | 펌프장 | 첨두 Q (L/s) | 실양정 (m) | 압송관 (내경) × 연장 | 유속 (m/s) / 원문 범위 | C | 마찰 (m) | 부속 (m) | 전양정 (m) | 동력 (kW) |")
+    w("| 기준 | 펌프장 | 첨두 Q (L/s) | 실양정 (m) | 압송관 (내경) × 연장 | 유속 (m/s) / 원문 범위 | 조도 | 마찰 (m) | 부속 (m) | 전양정 (m) | 동력 (kW) |")
     w("|---|---|---|---|---|---|---|---|---|---|---|")
     for sid, s in rows:
         lo, hi = s["fm_v_range"]
-        w("| %s | %s | %.1f | %.2f | %d (%.0f) × %.0f m | %.2f / %s~%s | %g | %.2f | %s | %.2f | %.1f |" % (
-            sid, s["node"] + ("→" + s["to"] if s["mode"] == "remote" else ""), s["Q"] * 1000, s["static_m"], s["fm_dia"], s["fm_inner"], s["fm_len"], s["fm_v"], lo, hi, s["C"], s["hf"],
+        w("| %s | %s | %.1f | %.2f | %d (%.0f) × %.0f m | %.2f / %s~%s | %s | %.2f | %s | %.2f | %.1f |" % (
+            sid, s["node"] + ("→" + s["to"] if s["mode"] == "remote" else ""), s["Q"] * 1000, s["static_m"], s["fm_dia"], s["fm_inner"], s["fm_len"], s["fm_v"], lo, hi, s["friction"], s["hf"],
             "보류" if s["hm_note"].startswith("판정 보류") else "%.2f" % s["hm"], s["tdh"], s["power_kw"]))
     w("\n### 흡입수위·펌프·흡수정\n")
     w("| 기준 | 펌프장 | 흡입수위 | 부속손실 | 펌프 대수 | 흡입관 | 잠김·NPSH | 흡수정 |\n|---|---|---|---|---|---|---|---|")

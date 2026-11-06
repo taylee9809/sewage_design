@@ -74,6 +74,19 @@ basis가 의미 없는 항목(최소관경, 맨홀 간격, 토피 등 기하 규
 | `hydraulic_state` | `actual` (전단응력 판정에도 사용) | τ = ρgRS를 실수심 R로 계산 |
 | 공백 메모 | 면적 종류(도로 면적/배수 면적), 토피 측정 기준(외면 관정), OR 조건 | 아직 키 없음 — note에 기록, 필요 시 v1.3 |
 
+## v1.3 추가 (2026-11-02, 영국 DCG)
+
+| 키 | 값 | 뜻 |
+|---|---|---|
+| `flow` | `one_third_design` | 설계유량의 1/3 (DCG B6.9 최소유속) |
+| `flow` | `pump_rate` | 펌프 운전 유량 (DCG D6.3.1) |
+| `per` | `dwelling` | 세대당 |
+| `location` | `garden_path` \| `driveway_restricted` \| `driveway_limited` \| `agricultural_open_space` \| `highway_unrestricted` | DCG B5.1.7 토피 구분 |
+| `manhole_type` | `manhole-manhole` 등 | 인접 구조물 쌍 (DCG B5.2.6 간격) |
+| `dwellings`, `properties` (신규 조건 키, 범위) | 범위 객체 | 세대 수·가구(건물) 수 조건 |
+| `wc_connected` (신규 조건 키) | `at_least_one` \| `none` | 연결 WC 유무 |
+| `velocity_ms` (신규 조건 키, 범위) | 범위 객체 m/s | 유속 구간별 값 (압송관 ks) |
+
 ## 3. 비교 그룹
 
 `param_key` + `basis`(`flow`,`horizon`,`hydraulic_state`,`per`)가 같은 행끼리만 직접 비교한다. 다르면 2단계(공통 지표 환산) 또는 3단계(동일 입력 설계 결과 비교)로 넘긴다.

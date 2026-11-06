@@ -1,0 +1,183 @@
+{
+ "standard_id": "GB_DCG_V2_3_20231111",
+ "pipe": {
+  "nominal": "as_is",
+  "min_dia_compare": "nominal",
+  "table_lookup": "nominal"
+ },
+ "rules": [
+  {
+   "type": "FRICTION",
+   "kind": "colebrook_white",
+   "param": "colebrook_ks",
+   "cond": {
+    "system": "separate"
+   },
+   "nu_key": "kinematic_viscosity",
+   "clause": "B3.1.3",
+   "resolution": "전 관종 ks 1.5 mm. 수온·동점성계수 원문 없음 → 사업 채택값"
+  },
+  {
+   "type": "VELOCITY_MIN",
+   "param": "min_velocity",
+   "cond": {
+    "system": "separate"
+   },
+   "flow": "design",
+   "flow_divisor": 3,
+   "state": "actual",
+   "alternative": {
+    "param": "min_slope",
+    "cond": {
+     "system": "separate"
+    },
+    "wc_key": "wc_connected"
+   },
+   "resolution": "B6.9 설계유량 1/3 실수심. 못 맞추면 B6.9(a)(b) 경사로 충족 간주, 해당 경사 없는 관경은 유속 요건 그대로"
+  },
+  {
+   "type": "CAPACITY",
+   "kind": "fraction_project",
+   "param": "max_pipe_full_fraction",
+   "cond": {
+    "system": "separate"
+   },
+   "key": "capacity_basis",
+   "clause": "B3.1.4",
+   "resolution": "'75% of pipe full'이 수심비인지 유량비인지 원문 미지정 → 사업 채택값 depth | flow"
+  },
+  {
+   "type": "MIN_DIAMETER",
+   "param": "min_pipe_diameter",
+   "cond": {
+    "system": "separate"
+   },
+   "by_dwellings": true,
+   "resolution": "B6.1 10가구 이하 100 mm, 초과 150 mm. 가구 수는 세대 수로 봄"
+  },
+  {
+   "type": "MIN_COVER",
+   "kind": "value",
+   "param": "min_cover",
+   "cond": {},
+   "cond_from_project": {
+    "location": "street_location"
+   },
+   "allow": [
+    "location"
+   ],
+   "clause": "B5.1.7"
+  },
+  {
+   "type": "JUNCTION",
+   "kind": "crown",
+   "clause": "B5.2.14"
+  },
+  {
+   "type": "MANHOLE_SPACING",
+   "param": "manhole_max_spacing",
+   "cond_from_project": {
+    "manhole_type": "access_pair"
+   },
+   "resolution": "B5.2.6 구조물 쌍별 간격 — 구간별 맨홀·점검실 선택은 미구현, 사업 채택 쌍 하나로 적용"
+  },
+  {
+   "type": "HOUSE_CONNECTION",
+   "kind": "crown",
+   "param": "house_connection",
+   "allow": [
+    "item"
+   ],
+   "dia_cond": {
+    "item": "connection_pipe_min_dia"
+   },
+   "slope_cond": {
+    "item": "connection_pipe_min_slope"
+   },
+   "clause": "B5.2.25 지관 관정이 본관 관정보다 낮지 않게"
+  },
+  {
+   "type": "DESIGN_FLOW",
+   "per_dwelling": {
+    "param": "peak_flow_per_dwelling",
+    "cond": {
+     "system": "separate",
+     "wastewater_type": "domestic"
+    },
+    "allow": [
+     "wastewater_type"
+    ],
+    "persons_key": "persons_per_dwelling",
+    "clause": "B3.1.1(b)"
+   },
+   "resolution": "B3.1.1(b) 고정값 경로만 구현. (a) BS EN 12056-2 System II는 유료 표준이라 미구현"
+  },
+  {
+   "type": "PUMP_TRIGGER",
+   "kind": "review",
+   "param": "pump_station_required_condition",
+   "clause": "D4.1",
+   "text": "40년 전체수명비용이 자연유하보다 낮을 때만 — 비용 비교 필요, 수심 한도 없음 → 판정 보류(설계자 검토)"
+  },
+  {
+   "type": "FORCE_MAIN_VELOCITY",
+   "min_param": "force_main_min_velocity",
+   "max_param": "force_main_max_velocity",
+   "cond": {}
+  },
+  {
+   "type": "FORCE_MAIN_FRICTION",
+   "kind": "colebrook_white",
+   "param": "colebrook_ks",
+   "cond": {
+    "item": "rising_main"
+   },
+   "allow": [
+    "item"
+   ],
+   "clause": "D6.3.2"
+  },
+  {
+   "type": "FORCE_MAIN_MIN_DIAMETER",
+   "param": "force_main_min_diameter",
+   "cond": {}
+  },
+  {
+   "type": "PUMP_DESIGN_FLOW",
+   "peak_fraction": 0.5,
+   "clause": "D5.6.1",
+   "resolution": "유입 첨두의 1/2과 압송관 최소유속 유량 중 큰 값. 500세대 초과는 하수도 회사 협의"
+  },
+  {
+   "type": "PUMP_COUNT",
+   "kind": "duty_standby",
+   "count": 2,
+   "clause": "F2.1.1"
+  },
+  {
+   "type": "WET_WELL_VOLUME",
+   "kind": "review",
+   "text": "용량 수치 없음. 시간당 기동 15회 이하·운전 60초 이상·체류 6시간 이하(D5.6.3), 비상저류 160 L/세대(D5.5.3)"
+  },
+  {
+   "type": "WET_WELL_LEVEL",
+   "kind": "review",
+   "text": "정지수위는 제조사 잠김·NPSH 조건(D5.6.3(f)), 수치 없음"
+  },
+  {
+   "type": "MINOR_LOSS",
+   "kind": "review",
+   "text": "부속 손실계수 원문 없음"
+  },
+  {
+   "type": "SUCTION_PIPE",
+   "kind": "review",
+   "text": "수중펌프 전제, 흡입관 규정 없음"
+  },
+  {
+   "type": "PUMP_SUBMERGENCE_NPSH",
+   "kind": "review",
+   "text": "D5.6.3(f) 잠김·NPSHa 충분 — 수치 없음"
+  }
+ ]
+}
