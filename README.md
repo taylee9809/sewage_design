@@ -19,7 +19,7 @@ The same 27-pipe network, designed with each standard's own clauses: excavation 
   | India | CPHEEO Manual on Sewerage and Sewage Treatment Systems, Part A | 2013 |
   | Colombia | RAS, Resolución 0330 de 2017 (compiled 2021) | 2021 |
   | United Kingdom (England) | Water UK Design and Construction Guidance v2.3 (values only) | 2023 |
-- **A country-agnostic engine.** The core engine (`generic.py`, `design.py`) contains no country names, and a test fails if one appears. Each standard is described by a rules file (`criteria/rules/<standard_id>.json`, 26 rule types) plus its values. Swap the standard set and the same network is redesigned.
+- **A country-agnostic engine.** The core engine (`generic.py`, `design.py`) contains no country names, and a test fails if one appears. Each standard is described by a rules file (`criteria/rules/<standard_id>.json`, 28 rule types) plus its values. Swap the standard set and the same network is redesigned.
 - **Literal, not "practical".** Values are encoded exactly as the source text says. Where a standard is silent, the gap is resolved only from other clauses of the same standard, or left as `unspecified`. Common practice is never filled in.
 - **Comparable, not merged.** Each value carries a `basis` (which flow, which time horizon, full or partial pipe). Two numbers are compared only when their basis matches, so the comparison table never puts an apple next to an orange.
 - **Design criteria report.** `engine.report` writes the full comparison as Markdown: adopted values per standard, side-by-side table, design results, and the clause that governed each pipe's slope and size ([example](docs/SYN01_design_criteria_report.md), in Korean).
@@ -27,12 +27,12 @@ The same 27-pipe network, designed with each standard's own clauses: excavation 
 ## Where this is going
 
 1. **More countries, added by the people who use them.** Adding a country means adding data files, not changing code. See [CONTRIBUTING.md](CONTRIBUTING.md). The goal is for engineers anywhere to design against, and compare, all of the world's standards at once.
-2. **The rest of the design workflow.** Manhole splitting, inverted siphons, and the remaining design steps.
+2. **The rest of the design workflow.** Inverted siphons and the remaining design steps.
 3. **Water supply, then related fields.** The same method applied to water supply networks and other water infrastructure.
 
 ## Status
 
-Early (first public release October 2026). The gravity sewer engine, pump stations and force mains, house connections, drop-pipe checks at manholes, the five standards above, and the report generator work. Extra manholes are counted, not yet placed in the profile.
+Early (first public release October 2026). The gravity sewer engine, pump stations and force mains, house connections, drop-pipe checks at manholes, extra manholes placed in the profile, the six standards above, and the report generator work.
 
 ## Quick start
 

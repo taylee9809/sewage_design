@@ -281,12 +281,15 @@ class Standard:
         role = next(x["role"] for x in r["roles"] if _range_ok({k: v for k, v in x.items() if k != "role"}, dia))
         return max(x.value_min for x in self._pick(r, {"pipe_role": role, "dia_mm": dia}) if x.value_min is not None)
 
-    def junction(self, u_inv_dn, u_D, D):
+    def junction(self, u_inv_dn, u_D, D, straight=False):
+        """straight: 같은 관경으로 곧게 지나가는 맨홀(구간 안 추가 맨홀). 국부손실이 0보다 크다."""
         r = self.rule("JUNCTION")
         kind = self.choice["junction"] if r["kind"] == "project_choice" else r["kind"]
         if kind == "crown":
             drop = 0.0
-            if "min_drop_param" in r:  # 관정 간 최소 낙차 (원문 조건부 규정을 항상 적용 — resolution 참고)
+            # 관정 간 최소 낙차. 원문 조건이 "손실 ≤ 0"이면 직선 통과 맨홀(손실 > 0)은 해당 없음,
+            # 합류 맨홀은 손실 계산 미구현이라 항상 적용 — resolution 참고
+            if "min_drop_param" in r and not (straight and r.get("min_drop_when") == "loss_le_zero"):
                 drop = db.one(self.rows, r["min_drop_param"], {"joint_method": "crown"}, allow=("joint_method", "exception")).value_min
             return u_inv_dn + u_D - D - drop
         if kind == "depth_ratio":

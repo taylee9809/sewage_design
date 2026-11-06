@@ -127,14 +127,42 @@ def design(st, nodes, links, sizes, lifts=(), fm_links=()):
         v_here = st.v_check(D, S, Q)
         if mono and main_up and mono.get("velocity") == "non_decreasing" and v_here < main_up["v"] - 1e-9:
             governing += " [참고: 유속 점증 미충족 %.2f<%.2f m/s(%s)]" % (v_here, main_up["v"], mono["clause"])
-        inv_dn = inv_up - S * l["L"]
         sp = st.spacing(dia)
+        mhs, inv_dn = place_manholes(st, l["L"], sp, inv_up, S, D, dia, gl_up, gl_dn)
+        mh_drop = sum(m["drop"] for m in mhs)
+        if mh_drop > 5e-4:
+            governing += " [추가 맨홀 %d개 접합 낙차 합 %.3f m]" % (len(mhs), mh_drop)
+        for m in mhs:
+            if m["note"]:
+                governing += " [추가 맨홀 %.1f m %s]" % (m["x"], m["note"])
         r = {"link": l["id"], "dia": dia, "D": D, "S": S, "Q": Q, "Qi": Qi, "inv_up": inv_up, "inv_dn": inv_dn,
              "cover_up": gl_up - inv_up - D, "cover_dn": gl_dn - inv_dn - D, "v": st.v_check(D, S, Q),
-             "extra_mh": max(0, math.ceil(l["L"] / sp) - 1) if sp else None, "drop": drop, "drop_pipes": drop_pipes, "governing": governing, "L": l["L"]}
+             "extra_mh": len(mhs) if sp else None, "manholes": mhs, "drop": drop, "drop_pipes": drop_pipes, "governing": governing, "L": l["L"]}
         res[l["id"]] = r
         out.append(r)
     return out
+
+
+def place_manholes(st, L, sp, inv_up, S, D, dia, gl_up, gl_dn):
+    """구간 안 추가 맨홀을 종단에 배치한다. 반환 (맨홀 목록, 구간 하류 관저고).
+    - 위치: 최대간격 sp를 넘지 않는 최소 개수로 구간을 n등분 (n = ceil(L/sp)).
+      원문은 최대간격만 정하므로 등분은 엔진의 기하 규약이다(기준값 아님).
+    - 지반고: 관망 입력에 중간 지반고가 없어 양 끝 맨홀 지반고를 직선 보간.
+    - 관저고: 맨홀 사이는 구간 경사 S 그대로, 맨홀마다 기준의 접합 규칙을 직선 통과(같은 관경)로 적용 —
+      조건 없는 관정 간 최소 낙차가 있는 기준은 그만큼 떨어지고, "손실 ≤ 0일 때"처럼 조건부면 적용하지 않는다.
+      낙차는 맨홀 낙차 판정도 거친다."""
+    n = max(1, math.ceil(L / sp - 1e-9)) if sp else 1
+    seg, inv, mhs = L / n, inv_up, []
+    for k in range(1, n):
+        x = k * seg
+        inv_in = inv - S * seg
+        inv_out = min(inv_in, st.junction(inv_in, D, D, straight=True))
+        gl = gl_up + (gl_dn - gl_up) * x / L
+        dc = st.drop_check(inv_in - inv_out, dia, D * 1000)
+        mhs.append({"x": x, "gl": gl, "inv_in": inv_in, "inv_out": inv_out, "drop": inv_in - inv_out,
+                    "depth": gl - inv_out, "cover": gl - inv_out - D, "note": dc["note"] if dc else ""})
+        inv = inv_out
+    return mhs, inv - S * seg
 
 
 def run(pid, standards=None, dsn=None):

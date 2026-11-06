@@ -42,12 +42,25 @@ def tributary_pop(order, into, nodes):
     return p0, p1
 
 
+def depth_x_len(r):
+    """구간 연장 × 관저 깊이 적분. 추가 맨홀이 있으면 맨홀 사이 소구간별로(맨홀 접합 낙차 반영)."""
+    gl_up, gl_dn = r["inv_up"] + r["cover_up"] + r["D"], r["inv_dn"] + r["cover_dn"] + r["D"]
+    pts = [(0.0, gl_up - r["inv_up"])]
+    segs = []
+    for m in r.get("manholes", []):
+        segs.append((pts[-1], (m["x"], m["gl"] - m["inv_in"])))
+        pts.append((m["x"], m["depth"]))
+    segs.append((pts[-1], (r["L"], gl_dn - r["inv_dn"])))
+    return sum((b[0] - a[0]) * (a[1] + b[1]) / 2 for a, b in segs)
+
+
 def summarize(out):
     L = sum(r["L"] for r in out)
-    exc = sum(r["L"] * ((r["cover_up"] + r["cover_dn"]) / 2 + r["D"]) for r in out)  # 연장×평균 관저 깊이 (굴착 지표)
+    exc = sum(depth_x_len(r) for r in out)  # 연장×평균 관저 깊이 (굴착 지표)
     return {"total_len_m": round(L), "max_dia": max(r["dia"] for r in out),
             "outfall_depth_m": round(out[-1]["cover_dn"] + out[-1]["D"], 2),
-            "max_depth_m": round(max(max(r["cover_up"], r["cover_dn"]) + r["D"] for r in out), 2),
+            "max_depth_m": round(max(max([r["cover_up"], r["cover_dn"]] + [m["cover"] for m in r.get("manholes", [])]) + r["D"]
+                                     for r in out), 2),
             "depth_x_len_m2": round(exc), "extra_manholes": sum(r["extra_mh"] or 0 for r in out),
             "drops": sum(1 for r in out if r["drop"] > 0),
             "drop_pipes": sum(r["drop_pipes"] for r in out),

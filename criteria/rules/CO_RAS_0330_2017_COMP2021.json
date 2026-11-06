@@ -57,8 +57,9 @@
    "type": "JUNCTION",
    "kind": "crown",
    "min_drop_param": "junction_drop_min",
+   "min_drop_when": "loss_le_zero",
    "clause": "Art.137",
-   "resolution": "국부손실 ≤0일 때 관정 간 최소 0.02 m — 손실 계산 미구현으로 항상 적용"
+   "resolution": "국부손실 ≤0일 때 관정 간 최소 0.02 m — 손실 계산 미구현으로 합류 맨홀엔 항상 적용, 같은 관경 직선 통과 맨홀은 손실 > 0이라 미적용"
   },
   {
    "type": "MANHOLE_SPACING",
