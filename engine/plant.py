@@ -288,13 +288,48 @@ def effluent_limits(st, env):
     return groups
 
 
+# ── 질소·인 제거 ──
+def nutrient(st, conc):
+    """고도처리 규칙(NUTRIENT_REMOVAL)의 제거율로 처리수 T-N·T-P(생물학적)를 추정. 화학적 인제거 조건·주입 몰비 출처를 함께."""
+    r = st.rule("NUTRIENT_REMOVAL")
+    out = {"held": []}
+    if not r:
+        return out
+    out["process"] = r["process"]
+    rn = removal(st, r.get("tn_removal"), out, "tn_removal")
+    rp = removal(st, r.get("tp_removal"), out, "tp_removal")
+    for p, rr, key in (("tn", rn, "tn_mgL"), ("tp", rp, "tp_bio_mgL")):
+        if p not in conc:
+            out["held"].append("유입 %s 없음" % p.upper())
+        elif rr is not None:
+            out[key] = conc[p] * (1 - rr)
+    cp = r.get("chemical_p")
+    if cp:
+        info = {"trigger": src(pick_any(st, cp["trigger"]))}
+        try:
+            info["molar_ratio"] = value(st, cp["dose"])[0]
+        except Held:
+            row = pick_any(st, cp["dose"])
+            info["dose"] = "보류: 응집제 몰비 원문 수치 없음(%s %s)" % (row.clause_ref, row.value_text or "")
+        out["chemical_p"] = info
+    return out
+
+
+def pick_any(st, s):
+    """수치 없는 규정 행(binding none 포함)도 출처 표시용으로 고른다."""
+    got = [r for r in st.plant_rows if r.param_key == s["param"] and db.matches(r, s.get("cond", {}), tuple(s.get("allow", ())))]
+    if len(got) != 1:
+        raise LookupError("%s → %d행" % (s["param"], len(got)))
+    return got[0]
+
+
 # ── 처리장 전체 ──
 def plant_design(st, P):
     F, finfo = flows(st, P)
     res = {"population": P, "flows_m3d": F, "flows_src": finfo, "held": []}
     il = st.rule("INFLUENT_LOAD")
     load = {}
-    for p in ("bod", "ss"):
+    for p in [x for x in ("bod", "ss", "tn", "tp") if x in il]:
         try:
             v, sr = value(st, il[p], "mid")
             load[p] = v * P  # kg/d
@@ -371,6 +406,8 @@ def plant_design(st, P):
                                       "note": "" if ok else ("범위 하한 미달" if lo is not None and aer[k] < lo else "상한 초과")})
     elif Q is not None:
         aer["held"].append("용적을 정할 기준 없음")
+    if "minimum_note" in ar and "volume_m3" in aer:
+        aer["note"] = ar["minimum_note"]
     ra = removal(st, ar.get("bod_removal"), aer, "bod_removal")
     rsa = removal(st, ar.get("ss_removal"), aer, "ss_removal")
     S = S1 * (1 - ra) if S1 is not None and ra is not None else None
@@ -421,18 +458,33 @@ def plant_design(st, P):
         Qr = {"design": Rd["value"] * F["average"], "max": (Rd["range"][1] if Rd.get("range") and Rd["range"][1] is not None else Rd["value"]) * F["average"]}
     res["secondary"] = clarifier(st, sr_, F, X=X, Qr=Qr)
 
+    # 질소·인 (고도처리 규칙이 있는 기준만)
+    nut = nutrient(st, conc)
+    res["nutrient"] = nut
+
     # 처리수 수질 추정
-    eff = {"bod": S, "ss": SS1 * (1 - rsa) if SS1 is not None and rsa is not None else None}
+    eff = {"bod": S, "ss": SS1 * (1 - rsa) if SS1 is not None and rsa is not None else None,
+           "tn": nut.get("tn_mgL"), "tp": nut.get("tp_bio_mgL")}
     res["effluent_mgL"] = eff
     env = {**F, "bod_load_kg_d": load.get("bod", 0)}
     lim = effluent_limits(st, env)
     if lim is not None:
         judge = {}
         for g, ps in lim.items():
-            judge[g or "-"] = {p: {**v, "estimate": eff.get(p),
-                                   "ok": None if eff.get(p) is None else eff[p] <= v["limit"] + EPS} for p, v in ps.items()}
+            jg = {}
+            for p, v in ps.items():
+                e = eff.get(p)
+                j = {**v, "estimate": e, "ok": None if e is None else e <= v["limit"] + EPS}
+                if e is None and p in ("tn", "tp") and not nut.get("process"):
+                    j["reason"] = "기준서에 고도처리(질소·인 제거) 설계 규정 없음"
+                if p == "tp" and e is not None and not j["ok"] and nut.get("chemical_p"):
+                    # 생물학적 처리로 못 미치면 화학적 인제거로 기준까지 (주입량은 몰비 실험값이라 보류)
+                    j.update(chemical_p={"needed": True, "remove_mgL": e - v["limit"], **nut["chemical_p"]},
+                             estimate=v["limit"], ok=True)
+                jg[p] = j
+            judge[g or "-"] = jg
         res["effluent_judgement"] = judge
-    for part in ("primary", "aeration", "secondary"):
+    for part in ("primary", "aeration", "secondary", "nutrient"):
         res["held"] += ["%s: %s" % (part, h) for h in res[part].get("held", [])]
     return res
 

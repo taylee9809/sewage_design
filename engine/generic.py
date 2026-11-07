@@ -24,7 +24,7 @@ KNOWN_TYPES = {"VELOCITY_MIN", "VELOCITY_MAX", "SLOPE_TABLE", "CAPACITY", "MIN_D
                "DROP_STRUCTURE",    # v5 (2026-11-02) 맨홀 낙차 → 부관 필요·낙차 상한·부관 관경
                "FRICTION", "PUMP_DESIGN_FLOW",  # v6 (2026-11-02, 영국 DCG) Colebrook-White·펌프 설계유량
                "PLANT_FLOW", "INFLUENT_LOAD", "PRIMARY_CLARIFIER", "AERATION_TANK", "SECONDARY_CLARIFIER",
-               "EFFLUENT_LIMIT"}  # v7 (2026-11-07) 하수처리장 표준활성슬러지법 (engine/plant.py)
+               "EFFLUENT_LIMIT", "NUTRIENT_REMOVAL"}  # v7 (2026-11-07) 하수처리장 표준활성슬러지법·고도처리 (engine/plant.py)
 REQUIRED = ("mandatory", "standard")
 
 
