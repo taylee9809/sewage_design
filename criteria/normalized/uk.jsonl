@@ -1,0 +1,72 @@
+{"row_key": "b91cdd8e5070", "condition": {"system": "separate"}, "basis": {"flow": "design_flow"}, "tag_note": ""}
+{"row_key": "8b53b4f23ff2", "condition": {"system": "separate", "wastewater_type": "domestic"}, "basis": {"flow": "design_flow", "per": "dwelling"}, "tag_note": ""}
+{"row_key": "f0e59d3bfdd3", "condition": {"system": "separate", "wastewater_type": "commercial", "item": "domestic"}, "basis": {"flow": "design_flow", "per": "area"}, "tag_note": ""}
+{"row_key": "e9a7cf2be66a", "condition": {"system": "separate", "wastewater_type": "industrial", "item": "trade_normal"}, "basis": {"flow": "design_flow", "per": "area"}, "tag_note": ""}
+{"row_key": "c06f65471366", "condition": {"system": "separate", "wastewater_type": "industrial", "item": "trade_wet"}, "basis": {"flow": "design_flow", "per": "area"}, "tag_note": ""}
+{"row_key": "df27f29569ce", "condition": {"system": "separate", "wastewater_type": "industrial", "item": "trade_unknown"}, "basis": {"flow": "design_flow", "per": "area"}, "tag_note": ""}
+{"row_key": "7b3fdea82223", "condition": {"system": "separate"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "8e6e69fb526b", "condition": {"system": "separate"}, "basis": {"flow": "design_flow", "hydraulic_state": "unspecified"}, "tag_note": ""}
+{"row_key": "d489516c40d6", "condition": {"system": "separate"}, "basis": {"flow": "one_third_design", "hydraulic_state": "actual"}, "tag_note": ""}
+{"row_key": "26f73a667866", "condition": {"system": "separate", "dia_mm": {"eq": 150}, "dwellings": {"ge": 10}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "8c562bb25205", "condition": {"system": "separate", "dia_mm": {"eq": 100}, "wc_connected": "at_least_one"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "c754e468eaab", "condition": {"system": "separate", "dia_mm": {"eq": 100}, "wc_connected": "none"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "5e65f9a7a5a5", "condition": {"system": "separate", "properties": {"le": 10}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "6fb8db909290", "condition": {"system": "separate", "properties": {"gt": 10}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "bdedffcfdf43", "condition": {"system": "separate", "pipe_role": "house_connection"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "834306b5b1b2", "condition": {"location": "garden_path"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "af55281bb769", "condition": {"location": "driveway_restricted"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "45dccbc48c98", "condition": {"location": "driveway_limited"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f45e6f36c28a", "condition": {"location": "agricultural_open_space"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "2e4877cbda43", "condition": {"location": "highway_unrestricted"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "91fa97fee675", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3e4920e9dd85", "condition": {"location": "roadway"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "29535bea4512", "condition": {"manhole_type": "manhole-manhole"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "7631b64124c7", "condition": {"manhole_type": "inspection_chamber-inspection_chamber"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "0ec832008da1", "condition": {"manhole_type": "manhole-inspection_chamber"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "c0a00385f5fd", "condition": {"manhole_type": "manhole"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "e4ac567e11e0", "condition": {"dia_mm": {"lt": 375}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "372664ccdf26", "condition": {"dia_mm": {"ge": 375, "le": 450}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ba443fda042a", "condition": {"dia_mm": {"ge": 500, "le": 700}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "e316ec6c158d", "condition": {"dia_mm": {"ge": 750, "le": 900}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3691f24964cd", "condition": {"dia_mm": {"gt": 900}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "b33f678c8ddf", "condition": {"depth_m": {"le": 3}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "99b53b499309", "condition": {"joint_method": "crown"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9fec95b2824a", "condition": {"item": "branch_level_small"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "1699e9a290d6", "condition": {"item": "branch_level_other"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f4a82683b54a", "condition": {"item": "vertical_angle"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ffad69a2403d", "condition": null, "basis": {"flow": "none"}, "tag_note": ""}
+{"row_key": "42850805ce7a", "condition": {"item": "connection_pipe_min_dia"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4482646fa3d0", "condition": {"item": "connection_pipe_min_slope", "dia_mm": {"eq": 100}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "5a6d2dcffef8", "condition": {"facility": "Type 1"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "cc165ab13caa", "condition": {"facility": "Type 2"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "a3474c485c0a", "condition": {"facility": "Type 3"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "6bb653c93993", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "34803c42a7be", "condition": {"item": "site"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "1e81aedd7920", "condition": {"item": "electrical"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "638d20c071be", "condition": {"dwellings": {"lt": 500}}, "basis": {"flow": "none", "per": "dwelling"}, "tag_note": ""}
+{"row_key": "3f18a17a91cc", "condition": {"wastewater_type": ["commercial", "industrial"]}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "d57d943b0501", "condition": {"dwellings": {"lt": 500}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "a51e86df8823", "condition": {"item": "starts_per_hour"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "b971b2778f46", "condition": {"item": "min_run_time"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "30d04a773830", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "735c5d559a1e", "condition": {"item": "standby_below_high_float"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "36e731e571b4", "condition": {"item": "standby_above_duty_start"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "c8578862c00c", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f2ab5b48eab4", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "c79ce07fb7b8", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "fed33e5b9d19", "condition": null, "basis": {"flow": "pump_rate"}, "tag_note": ""}
+{"row_key": "0d8a20e0ff4a", "condition": null, "basis": {"flow": "pump_rate"}, "tag_note": ""}
+{"row_key": "f56835fc1b2b", "condition": {"item": "rising_main", "velocity_ms": {"le": 1.1}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "107d189f3942", "condition": {"item": "rising_main", "velocity_ms": {"gt": 1.1, "le": 1.8}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "d21b22d4aeb2", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "cb2088df83f0", "condition": {"item": "rising"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "0841952de4ee", "condition": {"item": "falling"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3b225d3cdfb5", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "10d6cdde0f9c", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "636412a5ffa2", "condition": {"location": "garden_path"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "bbeb067a5454", "condition": {"location": "driveway_restricted"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3059964d3b75", "condition": {"location": "driveway_limited"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "7a382307f912", "condition": {"location": "agricultural_open_space"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "db27d2e966fe", "condition": {"location": "highway_unrestricted"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "e22ac3c6216e", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "a3daa06c2ca2", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}

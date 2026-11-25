@@ -10,7 +10,7 @@ The same 27-pipe network, designed with each standard's own clauses: excavation 
 
 ## What this is
 
-- **Standards as data.** Sewer design values from five countries, with every value traced to its source clause, its binding force (mandatory / standard / guidance), and the flow condition it is defined under.
+- **Standards as data.** Sewer design values from six countries, with every value traced to its source clause, its binding force (mandatory / standard / guidance), and the flow condition it is defined under.
   | Country | Standard | Edition |
   |---|---|---|
   | Korea | KDS 61 40 00 · 61 10 00 · 61 45 00 | 2025-10-01 |
@@ -18,7 +18,8 @@ The same 27-pipe network, designed with each standard's own clauses: excavation 
   | Japan | Yokohama City Sewer Design Guideline · Sewerage Act Enforcement Order | 2026 |
   | India | CPHEEO Manual on Sewerage and Sewage Treatment Systems, Part A | 2013 |
   | Colombia | RAS, Resolución 0330 de 2017 (compiled 2021) | 2021 |
-- **A country-agnostic engine.** The core engine (`generic.py`, `design.py`) contains no country names, and a test fails if one appears. Each standard is described by a rules file (`criteria/rules/<standard_id>.json`, 13 rule types) plus its values. Swap the standard set and the same network is redesigned.
+  | United Kingdom (England) | Water UK Design and Construction Guidance v2.3 (values only) | 2023 |
+- **A country-agnostic engine.** The core engine (`generic.py`, `design.py`, `plant.py`) contains no country names, and a test fails if one appears. Each standard is described by a rules file (`criteria/rules/<standard_id>.json`, 34 rule types) plus its values. Swap the standard set and the same network is redesigned.
 - **Every source typed.** Each source carries a `doc_type` (law, regulation, design standard, guideline, legacy commentary, municipal study, paper). Only laws, regulations and design standards drive the engine; practice sources are used only when a project explicitly adopts them.
 - **Literal, not "practical".** Values are encoded exactly as the source text says. Where a standard is silent, the gap is resolved only from other clauses of the same standard, or left as `unspecified`. Common practice is never filled in.
 - **Comparable, not merged.** Each value carries a `basis` (which flow, which time horizon, full or partial pipe). Two numbers are compared only when their basis matches, so the comparison table never puts an apple next to an orange.
@@ -27,12 +28,12 @@ The same 27-pipe network, designed with each standard's own clauses: excavation 
 ## Where this is going
 
 1. **More countries, added by the people who use them.** Adding a country means adding data files, not changing code. See [CONTRIBUTING.md](CONTRIBUTING.md). The goal is for engineers anywhere to design against, and compare, all of the world's standards at once.
-2. **The rest of the design workflow.** Pump stations (data collected for all five countries), then the remaining design steps.
+2. **The rest of the design workflow.** Inverted siphons and the remaining design steps.
 3. **Water supply, then related fields.** The same method applied to water supply networks and other water infrastructure.
 
 ## Status
 
-Early (first public release October 2026). The gravity sewer engine, the five standards above, and the report generator work. Pump-station values are in the data but not yet in the engine.
+Early (first public release October 2026). The gravity sewer engine, pump stations and force mains, house connections, drop-pipe checks at manholes, extra manholes placed in the profile, the six standards above, and the report generator work. A sewage treatment plant module (`engine/plant.py`, conventional activated sludge: primary clarifier, aeration tank, secondary clarifier, effluent limits from each country's law in `criteria/effluent_limits.csv`) covers Korea, the US, India and Colombia; the Yokohama guideline and the UK DCG have no treatment-plant clauses. Its values are in `criteria/*_treatment_sewer.csv` and can be run before loading the database with `py -3 -m engine.plant SYN01 --population 7845 --csv`.
 
 ## Quick start
 
@@ -67,6 +68,7 @@ Full text is published only where redistribution is permitted: Colombia RAS (off
 - CPHEEO, Manual on Sewerage and Sewage Treatment Systems, Part A: Engineering (2013), Ministry of Housing and Urban Affairs, Government of India.
 - Great Lakes – Upper Mississippi River Board, Recommended Standards for Wastewater Facilities, 2026 Edition.
 - Ministerio de Vivienda, Ciudad y Territorio (Colombia), Resolución 0330 de 2017 (RAS), texto compilado.
+- Water UK, Design and Construction Guidance (Sewerage Sector Guidance Appendix C), Approved Version 2.3, 2023.
 
 ## License
 

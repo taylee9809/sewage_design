@@ -39,7 +39,13 @@ def main(pid, out_png, trunk_prefix="T"):
         for i, t in enumerate(trunk):
             o = res[t]
             x2 = x + o["L"]
-            ax.plot([x, x2], [o["inv_up"], o["inv_dn"]], color=color, lw=1.8, label=names.get(sid, sid) if i == 0 else None)
+            mhs = o.get("manholes", [])
+            px = [x] + [p for m in mhs for p in (x + m["x"], x + m["x"])] + [x2]
+            pz = [o["inv_up"]] + [z for m in mhs for z in (m["inv_in"], m["inv_out"])] + [o["inv_dn"]]
+            ax.plot(px, pz, color=color, lw=1.8, label=names.get(sid, sid) if i == 0 else None)
+            if mhs:  # 추가 맨홀: 지반에서 관저까지 세로선
+                ax.vlines([x + m["x"] for m in mhs], [m["inv_out"] for m in mhs], [m["gl"] for m in mhs],
+                          color=color, lw=0.8, alpha=.6, linestyles=":")
             ax2.bar((x + x2) / 2 + (k - (n - 1) / 2) * 8, o["dia"], width=8, color=color)
             x = x2
     ax.set_ylabel("표고 (m) — 선: 관저고")

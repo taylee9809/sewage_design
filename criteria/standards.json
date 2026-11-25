@@ -261,5 +261,19 @@
   "license_note": "학술논문. 값과 서지만",
   "note": "서울시 연구(2009, 합류관로 청천시 퇴적방지 최소유속)와 서울시 2030 하수도정비기본계획(2017) N-11을 인용한 2차 출처 — 원 보고서 미확인",
   "doc_type": "paper"
+ },
+ "GB_DCG_V2_3_20231111": {
+  "country": "GB",
+  "issuer": "Water UK",
+  "title": "Design and Construction Guidance for foul and surface water sewers (Sewerage Sector Guidance Appendix C)",
+  "edition": "Approved Version 2.3",
+  "effective_date": "2023-11-11",
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://www.water.org.uk/sites/default/files/2023-11/SSG%20Appendix%20C%20-%20Design%20and%20Construction%20Guidance%20v2-3_0.pdf",
+  "note": "잉글랜드에서 전부 또는 주로 영업하는 하수도 회사 대상. 문서 전체가 Local Practice 외 의무(서문 8항)이나 조항 문형은 should라 binding은 문형 기준. Water UK 목록 페이지가 자동 접속을 막아 v2.3 이후 판 부재는 2026-11-02 검색으로만 확인",
+  "redistributable": "values_only",
+  "license_note": "p.2: 모든 권리 보유, 저작권자 사전 서면 동의 없는 복제·저장 금지(© Water UK). 본문은 비공개 DB에만, 공개 쪽은 값·조문번호와 자체 요약만",
+  "doc_type": "design_standard"
  }
 }
