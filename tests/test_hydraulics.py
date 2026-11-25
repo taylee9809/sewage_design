@@ -13,18 +13,26 @@ from paths import CLAUSE_DIRS, jsonl_files  # noqa: E402
 
 
 def body(standard_id, clause_no):
-    """조문 원문. 재배포 불가 기준은 비공개 폴더에 있으며, 없으면 해당 테스트를 건너뛴다."""
+    """조문 원문. 재배포 불가 기준은 비공개 폴더에 있으며, 없으면 None (그 표의 테스트만 건너뛴다)."""
     for f in jsonl_files(CLAUSE_DIRS):
         for l in open(f, encoding="utf-8"):
             o = json.loads(l)
             if o["standard_id"] == standard_id and o["clause_no"] == clause_no:
                 return o["body_text"]
-    pytest.skip("원문 없음(비공개 폴더 필요): %s %s" % (standard_id, clause_no))
+    return None
+
+
+def need(rows, what):
+    """원문이 없어 표를 못 읽었으면 건너뛴다 (모듈 수준 skip은 파일 전체를 수집 오류로 만든다)."""
+    if not rows:
+        pytest.skip("원문 없음(비공개 폴더 필요): %s" % what)
 
 
 # ── 요코하마 표3.24 관거 표준구배 일람표 (만관 유속·유량, 正誤 2026-04-17 반영본) ──
 def yokohama_324():
     t = body("JP_YOKOHAMA_SEKKEI_202604", "3.5.4 解説")
+    if t is None:
+        return []
     t = t[t.index("表3.24 管きょの標準勾配一覧表"):t.index("[正誤 2026-04-17 反映]")]
     rows = []
     for line in t.splitlines():
@@ -40,6 +48,7 @@ Y324 = yokohama_324()
 
 
 def test_yokohama_324_parsed():
+    need(Y324, "요코하마 3.5.4 解説")
     assert len(Y324) == 38
 
 
@@ -53,6 +62,8 @@ def test_yokohama_324_full_flow(D, n, S, V, Q):
 # ── 인도 CPHEEO Table 3.12 원형관 수리특성 (n 일정) ──
 def cpheeo_312():
     t = body("CPHEEO_SEW_2013", "3.15.5")
+    if t is None:
+        return []
     t = t[t.index("Table 3.12 Hydraulic properties"):]
     rows = []
     for line in t.splitlines()[2:12]:
@@ -68,6 +79,7 @@ C312 = cpheeo_312()
 
 
 def test_cpheeo_312_parsed():
+    need(C312, "CPHEEO 3.15.5")
     assert len(C312) == 10 and C312[0] == (1.0, 1.0, 1.0)
 
 
@@ -89,6 +101,8 @@ def test_cpheeo_312_hydraulic_elements(yr, vV, qQ):
 # ── 미국 Ten States 2026 §33.41 최소경사표 ↔ 만관 2.0 ft/s (n=0.013) ──
 def tss_3341():
     t = body("TSS_WW_2026", "33.41")
+    if t is None:
+        return []
     rows = []
     for line in t.splitlines():
         m = re.match(r"\s*(\d+) inch \((\d+) mm\)\s*\|\s*([\d.]+)\s*$", line)
@@ -101,6 +115,7 @@ T3341 = tss_3341()
 
 
 def test_tss_3341_parsed():
+    need(T3341, "Ten States 33.41")
     assert len(T3341) == 13
 
 
