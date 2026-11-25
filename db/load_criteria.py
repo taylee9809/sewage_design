@@ -10,8 +10,6 @@ import re
 import sys
 from pathlib import Path
 
-import psycopg
-
 from paths import ASSET_DIRS, CLAUSE_DIRS, PRIVATE, QUOTES, jsonl_files
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -116,6 +114,8 @@ def load_normalized():
 
 
 def main(dsn, dsn_private=None):
+    import psycopg  # 적재 때만 필요 (row_key·normalize는 DB 없이 engine.criteria_db.load_csv가 씀)
+
     rows = []
     for f in sorted((ROOT / "criteria").glob("*_sewer.csv")):  # 기준값 CSV (새 기준 = 파일 추가)
         rows += list(csv.DictReader(open(f, encoding="utf-8")))
@@ -135,9 +135,9 @@ def main(dsn, dsn_private=None):
         cur.execute("SET search_path = criteria, public")
         for sid, m in STANDARDS.items():
             cur.execute("""INSERT INTO standard (standard_id,country,issuer,title,edition,effective_date,is_latest,access,
-                             redistributable,license_note,source_url,note) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                             redistributable,license_note,source_url,note,doc_type) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
                         (sid, m["country"], m["issuer"], m["title"], m["edition"], m["effective_date"], m["is_latest"],
-                         m["access"], m["redistributable"], m["license_note"], m["source_url"], m.get("note")))
+                         m["access"], m["redistributable"], m["license_note"], m["source_url"], m.get("note"), m["doc_type"]))
         for key in sorted({r["param_key"] for r in rows}):
             cur.execute("INSERT INTO parameter (param_key, unit_si) VALUES (%s,%s)", (key, CANON_UNIT.get(key)))
 

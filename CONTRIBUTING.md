@@ -26,9 +26,12 @@ Add one entry keyed by a `standard_id` of the form `<CC>_<SHORT_NAME>_<EDITION>`
   "country": "XX", "issuer": "...", "title": "...", "edition": "2025",
   "effective_date": "2025-01-01", "is_latest": true, "access": "free",
   "source_url": "https://...", "redistributable": "values_only",
-  "license_note": "where the redistribution terms come from"
+  "license_note": "where the redistribution terms come from",
+  "doc_type": "design_standard"
 }
 ```
+
+`doc_type` says what kind of document it is: `law`, `regulation` (binding notices, resolutions), `design_standard`, `guideline`, `legacy_commentary` (a superseded standard and its commentary), `local_study` (municipal plans and studies), or `paper`. Only `law`, `regulation` and `design_standard` can drive the engine's judgments. The others are recorded so practice values keep a traceable source, and they are used only when a project or review file adopts them explicitly (`adopt`).
 
 ### 2. Add the values: `criteria/<country>_sewer.csv`
 

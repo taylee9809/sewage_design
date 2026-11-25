@@ -36,7 +36,7 @@ def test_same_as_baseline(results, cc):
 def test_no_country_branches_in_generic_engine():
     """일반 엔진 코드에 나라·기준 이름 분기가 없어야 한다 (기본 실행 목록 한 줄만 예외)."""
     eng = Path(__file__).parent.parent / "engine"
-    src = "\n".join(l for f in ("generic.py", "design.py") for l in (eng / f).read_text(encoding="utf-8").splitlines()
+    src = "\n".join(l for f in ("generic.py", "design.py", "check.py") for l in (eng / f).read_text(encoding="utf-8").splitlines()
                     if not l.startswith("DEFAULT_STANDARDS"))
     for token in ('"KR"', '"US"', '"JP"', '"IN"', "KDS_", "TSS_", "YOKOHAMA", "CPHEEO"):
         assert token not in src, token
