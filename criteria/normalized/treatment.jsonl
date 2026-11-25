@@ -3,7 +3,7 @@
 {"row_key": "a6b330d3045c", "condition": {"design_flow_lps": {"gt": 30}, "flow_basis": "peak_hourly", "unit": ["pumping", "screening", "grit_chamber", "grease_trap", "primary_clarifier", "secondary_clarifier", "interconnection_conduits"]}, "basis": {"flow": "design_peak_hourly"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "a7abb9dadea3", "condition": {"design_flow_lps": {"gt": 30}, "flow_basis": "max_daily", "unit": ["regulation_tanks", "sludge_pumping", "chemical_dosing"]}, "basis": {"flow": "design_daily_max"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "c3e487a250ed", "condition": {"design_flow_lps": {"gt": 30}, "flow_basis": "max_monthly", "unit": ["bioreactor", "chemical_storage"]}, "basis": {"flow": "design_monthly_max"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "0bcb83a69083", "condition": {"design_flow_lps": {"gt": 30}}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "0bcb83a69083", "condition": {"design_flow_lps": {"gt": 30}}, "basis": {"flow": "unspecified", "note": "unspecified 유지: 설계유량 산정식 자체(건기 일평균×첨두계수+침입수)"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "72444311498f", "condition": {"design_flow_lps": {"gt": 30}, "mean_flow_lps": {"le": 10}}, "basis": {"flow": "design_peak_hourly", "per": "ratio_to_avg", "note": "건기 일평균 대비 배수(RAS Tabla 23)"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "adab04898038", "condition": {"design_flow_lps": {"gt": 30}, "mean_flow_lps": {"le": 10}}, "basis": {"flow": "design_daily_max", "per": "ratio_to_avg", "note": "건기 일평균 대비 배수(RAS Tabla 23)"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "3f6239f11ff4", "condition": {"design_flow_lps": {"gt": 30}, "mean_flow_lps": {"le": 10}}, "basis": {"flow": "design_monthly_max", "per": "ratio_to_avg", "note": "건기 일평균 대비 배수(RAS Tabla 23)"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
@@ -33,17 +33,17 @@
 {"row_key": "852d31c820a8", "condition": {}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "ff072bef5c5d", "condition": {"flow_basis": "average_daily"}, "basis": {"flow": "design_daily_avg"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "299cc0fe0727", "condition": {"flow_basis": "peak"}, "basis": {"flow": "peak"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "fedf53592eb9", "condition": {}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "fedf53592eb9", "condition": {}, "basis": {"flow": "design_peak_hourly", "note": "같은 기준 다른 조항으로 해소 — Art.189 3호: 일차침전지는 시간최대유량으로 설계"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로 / 261125 같은 기준 조항으로 flow 해소"}
 {"row_key": "ed1e62da029c", "condition": {"design_average_flow_lps": {"ge": 100}}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "b83afb9c91d8", "condition": {"value_type": "minimum_efficiency_range"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "a9d97af85272", "condition": {"value_type": "minimum_efficiency_range"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "8f5fae843e15", "condition": {"process": "conventional_asp"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "e67794f69412", "condition": {"process": "conventional_asp"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "aeae3cb77fc4", "condition": {"process": "conventional_asp"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "8f5fae843e15", "condition": {"process": "conventional_asp"}, "basis": {"flow": "design_monthly_max", "note": "같은 기준 다른 조항으로 해소 — Art.166 Tabla 22: 생물반응조(bioreactor)는 월최대유량"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로 / 261125 같은 기준 조항으로 flow 해소"}
+{"row_key": "e67794f69412", "condition": {"process": "conventional_asp"}, "basis": {"flow": "design_monthly_max", "note": "같은 기준 다른 조항으로 해소 — Art.166 Tabla 22: 생물반응조(bioreactor)는 월최대유량"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로 / 261125 같은 기준 조항으로 flow 해소"}
+{"row_key": "aeae3cb77fc4", "condition": {"process": "conventional_asp"}, "basis": {"flow": "design_monthly_max", "note": "같은 기준 다른 조항으로 해소 — Art.166 Tabla 22: 생물반응조(bioreactor)는 월최대유량"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로 / 261125 같은 기준 조항으로 flow 해소"}
 {"row_key": "7d4074e5091d", "condition": {"process": "conventional_asp"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "186231478dba", "condition": {"process": "conventional_asp"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "6c71115bee4d", "condition": {"process": "conventional_asp", "climate": "tropical_colombia"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "e0dd6c2ebd03", "condition": {"process": "conventional_asp", "climate": "tropical_colombia"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "6c71115bee4d", "condition": {"process": "conventional_asp", "climate": "tropical_colombia"}, "basis": {"flow": "design_monthly_max", "note": "같은 기준 다른 조항으로 해소 — Art.166 Tabla 22: 생물반응조(bioreactor)는 월최대유량"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로 / 261125 같은 기준 조항으로 flow 해소"}
+{"row_key": "e0dd6c2ebd03", "condition": {"process": "conventional_asp", "climate": "tropical_colombia"}, "basis": {"flow": "design_monthly_max", "note": "같은 기준 다른 조항으로 해소 — Art.166 Tabla 22: 생물반응조(bioreactor)는 월최대유량"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로 / 261125 같은 기준 조항으로 flow 해소"}
 {"row_key": "9f430b3b5543", "condition": {"process": "activated_sludge_general", "design_average_flow_lps": {"gt": 100}}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "32612d651941", "condition": {"process": "activated_sludge_general", "aeration_group": "diffused", "aeration_system": "Burbuja fina"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "105761b95b4c", "condition": {"process": "activated_sludge_general", "aeration_group": "diffused", "aeration_system": "Burbuja fina"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
@@ -74,7 +74,7 @@
 {"row_key": "c8fa97e99b68", "condition": {}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "b73e9227abc0", "condition": {"flow_basis": "average_daily"}, "basis": {"flow": "design_daily_avg"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "672480c145fd", "condition": {"flow_basis": "peak"}, "basis": {"flow": "peak"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "f8b9e44111b1", "condition": {}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "f8b9e44111b1", "condition": {}, "basis": {"flow": "design_peak_hourly", "note": "같은 기준 다른 조항으로 해소 — Art.195 3호: 이차침전지는 시간최대유량으로 설계"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로 / 261125 같은 기준 조항으로 flow 해소"}
 {"row_key": "048ed900f668", "condition": {"flow_lps": {"ge": 250}}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "137fb4d702fb", "condition": {}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "42018ea23aae", "condition": {}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
@@ -83,7 +83,7 @@
 {"row_key": "a5278fd6dfb2", "condition": {"unit": "clarifiers", "flow_basis": "average_daily"}, "basis": {"flow": "design_daily_avg"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "75cefba28195", "condition": {"unit": "clarifiers", "check": "surface_loading", "flow_basis": ["average", "peak"]}, "basis": {"flow": ["design_daily_avg", "peak"]}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "7a8f2f18f41d", "condition": {"unit": "secondary_clarifier", "flow_basis": ["average", "peak"]}, "basis": {"flow": ["design_daily_avg", "peak"]}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "fcfc2f5d530c", "condition": {"unit": "clarifiers", "item": "return_flows", "process": "bod_removal_with_or_without_nitrification"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "fcfc2f5d530c", "condition": {"unit": "clarifiers", "item": "return_flows", "process": "bod_removal_with_or_without_nitrification"}, "basis": {"flow": "unspecified", "note": "unspecified 유지: 반송유량 가산 지시 — 기준 유량 미기재"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "5dfad9b120d7", "condition": {"unit": "clarifiers", "item": "weir_loading", "flow_basis": "average_daily"}, "basis": {"flow": "design_daily_avg"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "9c911442a111", "condition": {"unit": "aeration_tank", "flow_basis": "average_daily"}, "basis": {"flow": "design_daily_avg"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "118a7704c98e", "condition": {"water_supply_lpcd": {"eq": 135}, "item": "BOD"}, "basis": {"flow": "any", "per": "capita_day"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
@@ -105,9 +105,9 @@
 {"row_key": "dbd413a60c93", "condition": {"settling_type": "with_excess_sludge_return", "flow_basis": "average"}, "basis": {"flow": "design_daily_avg"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "850805f0bdd9", "condition": {"settling_type": "with_excess_sludge_return", "flow_basis": "peak"}, "basis": {"flow": "peak"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "6e661ad1dacd", "condition": {"settling_type": "with_excess_sludge_return"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "93e13e3b4e90", "condition": {"settling_type": "followed_by_secondary_treatment", "after": "UASB_mechanized_aerobic"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "93e13e3b4e90", "condition": {"settling_type": "followed_by_secondary_treatment", "after": "UASB_mechanized_aerobic"}, "basis": {"flow": "unspecified", "note": "unspecified 유지: Table 5.8 각주 — 평균·첨두 구분 미기재"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "c31d4247bed0", "condition": {"flow_basis": "average"}, "basis": {"flow": "design_daily_avg"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "d9248e598fd9", "condition": {}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "d9248e598fd9", "condition": {}, "basis": {"flow": "unspecified", "note": "unspecified 유지: 설계기준 아닌 실측 범위"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "5a39c01c2c7a", "condition": {}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "bf3f96a11b2e", "condition": {"applies_to": "primary_and_secondary_clarifiers"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "5dc68e1e9200", "condition": {"tank_shape": "circular", "applies_to": "clarifiers_general"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
@@ -121,7 +121,7 @@
 {"row_key": "7a1f5a051499", "condition": {"process": "conventional_asp"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "41f10cf28f3d", "condition": {"process": "conventional_asp"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "5232ae087653", "condition": {"process": "conventional_asp"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "0aafd4bcba4b", "condition": {"process": "conventional_asp"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "0aafd4bcba4b", "condition": {"process": "conventional_asp"}, "basis": {"flow": "design_daily_avg", "note": "같은 기준 다른 조항으로 해소 — Appendix A5.12: 반응조 용적은 설계 평균유량으로 산정"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로 / 261125 같은 기준 조항으로 flow 해소"}
 {"row_key": "d133ebc0caff", "condition": {"process": "conventional_asp"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "472ed6784601", "condition": {"process": "conventional_asp"}, "basis": {"flow": "unspecified", "per": "ratio_to_design_flow"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "bc97531c53a8", "condition": {"process": "conventional_asp"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
@@ -129,13 +129,13 @@
 {"row_key": "996ce281e3b6", "condition": {"process": "activated_sludge_general"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "9937f891afe3", "condition": {"process": "activated_sludge_general", "range": "common"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "68711d148b8e", "condition": {"process": "activated_sludge_general", "basis": "Figure 5.38, 90-95% BOD removal"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "2bffb6c60702", "condition": {"equation": "(5.22)"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "2bffb6c60702", "condition": {"equation": "(5.22)"}, "basis": {"flow": "design_daily_avg", "note": "같은 기준 다른 조항으로 해소 — Appendix A5.12: 반응조 용적은 설계 평균유량으로 산정"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로 / 261125 같은 기준 조항으로 flow 해소"}
 {"row_key": "0b161fca65cb", "condition": {"equation": "(5.23)"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "61347073ad0b", "condition": {"equation": "(5.24)"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "ddaa87772b3f", "condition": {"equation": "(5.25)"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "549e3768653f", "condition": {"equation": "(5.26)"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "33fd32194ba1", "condition": {"equation": "(5.27)"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "31a3baa3c13f", "condition": {"equation": "(5.28)"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "31a3baa3c13f", "condition": {"equation": "(5.28)"}, "basis": {"flow": "design_daily_avg", "note": "같은 기준 다른 조항으로 해소 — Appendix A5.12: 반응조 용적은 설계 평균유량으로 산정"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로 / 261125 같은 기준 조항으로 flow 해소"}
 {"row_key": "fdf9984e2788", "condition": {"equation": "(5.31)"}, "basis": {"flow": "unspecified", "per": "ratio_to_design_flow"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "1fca090d6a91", "condition": {"process": "activated_sludge_general"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "3324391b6501", "condition": {"process": "activated_sludge_general"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
@@ -182,7 +182,7 @@
 {"row_key": "df3acde52d7b", "condition": {"process": "activated_sludge_general", "settling_type": "secondary_settling_for_activated_sludge", "flow_basis": "peak"}, "basis": {"flow": "peak"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "7a9218e3605d", "condition": {"process": "activated_sludge_general", "settling_type": "secondary_settling_for_activated_sludge"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "2e8047f93e0c", "condition": {"process": "activated_sludge_general", "settling_type": "secondary_settling_for_activated_sludge", "flow_basis": "average"}, "basis": {"flow": "design_daily_avg"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "842f91c3d017", "condition": {}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "842f91c3d017", "condition": {}, "basis": {"flow": "unspecified", "note": "unspecified 유지: 설계기준 아닌 실측 범위"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "149ee3a012e4", "condition": {}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "a335b6c8c250", "condition": {"discharge": "surface_water_used_as_drinking_water_source", "column": "Recommended Values"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "9f44b4c89f66", "condition": {"discharge": "surface_water_used_as_drinking_water_source", "column": "Recommended Values"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
@@ -223,7 +223,7 @@
 {"row_key": "09e676d3cb86", "condition": {}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "246ab13cd60a", "condition": {"flow_basis": "max_daily"}, "basis": {"flow": "design_daily_max"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "9dfc2050946d", "condition": {}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "2da55fe2b77d", "condition": {}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "2da55fe2b77d", "condition": {}, "basis": {"flow": "unspecified", "note": "unspecified 유지: 1차처리 설계유량이 분류식(계획1일최대)·합류식(우천시계획오수량)으로 갈리는데 이 행에 system 조건이 없어 하나로 못 정함"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "2167ce0814a9", "condition": {"tank_shape": "rectangular"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "917fea27389d", "condition": {"tank_shape": "rectangular"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "ac19f5fa8233", "condition": {"tank_shape": "circular_or_square"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
@@ -232,12 +232,12 @@
 {"row_key": "fde0c32d8b14", "condition": {"tank_shape": "circular_or_square", "condition": "sludge_collector_installed"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "0a259f27383f", "condition": {}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "b5711f0ddb10", "condition": {"process": "conventional_asp", "flow_basis": "max_daily"}, "basis": {"flow": "design_daily_max"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "ccf11c0a7b71", "condition": {"process": "activated_sludge_general"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "ccf11c0a7b71", "condition": {"process": "activated_sludge_general"}, "basis": {"flow": "design_daily_max", "note": "같은 기준 다른 조항으로 해소 — KDS 61 50 00 1.1 (1) 표 1.1.1: 2차처리 처리시설은 분류식·합류식 모두 계획1일최대오수량"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로 / 261125 같은 기준 조항으로 flow 해소"}
 {"row_key": "13aafdd55462", "condition": {}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "4485369fc715", "condition": {"flow_basis": "max_daily", "settleability": "standard"}, "basis": {"flow": "design_daily_max"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "56a8c12cf502", "condition": {"flow_basis": "max_daily", "settleability": "poor"}, "basis": {"flow": "design_daily_max"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "36efdd0055ac", "condition": {}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "f426c80cd8e0", "condition": {}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "f426c80cd8e0", "condition": {}, "basis": {"flow": "design_daily_max", "note": "같은 기준 다른 조항으로 해소 — KDS 61 50 00 1.1 (1) 표 1.1.1: 2차처리 처리시설은 분류식·합류식 모두 계획1일최대오수량"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로 / 261125 같은 기준 조항으로 flow 해소"}
 {"row_key": "c5796405eb85", "condition": {"process": "activated_sludge_general"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "381de1a55b61", "condition": {"process": "activated_sludge_general"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "7983c52ce123", "condition": {"process": "activated_sludge_general"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
@@ -260,7 +260,7 @@
 {"row_key": "2c00402666d2", "condition": {"process": "activated_sludge_general", "coefficient": "gamma_water_column"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "be32ca0978b8", "condition": {"process": "conventional_asp", "item": "blower_capacity"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "fc6bbf2a47f0", "condition": {"process": "activated_sludge_general"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "5423f299706e", "condition": {"process": "conventional_asp"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "5423f299706e", "condition": {"process": "conventional_asp"}, "basis": {"flow": "design_daily_max", "note": "같은 기준 다른 조항으로 해소 — KDS 61 50 00 1.1 (1) 표 1.1.1: 2차처리 처리시설은 분류식·합류식 모두 계획1일최대오수량"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로 / 261125 같은 기준 조항으로 flow 해소"}
 {"row_key": "a309df01125e", "condition": {"process": "conventional_asp"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "34f22681cdb7", "condition": {"process": "conventional_asp"}, "basis": {"flow": "unspecified", "per": "ratio_to_design_flow"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "e84753c9544a", "condition": {"process": "conventional_asp", "tank_type": "standard"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
@@ -313,7 +313,7 @@
 {"row_key": "ec696ab852ea", "condition": {"wastewater": "typical_domestic", "surface_overflow_rate_gpd_ft2": "1000"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "a277d0bb158f", "condition": {"process": "conventional_asp", "case": "no_process_calculations"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "0c675816aa58", "condition": {"process": "conventional_asp", "case": "no_process_calculations", "load_basis": "design_average_bod5"}, "basis": {"flow": "design_daily_avg"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
-{"row_key": "588510c11178", "condition": {"process": "conventional_asp", "case": "no_process_calculations"}, "basis": {"flow": "unspecified"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
+{"row_key": "588510c11178", "condition": {"process": "conventional_asp", "case": "no_process_calculations"}, "basis": {"flow": "design_daily_avg", "note": "같은 기준 다른 조항으로 해소 — TSS 92.31: 반응조 부하표는 설계 평균 BOD5 부하 기준"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로 / 261125 같은 기준 조항으로 flow 해소"}
 {"row_key": "88e4da085d3e", "condition": {"process": "conventional_asp", "case": "no_process_calculations"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "7c6d01efd938", "condition": {"process": "activated_sludge_general", "case": "with_supporting_data"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}
 {"row_key": "f313968c108d", "condition": {"process": "activated_sludge_general"}, "basis": {"flow": "any"}, "tag_note": "v1.4 처리장 1차 태깅(261125): condition 은 CSV 원 키 그대로"}

@@ -125,4 +125,4 @@ basis가 의미 없는 항목(최소관경, 맨홀 간격, 토피 등 기하 규
 
 condition 의 `flow_basis` 원문 표기 → basis.flow: `average`·`average_daily`·`design_average` → `design_daily_avg`, `max_daily`·`design_maximum_day` → `design_daily_max`, `peak_hourly`·`design_peak_hourly` → `design_peak_hourly`, `peak` → `peak`, `wet_weather` → `wet_weather`.
 
-flow 를 정하지 않은 원칙: 유량과 무관한 값(치수·경사·여유고·지수·공정 상수·원단위 부하)은 `any`. 유량으로 정의되는 값(수면·월류·고형물 부하, 체류시간, HRT, F/M, 용적부하, 수로 유속, 반송비)인데 **그 조항이** 유량을 말하지 않으면 `unspecified`. 같은 기준의 시설별 설계유량 행(`plant_design_flow_basis`)이 따로 정하는 경우에도 그 행을 끌어와 덮어쓰지 않는다(엔진이 그 행으로 해소한다).
+flow 를 정하지 않은 원칙: 유량과 무관한 값(치수·경사·여유고·지수·공정 상수·원단위 부하)은 `any`. 유량으로 정의되는 값(수면·월류·고형물 부하, 체류시간, HRT, F/M, 용적부하, 수로 유속, 반송비)인데 **그 조항이** 유량을 말하지 않으면 `unspecified`. 단, **같은 기준**의 다른 조항이 그 시설의 설계유량을 명시하면(예: KDS 61 50 00 표 1.1.1 「2차처리 처리시설 = 계획1일최대오수량」, RAS Art.189 3호 「일차침전지 = 시간최대」) 그 유량으로 채우고 basis.note 에 근거 조항을 적는다(2026-11-25, 14행). 시스템(분류/합류)에 따라 유량이 갈리는데 행에 그 조건이 없거나, 실측 범위·각주처럼 판정 기준이 아닌 행은 `unspecified` 로 두고 note 에 이유를 적는다. 다른 기준의 조항으로는 채우지 않는다.
