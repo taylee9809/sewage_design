@@ -184,6 +184,23 @@ def main(dsn, dsn_private=None):
                 n_pipe += 1
         print("pipe_catalog", n_pipe)
 
+        from tag_effluent import SRC as EFF_SRC, load_tags as eff_tags, row_key as eff_key
+        tags = eff_tags()
+        n_eff = 0
+        for x in csv.DictReader(open(EFF_SRC, encoding="utf-8-sig")):
+            t = tags.get(eff_key(x))
+            assert t, "방류수질 태그 없음(py -3 db/tag_effluent.py): %s %s" % (x["country"], x["parameter"])
+            cur.execute("""INSERT INTO effluent_limit VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                        (t["row_key"], x["country"], t["law_id"], x["law"], t["legal_status"], t.get("stayed", False),
+                         x["article"] or None, x["effective_date"] or None, x["parameter"], t["param_key"],
+                         x["condition"] or None, json.dumps(t["condition"], ensure_ascii=False), x["value_max"],
+                         t["value_min"], t["value_max"], t["limit_kind"], t.get("strict", False), x["unit"] or None,
+                         t["unit"], x["averaging"] or None, t["averaging"], x["binding"] or None,
+                         x["source_url"] or None, x["retrieved_at"] or None, x["note"] or None))
+            n_eff += 1
+        assert n_eff == len(tags), "방류수질 태그 %d ≠ CSV %d (태그 다시 만들 것)" % (len(tags), n_eff)
+        print("effluent_limit", n_eff)
+
         unlinked = []
         for r in rows:
             lo, hi, unit = normalize(r)
