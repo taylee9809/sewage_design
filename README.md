@@ -55,6 +55,7 @@ py -3 -m engine.check tests/fixtures/check_case01.json review.md   # review mode
 | `criteria/<country>_sewer.csv` | Design values with clause number and binding force |
 | `criteria/normalized/*.jsonl` | Normalized conditions and `basis` tags ([vocabulary](db/vocabulary.md)) |
 | `criteria/rules/<standard_id>.json` | How the engine applies each standard, with the clause behind each resolution |
+| `criteria/effluent_limits.csv` | Effluent limits from each country's law as written; tags in `criteria/normalized/effluent/` (`db/tag_effluent.py`), loaded to `criteria.effluent_limit` |
 | `criteria/pipe_catalog/*.csv` | Real pipe products per country (nominal vs. inner diameter) |
 | `criteria/clauses/`, `criteria/assets/` | Full clause text and figures, only where redistribution is permitted |
 | `criteria/projects/<id>.json` | Project-level choices where a standard gives a range or no number |

@@ -19,6 +19,7 @@
 - `db/` — 스키마(`schema.sql`, `schema_private.sql`)와 적재(`load_criteria.py`)
 - `criteria/rules/<standard_id>.json` — 기준별 규칙(규칙 유형 34종), `criteria/projects/<id>.json` — 사업 채택값
 - `engine/` — 수리 계산(`hydraulics.py`), 일반 엔진(`generic.py`, `design.py`, `plant.py`, 나라 분기 없음), 공통 지표(`metrics.py`), 관망(`network.py`), 검토 모드(`check.py`: 정해진 관로·펌프장의 사용률·유속·펌프 용량·기동횟수·양정 판정, DB 불필요)
+- `criteria/effluent_limits.csv` — 방류수질 법령값(원문 표기), 태그는 `criteria/normalized/effluent/`(`db/tag_effluent.py`), DB `criteria.effluent_limit`
 - `tests/` — 원문 표를 정답지로 쓰는 회귀 테스트
 
 ## 실행

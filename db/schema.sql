@@ -131,3 +131,34 @@ CREATE TABLE pipe_catalog (
   retrieved_at       date,
   note               text
 );
+
+-- 7. 방류수질 법령값 (criteria/effluent_limits.csv 원문 + criteria/normalized/effluent/ 태그, db/tag_effluent.py)
+--    설계기준이 아니라 법령·고시·법원 명령이라 standard/criterion 과 따로 둔다. 처리장 엔진은 CSV 를 직접 읽는다.
+CREATE TABLE effluent_limit (
+  row_key        text PRIMARY KEY,
+  country        text NOT NULL,
+  law_id         text NOT NULL,           -- KR_SEWERAGE_ACT_RULE_ANNEX1, US_40CFR133 …
+  law            text NOT NULL,           -- 원문 법령명 그대로
+  legal_status   text NOT NULL CHECK (legal_status IN ('law','regulation','court_order')),
+  stayed         boolean NOT NULL DEFAULT false,  -- 법원이 시행을 정지한 규칙
+  article        text,
+  effective_date text,                    -- 원문 표기 그대로
+  parameter_raw  text NOT NULL,
+  param_key      text NOT NULL,           -- bod | bod5 | cbod5 | cod | toc | tss | tn | tp | total_coliform | ph …
+  condition_raw  jsonb,
+  condition      jsonb,                   -- 처리용량·BOD 부하 구간은 범위 객체, 적용기간 effective_from/to
+  value_raw      text,                    -- '1,000', '0,50', '6.0-9.0', '<50'
+  value_min      numeric,
+  value_max      numeric,
+  limit_kind     text NOT NULL CHECK (limit_kind IN ('max','min','range')),
+  strict         boolean NOT NULL DEFAULT false,  -- 원문 '<'(미만)
+  unit_raw       text,
+  unit           text NOT NULL,
+  averaging_raw  text,
+  averaging      text NOT NULL CHECK (averaging IN ('avg_7d','avg_30d','unspecified')),
+  binding_raw    text,
+  source_url     text,
+  retrieved_at   date,
+  note           text
+);
+CREATE INDEX effluent_limit_param_idx ON effluent_limit (param_key, country);
