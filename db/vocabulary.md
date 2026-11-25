@@ -110,3 +110,19 @@ basis가 의미 없는 항목(최소관경, 맨홀 간격, 토피 등 기하 규
 | `local_study` | 지자체 기본계획·연구 | 채택(adopt) 시만 |
 | `paper` | 학술 논문 | 채택(adopt) 시만 |
 
+
+## v1.4 추가 (2026-11-25, 하수처리장 기준값)
+
+처리장 행(`criteria/*_treatment_sewer.csv`)의 **condition 은 CSV 원 키 그대로** 둔다(`treatment_stage`·`process`·`unit`·`flow_basis`·`settling_type` 등). 처리장 엔진(`engine/plant.py`)과 규칙 파일이 이 키로 행을 찾기 때문이다. 정규화 파일에는 condition 을 복사해 두어 DB 적재(정규화 condition 만 씀)에서도 조건이 살아 있게 한다. basis 만 아래처럼 붙인다.
+
+| 키 | 추가 값 | 뜻 |
+|---|---|---|
+| `flow` | `dry_weather_avg` | 건기(청천시) 일평균 유량 (RAS 처리장 설계유량) |
+| `flow` | `design_monthly_max` | 설계 월최대 유량 |
+| `flow` | `design_daily_max_plus_return` | 설계 일최대 유량 + 최대 반송유량 (Ten States 이차침전지 고형물부하) |
+| `flow` | `design_peak_instantaneous` | 설계 순간최대 유량 (Ten States 정의 (e)) |
+| `flow` | 배열 | 원문이 두 유량 모두에서 판정하라고 할 때 (예: 평균·첨두 둘 다 수면부하 검토). 비교 그룹은 배열이 같은 행끼리만 |
+
+condition 의 `flow_basis` 원문 표기 → basis.flow: `average`·`average_daily`·`design_average` → `design_daily_avg`, `max_daily`·`design_maximum_day` → `design_daily_max`, `peak_hourly`·`design_peak_hourly` → `design_peak_hourly`, `peak` → `peak`, `wet_weather` → `wet_weather`.
+
+flow 를 정하지 않은 원칙: 유량과 무관한 값(치수·경사·여유고·지수·공정 상수·원단위 부하)은 `any`. 유량으로 정의되는 값(수면·월류·고형물 부하, 체류시간, HRT, F/M, 용적부하, 수로 유속, 반송비)인데 **그 조항이** 유량을 말하지 않으면 `unspecified`. 같은 기준의 시설별 설계유량 행(`plant_design_flow_basis`)이 따로 정하는 경우에도 그 행을 끌어와 덮어쓰지 않는다(엔진이 그 행으로 해소한다).

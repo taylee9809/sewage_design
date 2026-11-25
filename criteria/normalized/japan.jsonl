@@ -145,3 +145,4 @@
 {"row_key": "762a79645656", "condition": {"pipe_role": "building_drain", "item": "雨水ますのどろため深さ"}, "basis": {"flow": "any"}, "tag_note": "施行令 第8条第10号 排水設備(택지 내) 기준, 기하 규정"}
 {"row_key": "1641f9324db7", "condition": {"pipe_role": "building_drain", "item": "接続先"}, "basis": {"flow": "any"}, "tag_note": "施行令 第8条第1号 排水設備(택지 내) 기준, 기하 규정"}
 {"row_key": "151ee38ba3ed", "condition": {"pipe_role": "building_drain", "system": "separate"}, "basis": {"flow": "any"}, "tag_note": "施行令 第8条第4号 排水設備(택지 내) 기준, 기하 규정"}
+{"row_key": "a9c26d3b917f", "condition": null, "basis": {"flow": "design_flow"}, "tag_note": "하류로 갈수록 유속 증가·경사 감소(3.5.4) — 계획하수량 기준"}
