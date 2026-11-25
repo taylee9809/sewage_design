@@ -1,0 +1,4 @@
+# 엔진·적재·테스트 (Python 3.12 이상)
+psycopg[binary]>=3.2
+matplotlib>=3.8
+pytest>=8

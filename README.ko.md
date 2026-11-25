@@ -22,6 +22,7 @@
 - `tests/` — 원문 표를 정답지로 쓰는 회귀 테스트
 
 ## 실행
+Python 3.12 이상, PostgreSQL(PostGIS). `pip install -r requirements.txt`. 자동검사(`.github/workflows/test.yml`)가 DB 없이 한 번, 새 PostGIS 에 적재해 한 번 테스트를 돌린다.
 ```bash
 py -3 db/load_criteria.py <공개 DB DSN> <비공개 DB DSN>
 SEWAGE_DB_DSN=<공개 DB DSN> py -3 -m pytest tests

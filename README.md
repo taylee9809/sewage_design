@@ -37,7 +37,7 @@ Early (first public release October 2026). The gravity sewer engine, pump statio
 
 ## Quick start
 
-Requires Python 3.12+ and PostgreSQL.
+Requires Python 3.12+ and PostgreSQL (PostGIS). `pip install -r requirements.txt`. CI (`.github/workflows/test.yml`) runs the tests both without a DB and against a fresh PostGIS load.
 
 ```bash
 py -3 db/load_criteria.py <public DB DSN> [<private DB DSN>]
