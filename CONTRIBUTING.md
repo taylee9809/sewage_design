@@ -70,6 +70,8 @@ List the nominal and inner diameters of pipes actually sold in your country, fro
 
 Add your standard to `criteria/projects/SYN01.json`, including any project-level choices where your standard gives a range or no number, each with a `rationale`. Then:
 
+`pipe_product` picks rows of the pipe catalog. Write it as conditions, not SQL: one object (fields ANDed) or a list of objects (ORed). Fields are `product_type`, `standard_ref`, `class_or_stiffness`; a value is a string (exact match) or `{"prefix": "..."}`. Example: `[{"standard_ref": {"prefix": "ASTM D3034"}, "class_or_stiffness": {"prefix": "SDR 35"}}, {"standard_ref": {"prefix": "ASTM F679"}, "class_or_stiffness": "PS 46"}]`. Formulas in rules and projects (`expr`, `when`, peak-factor choices) are evaluated by `engine/safe_expr.py`: numbers, the given variables, arithmetic, comparisons, `and`/`or`/`not` and `sqrt`, `log`, `log10`, `exp`, `min`, `max`, `abs` only.
+
 ```bash
 py -3 db/load_criteria.py <DSN>
 SEWAGE_DB_DSN=<DSN> py -3 -m pytest tests
