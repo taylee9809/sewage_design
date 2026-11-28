@@ -1,0 +1,83 @@
+{"row_key": "34e14c4a53dd", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "05af3774ca4a", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "e9562b22411e", "condition": {"item": "firm_capacity"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate"}, "tag_note": "C2-1.2.1 확보용량 ≥ 첨두시간 설계유량"}
+{"row_key": "6cf45129de27", "condition": {"item": "planning_horizon"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate"}, "tag_note": "C2-1.2.1 확보용량 ≥ 첨두시간 설계유량"}
+{"row_key": "c29227ff68c0", "condition": {"item": "min_flow_review"}, "basis": {"flow": "min_flow"}, "tag_note": "C2-1.2.1 최소유량 검토"}
+{"row_key": "557e1646544d", "condition": {"item": "hydraulic_conditions"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "57246981a9ff", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "7da7b4d35174", "condition": {"item": "manufacturer_range"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "7557fd9e45c4", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "2bd55f38b5b2", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ae6279b4e6a0", "condition": {"item": "firm_capacity"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate"}, "tag_note": "최대 1대 정지 시 첨두 설계유량"}
+{"row_key": "d9e949b2b7a8", "condition": {"item": "pump_count_vs_wet_well"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4c9033b3879c", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "8085041a6733", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "777a3ac0364f", "condition": {"item": "general"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "a3f4ac5b9429", "condition": {"other": {"pump_speed": "constant"}}, "basis": {"flow": "pump_rate"}, "tag_note": "V = tQ/4, Q = 펌프용량"}
+{"row_key": "16d1ced61829", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "d2f506f146e5", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ebdd72379bfb", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "74de533001c9", "condition": {"item": "preferred"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "5c33b443dec9", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "110ba29a88c1", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ad6de2269908", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "7b8fbacc12f9", "condition": null, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified"}, "tag_note": "C2-1.5.1 유속 4 fps — 유량 상태 미지정"}
+{"row_key": "6f4987631e66", "condition": {"item": "computer_model"}, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified"}, "tag_note": "C2-1.5.1 유속 4 fps — 유량 상태 미지정"}
+{"row_key": "5a7c1b8e5493", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "8b755d0b3ebd", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "23d140343bd5", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "e6f3fdd48c3e", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f94c25885022", "condition": {"item": "redundancy"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate"}, "tag_note": "최대 1대 정지 시 첨두 설계유량"}
+{"row_key": "9f37351e0137", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f6957bcfd129", "condition": {"other": {"standby_power": "portable_generator"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "a79b284f008f", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4b60ae3c565d", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "45710c0cdd77", "condition": {"other": {"station": "larger"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "8a8cced25941", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ed3b7bc8a451", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "0be74de36db4", "condition": {"item": "preferred"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3ac1aa817ea4", "condition": {"other": {"tank": "aboveground"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4812a3e8e2a3", "condition": {"other": {"tank": "belowground"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "fb39f737e8f1", "condition": {"other": {"emergency_option": "secondary power grid"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ea0161457c77", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "1b684879c6b2", "condition": {"item": "bypass_valve"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "b1f9b1ab8075", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "46eda115fd04", "condition": {"other": {"station": "remote", "standby_power": "portable_generator"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "397d231ab53f", "condition": {"item": "duration", "other": {"station": "remote", "standby_power": "portable_generator"}}, "basis": {"flow": "design_peak_hourly", "note": "첨두유량 1시간분"}, "tag_note": "C2-1.8.5"}
+{"row_key": "0d470d696720", "condition": {"item": "telemetry"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "36b2f3e22d6e", "condition": {"other": {"pump_stations": {"gt": 5}}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "b3f4b8760287", "condition": {"item": "alarm_list"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ff8d7d4a2b33", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "836e52036d5d", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4cf228f9c3c2", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "35f2a7a77ef9", "condition": {"item": "cross_connection"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "c51885218ba8", "condition": {"other": {"purpose": "corrosion_control"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "7ca0c47a4706", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "1cfdec94cc22", "condition": {"other": {"station": "larger"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "7b2bf46a6cff", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4bda1f8ed1a0", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "782ef12973ae", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "122c7e4dbdcc", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "0f24c429cf0f", "condition": {"other": {"pump_type": "suction lift"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "0140716bc2a7", "condition": {"other": {"pump_type": "suction lift"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "35f53db3a4af", "condition": {"other": {"pump_type": "suction lift"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "c794c71bba6c", "condition": {"location": "discharge piping", "other": {"pump_type": "suction lift"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f3b7cb966db7", "condition": {"other": {"pump_type": "submersible"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "cb4463f27aa8", "condition": {"other": {"pump_type": "submersible"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "493194a32056", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ddd49ebd7f34", "condition": null, "basis": {"flow": "pump_rate", "hydraulic_state": "full"}, "tag_note": "C2-3.2 펌프 용량 운전 시"}
+{"row_key": "c292afc9deaa", "condition": null, "basis": {"flow": "pump_rate", "hydraulic_state": "full"}, "tag_note": "C2-3.2 펌프 운전 유속"}
+{"row_key": "064a6d6f6c92", "condition": {"item": "optimum"}, "basis": {"flow": "pump_rate", "hydraulic_state": "full"}, "tag_note": "C2-3.2 최적 운전 유속"}
+{"row_key": "4208bbaaddef", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "b5d345074a67", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "16d45c3fd24b", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "8e00095e3af8", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4dab67cf132f", "condition": {"item": "above_operating"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "653e6d8a04e7", "condition": {"item": "minimum"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f6a413ff502a", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "be8f2b34f0fa", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "70248d420f05", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "2f2f2fd1b69a", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "df913fadb20c", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "88639886c8ef", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9241cc6d3bd0", "condition": {"sewer_type": ["STEP", "STEF/SDG", "GP"]}, "basis": {"flow": "any"}, "tag_note": "원 조건 system 'STEP/SDG/GP' 는 하수도 형식이라 sewer_type 으로(C1-10 다른 행과 같은 표기)"}

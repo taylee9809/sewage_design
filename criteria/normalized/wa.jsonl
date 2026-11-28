@@ -1,0 +1,165 @@
+{"row_key": "70aebd714fb2", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "8aa6ed179f39", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "245a8b904836", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ffcd8bbeb666", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9b11304fe142", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "57a54ef4a5c6", "condition": {"pipe_role": "house_connection"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "806752362cab", "condition": {"pipe_role": ["branch", "sub_main"]}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "07daa685059a", "condition": {"pipe_role": ["trunk", "interceptor"]}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "470ddfae5c9e", "condition": null, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate"}, "tag_note": "C1-3.3 1인당 유량 × 첨두계수"}
+{"row_key": "3a3ad3520d8f", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "2379e14bdccb", "condition": {"exception": "교체관·기존관 개량"}, "basis": {"flow": "design_flow", "horizon": "ultimate"}, "tag_note": "교체·개량관: 실측+계획기간 전망"}
+{"row_key": "6afaa8e80169", "condition": {"system": "separate", "wastewater_type": "domestic"}, "basis": {"flow": "design_daily_avg", "horizon": "ultimate", "per": "capita_day", "note": "주거 1인당 일평균, 정상 침입수 포함"}, "tag_note": "C1-3.3 계획기간 1인당 유량 → 일평균·목표연도·인당"}
+{"row_key": "6f493cd72e1e", "condition": {"exception": "대안 방법"}, "basis": {"flow": "design_flow"}, "tag_note": "대안 방법"}
+{"row_key": "a82af11a7f79", "condition": {"system": "separate"}, "basis": {"flow": "design_daily_avg", "per": "capita_day", "ref_param": "per_capita_wastewater", "note": "정상 침입수는 1인당 원단위에 포함"}, "tag_note": "C1-3.3.1 수치 없음"}
+{"row_key": "338c5c0e8831", "condition": {"system": "separate", "exception": "existing_system"}, "basis": {"flow": "unspecified"}, "tag_note": "기존 관망 실측 산정"}
+{"row_key": "452c7c116766", "condition": null, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "hydraulic_state": "full"}, "tag_note": "C1-3.3.2 용량 운전(만류) 시 첨두시간유량 — 조건 칸의 flow 를 basis 로 옮김"}
+{"row_key": "2138ea70470c", "condition": {"system": "separate"}, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "per": "ratio_to_avg", "ref_param": "per_capita_wastewater"}, "tag_note": "Figure C1-1 Q첨두시간/Q설계평균"}
+{"row_key": "aefe53898179", "condition": null, "basis": {"flow": "design_peak_hourly", "horizon": "ultimate", "per": "ratio_to_avg", "ref_param": "per_capita_wastewater"}, "tag_note": "C1-3.3.2 첨두계수 하한 2.5"}
+{"row_key": "441167b67105", "condition": {"exception": "지역 첨두곡선"}, "basis": {"flow": "design_peak_hourly", "per": "ratio_to_avg"}, "tag_note": "지역 첨두곡선"}
+{"row_key": "37db503514dd", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "2d29cbc6e7a5", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4579b99bf5cc", "condition": {"exception": "특수 경우 Ecology 승인, 아래 6 in 조건 전부 충족"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "74b5824a427e", "condition": {"dia_mm": {"eq": 150}, "dia_basis": "nominal_in"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "1c726a9a6bd3", "condition": {"dia_mm": {"eq": 150}, "dia_basis": "nominal_in"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "42b8b1c60065", "condition": {"dia_mm": {"eq": 150}, "dia_basis": "nominal_in"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ef38d2af9586", "condition": {"dia_mm": {"eq": 150}, "dia_basis": "nominal_in"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "78bdc82e179b", "condition": {"dia_mm": {"eq": 150}, "dia_basis": "nominal_in"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4c0f022b5cbc", "condition": {"dia_mm": {"eq": 150}, "dia_basis": "nominal_in"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ceace55e92b6", "condition": {"dia_mm": {"eq": 150}, "dia_basis": "nominal_in"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9690752154f5", "condition": {"dia_mm": {"eq": 150}, "dia_basis": "nominal_in"}, "basis": {"flow": "any"}, "tag_note": "6 in 허용 조건의 최소경사(표가 아닌 허용 요건)"}
+{"row_key": "e52d3bac9297", "condition": {"dia_mm": {"eq": 150}, "dia_basis": "nominal_in"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "74a6de358e84", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "e8cb4855865f", "condition": {"item": "frost_damage"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "2d71e0aaa84c", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "1ae04b1533c9", "condition": {"pipe_role": "inverted_siphon"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "5eab862223b8", "condition": null, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": "C1-4.4 만류 시 평균유속"}
+{"row_key": "2b71a405aedf", "condition": {"item": "self_cleaning_demonstration"}, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified"}, "tag_note": "자정유속 입증 — 수치·유량 상태 없음"}
+{"row_key": "acfc626dc47c", "condition": {"dia_mm": {"eq": 200}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": "Table C1-1 만류 가정"}
+{"row_key": "2b5a259da75b", "condition": {"dia_mm": {"eq": 250}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": "Table C1-1 만류 가정"}
+{"row_key": "a099d2e08ee1", "condition": {"dia_mm": {"eq": 300}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": "Table C1-1 만류 가정"}
+{"row_key": "8f38bfe67105", "condition": {"dia_mm": {"eq": 350}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": "Table C1-1 만류 가정"}
+{"row_key": "111f37cf0d69", "condition": {"dia_mm": {"eq": 375}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": "Table C1-1 만류 가정"}
+{"row_key": "e2c5a00f8c47", "condition": {"dia_mm": {"eq": 400}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": "Table C1-1 만류 가정"}
+{"row_key": "0a5b061112f0", "condition": {"dia_mm": {"eq": 450}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": "Table C1-1 만류 가정"}
+{"row_key": "b9b2be7aa709", "condition": {"dia_mm": {"eq": 525}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": "Table C1-1 만류 가정"}
+{"row_key": "77388b54078a", "condition": {"dia_mm": {"eq": 600}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": "Table C1-1 만류 가정"}
+{"row_key": "c1710847ebbf", "condition": {"dia_mm": {"eq": 675}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": "Table C1-1 만류 가정"}
+{"row_key": "7004723d6704", "condition": {"dia_mm": {"eq": 750}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": "Table C1-1 만류 가정"}
+{"row_key": "cf374f7161d6", "condition": {"dia_mm": {"eq": 900}, "dia_basis": "nominal_in"}, "basis": {"flow": "full_pipe", "horizon": "unspecified", "hydraulic_state": "full"}, "tag_note": "Table C1-1 만류 가정"}
+{"row_key": "979a524f047b", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "57e7d1e7c9d9", "condition": {"slope": {"ge": 0.2}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "d381f1b9ed33", "condition": {"slope": {"ge": 0.2, "le": 0.35}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "cf298e88e942", "condition": {"slope": {"ge": 0.35, "le": 0.5}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "23bdda9054ef", "condition": {"slope": {"ge": 0.5}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "7fa707d8413c", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "fe42f64e3268", "condition": {"exception": "사정상 필요"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "381d3314bade", "condition": {"exception": "소관이 대관에 합류"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "912099611801", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "fca02e357c35", "condition": null, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified"}, "tag_note": "C1-4.7 유속 상태 미지정(만류 해석은 규칙 파일 몫)"}
+{"row_key": "bb05b9ac63e6", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f421a6bd3050", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "906136fb943a", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "bb948d478480", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "1ac59b1ec501", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "b41f0e363f5e", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "fb7c5c7f00a9", "condition": {"item": "spot_reinspection", "other": {"months_in_service": 10}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "96c7e14bd53b", "condition": {"material": "flexible"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "88662942c96d", "condition": {"material": "flexible"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "2f94a51bbcd9", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "32200459d01f", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "bee41aa31c2f", "condition": {"dia_mm": {"le": 375}, "dia_basis": "nominal_in"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "d70244da8c96", "condition": {"dia_mm": {"ge": 450, "le": 750}, "dia_basis": "nominal_in"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ebdd79e337e4", "condition": {"exception": "적정 청소장비 구비, 대구경관, 침전 유출수 수송"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "bc876be0795e", "condition": {"dia_mm": {"ge": 150, "le": 200}, "dia_basis": "nominal_in"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "00ab34565e8d", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9f2bdbc3718d", "condition": {"material": "flexible"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ea0d7540c4de", "condition": {"material": "rigid"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "b953a17d9bec", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4f02533499b9", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "e408cc4940b8", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "a9817cce93f5", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "815645335b1e", "condition": {"dia_mm": {"gt": 600}, "dia_basis": "nominal_in"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "5cc3a4c5111b", "condition": {"exception": "주요 산업체 연결"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "34be79b4925b", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "d0a415d241df", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "c8f9bd103174", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "89b2378736b9", "condition": {"location": "침수 가능"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "0723e0ef8285", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "6eb2ca58c471", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "272ec9a40fbb", "condition": {"item": "frame_material"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "1363b1e86dd8", "condition": {"location": "지역권 내 또는 알루미늄 뚜껑"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "b2403d8511fe", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "95a66edf8bb2", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "401f10883005", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3342c7f4ec4a", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3c3e02ac49c3", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "6efa4b7187f4", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f81551b9a4f6", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ec9df14e042e", "condition": {"system": "separate", "exception": "existing_system"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "1ff49a8ff544", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "c6a9d84e2811", "condition": null, "basis": {"flow": "unspecified"}, "tag_note": "검사 시 실유량 수심비 — 설계유량 아님"}
+{"row_key": "cbae5ad0dcfe", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "632b7d736489", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "905136d14c7a", "condition": {"exception": "평행"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "abba630412ec", "condition": {"exception": "평행"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f91aa673ce37", "condition": {"exception": "평행, 10 ft/18 in 확보 불가"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9ac21c1e62b8", "condition": {"exception": "상수관과 동일 트렌치"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "dffd59f4fe67", "condition": {"exception": "상수관과 동일 트렌치"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "5ae1bedacad1", "condition": {"exception": "상수관과 동일 트렌치"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9662470a40dc", "condition": {"exception": "하수관이 상수관 아래"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "eb470e6e2723", "condition": {"exception": "이격 불가, 중력 하수관이 상수관 아래"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "d2484547d8fe", "condition": {"exception": "이격 불가, 중력 하수관이 상수관 아래"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3e3909bc4ff9", "condition": {"exception": "하수관이 상수관 위"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3876ecaabc70", "condition": {"pipe_role": "force_main", "exception": "상수관 아래 교차"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9a682c90687a", "condition": {"facility": "marina pumpout"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "2f5e8804457f", "condition": {"facility": "marina pumpout"}, "basis": {"flow": "pump_rate"}, "tag_note": "C1-9.1.5 펌프 용량"}
+{"row_key": "822c1845bef7", "condition": {"facility": "marina pumpout", "item": "max"}, "basis": {"flow": "pump_rate"}, "tag_note": "C1-9.1.5 펌프 용량"}
+{"row_key": "9a10f19933dc", "condition": {"facility": "marina pumpout"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "a316530fc6b7", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "586b9953185f", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "aec75dd074ae", "condition": {"other": {"bed": "stabilized channel"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "e7b5f3de7806", "condition": {"other": {"bed": "shifting channel"}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4f7db4d02b46", "condition": {"item": "barrels"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "1225bd5d4502", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9cf804a0e5d6", "condition": null, "basis": {"flow": "design_daily_avg", "horizon": "unspecified", "hydraulic_state": "unspecified"}, "tag_note": "C1-9.1.7 'average flow' → 일평균(조건 칸의 flow 를 basis 로 옮김)"}
+{"row_key": "ce4b6d5cafca", "condition": {"item": "rock_catcher"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "0330ac165d7a", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "637e32189355", "condition": {"item": "odor_control"}, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified"}, "tag_note": "C1-9.1.9 관경 무관 자정 최소유속 — 유량 상태 미지정"}
+{"row_key": "d98e5f223698", "condition": null, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified"}, "tag_note": "C1-9.1.9 유량 상태 미지정"}
+{"row_key": "2060e371f594", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "da010321cb10", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "fb4146b3ff23", "condition": {"sewer_type": ["STEP", "STEF/SDG", "GP"]}, "basis": {"flow": "peak", "note": "약 15분 지속 첨두 사건"}, "tag_note": "C1-10.1.2 A"}
+{"row_key": "e9c6d65d5bcc", "condition": {"sewer_type": "STEF/SDG"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "d55974df19c2", "condition": {"sewer_type": ["STEP", "GP"]}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "dd8fe94c6ac9", "condition": {"sewer_type": ["STEP", "STEF/SDG"]}, "basis": {"flow": "none"}, "tag_note": "STEP·STEF 최소유속 요구 없음"}
+{"row_key": "6b83c639e77c", "condition": {"sewer_type": "GP"}, "basis": {"flow": "unspecified", "horizon": "unspecified", "hydraulic_state": "unspecified"}, "tag_note": "GP 압력관 최소유속 — 유량 상태 미지정"}
+{"row_key": "e2c79430c48e", "condition": {"sewer_type": ["STEP", "GP"]}, "basis": {"flow": "peak", "per": "ratio_to_avg", "note": "일평균 대비"}, "tag_note": "C1-10.1.4"}
+{"row_key": "4f72ca59da8a", "condition": {"sewer_type": ["STEP", "STEF/SDG", "GP"], "location": "traffic-bearing"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "bea4e1826a91", "condition": {"sewer_type": ["STEP", "STEF/SDG"], "other": {"tank_gal": 3000}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4dc0ef1a668f", "condition": {"sewer_type": ["STEP", "STEF/SDG"], "other": {"tank_gal": 6000}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3b549037173f", "condition": {"sewer_type": ["STEP", "STEF/SDG"]}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ad76710f428f", "condition": {"sewer_type": ["STEP", "STEF/SDG"], "other": {"tank_gal": {"gt": 2500}}}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "783fef0fbc44", "condition": {"sewer_type": ["STEP", "STEF/SDG"]}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "af9e669eef9d", "condition": {"sewer_type": ["STEP", "STEF/SDG"], "exception": "단독주택·소규모 사업장"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4f3b87f4e00e", "condition": {"sewer_type": ["STEP", "STEF/SDG"], "exception": "배출량 큰 건물"}, "basis": {"flow": "design_daily_max", "note": "Q = 첨두일유량"}, "tag_note": "C1-10.1.5 B 식"}
+{"row_key": "cad7742f26d2", "condition": {"sewer_type": ["STEP", "STEF/SDG", "GP"]}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "83aac1589d68", "condition": {"sewer_type": ["STEP", "STEF/SDG", "GP"]}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "dca4ecbf4485", "condition": {"sewer_type": ["STEP", "STEF/SDG", "GP"]}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3c87d33ce831", "condition": {"sewer_type": ["STEP", "STEF/SDG", "GP"]}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "19723496549e", "condition": {"sewer_type": ["STEP", "STEF/SDG"]}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ca6b1d35e8c3", "condition": {"sewer_type": "vacuum"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "8bbe3093d5e0", "condition": {"sewer_type": "vacuum"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "5379a372f827", "condition": {"sewer_type": "vacuum"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "ed0b4e8e040d", "condition": {"sewer_type": "vacuum"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "13ee286f0cd3", "condition": {"sewer_type": "vacuum"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "575e307249d7", "condition": {"sewer_type": "vacuum"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "1b4b2210564e", "condition": {"sewer_type": "vacuum"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "34008cdf5043", "condition": {"sewer_type": "vacuum"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "0b4fc794ea48", "condition": {"sewer_type": "vacuum"}, "basis": {"flow": "design_daily_avg", "note": "평균유량 10분분"}, "tag_note": "C1-10.2.3 C.3"}
+{"row_key": "c337bb5becc5", "condition": {"sewer_type": "vacuum"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "04d993a5ebdd", "condition": {"sewer_type": "vacuum"}, "basis": {"flow": "peak"}, "tag_note": "C1-10.2.3 B.2 첨두 처리 능력"}
+{"row_key": "50bd7b28a0a9", "condition": {"sewer_type": "vacuum"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "198fa9edce44", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "c443a8ddc959", "condition": {"sewer_type": ["STEP", "STEF/SDG", "GP"]}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "61bd67d9681d", "condition": {"sewer_type": ["STEP", "STEF/SDG", "GP"]}, "basis": {"flow": "any"}, "tag_note": ""}

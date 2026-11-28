@@ -1,0 +1,60 @@
+{"row_key": "1a2d046d9e1b", "condition": {"unit": "biological_reactor", "effluent": "secondary_limits", "flow_basis": "max_week"}, "basis": {"flow": "design_max_week"}, "tag_note": ""}
+{"row_key": "54c9511ab692", "condition": {"unit": "biological_reactor", "effluent": "toxics_or_nutrient", "flow_basis": "max_day"}, "basis": {"flow": "design_daily_max"}, "tag_note": ""}
+{"row_key": "efcf7676d894", "condition": {"unit": "clarifier_overflow_weir", "flow_basis": "peak_hourly_plus_recirculation"}, "basis": {"flow": "design_peak_hourly", "note": "PHDF + 순환유량 — 순환 포함 표기 키 없음(note)"}, "tag_note": "PHDF + 순환유량 — 순환 포함 표기 키 없음(note)"}
+{"row_key": "084b756dac1c", "condition": {"unit": "clarifier_solids", "flow_basis": "peak_hourly"}, "basis": {"flow": "design_peak_hourly"}, "tag_note": ""}
+{"row_key": "a8fe66c28d02", "condition": {"unit": "aeration_equipment", "flow_basis": "peak_hourly"}, "basis": {"flow": "design_peak_hourly"}, "tag_note": ""}
+{"row_key": "57aabafcbd65", "condition": {"unit": "hydraulic_pass", "flow_basis": "peak_hourly_and_instantaneous"}, "basis": {"flow": ["design_peak_hourly", "design_peak_instantaneous"]}, "tag_note": ""}
+{"row_key": "73d8fcf038b0", "condition": {"flow": "max_week"}, "basis": {"flow": "design_max_week"}, "tag_note": "G2-1.2.2 A MWDF 정의"}
+{"row_key": "e8d6e4e2a191", "condition": null, "basis": {"flow": "design_peak_hourly", "per": "ratio_to_avg", "note": "건기 평균 대비"}, "tag_note": "G2-1.2.2 B(6)"}
+{"row_key": "9644ac843f20", "condition": {"facility": "dwellings"}, "basis": {"flow": "design_daily_avg", "per": "capita_day"}, "tag_note": "Table G2-2"}
+{"row_key": "041ccab8987f", "condition": {"facility": "dwellings"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "bee5d2573da8", "condition": {"facility": "dwellings"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "373721f7effc", "condition": {"settling_type": "primary_only", "flow_basis": "design_average"}, "basis": {"flow": "design_daily_avg"}, "tag_note": ""}
+{"row_key": "0d7646415aaa", "condition": {"settling_type": "primary_only", "flow_basis": "design_peak"}, "basis": {"flow": "design_peak_hourly", "note": "Table T2-2 'design peak' → Table G2-1 침전지 표면부하 = PHDF(+순환)"}, "tag_note": "Table T2-2 'design peak' → Table G2-1 침전지 표면부하 = PHDF(+순환)"}
+{"row_key": "249eadd5bca0", "condition": {"settling_type": "co_thickening", "flow_basis": "design_average"}, "basis": {"flow": "design_daily_avg"}, "tag_note": ""}
+{"row_key": "d29a245185e5", "condition": {"settling_type": "co_thickening", "flow_basis": "design_peak"}, "basis": {"flow": "design_peak_hourly", "note": "Table T2-2 'design peak' → Table G2-1 침전지 표면부하 = PHDF(+순환)"}, "tag_note": "Table T2-2 'design peak' → Table G2-1 침전지 표면부하 = PHDF(+순환)"}
+{"row_key": "c0dfe0837918", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "aec642d68758", "condition": {"settling_type": "primary_only_or_co_thickening", "wastewater_type": "domestic"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f3ba34c42cf6", "condition": {"settling_type": "primary_only_or_co_thickening", "wastewater_type": "domestic"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "5ef844b4eef2", "condition": {"flow_basis": "design_peak_hourly"}, "basis": {"flow": "design_peak_hourly"}, "tag_note": ""}
+{"row_key": "141ab6204012", "condition": {"flow_basis": "design_average"}, "basis": {"flow": "design_daily_avg"}, "tag_note": ""}
+{"row_key": "b3d355722131", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3fd350248235", "condition": {"tank": "primary_settling"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "642f5afe1602", "condition": {"process": "activated_sludge_general"}, "basis": {"flow": "design_max_week", "note": "Table G2-1 이차처리 생물반응조 = MWDF"}, "tag_note": "T3-3.1.1 은 유량 미지정 → 같은 기준 Table G2-1 로 채움"}
+{"row_key": "b81c686495d1", "condition": {"process": "conventional_asp", "removal": "carbonaceous"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "e302e4474faf", "condition": {"process": "conventional_asp"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "19f06b49ccf2", "condition": {"process": "activated_sludge_general", "nitrification": "none", "load_basis": "bod_removed"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "429d5a1d2807", "condition": {"process": "activated_sludge_general", "nitrification": "required_or_occurring", "load_basis": "tkn_applied"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "dad60a88a46c", "condition": {"process": "activated_sludge_general"}, "basis": {"flow": "design_peak_hourly"}, "tag_note": "T3-3.1.1 A.3.b 첨두시간 BOD 부하"}
+{"row_key": "771ab00ad9b6", "condition": {"process": "activated_sludge_general", "flow_basis": "design_average"}, "basis": {"flow": "design_daily_avg", "per": "ratio_to_design_flow"}, "tag_note": ""}
+{"row_key": "2b9d6dad73d6", "condition": {"primary_settling": "yes", "srt_d": 15, "temperature_f": 68}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9b323604b729", "condition": {"primary_settling": "yes", "srt_d": 5, "temperature_f": 68}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "0bf8ea3a59d7", "condition": {"primary_settling": "no", "srt_d": {"ge": 5, "le": 15}, "temperature_f": 68}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "45c08259dab5", "condition": {"process": "activated_sludge_general", "load_basis": "max_month"}, "basis": {"flow": "design_monthly_max"}, "tag_note": "load_basis max_month"}
+{"row_key": "b94160bd150c", "condition": {"process": "activated_sludge_general", "load_basis": "peak_hourly"}, "basis": {"flow": "design_peak_hourly"}, "tag_note": "load_basis peak_hourly"}
+{"row_key": "aa7be6d02e74", "condition": {"process": "activated_sludge_general", "excluding": "extended_aeration", "method": "unit_air_per_bod", "aeration": "diffused_air"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "8297a4c60863", "condition": {"process": "activated_sludge_general", "aeration": "mechanical", "case": "no_specific_performance_data"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4b1798b46a7a", "condition": {"reliability_class": "I_or_II"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "28069d070cec", "condition": {"reliability_class": "III"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9fa528fa1bce", "condition": {"reliability_class": "I_or_II"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "8c09e5b6e5b2", "condition": {"process": "activated_sludge_general"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "9a4b43741183", "condition": {"process": "conventional_asp", "flow_basis": "design_peak_hourly"}, "basis": {"flow": "design_peak_hourly"}, "tag_note": ""}
+{"row_key": "be5222a02efa", "condition": {"process": "extended_aeration", "flow_basis": "design_peak_hourly"}, "basis": {"flow": "design_peak_hourly"}, "tag_note": ""}
+{"row_key": "ed331f3e2807", "condition": {"process": "oxidation_ditch", "flow_basis": "design_peak_hourly"}, "basis": {"flow": "design_peak_hourly"}, "tag_note": ""}
+{"row_key": "131912e590bd", "condition": {"process": "activated_sludge_general"}, "basis": {"flow": "design_peak_hourly", "note": "Table G2-1 이차침전지 고형물부하 = PHDL"}, "tag_note": "T3-3.1.1 B.2.b 는 유량 미지정 → 같은 기준 Table G2-1 로 채움"}
+{"row_key": "41a8ba55f803", "condition": {"process": "conventional_asp"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "c309f13217f5", "condition": {"tank": "secondary_settling"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "e66e0a81461b", "condition": {"process": "sbr"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "7d8208de8e07", "condition": {"process": "sbr"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "68c8d5542b2a", "condition": {"process": "sbr", "case": "no_site_data"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "4361b72ceef9", "condition": {"process": "sbr", "flow_basis": "max_day", "case": "largest_basin_out"}, "basis": {"flow": "design_daily_max"}, "tag_note": ""}
+{"row_key": "a0dee22eda6b", "condition": {"process": "sbr"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "23131327d2df", "condition": {"process": "sbr", "load_basis": "max_month"}, "basis": {"flow": "design_monthly_max"}, "tag_note": "load_basis max_month"}
+{"row_key": "c627a1ef6c18", "condition": {"process": "sbr", "case": "needs_operating_examples"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "bf370d080641", "condition": {"process": "sbr", "load_basis": "max_month", "volume_basis": "low_water_level"}, "basis": {"flow": "design_monthly_max"}, "tag_note": "load_basis max_month"}
+{"row_key": "7f6b1145e687", "condition": {"process": "sbr", "aeration": "fine_bubble", "case": "no_site_data"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "bfcd30d9a026", "condition": {"process": "sbr", "aeration": "jet", "case": "no_site_data"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "3ab6708a2836", "condition": {"process": "sbr", "aeration": "coarse_bubble", "case": "no_site_data"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "f2e84923dae0", "condition": {"process": "sbr"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "6e68a92c49dd", "condition": {"process": "sbr"}, "basis": {"flow": "any"}, "tag_note": ""}
+{"row_key": "e8a75fb72449", "condition": null, "basis": {"flow": "any"}, "tag_note": ""}
