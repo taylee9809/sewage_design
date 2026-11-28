@@ -4,7 +4,7 @@
 
 각국 하수도(오수관) 설계기준을 원문 그대로 DB화하고, 같은 조건에서 비교하는 설계 엔진.
 
-![같은 관망을 5개국 기준으로 설계한 결과](docs/SYN01_five_standards.png)
+![같은 관망을 6개국 기준으로 설계한 결과](docs/SYN01_six_standards.png)
 
 나라 추가 방법: [CONTRIBUTING.md](CONTRIBUTING.md) (영문)
 
