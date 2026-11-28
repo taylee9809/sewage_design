@@ -134,9 +134,9 @@ def main(dsn, dsn_private=None):
         cur.execute((ROOT / "db" / "schema.sql").read_text(encoding="utf-8"))
         cur.execute("SET search_path = criteria, public")
         for sid, m in STANDARDS.items():
-            cur.execute("""INSERT INTO standard (standard_id,country,issuer,title,edition,effective_date,is_latest,access,
-                             redistributable,license_note,source_url,note,doc_type) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
-                        (sid, m["country"], m["issuer"], m["title"], m["edition"], m["effective_date"], m["is_latest"],
+            cur.execute("""INSERT INTO standard (standard_id,country,doc_role,doc_role_basis,issuer,title,edition,effective_date,is_latest,access,
+                             redistributable,license_note,source_url,note,doc_type) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                        (sid, m["country"], m.get("doc_role"), m.get("doc_role_basis"), m["issuer"], m["title"], m["edition"], m["effective_date"], m["is_latest"],
                          m["access"], m["redistributable"], m["license_note"], m["source_url"], m.get("note"), m["doc_type"]))
         for key in sorted({r["param_key"] for r in rows}):
             cur.execute("INSERT INTO parameter (param_key, unit_si) VALUES (%s,%s)", (key, CANON_UNIT.get(key)))

@@ -285,6 +285,18 @@
      "item": "TSS"
     }
    },
+   "tn": {
+    "param": "influent_tn_per_capita",
+    "cond": {
+     "item": "Total Nitrogen"
+    }
+   },
+   "tp": {
+    "param": "influent_tp_per_capita",
+    "cond": {
+     "item": "Total Phosphorus"
+    }
+   },
    "concentration_flow": "average",
    "resolution": "5.1.4.1 Table 5.4 (생물학적 STP 설계에 이 표를 따른다)"
   },
@@ -492,7 +504,9 @@
    },
    "params": {
     "bod": "^BOD$",
-    "ss": "^TSS$"
+    "ss": "^TSS$",
+    "tn": "^Nitrogen-Total",
+    "tp": "^Phosphorus-Total"
    },
    "resolution": "최근 값: NGT O.A. 1069/2018 2019-04-30 명령(전국에 메트로 값 적용). 2017 고시 값은 시행 정지(2018-12-21)"
   }

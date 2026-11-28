@@ -25,8 +25,14 @@ KNOWN_TYPES = {"VELOCITY_MIN", "VELOCITY_MAX", "SLOPE_TABLE", "CAPACITY", "MIN_D
                "DROP_STRUCTURE",    # v5 (2026-11-02) 맨홀 낙차 → 부관 필요·낙차 상한·부관 관경
                "FRICTION", "PUMP_DESIGN_FLOW",  # v6 (2026-11-02, 영국 DCG) Colebrook-White·펌프 설계유량
                "PLANT_FLOW", "INFLUENT_LOAD", "PRIMARY_CLARIFIER", "AERATION_TANK", "SECONDARY_CLARIFIER",
-               "EFFLUENT_LIMIT"}  # v7 (2026-11-07) 하수처리장 표준활성슬러지법 (engine/plant.py)
+               "EFFLUENT_LIMIT", "NUTRIENT_REMOVAL"}  # v7 (2026-11-07) 하수처리장 표준활성슬러지법·고도처리 (engine/plant.py)
 REQUIRED = ("mandatory", "standard")
+STANDARDS = json.loads((ROOT / "criteria" / "standards.json").read_text(encoding="utf-8"))  # 기준서 메타데이터
+DOC_ROLES = {"design_method": "설계 방법서", "review": "심사 기준", "regulation": "규정"}  # 결과 비교는 같은 역할끼리
+
+
+def doc_role(standard_id):
+    return STANDARDS[standard_id]["doc_role"]
 
 
 @dataclass
@@ -106,6 +112,8 @@ class Standard:
         self.pump_rows = db.load(psid, dsn) if psid else self.rows
         tsid = spec.get("plant_standard_id")  # 처리장 기준이 별도 코드인 경우(KDS 61 50 00)
         self.plant_rows = db.load(tsid, dsn) if tsid else self.rows
+        self.doc_role = doc_role(standard_id)
+        self.plant_doc_role = doc_role(tsid) if tsid else self.doc_role
         self.choice = {k: v["value"] for k, v in project["standards"].get(standard_id, {}).items()}
         self.material = project.get("material", "pvc")
         self.by_type = {}
@@ -234,6 +242,8 @@ class Standard:
             pf = db.pick(self.flow_rows, pk["param"], {**pk.get("cond", {}), "served_population": P})[0].value_min
         else:
             pf = 1.0
+        if pk.get("min_param"):  # 첨두계수 하한 (예: WA Orange Book C1-3.3.2 2.5 미만 불가)
+            pf = max(pf, db.one(self.flow_rows, pk["min_param"], pk.get("min_cond", {})).value_min)
         Q = P * q / 1000 / 86400 * f_inf * pf
         fl = r.get("floor")
         if fl:  # 구간 최소 설계유량 (L/s)

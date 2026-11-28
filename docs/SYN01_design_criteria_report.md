@@ -4,14 +4,17 @@
 
 ## 1. 적용 기준
 
-| 기준 | 판본 | 최신 | 공개 조건 | 비고 |
-|---|---|---|---|---|
-| KDS 61 40 00 관로시설 설계기준<br>`KDS_61_40_00_20251001` | 2025-10-01 | 예 | full_text |  |
-| Recommended Standards for Wastewater Facilities (Ten States Standards)<br>`TSS_WW_2026` | 2026 | 예 | values_only | 사용자 구매본(PDF, 2026-06-11 수정). 판매처 다운로드 약관(복사·공유 불가)과 문서 내 저작권 고지가 다름 |
-| 横浜市下水道設計指針(管きょ編)・同解説<br>`JP_YOKOHAMA_SEKKEI_202604` | 令和8年度改訂版 + 2026-04-17 正誤 | 예 | values_only | 지자체 기준. 일부 값은 국가 지침(下水道施設計画・設計指針と解説, 유료) 근거 |
-| Manual on Sewerage and Sewage Treatment Systems, Part A: Engineering<br>`CPHEEO_SEW_2013` | 2013 | 예 | full_text | 공식 사이트 업로드본(Wayback). 표지 없어 발행연도 문서 내 직접 확인 못 함 |
-| Reglamento Técnico del Sector de Agua Potable y Saneamiento Básico (RAS) — Resolución 0330 de 2017, compilado con Res. 799 y 908 de 2021<br>`CO_RAS_0330_2017_COMP2021` | Anexo 2 compilatorio (2021) | 예 | full_text | 법령 원문. Res. 0548/2022(경과규정) 이후 개정은 RAS 페이지 기준 미확인 |
-| Design and Construction Guidance for foul and surface water sewers (Sewerage Sector Guidance Appendix C)<br>`GB_DCG_V2_3_20231111` | Approved Version 2.3 | 예 | values_only | 잉글랜드에서 전부 또는 주로 영업하는 하수도 회사 대상. 문서 전체가 Local Practice 외 의무(서문 8항)이나 조항 문형은 should라 binding은 문형 기준. Water UK 목록 페이지가 자동 접속을 막아 v2.3 이후 판 부재는 2026-11-02 검색으로만 확인 |
+문서 역할: 설계 방법서(어떻게 설계하는가) · 심사 기준(심사기관이 무엇으로 승인하는가) · 규정(지켜야 할 최소 요건). 역할이 다른 문서의 값은 같은 표에 놓지 않는다(4·5절).
+
+| 기준 | 문서 역할 | 판본 | 최신 | 공개 조건 | 비고 |
+|---|---|---|---|---|---|
+| KDS 61 40 00 관로시설 설계기준<br>`KDS_61_40_00_20251001` | 설계 방법서<br>KDS 61 10 00 1.1.1: 공공하수도 하수도시설의 계획 및 설계에 적용하는 설계기준. 공정별 설계 방법·제원을 정함 | 2025-10-01 | 예 | full_text |  |
+| 横浜市下水道設計指針(管きょ編)・同解説<br>`JP_YOKOHAMA_SEKKEI_202604` | 설계 방법서<br>요코하마시 하수도 설계지침(관거편)·해설. 지자체 설계 방법서 | 令和8年度改訂版 + 2026-04-17 正誤 | 예 | values_only | 지자체 기준. 일부 값은 국가 지침(下水道施設計画・設計指針と解説, 유료) 근거 doc_type: 시 설계지침이나 일본 비교 대상 설계기준으로 사용 |
+| Manual on Sewerage and Sewage Treatment Systems, Part A: Engineering<br>`CPHEEO_SEW_2013` | 설계 방법서<br>Manual on Sewerage and Sewage Treatment Systems Part A: Engineering. 정부 설계 매뉴얼. 일부 표는 informative로 명시(예 5.18.12.4) | 2013 | 예 | full_text | 공식 사이트 업로드본(Wayback). 표지 없어 발행연도 문서 내 직접 확인 못 함 |
+| Criteria for Sewage Works Design (Orange Book), Publication 98-37<br>`WA_ECY_CSWD_2023` | 설계 방법서<br>Purpose of Manual: 하수 관로·처리·재이용 시설 설계 지침(guide for the design)이자 주 환경부·보건부 심사의 최소 요건. 규정은 아니나 WAC 173-240-040이 이 문서와 상당한 일치를 요구 — 설계 방법서 겸 심사 기준 | 1998판 + 2023-05 개정(장별 개정일 상이: C1·G1 2023-05, T3 2022-01, T2·G2 2008-08) | 예 | values_only | 미국 주(워싱턴) 기준. 연방 차원 공식 설계 방법서가 없어 설계 방법서 칸에 사용(사용자 결정 2026-11-07). WEF MOP 8 등을 참조 문헌으로 지정 |
+| Recommended Standards for Wastewater Facilities (Ten States Standards)<br>`TSS_WW_2026` | 심사 기준<br>Foreword: 심사기관(reviewing authority)이 설계도·시방서를 평가할 항목의 한계값을 제시. 기준에 없는 공정은 53.2로 건별 승인 | 2026 | 예 | values_only | 사용자 구매본(PDF, 2026-06-11 수정). 판매처 다운로드 약관(복사·공유 불가)과 문서 내 저작권 고지가 다름 |
+| Design and Construction Guidance for foul and surface water sewers (Sewerage Sector Guidance Appendix C)<br>`GB_DCG_V2_3_20231111` | 심사 기준<br>하수도 회사가 인수(adoption)할 하수관의 설계·시공 요건(Sewerage Sector Guidance Appendix C). Local Practice 외 의무(서문 8항) | Approved Version 2.3 | 예 | values_only | 잉글랜드에서 전부 또는 주로 영업하는 하수도 회사 대상. 문서 전체가 Local Practice 외 의무(서문 8항)이나 조항 문형은 should라 binding은 문형 기준. Water UK 목록 페이지가 자동 접속을 막아 v2.3 이후 판 부재는 2026-11-02 검색으로만 확인 |
+| Reglamento Técnico del Sector de Agua Potable y Saneamiento Básico (RAS) — Resolución 0330 de 2017, compilado con Res. 799 y 908 de 2021<br>`CO_RAS_0330_2017_COMP2021` | 규정<br>Art.1·2: 계획·설계·시공·운영 단계에서 지켜야 할 기술 요건을 정하는 규정. 설계자·시공자·운영자에게 적용 | Anexo 2 compilatorio (2021) | 예 | full_text | 법령 원문. Res. 0548/2022(경과규정) 이후 개정은 RAS 페이지 기준 미확인 |
 
 ## 2. 기준별 설계 항목 (원문 그대로)
 
@@ -47,39 +50,6 @@
 | 부관(낙차맨홀) 기준 낙차 | system ['separate', 'combined'], joint_method step | 0.6 m | any | 5.1 (2) | 기준 | 0.6m 이상일 경우 합류관 및 오수관에는 부관(副管)을 사용하는 것을 원칙으로 한다 |
 | 관 접합 |  | 관경 변화·합류 시 원칙적으로 수면접합 또는 관정접합 (급경사지는 단차접합·계단접합) | any | 5.1 (1); 5.1 (2) | 기준 | 원칙적으로 수면접합 또는 관정접합으로 한다 |
 | 하류 관경 감소 |  | 하류방향으로 관경이 점차 커지고 경사는 점차 작아지도록 유속·경사 결정 (명시적 '감소 금지' 조항 없음) | any | 1.3 본문 | 기준 | 하류방향 흐름에 따라 관경이 점차 커지고, 관로경사는 점차 작아지도록 |
-
-### TSS_WW_2026
-
-| 항목 | 조건 | 값 | 정의 조건(basis) | 조항 | 구속력 | 원문 구절 |
-|---|---|---|---|---|---|---|
-| 1인1일 오수량 | other collection_systemnew, system separate | 379 L/c/d | design_daily_avg/ultimate/capita_day | 11.243(a) | 의무 |  |
-| 시간최대(첨두) 계수 | other collection_systemnew, system separate | 2~4.24 ratio | design_peak_hourly/ultimate/ratio_to_avg | 11.243(b); Figure 1 | 의무 |  |
-| 지하수·침입수 | other collection_systemnew, system separate | (원문 비공개) | design_peak_hourly/ultimate/capita_day | 11.243(b) | 기준 |  |
-| 최소유속 | dia_mm ≤1050, system separate, dia_basis nominal_in | 0.61 m/s | full_pipe/unspecified/full | 33.41 | 의무 |  |
-| 최소유속 | dia_mm ≥1200, system separate, dia_basis nominal_in | 0.914 m/s | full_pipe/unspecified/full | 33.41 | 기준 |  |
-| 최대유속 |  | 3.05 m/s | unspecified/unspecified/unspecified | 33.45 | 의무 |  |
-| 최소경사 | dia_mm =200, system separate, dia_basis nominal_in | 0.004 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
-| 최소경사 | dia_mm =250, system separate, dia_basis nominal_in | 0.0028 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
-| 최소경사 | dia_mm =300, system separate, dia_basis nominal_in | 0.0022 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
-| 최소경사 | dia_mm =375, system separate, dia_basis nominal_in | 0.0015 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
-| 최소경사 | dia_mm =450, system separate, dia_basis nominal_in | 0.0012 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
-| 최소경사 | dia_mm =525, system separate, dia_basis nominal_in | 0.001 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
-| 최소경사 | dia_mm =600, system separate, dia_basis nominal_in | 0.0008 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
-| 최소경사 | dia_mm =675, system separate, dia_basis nominal_in | 0.00067 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
-| 최소경사 | dia_mm =750, system separate, dia_basis nominal_in | 0.00058 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
-| 최소경사 | dia_mm =825, system separate, dia_basis nominal_in | 0.00052 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
-| 최소경사 | dia_mm =900, system separate, dia_basis nominal_in | 0.00046 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
-| 최소경사 | dia_mm =975, system separate, dia_basis nominal_in | 0.00041 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
-| 최소경사 | dia_mm =1050, system separate, dia_basis nominal_in | 0.00037 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
-| 설계수심비 |  | (원문 비공개) | none |  | 규정 없음 |  |
-| 여유율 |  | (원문 비공개) | none |  | 규정 없음 |  |
-| 조도계수 n |  | 0.013 - | any | 33.41 | 의무 |  |
-| 최소관경 | other sewer원수 이송 공공 자연유하 하수관, system separate | 203 mm | any | 33.1 | 의무 |  |
-| 최소토피 |  | (원문 비공개) | any | 33.2 | 기준 |  |
-| 맨홀 최대간격 | dia_mm ≤375, dia_basis nominal_in | 122 m | any | 34.1 | 의무 |  |
-| 맨홀 최대간격 | dia_mm ≥450 ≤750, dia_basis nominal_in | 152 m | any | 34.1 | 의무 |  |
-| 부관(낙차맨홀) 기준 낙차 |  | 0.61 m | any | 34.2 | 의무 |  |
-| 하류 관경 감소 |  | (원문 비공개) | none | 33.6 | 규정 없음 |  |
 
 ### JP_YOKOHAMA_SEKKEI_202604
 
@@ -176,30 +146,68 @@
 | 관 접합 | joint_method crown | 관정(crown) 접합: 관경 변경 시 유입·유출관 관정 동일 표고; 유출관 관정은 유입관 관정보다 높지 않게; 소관 관정(soffit)은 대관 관정보다 낮지 않게 | any | 3.17.1; 3.20.3; 3.26; 3.30 | 의무 | To avoid backing up, the crown of the outgoing sewer shall not be higher than th |
 | 하류 관경 감소 |  | 하류로 관경 축소 금지 | any | 3.17.1 | 의무 | Transition from larger to smaller diameters shall not be made. |
 
-### CO_RAS_0330_2017_COMP2021
+### WA_ECY_CSWD_2023
 
 | 항목 | 조건 | 값 | 정의 조건(basis) | 조항 | 구속력 | 원문 구절 |
 |---|---|---|---|---|---|---|
-| 1인1일 오수량 | wastewater_type domestic | QD = CR × P × DNETA / 86400 (L/s); 수요 단위면적·가입자 기반 식도 병기 | design_daily_avg/ultimate/capita_day | Artículo 134 numeral 1 | 의무 | Cuando se utilice proyección de población, se debe calcular con la siguiente ecu |
-| 1인1일 순급수량 | altitude_masl >2000 | 120 L/c/d | design_daily_avg/ultimate/capita_day | Artículo 43 Tabla 1 | 의무 | se deberá utilizar un valor de dotación que no supere los máximos establecidos e |
-| 1인1일 순급수량 | altitude_masl ≥1000 ≤2000 | 130 L/c/d | design_daily_avg/ultimate/capita_day | Artículo 43 Tabla 1 | 의무 | se deberá utilizar un valor de dotación que no supere los máximos establecidos e |
-| 1인1일 순급수량 | altitude_masl <1000 | 140 L/c/d | design_daily_avg/ultimate/capita_day | Artículo 43 Tabla 1 | 의무 | se deberá utilizar un valor de dotación que no supere los máximos establecidos e |
-| 시간최대(첨두) 계수 |  | 1.4~3.8 ratio | design_peak_hourly/ultimate/ratio_to_avg | Artículo 134 numeral 4 | 의무 | Este valor deberá estar entre 1,4 y 3,8 |
-| 구간 최소 설계유량 | system separate | 1.5 L/s | design_flow/unspecified | Artículo 134 numeral 7 | 의무 | Cuando el caudal de diseño calculado en el tramo sea menor que 1,5 L/s, debe ado |
-| 최소유속 | system separate | 고정값 없음: τ ≥ 1.0 Pa를 만드는 실유속이 최소유속 | design_flow/unspecified/actual | Artículo 141 | 의무 | La velocidad mínima real permitida en el colector de alcantarillado sanitario es |
-| 최소 벽면 전단응력 | system separate | 1 Pa | design_flow/both/actual | Artículo 141 | 의무 | La velocidad mínima real permitida en el colector de alcantarillado sanitario es |
-| 최대유속 | system separate | 5 m/s | design_flow/unspecified/actual | Artículo 142 | 의무 | La velocidad máxima real en un colector por gravedad no debe sobrepasar 5,0 m/s, |
-| 최소경사 | system separate | 규정 없음 | none | Artículo 141 | 규정 없음 |  |
-| 설계수심비 | system separate, dia_basis inner | 0.85 ratio | design_flow/unspecified/partial | Artículo 143 | 의무 | el valor máximo permisible de la profundidad del flujo para el caudal de diseño  |
-| 최소관경 | system separate, dia_basis inner, population ≥2500 | 170 mm | any | Artículo 140 | 의무 | El diámetro interno real mínimo permitido en redes de alcantarillado sanitario e |
-| 최소관경 | system separate, dia_basis inner, population <2500 | 140 mm | any | Artículo 140 | 의무 | Para poblaciones menores de 2.500 habitantes el diámetro interno real permitido  |
-| 최소토피 | other location_rawVías peatonales o zonas verdes, system separate, location sidewalk | 0.75 m | any | Artículo 139 Tabla 18 | 의무 | Los valores mínimos permisibles de recubrimiento de los colectores que no requie |
-| 최소토피 | other location_rawVías vehiculares, system separate, location roadway | 1.2 m | any | Artículo 139 Tabla 18 | 의무 | Los valores mínimos permisibles de recubrimiento de los colectores que no requie |
-| 맨홀 최대간격 | receives_house_connections True | 120 m | any | Artículo 154 numeral 1 | 의무 | a distancia máxima de 120 m para tramos con aportes de caudal |
-| 맨홀 최대간격 | other pipe_role_rawinterceptores y emisarios finales, pipe_role interceptor, receives_house_connections False | 300 m | any | Artículo 154 numeral 1 | 의무 | 300 m en interceptores y emisarios finales sin aportes de caudal |
-| 부관(낙차맨홀) 기준 낙차 | joint_method invert | 0.75 m | any | Artículo 155 numeral 1 | 의무 | con una diferencia de nivel entre las cotas bateas mayor a 0,75 m, respecto del  |
-| 관 접합 |  | 맨홀 유입·유출관 관저고 차이 = 수리해석(흐름 상태·구조물 형상 손실)으로 결정; 손실 ≤ 0이면 관정 간 2 cm 이상 | design_flow | Artículo 154 numeral 7; Artículo 137 | 의무 | una diferencia entre las cotas bateas de los colectores de entrada y salida, def |
-| 하류 관경 감소 |  | 규정 없음 | none | Artículo 154 | 규정 없음 |  |
+| 1인1일 오수량 | system separate, wastewater_type domestic | 379 L/c/d | design_daily_avg/ultimate/capita_day | C1-3.3.1; Table G2-2 | 기준 |  |
+| 시간최대(첨두) 계수 | system separate | 2~4.24 ratio | design_peak_hourly/ultimate/ratio_to_avg | C1-3.3.2; Figure C1-1 | 기준 |  |
+| 지하수·침입수 | system separate | (원문 비공개) | design_daily_avg/capita_day | C1-3.3.1; C1-3.3.3 | 기준 |  |
+| 최소유속 |  | 0.61 m/s | full_pipe/unspecified/full | C1-4.4 | 의무 |  |
+| 최소경사 | dia_mm =150, dia_basis nominal_in | 0.01 m/m | any | C1-4.1 | 의무 |  |
+| 최소경사 | dia_mm =200, dia_basis nominal_in | 0.004 m/m | full_pipe/unspecified/full | C1-4.4; Table C1-1 | 기준 |  |
+| 최소경사 | dia_mm =250, dia_basis nominal_in | 0.0028 m/m | full_pipe/unspecified/full | C1-4.4; Table C1-1 | 기준 |  |
+| 최소경사 | dia_mm =300, dia_basis nominal_in | 0.0022 m/m | full_pipe/unspecified/full | C1-4.4; Table C1-1 | 기준 |  |
+| 최소경사 | dia_mm =350, dia_basis nominal_in | 0.0017 m/m | full_pipe/unspecified/full | C1-4.4; Table C1-1 | 기준 |  |
+| 최소경사 | dia_mm =375, dia_basis nominal_in | 0.0015 m/m | full_pipe/unspecified/full | C1-4.4; Table C1-1 | 기준 |  |
+| 최소경사 | dia_mm =400, dia_basis nominal_in | 0.0014 m/m | full_pipe/unspecified/full | C1-4.4; Table C1-1 | 기준 |  |
+| 최소경사 | dia_mm =450, dia_basis nominal_in | 0.0012 m/m | full_pipe/unspecified/full | C1-4.4; Table C1-1 | 기준 |  |
+| 최소경사 | dia_mm =525, dia_basis nominal_in | 0.001 m/m | full_pipe/unspecified/full | C1-4.4; Table C1-1 | 기준 |  |
+| 최소경사 | dia_mm =600, dia_basis nominal_in | 0.0008 m/m | full_pipe/unspecified/full | C1-4.4; Table C1-1 | 기준 |  |
+| 최소경사 | dia_mm =675, dia_basis nominal_in | 0.0007 m/m | full_pipe/unspecified/full | C1-4.4; Table C1-1 | 기준 |  |
+| 최소경사 | dia_mm =750, dia_basis nominal_in | 0.0006 m/m | full_pipe/unspecified/full | C1-4.4; Table C1-1 | 기준 |  |
+| 최소경사 | dia_mm =900, dia_basis nominal_in | 0.0005 m/m | full_pipe/unspecified/full | C1-4.4; Table C1-1 | 기준 |  |
+| 조도계수 n |  | 0.013 - | any | C1-4.3 | 의무 |  |
+| 조도계수 n | pipe_role inverted_siphon | 0.015 - | any | C1-4.3 | 참고 |  |
+| 최소관경 |  | 203 mm | any | C1-4.1 | 의무 |  |
+| 최소토피 |  | 0.914 m | any | C1-4.2 | 기준 |  |
+| 맨홀 최대간격 | dia_mm =150, dia_basis nominal_in | 91.4 m | any | C1-4.1 | 의무 |  |
+| 맨홀 최대간격 | dia_mm ≤375, dia_basis nominal_in | 122 m | any | C1-6.1 | 의무 |  |
+| 맨홀 최대간격 | dia_mm ≥450 ≤750, dia_basis nominal_in | 152 m | any | C1-6.1 | 의무 |  |
+| 부관(낙차맨홀) 기준 낙차 |  | 0.61 m | any | C1-6.2 | 기준 |  |
+
+### TSS_WW_2026
+
+| 항목 | 조건 | 값 | 정의 조건(basis) | 조항 | 구속력 | 원문 구절 |
+|---|---|---|---|---|---|---|
+| 1인1일 오수량 | other collection_systemnew, system separate | 379 L/c/d | design_daily_avg/ultimate/capita_day | 11.243(a) | 의무 |  |
+| 시간최대(첨두) 계수 | other collection_systemnew, system separate | 2~4.24 ratio | design_peak_hourly/ultimate/ratio_to_avg | 11.243(b); Figure 1 | 의무 |  |
+| 지하수·침입수 | other collection_systemnew, system separate | (원문 비공개) | design_peak_hourly/ultimate/capita_day | 11.243(b) | 기준 |  |
+| 최소유속 | dia_mm ≤1050, system separate, dia_basis nominal_in | 0.61 m/s | full_pipe/unspecified/full | 33.41 | 의무 |  |
+| 최소유속 | dia_mm ≥1200, system separate, dia_basis nominal_in | 0.914 m/s | full_pipe/unspecified/full | 33.41 | 기준 |  |
+| 최대유속 |  | 3.05 m/s | unspecified/unspecified/unspecified | 33.45 | 의무 |  |
+| 최소경사 | dia_mm =200, system separate, dia_basis nominal_in | 0.004 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
+| 최소경사 | dia_mm =250, system separate, dia_basis nominal_in | 0.0028 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
+| 최소경사 | dia_mm =300, system separate, dia_basis nominal_in | 0.0022 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
+| 최소경사 | dia_mm =375, system separate, dia_basis nominal_in | 0.0015 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
+| 최소경사 | dia_mm =450, system separate, dia_basis nominal_in | 0.0012 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
+| 최소경사 | dia_mm =525, system separate, dia_basis nominal_in | 0.001 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
+| 최소경사 | dia_mm =600, system separate, dia_basis nominal_in | 0.0008 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
+| 최소경사 | dia_mm =675, system separate, dia_basis nominal_in | 0.00067 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
+| 최소경사 | dia_mm =750, system separate, dia_basis nominal_in | 0.00058 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
+| 최소경사 | dia_mm =825, system separate, dia_basis nominal_in | 0.00052 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
+| 최소경사 | dia_mm =900, system separate, dia_basis nominal_in | 0.00046 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
+| 최소경사 | dia_mm =975, system separate, dia_basis nominal_in | 0.00041 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
+| 최소경사 | dia_mm =1050, system separate, dia_basis nominal_in | 0.00037 m/m | full_pipe/unspecified/full | 33.41 | 기준 |  |
+| 설계수심비 |  | (원문 비공개) | none |  | 규정 없음 |  |
+| 여유율 |  | (원문 비공개) | none |  | 규정 없음 |  |
+| 조도계수 n |  | 0.013 - | any | 33.41 | 의무 |  |
+| 최소관경 | other sewer원수 이송 공공 자연유하 하수관, system separate | 203 mm | any | 33.1 | 의무 |  |
+| 최소토피 |  | (원문 비공개) | any | 33.2 | 기준 |  |
+| 맨홀 최대간격 | dia_mm ≤375, dia_basis nominal_in | 122 m | any | 34.1 | 의무 |  |
+| 맨홀 최대간격 | dia_mm ≥450 ≤750, dia_basis nominal_in | 152 m | any | 34.1 | 의무 |  |
+| 부관(낙차맨홀) 기준 낙차 |  | 0.61 m | any | 34.2 | 의무 |  |
+| 하류 관경 감소 |  | (원문 비공개) | none | 33.6 | 규정 없음 |  |
 
 ### GB_DCG_V2_3_20231111
 
@@ -226,6 +234,31 @@
 | 부관(낙차맨홀) 기준 낙차 |  | (원문 비공개) | none | B5.2.27 | 기준 |  |
 | 관 접합 | joint_method crown | (원문 비공개) | any | B5.2.14 | 기준 |  |
 
+### CO_RAS_0330_2017_COMP2021
+
+| 항목 | 조건 | 값 | 정의 조건(basis) | 조항 | 구속력 | 원문 구절 |
+|---|---|---|---|---|---|---|
+| 1인1일 오수량 | wastewater_type domestic | QD = CR × P × DNETA / 86400 (L/s); 수요 단위면적·가입자 기반 식도 병기 | design_daily_avg/ultimate/capita_day | Artículo 134 numeral 1 | 의무 | Cuando se utilice proyección de población, se debe calcular con la siguiente ecu |
+| 1인1일 순급수량 | altitude_masl >2000 | 120 L/c/d | design_daily_avg/ultimate/capita_day | Artículo 43 Tabla 1 | 의무 | se deberá utilizar un valor de dotación que no supere los máximos establecidos e |
+| 1인1일 순급수량 | altitude_masl ≥1000 ≤2000 | 130 L/c/d | design_daily_avg/ultimate/capita_day | Artículo 43 Tabla 1 | 의무 | se deberá utilizar un valor de dotación que no supere los máximos establecidos e |
+| 1인1일 순급수량 | altitude_masl <1000 | 140 L/c/d | design_daily_avg/ultimate/capita_day | Artículo 43 Tabla 1 | 의무 | se deberá utilizar un valor de dotación que no supere los máximos establecidos e |
+| 시간최대(첨두) 계수 |  | 1.4~3.8 ratio | design_peak_hourly/ultimate/ratio_to_avg | Artículo 134 numeral 4 | 의무 | Este valor deberá estar entre 1,4 y 3,8 |
+| 구간 최소 설계유량 | system separate | 1.5 L/s | design_flow/unspecified | Artículo 134 numeral 7 | 의무 | Cuando el caudal de diseño calculado en el tramo sea menor que 1,5 L/s, debe ado |
+| 최소유속 | system separate | 고정값 없음: τ ≥ 1.0 Pa를 만드는 실유속이 최소유속 | design_flow/unspecified/actual | Artículo 141 | 의무 | La velocidad mínima real permitida en el colector de alcantarillado sanitario es |
+| 최소 벽면 전단응력 | system separate | 1 Pa | design_flow/both/actual | Artículo 141 | 의무 | La velocidad mínima real permitida en el colector de alcantarillado sanitario es |
+| 최대유속 | system separate | 5 m/s | design_flow/unspecified/actual | Artículo 142 | 의무 | La velocidad máxima real en un colector por gravedad no debe sobrepasar 5,0 m/s, |
+| 최소경사 | system separate | 규정 없음 | none | Artículo 141 | 규정 없음 |  |
+| 설계수심비 | system separate, dia_basis inner | 0.85 ratio | design_flow/unspecified/partial | Artículo 143 | 의무 | el valor máximo permisible de la profundidad del flujo para el caudal de diseño  |
+| 최소관경 | system separate, dia_basis inner, population ≥2500 | 170 mm | any | Artículo 140 | 의무 | El diámetro interno real mínimo permitido en redes de alcantarillado sanitario e |
+| 최소관경 | system separate, dia_basis inner, population <2500 | 140 mm | any | Artículo 140 | 의무 | Para poblaciones menores de 2.500 habitantes el diámetro interno real permitido  |
+| 최소토피 | other location_rawVías peatonales o zonas verdes, system separate, location sidewalk | 0.75 m | any | Artículo 139 Tabla 18 | 의무 | Los valores mínimos permisibles de recubrimiento de los colectores que no requie |
+| 최소토피 | other location_rawVías vehiculares, system separate, location roadway | 1.2 m | any | Artículo 139 Tabla 18 | 의무 | Los valores mínimos permisibles de recubrimiento de los colectores que no requie |
+| 맨홀 최대간격 | receives_house_connections True | 120 m | any | Artículo 154 numeral 1 | 의무 | a distancia máxima de 120 m para tramos con aportes de caudal |
+| 맨홀 최대간격 | other pipe_role_rawinterceptores y emisarios finales, pipe_role interceptor, receives_house_connections False | 300 m | any | Artículo 154 numeral 1 | 의무 | 300 m en interceptores y emisarios finales sin aportes de caudal |
+| 부관(낙차맨홀) 기준 낙차 | joint_method invert | 0.75 m | any | Artículo 155 numeral 1 | 의무 | con una diferencia de nivel entre las cotas bateas mayor a 0,75 m, respecto del  |
+| 관 접합 |  | 맨홀 유입·유출관 관저고 차이 = 수리해석(흐름 상태·구조물 형상 손실)으로 결정; 손실 ≤ 0이면 관정 간 2 cm 이상 | design_flow | Artículo 154 numeral 7; Artículo 137 | 의무 | una diferencia entre las cotas bateas de los colectores de entrada y salida, def |
+| 하류 관경 감소 |  | 규정 없음 | none | Artículo 154 | 규정 없음 |  |
+
 ## 3. 사업 채택값 (원문에 수치가 없거나 선택지를 주는 값)
 
 | 기준 | 항목 | 채택값 | 근거 |
@@ -235,6 +268,7 @@
 | KDS_61_40_00_20251001 | gw_ratio | `max` | 1.7.2 (3) 20% 이하 — 상한 |
 | KDS_61_40_00_20251001 | junction | `crown` | 5.1 (1) 수면접합 또는 관정접합 중 관정접합 |
 | KDS_61_40_00_20251001 | pump_efficiency | `0.7` | 펌프+전동기 효율 가정(원문 표 없음 또는 구간 미정리) — 비교용 |
+| KDS_61_40_00_20251001 | plant_avg_ratio | `max` | KDS 61 10 00 1.7.2 (5) 계획1일평균 = 계획1일최대의 70~80% — 상한(관망 첨두 채택과 같은 방식) |
 | TSS_WW_2026 | cover | `1.0` | 33.2 수치 없음, 비교용 1.0 m |
 | TSS_WW_2026 | pump_efficiency | `0.7` | 펌프+전동기 효율 가정(원문 표 없음 또는 구간 미정리) — 비교용 |
 | JP_YOKOHAMA_SEKKEI_202604 | pump_efficiency | `0.7` | 펌프+전동기 효율 가정(원문 표 없음 또는 구간 미정리) — 비교용 |
@@ -253,55 +287,117 @@
 | GB_DCG_V2_3_20231111 | street_location | `highway_unrestricted` | B5.1.7(e) 차도 가정 — 다른 기준의 비교 조건과 맞춤 |
 | GB_DCG_V2_3_20231111 | access_pair | `manhole-manhole` | B5.2.6 전 구간 맨홀 가정. 11가구 이상 구간은 B5.2.4(d)로 맨홀 |
 | GB_DCG_V2_3_20231111 | pump_efficiency | `0.7` | 펌프+전동기 효율 가정(원문 표 없음) — 비교용 |
+| WA_ECY_CSWD_2023 | hazen_c | `140` | C2 압송관 마찰계수 수치 없음 — PVC 140 가정(CPHEEO PVC 값·콜롬비아 사업값과 동일) |
+| WA_ECY_CSWD_2023 | pump_efficiency | `0.7` | 펌프+전동기 효율 가정(원문 표 없음 또는 구간 미정리) — 비교용 |
 
 ## 4. 기준 비교 — 같은 정의 조건끼리만
 
 값 옆 괄호는 정의 조건(유량/시점/수리 상태/분모). 정의 조건이 다르면 숫자가 같아도 같은 기준이 아니다. 실제 영향은 5절의 같은 관망 설계 결과로 비교한다.
 
-| 항목 | KDS_61_40_00_20251001 | TSS_WW_2026 | JP_YOKOHAMA_SEKKEI_202604 | CPHEEO_SEW_2013 | CO_RAS_0330_2017_COMP2021 | GB_DCG_V2_3_20231111 |
-|---|---|---|---|---|---|---|
-| 1인1일 오수량 | 1인1일 최대오수량은 상수도계획상 1인1일 최대급수량을 감안하여 결정 (고정 수치·비율 없음) (design_daily_max/ultimate/capita_day) | — | 220 L/c/d (design_daily_avg/capita_day)<br>290 L/c/d (design_daily_max/capita_day) | 100 L/c/d (design_daily_avg/unspecified/capita_day) | QD = CR × P × DNETA / 86400 (L/s); 수요 단위면적·가입자 기반 식도 병기 (design_daily_avg/ultimate/capita_day) | — |
-| 세대당 첨두유량 | — | — | — | — | — | 0.05 L/s/dwelling (design_flow/dwelling) |
-| 1인1일 순급수량 | — | — | — | — | 120 L/c/d (design_daily_avg/ultimate/capita_day)<br>130 L/c/d (design_daily_avg/ultimate/capita_day)<br>140 L/c/d (design_daily_avg/ultimate/capita_day) | — |
-| 회귀계수 | — | — | — | — | — | — |
-| 시간최대(첨두) 계수 | 1.3~1.8 ratio (design_peak_hourly/ultimate/ratio_to_daily_max) | — | 1.95 ratio (design_peak_hourly/ratio_to_avg)<br>1.95 ratio (design_peak_hourly/ratio_to_avg)<br>2 ratio (design_peak_hourly/ratio_to_avg) | 3 ratio (peak/unspecified/ratio_to_avg)<br>2.5 ratio (peak/unspecified/ratio_to_avg)<br>2.25 ratio (peak/unspecified/ratio_to_avg) | 1.4~3.8 ratio (design_peak_hourly/ultimate/ratio_to_avg) | — |
-| 지하수·침입수 | 0.2 ratio (design_daily_max/ultimate/ratio_to_per_capita) | — | — | 5~50 m3/(ha·d) (peak/unspecified/area_day)<br>0.0005~0.005 m3/(m·d) (peak/unspecified/length_day)<br>0.25~0.5 m3/(manhole·d) (peak/unspecified/manhole_day) | — | — |
-| 구간 최소 설계유량 | — | — | — | — | 1.5 L/s (design_flow/unspecified) | — |
-| 최소유속 | 0.6 m/s (design_peak_hourly/ultimate/unspecified) | 0.61 m/s (full_pipe/unspecified/full)<br>0.914 m/s (full_pipe/unspecified/full) | 0.6 m/s (design_peak_hourly/ultimate/full) | 0.6 m/s (peak/initial/actual)<br>0.8 m/s (peak/ultimate/actual) | 고정값 없음: τ ≥ 1.0 Pa를 만드는 실유속이 최소유속 (design_flow/unspecified/actual) | 0.75 m/s (one_third_design/actual) |
-| 최소 벽면 전단응력 | — | — | — | — | 1 Pa (design_flow/both/actual) | — |
-| 최대유속 | 3 m/s (design_peak_hourly/ultimate/unspecified) | 3.05 m/s (unspecified/unspecified/unspecified) | 3 m/s (design_peak_hourly/ultimate/full) | 3 m/s (unspecified/unspecified/unspecified) | 5 m/s (design_flow/unspecified/actual) | — |
-| 최소경사 | 관경별 최소경사 표 없음 - 유속(0.6~3.0 m/s)으로 판단 (design_peak_hourly/ultimate/unspecified) | 0.004 m/m (full_pipe/unspecified/full)<br>0.0028 m/m (full_pipe/unspecified/full)<br>0.0022 m/m (full_pipe/unspecified/full) | 0.0025 m/m (full_pipe/unspecified/full) | 0.006 m/m (unspecified/unspecified/unspecified)<br>0.004 m/m (unspecified/unspecified/unspecified)<br>0.0028 m/m (unspecified/unspecified/unspecified) | 규정 없음 | 0.006667 m/m (any)<br>0.0125 m/m (any)<br>0.025 m/m (any) |
-| 설계수심비 | 1 ratio (design_flow/ultimate/full)<br>0.9 ratio (design_flow/ultimate/partial)<br>0.8 ratio (design_flow/ultimate/partial) | 규정 없음 | 1 ratio (design_flow/ultimate/full)<br>0.9 ratio (design_flow/ultimate/partial)<br>0.8 ratio (design_flow/ultimate/partial) | 0.8 ratio (peak/ultimate/partial) | 0.85 ratio (design_flow/unspecified/partial) | — |
-| 만관 대비 상한 | — | — | — | — | — | 0.75 - (design_flow/unspecified) |
-| 여유율 | 오수관로 관경결정 시 계획하수량에 여유율을 둘 수 있음 (관경별 수치 없음) (design_peak_hourly/ultimate/unspecified) | 규정 없음 | 1 ratio (design_peak_hourly/ultimate/unspecified) | 0.8 ratio (peak/ultimate/partial) | — | — |
-| 조도계수 n | 0.013 - (any)<br>0.013 - (any)<br>0.011 - (any) | 0.013 - (any) | 0.013 - (any)<br>0.013 - (any)<br>0.013 - (any) | 0.011 - (any)<br>0.013 - (any)<br>0.011 - (any) | — | — |
-| Colebrook-White ks | — | — | — | — | — | 1.5 mm (any) |
-| 최소관경 | 200 mm (any) | — | 250 mm (any) | 150 mm (any) | 170 mm (any)<br>140 mm (any) | 100 mm (any)<br>150 mm (any) |
-| 최소토피 | 1 m (any) | (원문 비공개) (any) | — | — | — | — |
-| 맨홀 최대간격 | 75 m (any)<br>100 m (any)<br>150 m (any) | 122 m (any)<br>152 m (any) | 50 m (any)<br>75 m (any)<br>100 m (any) | — | 120 m (any) | 90 m (any)<br>45 m (any)<br>45 m (any) |
-| 부관(낙차맨홀) 기준 낙차 | 0.6 m (any) | 0.61 m (any) | — | 0.6 m (any) | 0.75 m (any) | (원문 비공개) (none) |
-| 관 접합 | 관경 변화·합류 시 원칙적으로 수면접합 또는 관정접합 (급경사지는 단차접합·계단접합) (any) | — | 0.7 ratio (any)<br>(원문 비공개) (any) | 관정(crown) 접합: 관경 변경 시 유입·유출관 관정 동일 표고; 유출관 관정은 유입관 관정보다 높지 않게; 소관 관정(soffit)은 대관 관정보다 낮지 않게 (any) | 맨홀 유입·유출관 관저고 차이 = 수리해석(흐름 상태·구조물 형상 손실)으로 결정; 손실 ≤ 0이면 관정 간 2 cm 이상 (design_flow) | (원문 비공개) (any) |
-| 하류 관경 감소 | 하류방향으로 관경이 점차 커지고 경사는 점차 작아지도록 유속·경사 결정 (명시적 '감소 금지' 조항 없음) (any) | 규정 없음 | 규정 없음 | 하류로 관경 축소 금지 (any) | 규정 없음 | — |
+### 4-1. 설계 방법서
+
+| 항목 | KDS_61_40_00_20251001 | JP_YOKOHAMA_SEKKEI_202604 | CPHEEO_SEW_2013 | WA_ECY_CSWD_2023 |
+|---|---|---|---|---|
+| 1인1일 오수량 | 1인1일 최대오수량은 상수도계획상 1인1일 최대급수량을 감안하여 결정 (고정 수치·비율 없음) (design_daily_max/ultimate/capita_day) | 220 L/c/d (design_daily_avg/capita_day)<br>290 L/c/d (design_daily_max/capita_day) | 100 L/c/d (design_daily_avg/unspecified/capita_day) | 379 L/c/d (design_daily_avg/ultimate/capita_day) |
+| 세대당 첨두유량 | — | — | — | — |
+| 1인1일 순급수량 | — | — | — | — |
+| 회귀계수 | — | — | — | — |
+| 시간최대(첨두) 계수 | 1.3~1.8 ratio (design_peak_hourly/ultimate/ratio_to_daily_max) | 1.95 ratio (design_peak_hourly/ratio_to_avg)<br>1.95 ratio (design_peak_hourly/ratio_to_avg)<br>2 ratio (design_peak_hourly/ratio_to_avg) | 3 ratio (peak/unspecified/ratio_to_avg)<br>2.5 ratio (peak/unspecified/ratio_to_avg)<br>2.25 ratio (peak/unspecified/ratio_to_avg) | 2~4.24 ratio (design_peak_hourly/ultimate/ratio_to_avg) |
+| 지하수·침입수 | 0.2 ratio (design_daily_max/ultimate/ratio_to_per_capita) | — | 5~50 m3/(ha·d) (peak/unspecified/area_day)<br>0.0005~0.005 m3/(m·d) (peak/unspecified/length_day)<br>0.25~0.5 m3/(manhole·d) (peak/unspecified/manhole_day) | (원문 비공개) (design_daily_avg/capita_day) |
+| 구간 최소 설계유량 | — | — | — | — |
+| 최소유속 | 0.6 m/s (design_peak_hourly/ultimate/unspecified) | 0.6 m/s (design_peak_hourly/ultimate/full) | 0.6 m/s (peak/initial/actual)<br>0.8 m/s (peak/ultimate/actual) | 0.61 m/s (full_pipe/unspecified/full) |
+| 최소 벽면 전단응력 | — | — | — | — |
+| 최대유속 | 3 m/s (design_peak_hourly/ultimate/unspecified) | 3 m/s (design_peak_hourly/ultimate/full) | 3 m/s (unspecified/unspecified/unspecified) | — |
+| 최소경사 | 관경별 최소경사 표 없음 - 유속(0.6~3.0 m/s)으로 판단 (design_peak_hourly/ultimate/unspecified) | 0.0025 m/m (full_pipe/unspecified/full) | 0.006 m/m (unspecified/unspecified/unspecified)<br>0.004 m/m (unspecified/unspecified/unspecified)<br>0.0028 m/m (unspecified/unspecified/unspecified) | 0.01 m/m (any)<br>0.004 m/m (full_pipe/unspecified/full)<br>0.0028 m/m (full_pipe/unspecified/full) |
+| 설계수심비 | 1 ratio (design_flow/ultimate/full)<br>0.9 ratio (design_flow/ultimate/partial)<br>0.8 ratio (design_flow/ultimate/partial) | 1 ratio (design_flow/ultimate/full)<br>0.9 ratio (design_flow/ultimate/partial)<br>0.8 ratio (design_flow/ultimate/partial) | 0.8 ratio (peak/ultimate/partial) | — |
+| 만관 대비 상한 | — | — | — | — |
+| 여유율 | 오수관로 관경결정 시 계획하수량에 여유율을 둘 수 있음 (관경별 수치 없음) (design_peak_hourly/ultimate/unspecified) | 1 ratio (design_peak_hourly/ultimate/unspecified) | 0.8 ratio (peak/ultimate/partial) | — |
+| 조도계수 n | 0.013 - (any)<br>0.013 - (any)<br>0.011 - (any) | 0.013 - (any)<br>0.013 - (any)<br>0.013 - (any) | 0.011 - (any)<br>0.013 - (any)<br>0.011 - (any) | 0.013 - (any) |
+| Colebrook-White ks | — | — | — | — |
+| 최소관경 | 200 mm (any) | 250 mm (any) | 150 mm (any) | 203 mm (any) |
+| 최소토피 | 1 m (any) | — | — | 0.914 m (any) |
+| 맨홀 최대간격 | 75 m (any)<br>100 m (any)<br>150 m (any) | 50 m (any)<br>75 m (any)<br>100 m (any) | — | 91.4 m (any)<br>122 m (any)<br>152 m (any) |
+| 부관(낙차맨홀) 기준 낙차 | 0.6 m (any) | — | 0.6 m (any) | 0.61 m (any) |
+| 관 접합 | 관경 변화·합류 시 원칙적으로 수면접합 또는 관정접합 (급경사지는 단차접합·계단접합) (any) | 0.7 ratio (any)<br>(원문 비공개) (any) | 관정(crown) 접합: 관경 변경 시 유입·유출관 관정 동일 표고; 유출관 관정은 유입관 관정보다 높지 않게; 소관 관정(soffit)은 대관 관정보다 낮지 않게 (any) | — |
+| 하류 관경 감소 | 하류방향으로 관경이 점차 커지고 경사는 점차 작아지도록 유속·경사 결정 (명시적 '감소 금지' 조항 없음) (any) | 규정 없음 | 하류로 관경 축소 금지 (any) | — |
+
+### 4-2. 심사 기준
+
+| 항목 | TSS_WW_2026 | GB_DCG_V2_3_20231111 |
+|---|---|---|
+| 1인1일 오수량 | — | — |
+| 세대당 첨두유량 | — | 0.05 L/s/dwelling (design_flow/dwelling) |
+| 1인1일 순급수량 | — | — |
+| 회귀계수 | — | — |
+| 시간최대(첨두) 계수 | — | — |
+| 지하수·침입수 | — | — |
+| 구간 최소 설계유량 | — | — |
+| 최소유속 | 0.61 m/s (full_pipe/unspecified/full)<br>0.914 m/s (full_pipe/unspecified/full) | 0.75 m/s (one_third_design/actual) |
+| 최소 벽면 전단응력 | — | — |
+| 최대유속 | 3.05 m/s (unspecified/unspecified/unspecified) | — |
+| 최소경사 | 0.004 m/m (full_pipe/unspecified/full)<br>0.0028 m/m (full_pipe/unspecified/full)<br>0.0022 m/m (full_pipe/unspecified/full) | 0.006667 m/m (any)<br>0.0125 m/m (any)<br>0.025 m/m (any) |
+| 설계수심비 | 규정 없음 | — |
+| 만관 대비 상한 | — | 0.75 - (design_flow/unspecified) |
+| 여유율 | 규정 없음 | — |
+| 조도계수 n | 0.013 - (any) | — |
+| Colebrook-White ks | — | 1.5 mm (any) |
+| 최소관경 | — | 100 mm (any)<br>150 mm (any) |
+| 최소토피 | (원문 비공개) (any) | — |
+| 맨홀 최대간격 | 122 m (any)<br>152 m (any) | 90 m (any)<br>45 m (any)<br>45 m (any) |
+| 부관(낙차맨홀) 기준 낙차 | 0.61 m (any) | (원문 비공개) (none) |
+| 관 접합 | — | (원문 비공개) (any) |
+| 하류 관경 감소 | 규정 없음 | — |
+
+### 4-3. 규정
+
+| 항목 | CO_RAS_0330_2017_COMP2021 |
+|---|---|
+| 1인1일 오수량 | QD = CR × P × DNETA / 86400 (L/s); 수요 단위면적·가입자 기반 식도 병기 (design_daily_avg/ultimate/capita_day) |
+| 세대당 첨두유량 | — |
+| 1인1일 순급수량 | 120 L/c/d (design_daily_avg/ultimate/capita_day)<br>130 L/c/d (design_daily_avg/ultimate/capita_day)<br>140 L/c/d (design_daily_avg/ultimate/capita_day) |
+| 회귀계수 | — |
+| 시간최대(첨두) 계수 | 1.4~3.8 ratio (design_peak_hourly/ultimate/ratio_to_avg) |
+| 지하수·침입수 | — |
+| 구간 최소 설계유량 | 1.5 L/s (design_flow/unspecified) |
+| 최소유속 | 고정값 없음: τ ≥ 1.0 Pa를 만드는 실유속이 최소유속 (design_flow/unspecified/actual) |
+| 최소 벽면 전단응력 | 1 Pa (design_flow/both/actual) |
+| 최대유속 | 5 m/s (design_flow/unspecified/actual) |
+| 최소경사 | 규정 없음 |
+| 설계수심비 | 0.85 ratio (design_flow/unspecified/partial) |
+| 만관 대비 상한 | — |
+| 여유율 | — |
+| 조도계수 n | — |
+| Colebrook-White ks | — |
+| 최소관경 | 170 mm (any)<br>140 mm (any) |
+| 최소토피 | — |
+| 맨홀 최대간격 | 120 m (any) |
+| 부관(낙차맨홀) 기준 낙차 | 0.75 m (any) |
+| 관 접합 | 맨홀 유입·유출관 관저고 차이 = 수리해석(흐름 상태·구조물 형상 손실)으로 결정; 손실 ≤ 0이면 관정 간 2 cm 이상 (design_flow) |
+| 하류 관경 감소 | 규정 없음 |
 
 ## 5. 같은 관망 설계 결과 (SYN01)
 
-| 기준 | 굴착 지표(m²) | 최대 관경 | 최대 매설깊이(m) | 추가 맨홀 | 낙차 구간 | 부관 | 플러싱 장치 | 경고 |
-|---|---|---|---|---|---|---|---|---|
-| KDS_61_40_00_20251001 | 3556 | 400 | 2.22 | 22 | 10 | 3 | 0 | 0 |
-| TSS_WW_2026 | 4033 | 450 | 2.73 | 1 | 0 | 2 | 0 | 0 |
-| JP_YOKOHAMA_SEKKEI_202604 | 4322 | 400 | 2.86 | 30 | 12 | 5 | 0 | 0 |
-| CPHEEO_SEW_2013 | 5578 | 250 | 4.25 | 66 | 0 | 2 | 14 | 0 |
-| CO_RAS_0330_2017_COMP2021 | 4921 | 315 | 3.28 | 4 | 0 | 2 | 0 | 0 |
-| GB_DCG_V2_3_20231111 | 6683 | 600 | 5.05 | 12 | 0 | 0 | 0 | 0 |
+문서 역할별로 묶었다. 역할이 다른 행끼리의 차이는 기준값 차이가 아니라 문서 성격 차이일 수 있다.
+
+| 기준 | 문서 역할 | 굴착 지표(m²) | 최대 관경 | 최대 매설깊이(m) | 추가 맨홀 | 낙차 구간 | 부관 | 플러싱 장치 | 경고 |
+|---|---|---|---|---|---|---|---|---|---|
+| KDS_61_40_00_20251001 | 설계 방법서 | 3556 | 400 | 2.22 | 22 | 10 | 3 | 0 | 0 |
+| JP_YOKOHAMA_SEKKEI_202604 | 설계 방법서 | 4322 | 400 | 2.86 | 30 | 12 | 5 | 0 | 0 |
+| CPHEEO_SEW_2013 | 설계 방법서 | 5578 | 250 | 4.25 | 66 | 0 | 2 | 14 | 0 |
+| WA_ECY_CSWD_2023 | 설계 방법서 | 3820 | 450 | 2.64 | 1 | 0 | 2 | 0 | 0 |
+| TSS_WW_2026 | 심사 기준 | 4033 | 450 | 2.73 | 1 | 0 | 2 | 0 | 0 |
+| GB_DCG_V2_3_20231111 | 심사 기준 | 6683 | 600 | 5.05 | 12 | 0 | 0 | 0 | 0 |
+| CO_RAS_0330_2017_COMP2021 | 규정 | 4921 | 315 | 3.28 | 4 | 0 | 2 | 0 | 0 |
 
 ### 경사·관경을 결정한 조항 (구간 수)
 
-- **KDS_61_40_00_20251001**: 1.3 (1) ① 유속 0.60 m/s 이상 (design_depth, design 유량) ×10; 지반 따라 최소토피 유지(요구 경사 2.22‰보다 급함) ×6; 하류 경사 점감(1.3 본문 기준)로 경사 제한, 상류 맨홀 낙차 0.10 m ×2; 하류 경사 점감(1.3 본문 기준)로 경사 제한, 상류 맨홀 낙차 0.00 m ×1
-- **TSS_WW_2026**: 지반 따라 최소토피 유지(요구 경사 4.00‰보다 급함) ×12; 33.41 최소경사표 ×11; 지반 따라 최소토피 유지(요구 경사 3.68‰보다 급함) ×1; 33.41 유속 0.61 m/s 이상 (full, design 유량) ×1
+- **KDS_61_40_00_20251001**: 1.3 (1) ① 유속 0.60 m/s 이상 (design_depth, design 유량) ×10; 지반 따라 최소토피 유지(요구 경사 2.22‰보다 급함) ×6; 하류 경사 점감(1.3 본문 기준)로 경사 제한, 상류 맨홀 낙차 0.10 m ×2; 하류 경사 점감(1.3 본문 기준)로 경사 제한, 상류 맨홀 낙차 0.15 m ×1
 - **JP_YOKOHAMA_SEKKEI_202604**: 3.5.4(1) 유속 0.60 m/s 이상 (full, design 유량) ×8; 지반 따라 최소토피 유지(요구 경사 1.45‰보다 급함) ×7; 하류 경사 점감(3.5.4 의무)로 경사 제한, 상류 맨홀 낙차 0.10 m ×2; 하류 경사 점감(3.5.4 의무)로 경사 제한, 상류 맨홀 낙차 0.14 m ×2
 - **CPHEEO_SEW_2013**: 3.15.6 Table 3.13 최소경사표 ×17; 지반 따라 최소토피 유지(요구 경사 6.00‰보다 급함) ×6; 지반 따라 최소토피 유지(요구 경사 23.62‰보다 급함) ×1; 지반 따라 최소토피 유지(요구 경사 14.82‰보다 급함) ×1
-- **CO_RAS_0330_2017_COMP2021**: Artículo 141 벽면 전단응력 1.0 Pa 이상 (실수심, initial 유량) ×15; 지반 따라 최소토피 유지(요구 경사 5.44‰보다 급함) ×6; 지반 따라 최소토피 유지(요구 경사 5.06‰보다 급함) ×2; 지반 따라 최소토피 유지(요구 경사 4.14‰보다 급함) ×1
+- **WA_ECY_CSWD_2023**: 지반 따라 최소토피 유지(요구 경사 4.00‰보다 급함) ×12; C1-4.4; Table C1-1 최소경사표 ×11; 지반 따라 최소토피 유지(요구 경사 3.68‰보다 급함) ×1; C1-4.4 유속 0.61 m/s 이상 (full, design 유량) ×1
+- **TSS_WW_2026**: 지반 따라 최소토피 유지(요구 경사 4.00‰보다 급함) ×12; 33.41 최소경사표 ×11; 지반 따라 최소토피 유지(요구 경사 3.68‰보다 급함) ×1; 33.41 유속 0.61 m/s 이상 (full, design 유량) ×1
 - **GB_DCG_V2_3_20231111**: B6.9 유속 0.75 m/s 이상 (actual, design 유량) ×14; 지반 따라 최소토피 유지(요구 경사 6.67‰보다 급함) ×7; B6.9(a) 유속 대체 경사 1:150 ×4; 지반 따라 최소토피 유지(요구 경사 12.91‰보다 급함) ×1
+- **CO_RAS_0330_2017_COMP2021**: Artículo 141 벽면 전단응력 1.0 Pa 이상 (실수심, initial 유량) ×15; 지반 따라 최소토피 유지(요구 경사 5.44‰보다 급함) ×6; 지반 따라 최소토피 유지(요구 경사 5.06‰보다 급함) ×2; 지반 따라 최소토피 유지(요구 경사 3.74‰보다 급함) ×1
 
 ## 5-2. 펌프장·압송관
 
@@ -310,11 +406,12 @@
 | 기준 | 펌프장 | 판정 메모 |
 |---|---|---|
 | KDS_61_40_00_20251001 | 없음 | 판정 보류(설계자 검토): 자연유하 곤란·매설깊이가 현저히 깊어질 때, 자연유하와 비교 검토 — 수치 없음 → 판정 보류(설계자 검토) — 최대 매설 2.22 m (A03-A04) |
-| TSS_WW_2026 | 없음 | — |
 | JP_YOKOHAMA_SEKKEI_202604 | 없음 | 판정 보류(설계자 검토): 원문 수치 없음 — 최대 매설 2.86 m (T11-T12) |
 | CPHEEO_SEW_2013 | 없음 | — |
-| CO_RAS_0330_2017_COMP2021 | 없음 | — |
+| WA_ECY_CSWD_2023 | 없음 | 판정 보류(설계자 검토): 원문 수치 없음 — 최대 매설 2.64 m (T06-T07) |
+| TSS_WW_2026 | 없음 | — |
 | GB_DCG_V2_3_20231111 | 없음 | 판정 보류(설계자 검토): 원문 수치 없음 — 최대 매설 5.05 m (T08-T09) |
+| CO_RAS_0330_2017_COMP2021 | 없음 | — |
 
 ## 6. 원문 한계·주의
 

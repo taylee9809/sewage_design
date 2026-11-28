@@ -135,3 +135,65 @@ def test_no_country_branches_in_plant_engine():
     src = (ROOT / "engine" / "plant.py").read_text(encoding="utf-8")
     for token in ('"KR"', '"US"', '"IN"', '"CO"', "KDS_", "TSS_", "CPHEEO", "RAS_"):
         assert token not in src, token
+
+
+KDS_INPUT = dict(bod_per_capita_kg=0.05, ss_per_capita_kg=0.05, tn_per_capita_kg=0.012, tp_per_capita_kg=0.0015,
+                 primary_bod_removal=0.3, primary_ss_removal=0.5, asp_bod_removal=0.9, asp_ss_removal=0.9, return_ratio=0.5)
+
+
+def test_kds_a2o_nutrient_removal_7_5_1(std):
+    r = pl.plant_design(std(KDS, **KDS_INPUT), P)
+    c = r["influent_mgL"]
+    assert c["tn"] == pytest.approx(0.012 * P / r["flows_m3d"]["average"] * 1000)
+    # 7.5.1 (2) 일차침전지 유출수 대비 T-N 60~70%·T-P 70~80% 기대 → 하한
+    assert r["effluent_mgL"]["tn"] == pytest.approx(c["tn"] * 0.4)
+    assert r["effluent_mgL"]["tp"] == pytest.approx(c["tp"] * 0.3)
+    assert r["nutrient"]["tn_removal"]["clause"] == "7.5.1 (2)"
+
+
+def test_kds_chemical_p_only_where_bio_fails(std):
+    r = pl.plant_design(std(KDS, **KDS_INPUT), P)
+    tp_bio = r["effluent_mgL"]["tp"]
+    j = r["effluent_judgement"]
+    assert j["Ⅰ"]["tp"]["limit"] == 0.2  # 별표 1 (2029-12-01~) 500~1만 m3/일
+    assert j["Ⅰ"]["tp"]["chemical_p"]["remove_mgL"] == pytest.approx(tp_bio - 0.2)  # 7.4.5 (4) ② 목표 미달 시에만
+    assert "몰비" in j["Ⅰ"]["tp"]["chemical_p"]["dose"]  # 7.5.1 (7) ② 실험값 → 주입량 보류
+    assert j["Ⅳ"]["tp"]["limit"] == 2.0 and "chemical_p" not in j["Ⅳ"]["tp"] and j["Ⅳ"]["tp"]["ok"]
+    assert j["Ⅰ"]["tn"]["ok"] == (r["effluent_mgL"]["tn"] <= 20)
+
+
+def test_kds_a2o_clarifiers(std):
+    r = pl.plant_design(std(KDS, **KDS_INPUT), P)
+    s = r["secondary"]
+    assert 3.5 - 1e-9 <= s["depth_m"] <= 4.0 + 1e-9  # 7.5.1 (9) ②
+    assert check(s, "secondary_surface_loading")["range"] == [15, 25]  # 7.5.1 (9) ①
+    assert check(r["primary"], "primary_surface_loading")["range"] == [25, 70]  # 7.5.1 (8) ①
+    assert "7.3.2" in r["aeration"]["note"]  # 고도처리 반응조 = 표준법 이상, 수치 없음
+
+
+def test_nutrient_held_where_standard_has_no_bnr_rules(std):
+    r = pl.plant_design(std(IN), P)
+    j = r["effluent_judgement"]["-"]
+    assert j["tn"]["limit"] == 10 and j["tp"]["limit"] == 1.0  # NGT 2019
+    assert j["tn"]["ok"] is None and "고도처리" in j["tn"]["reason"]
+
+
+def test_every_design_standard_set_has_doc_role_with_basis():
+    """설계 기준 세트(rules 파일)와 그 하위 기준(flow·pump·plant)은 역할과 근거가 있어야 한다. 참고 문헌(점검 모드 출처)은 대상 아님."""
+    import json
+    from engine.generic import DOC_ROLES, ROOT, STANDARDS
+    sids = set()
+    for f in (ROOT / "criteria" / "rules").glob("*.json"):
+        spec = json.loads(f.read_text(encoding="utf-8"))
+        sids |= {f.stem} | {spec[k] for k in ("flow_standard_id", "pump_standard_id", "plant_standard_id") if spec.get(k)}
+    assert sids
+    for sid in sids:
+        m = STANDARDS[sid]
+        assert m.get("doc_role") in DOC_ROLES, sid
+        assert m.get("doc_role_basis"), sid
+
+
+def test_plant_result_carries_doc_role(std):
+    assert pl.plant_design(std(KDS), P)["doc_role"] == "design_method"  # 처리장 기준(KDS 61 50 00)의 역할
+    assert pl.plant_design(std(TSS), P)["doc_role"] == "review"
+    assert pl.plant_design(std(CO), P)["doc_role"] == "regulation"

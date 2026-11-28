@@ -23,7 +23,9 @@ Add one entry keyed by a `standard_id` of the form `<CC>_<SHORT_NAME>_<EDITION>`
 
 ```json
 "XX_EXAMPLE_2025": {
-  "country": "XX", "issuer": "...", "title": "...", "edition": "2025",
+  "country": "XX", "doc_role": "design_method",
+  "doc_role_basis": "the scope or foreword clause that says what the document is for",
+  "issuer": "...", "title": "...", "edition": "2025",
   "effective_date": "2025-01-01", "is_latest": true, "access": "free",
   "source_url": "https://...", "redistributable": "values_only",
   "license_note": "where the redistribution terms come from",
@@ -32,6 +34,11 @@ Add one entry keyed by a `standard_id` of the form `<CC>_<SHORT_NAME>_<EDITION>`
 ```
 
 `doc_type` says what kind of document it is: `law`, `regulation` (binding notices, resolutions), `design_standard`, `guideline`, `legacy_commentary` (a superseded standard and its commentary), `local_study` (municipal plans and studies), or `paper`. Only `law`, `regulation` and `design_standard` can drive the engine's judgments. The others are recorded so practice values keep a traceable source, and they are used only when a project or review file adopts them explicitly (`adopt`).
+
+`doc_role` is one of `design_method` (how to design: KDS, CPHEEO manual), `review` (what a reviewing body approves against:
+Ten States, Water UK DCG) or `regulation` (minimum legal requirements: Colombia Res. 0330). Reports and the plant CLI compare
+results only within the same role, because a review standard that leaves a process to case-by-case approval is not saying the
+same thing as a design manual that gives its dimensions.
 
 ### 2. Add the values: `criteria/<country>_sewer.csv`
 
@@ -58,7 +65,7 @@ The `basis` says which flow and pipe state the value is defined under. It is wha
 
 ### 4. Describe how to apply it: `criteria/rules/<standard_id>.json`
 
-The rules file tells the engine how your standard is applied: velocity limits, slope tables, capacity, minimum diameter, cover, junctions, manhole spacing, and how design flow is built up. There are 34 rule types (6 of them for the treatment plant); copy them from the existing files. Every interpretation goes in a `resolution` field together with the clause it comes from.
+The rules file tells the engine how your standard is applied: velocity limits, slope tables, capacity, minimum diameter, cover, junctions, manhole spacing, and how design flow is built up. There are 35 rule types (7 of them for the treatment plant); copy them from the existing files. Every interpretation goes in a `resolution` field together with the clause it comes from.
 
 If your standard needs a rule the engine doesn't have, open an issue. New rule types are added in a country-neutral way. The test `test_no_country_branches_in_generic_engine` fails if a country name appears in the core engine.
 
@@ -86,7 +93,7 @@ If your standard is `full_text`, add `criteria/clauses/<name>.jsonl` (one clause
 
 ## Pull request checklist
 
-- [ ] `standards.json` entry with `redistributable` set and its source explained
+- [ ] `standards.json` entry with `redistributable` set and its source explained, and `doc_role` with its basis
 - [ ] Every value row has a clause number, `source_url`, and `retrieved_at`
 - [ ] No quotes or clause text from `values_only` standards
 - [ ] Every row is tagged in `criteria/normalized/`
