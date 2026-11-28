@@ -4,7 +4,7 @@ English | [한국어](README.ko.md)
 
 **Every country's sewer design standards as open data, and one engine that designs the same network under any of them.**
 
-![Same sewer network designed under six national standards](docs/SYN01_six_standards.png)
+![Same sewer network designed under seven standards from six countries](docs/SYN01_standards.png)
 
 The same 27-pipe network, designed with each standard's own clauses: excavation varies by 88% and maximum burial depth by 2.3x. Engineers rarely see these differences, because each standard lives in its own long document, in its own language.
 
