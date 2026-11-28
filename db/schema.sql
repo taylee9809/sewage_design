@@ -12,7 +12,7 @@ SET search_path = criteria, public;
 CREATE TABLE standard (
   standard_id     text PRIMARY KEY,       -- KDS_61_40_00_20251001, TSS_WW_2026
   country         text NOT NULL,          -- ISO 3166 alpha-2, 국제기구는 INT
-  doc_role        text NOT NULL CHECK (doc_role IN ('design_method','review','regulation')),  -- 설계 방법서 | 심사 기준 | 규정. 비교는 같은 역할끼리
+  doc_role        text CHECK (doc_role IN ('design_method','review','regulation')),  -- 설계 방법서 | 심사 기준 | 규정. 비교는 같은 역할끼리. 설계 기준 세트(rules 파일)·그 하위 기준만, 참고 문헌은 NULL
   doc_role_basis  text,                   -- 역할 판단 근거(문서 내 서문·적용범위 조항)
   issuer          text,
   title           text,
@@ -23,7 +23,9 @@ CREATE TABLE standard (
   redistributable text CHECK (redistributable IN ('full_text','values_only','unknown')),
   license_note    text,                   -- 근거(저작권 고지 문구·출처)
   source_url      text,
-  note            text
+  note            text,
+  doc_type        text NOT NULL CHECK (doc_type IN ('law','regulation','design_standard','guideline','legacy_commentary','local_study','paper'))
+                                          -- 문서 종류. 엔진 기본 판정은 law·regulation·design_standard만 (나머지는 사업·검토 파일 adopt로만)
 );
 
 -- 2. 항목 사전 (기준 독립)
@@ -131,3 +133,34 @@ CREATE TABLE pipe_catalog (
   retrieved_at       date,
   note               text
 );
+
+-- 7. 방류수질 법령값 (criteria/effluent_limits.csv 원문 + criteria/normalized/effluent/ 태그, db/tag_effluent.py)
+--    설계기준이 아니라 법령·고시·법원 명령이라 standard/criterion 과 따로 둔다. 처리장 엔진은 CSV 를 직접 읽는다.
+CREATE TABLE effluent_limit (
+  row_key        text PRIMARY KEY,
+  country        text NOT NULL,
+  law_id         text NOT NULL,           -- KR_SEWERAGE_ACT_RULE_ANNEX1, US_40CFR133 …
+  law            text NOT NULL,           -- 원문 법령명 그대로
+  legal_status   text NOT NULL CHECK (legal_status IN ('law','regulation','court_order')),
+  stayed         boolean NOT NULL DEFAULT false,  -- 법원이 시행을 정지한 규칙
+  article        text,
+  effective_date text,                    -- 원문 표기 그대로
+  parameter_raw  text NOT NULL,
+  param_key      text NOT NULL,           -- bod | bod5 | cbod5 | cod | toc | tss | tn | tp | total_coliform | ph …
+  condition_raw  jsonb,
+  condition      jsonb,                   -- 처리용량·BOD 부하 구간은 범위 객체, 적용기간 effective_from/to
+  value_raw      text,                    -- '1,000', '0,50', '6.0-9.0', '<50'
+  value_min      numeric,
+  value_max      numeric,
+  limit_kind     text NOT NULL CHECK (limit_kind IN ('max','min','range')),
+  strict         boolean NOT NULL DEFAULT false,  -- 원문 '<'(미만)
+  unit_raw       text,
+  unit           text NOT NULL,
+  averaging_raw  text,
+  averaging      text NOT NULL CHECK (averaging IN ('avg_7d','avg_30d','unspecified')),
+  binding_raw    text,
+  source_url     text,
+  retrieved_at   date,
+  note           text
+);
+CREATE INDEX effluent_limit_param_idx ON effluent_limit (param_key, country);

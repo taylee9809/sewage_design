@@ -10,6 +10,7 @@ from pathlib import Path
 
 from engine import criteria_db as db
 from engine import hydraulics as h
+from engine import safe_expr
 
 ROOT = Path(__file__).resolve().parent.parent
 KNOWN_TYPES = {"VELOCITY_MIN", "VELOCITY_MAX", "SLOPE_TABLE", "CAPACITY", "MIN_DIAMETER", "MIN_COVER", "JUNCTION",
@@ -48,12 +49,57 @@ def _cap_slope(D, n, Q, yr):
     return h.slope_for_flow(D, n, Q, yr)
 
 
+PIPE_FILTER_FIELDS = ("product_type", "standard_ref", "class_or_stiffness")
+
+
+def _like_prefix(s):
+    return s.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_") + "%"
+
+
+def pipe_product_filter(spec):
+    """사업 파일 pipe_product → (SQL 조건, 인자). SQL 조각을 받지 않는다.
+
+    spec: 조건 묶음 하나 또는 목록(목록이면 OR). 묶음 = {필드: 값} (AND), 값은
+    문자열(같음) | {"eq": 문자열} | {"prefix": 문자열}. 필드는 PIPE_FILTER_FIELDS 만.
+    예: [{"standard_ref": {"prefix": "ASTM D3034"}, "class_or_stiffness": {"prefix": "SDR 35"}},
+         {"standard_ref": {"prefix": "ASTM F679"}, "class_or_stiffness": "PS 46"}]
+    """
+    if isinstance(spec, str):
+        raise ValueError("pipe_product 는 SQL 문자열이 아니라 조건 객체로 적는다 (engine/generic.py pipe_product_filter): %r" % spec)
+    groups = spec if isinstance(spec, list) else [spec]
+    if not groups or not all(isinstance(g, dict) and g for g in groups):
+        raise ValueError("pipe_product 조건 묶음이 비었거나 객체가 아님: %r" % (spec,))
+    ors, args = [], []
+    for g in groups:
+        ands = []
+        for field, cond in g.items():
+            if field not in PIPE_FILTER_FIELDS:
+                raise ValueError("pipe_product 필드 %r 는 허용되지 않음 (허용: %s)" % (field, ", ".join(PIPE_FILTER_FIELDS)))
+            if isinstance(cond, str):
+                cond = {"eq": cond}
+            if not isinstance(cond, dict) or len(cond) != 1 or not isinstance(next(iter(cond.values())), str):
+                raise ValueError("pipe_product %s 값은 문자열 또는 {\"eq\"|\"prefix\": 문자열}: %r" % (field, cond))
+            (op, val), = cond.items()
+            if op == "eq":
+                ands.append("%s = %%s" % field)
+                args.append(val)
+            elif op == "prefix":
+                ands.append("%s LIKE %%s" % field)
+                args.append(_like_prefix(val))
+            else:
+                raise ValueError("pipe_product 연산 %r 는 허용되지 않음 (eq, prefix)" % op)
+        ors.append("(" + " AND ".join(ands) + ")")
+    return " OR ".join(ors), args
+
+
 def _range_ok(spec, x):
     return all({"eq": x == v, "ge": x >= v, "gt": x > v, "le": x <= v, "lt": x < v}[op] for op, v in spec.items() if v is not None)
 
 
 class Standard:
     def __init__(self, standard_id, project, dsn=None):
+        if db.doc_type(standard_id) not in db.JUDGING_DOC_TYPES:
+            raise ValueError("%s는 %s — 설계 판정 기준은 %s만" % (standard_id, db.doc_type(standard_id), "/".join(db.JUDGING_DOC_TYPES)))
         spec = json.loads((ROOT / "criteria" / "rules" / ("%s.json" % standard_id)).read_text(encoding="utf-8"))
         unknown = {r["type"] for r in spec["rules"]} - KNOWN_TYPES
         if unknown:
@@ -115,9 +161,10 @@ class Standard:
 
     # ── 관 규격 ──
     def pipe_sizes(self, cur):
-        cur.execute("SELECT nominal_mm::float, min(inner_mm)::float FROM criteria.pipe_catalog WHERE country=%%s AND material=%%s "
-                    "AND inner_mm IS NOT NULL AND (%s) GROUP BY 1 ORDER BY 1" % self.choice["pipe_product"].replace("%", "%%"),
-                    (self.country(cur), self.material))
+        where, args = pipe_product_filter(self.choice["pipe_product"])
+        cur.execute("SELECT nominal_mm::float, min(inner_mm)::float FROM criteria.pipe_catalog WHERE country=%s AND material=%s "
+                    "AND inner_mm IS NOT NULL AND (" + where + ") GROUP BY 1 ORDER BY 1",
+                    (self.country(cur), self.material, *args))
         rows = cur.fetchall()
         if self.spec["pipe"]["nominal"] == "inch25":  # 인치 규격 → 기준 표의 mm 표기(1 in = 25 mm 관례)
             return [(round(a / 25.4 * 25), b) for a, b in rows]
@@ -187,10 +234,10 @@ class Standard:
         if pk["kind"] == "range_project":
             pf = self._choice(pk["key"], db.one(self.flow_rows, pk["param"], pk.get("cond", {})))
         elif pk["kind"] == "formula":
-            pf = eval(pk["expr"], {"__builtins__": {}}, {"sqrt": math.sqrt, "P": P})
+            pf = safe_expr.evaluate(pk["expr"], {"P": P})
         elif pk["kind"] == "range_clamp_project":  # 원문은 범위만, 산정식은 사업 채택 → 범위로 자름
             row = db.one(self.flow_rows, pk["param"], pk.get("cond", {}))
-            pf = min(max(eval(self.choice[pk["key"]], {"__builtins__": {}}, {"sqrt": math.sqrt, "P": P}), row.value_min), row.value_max)
+            pf = min(max(safe_expr.evaluate(self.choice[pk["key"]], {"P": P}), row.value_min), row.value_max)
         elif pk["kind"] == "table_by_population":
             pf = db.pick(self.flow_rows, pk["param"], {**pk.get("cond", {}), "served_population": P})[0].value_min
         else:

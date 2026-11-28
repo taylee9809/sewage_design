@@ -1,0 +1,56 @@
+# 자동검사: CSV 모드(DB 없이)와 DB 모드(임시 PostGIS 에 공개 기준값 적재) 두 갈래.
+# 비공개 원문(재배포 불가)은 여기 없으므로 그 원문 표 테스트는 건너뛴다.
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  csv:
+    name: CSV 모드
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m pytest tests -q -rs
+
+  db:
+    name: DB 모드
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgis/postgis:16-3.4
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: sewage_design
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      SEWAGE_DB_DSN: postgresql://postgres:postgres@localhost:5432/sewage_design
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: 기준값 적재
+        run: python db/load_criteria.py "$SEWAGE_DB_DSN"
+      - name: 합성 관망 SYN01·SYN02
+        run: |
+          python db/make_synthetic_network.py "$SEWAGE_DB_DSN"
+          python db/make_syn02.py "$SEWAGE_DB_DSN"
+      - name: 적재가 저장소와 같은지 (재생성 파일 diff 없음)
+        run: git diff --exit-code -- criteria/normalized/_rows_for_tagging.jsonl
+      - run: python -m pytest tests -q -rs

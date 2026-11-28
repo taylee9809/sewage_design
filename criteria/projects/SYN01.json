@@ -21,7 +21,7 @@
         "rationale": "5.1 (1) 수면접합 또는 관정접합 중 관정접합"
       },
       "pipe_product": {
-        "value": "product_type LIKE '고강성 PVC 이중벽관%'",
+        "value": {"product_type": {"prefix": "고강성 PVC 이중벽관"}},
         "rationale": "KS M 3600 PVC 이중벽관, 같은 호칭은 최소 내경"
       },
       "pump_efficiency": {
@@ -39,7 +39,7 @@
         "rationale": "33.2 수치 없음, 비교용 1.0 m"
       },
       "pipe_product": {
-        "value": "standard_ref LIKE 'ASTM D3034%' AND class_or_stiffness LIKE 'SDR 35%' OR standard_ref LIKE 'ASTM F679%' AND product_type = 'solid_wall_gravity_sewer_PSM' AND class_or_stiffness = 'PS 46'",
+        "value": [{"standard_ref": {"prefix": "ASTM D3034"}, "class_or_stiffness": {"prefix": "SDR 35"}}, {"standard_ref": {"prefix": "ASTM F679"}, "product_type": "solid_wall_gravity_sewer_PSM", "class_or_stiffness": "PS 46"}],
         "rationale": "ASTM D3034 SDR35(≤15in) + F679 PS46(18~36in)"
       },
       "pump_efficiency": {
@@ -49,7 +49,7 @@
     },
     "JP_YOKOHAMA_SEKKEI_202604": {
       "pipe_product": {
-        "value": "product_type = '下水道用硬質塩化ビニル管 直管'",
+        "value": {"product_type": "下水道用硬質塩化ビニル管 直管"},
         "rationale": "JSWAS K-1 直管"
       },
       "pump_efficiency": {
@@ -63,7 +63,7 @@
         "rationale": "3.20.3 시점부 1 m(참고값) 사용"
       },
       "pipe_product": {
-        "value": "product_type = 'upvc_solid_wall' AND class_or_stiffness LIKE 'SN4%'",
+        "value": {"product_type": "upvc_solid_wall", "class_or_stiffness": {"prefix": "SN4"}},
         "rationale": "IS 15328 UPVC SN4(SDR41), 호칭=외경"
       },
       "pump_efficiency": {
@@ -89,7 +89,7 @@
         "rationale": "Art.139 Tabla 18 차도 1.20 m 적용(가상 관망은 도로 매설 가정)"
       },
       "pipe_product": {
-        "value": "product_type LIKE 'Novafort S8%'",
+        "value": {"product_type": {"prefix": "Novafort S8"}},
         "rationale": "PAVCO Novafort S8 (NTC 3722-3), 호칭=외경 — 바랑키야 Triple A 승인 6~20인치"
       },
       "pump_efficiency": {
@@ -127,7 +127,7 @@
         "rationale": "B5.2.6 전 구간 맨홀 가정. 11가구 이상 구간은 B5.2.4(d)로 맨홀"
       },
       "pipe_product": {
-        "value": "product_type = 'nominal_internal_diameter'",
+        "value": {"product_type": "nominal_internal_diameter"},
         "rationale": "DCG 공칭 내경 표기 — criteria/pipe_catalog/gb_pipes.csv"
       },
       "pump_efficiency": {
@@ -137,7 +137,7 @@
     },
     "WA_ECY_CSWD_2023": {
       "pipe_product": {
-        "value": "standard_ref LIKE 'ASTM D3034%' AND class_or_stiffness LIKE 'SDR 35%' OR standard_ref LIKE 'ASTM F679%' AND product_type = 'solid_wall_gravity_sewer_PSM' AND class_or_stiffness = 'PS 46'",
+        "value": [{"standard_ref": {"prefix": "ASTM D3034"}, "class_or_stiffness": {"prefix": "SDR 35"}}, {"standard_ref": {"prefix": "ASTM F679"}, "product_type": "solid_wall_gravity_sewer_PSM", "class_or_stiffness": "PS 46"}],
         "rationale": "ASTM D3034 SDR35(≤15in) + F679 PS46(18~36in)"
       },
       "hazen_c": {

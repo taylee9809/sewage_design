@@ -28,9 +28,12 @@ Add one entry keyed by a `standard_id` of the form `<CC>_<SHORT_NAME>_<EDITION>`
   "issuer": "...", "title": "...", "edition": "2025",
   "effective_date": "2025-01-01", "is_latest": true, "access": "free",
   "source_url": "https://...", "redistributable": "values_only",
-  "license_note": "where the redistribution terms come from"
+  "license_note": "where the redistribution terms come from",
+  "doc_type": "design_standard"
 }
 ```
+
+`doc_type` says what kind of document it is: `law`, `regulation` (binding notices, resolutions), `design_standard`, `guideline`, `legacy_commentary` (a superseded standard and its commentary), `local_study` (municipal plans and studies), or `paper`. Only `law`, `regulation` and `design_standard` can drive the engine's judgments. The others are recorded so practice values keep a traceable source, and they are used only when a project or review file adopts them explicitly (`adopt`).
 
 `doc_role` is one of `design_method` (how to design: KDS, CPHEEO manual), `review` (what a reviewing body approves against:
 Ten States, Water UK DCG) or `regulation` (minimum legal requirements: Colombia Res. 0330). Reports and the plant CLI compare
@@ -73,6 +76,8 @@ List the nominal and inner diameters of pipes actually sold in your country, fro
 ### 6. Run the comparison
 
 Add your standard to `criteria/projects/SYN01.json`, including any project-level choices where your standard gives a range or no number, each with a `rationale`. Then:
+
+`pipe_product` picks rows of the pipe catalog. Write it as conditions, not SQL: one object (fields ANDed) or a list of objects (ORed). Fields are `product_type`, `standard_ref`, `class_or_stiffness`; a value is a string (exact match) or `{"prefix": "..."}`. Example: `[{"standard_ref": {"prefix": "ASTM D3034"}, "class_or_stiffness": {"prefix": "SDR 35"}}, {"standard_ref": {"prefix": "ASTM F679"}, "class_or_stiffness": "PS 46"}]`. Formulas in rules and projects (`expr`, `when`, peak-factor choices) are evaluated by `engine/safe_expr.py`: numbers, the given variables, arithmetic, comparisons, `and`/`or`/`not` and `sqrt`, `log`, `log10`, `exp`, `min`, `max`, `abs` only.
 
 ```bash
 py -3 db/load_criteria.py <DSN>

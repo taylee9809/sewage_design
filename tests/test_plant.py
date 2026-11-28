@@ -178,10 +178,18 @@ def test_nutrient_held_where_standard_has_no_bnr_rules(std):
     assert j["tn"]["ok"] is None and "고도처리" in j["tn"]["reason"]
 
 
-def test_every_standard_has_doc_role_with_basis():
-    from engine.generic import DOC_ROLES, STANDARDS
-    for sid, m in STANDARDS.items():
-        assert m["doc_role"] in DOC_ROLES, sid
+def test_every_design_standard_set_has_doc_role_with_basis():
+    """설계 기준 세트(rules 파일)와 그 하위 기준(flow·pump·plant)은 역할과 근거가 있어야 한다. 참고 문헌(점검 모드 출처)은 대상 아님."""
+    import json
+    from engine.generic import DOC_ROLES, ROOT, STANDARDS
+    sids = set()
+    for f in (ROOT / "criteria" / "rules").glob("*.json"):
+        spec = json.loads(f.read_text(encoding="utf-8"))
+        sids |= {f.stem} | {spec[k] for k in ("flow_standard_id", "pump_standard_id", "plant_standard_id") if spec.get(k)}
+    assert sids
+    for sid in sids:
+        m = STANDARDS[sid]
+        assert m.get("doc_role") in DOC_ROLES, sid
         assert m.get("doc_role_basis"), sid
 
 

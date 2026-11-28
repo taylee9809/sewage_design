@@ -10,8 +10,6 @@ import re
 import sys
 from pathlib import Path
 
-import psycopg
-
 from paths import ASSET_DIRS, CLAUSE_DIRS, PRIVATE, QUOTES, jsonl_files
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -116,6 +114,8 @@ def load_normalized():
 
 
 def main(dsn, dsn_private=None):
+    import psycopg  # 적재 때만 필요 (row_key·normalize는 DB 없이 engine.criteria_db.load_csv가 씀)
+
     rows = []
     for f in sorted((ROOT / "criteria").glob("*_sewer.csv")):  # 기준값 CSV (새 기준 = 파일 추가)
         rows += list(csv.DictReader(open(f, encoding="utf-8")))
@@ -135,9 +135,9 @@ def main(dsn, dsn_private=None):
         cur.execute("SET search_path = criteria, public")
         for sid, m in STANDARDS.items():
             cur.execute("""INSERT INTO standard (standard_id,country,doc_role,doc_role_basis,issuer,title,edition,effective_date,is_latest,access,
-                             redistributable,license_note,source_url,note) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
-                        (sid, m["country"], m["doc_role"], m.get("doc_role_basis"), m["issuer"], m["title"], m["edition"], m["effective_date"], m["is_latest"],
-                         m["access"], m["redistributable"], m["license_note"], m["source_url"], m.get("note")))
+                             redistributable,license_note,source_url,note,doc_type) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                        (sid, m["country"], m.get("doc_role"), m.get("doc_role_basis"), m["issuer"], m["title"], m["edition"], m["effective_date"], m["is_latest"],
+                         m["access"], m["redistributable"], m["license_note"], m["source_url"], m.get("note"), m["doc_type"]))
         for key in sorted({r["param_key"] for r in rows}):
             cur.execute("INSERT INTO parameter (param_key, unit_si) VALUES (%s,%s)", (key, CANON_UNIT.get(key)))
 
@@ -183,6 +183,23 @@ def main(dsn, dsn_private=None):
                              r["source_url"] or None, r["source_type"] or None, r["retrieved_at"] or None, r["note"] or None))
                 n_pipe += 1
         print("pipe_catalog", n_pipe)
+
+        from tag_effluent import SRC as EFF_SRC, load_tags as eff_tags, row_key as eff_key
+        tags = eff_tags()
+        n_eff = 0
+        for x in csv.DictReader(open(EFF_SRC, encoding="utf-8-sig")):
+            t = tags.get(eff_key(x))
+            assert t, "방류수질 태그 없음(py -3 db/tag_effluent.py): %s %s" % (x["country"], x["parameter"])
+            cur.execute("""INSERT INTO effluent_limit VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                        (t["row_key"], x["country"], t["law_id"], x["law"], t["legal_status"], t.get("stayed", False),
+                         x["article"] or None, x["effective_date"] or None, x["parameter"], t["param_key"],
+                         x["condition"] or None, json.dumps(t["condition"], ensure_ascii=False), x["value_max"],
+                         t["value_min"], t["value_max"], t["limit_kind"], t.get("strict", False), x["unit"] or None,
+                         t["unit"], x["averaging"] or None, t["averaging"], x["binding"] or None,
+                         x["source_url"] or None, x["retrieved_at"] or None, x["note"] or None))
+            n_eff += 1
+        assert n_eff == len(tags), "방류수질 태그 %d ≠ CSV %d (태그 다시 만들 것)" % (len(tags), n_eff)
+        print("effluent_limit", n_eff)
 
         unlinked = []
         for r in rows:

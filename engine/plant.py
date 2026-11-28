@@ -19,6 +19,7 @@ import os
 import re
 
 from engine import criteria_db as db
+from engine import safe_expr
 from engine.generic import DOC_ROLES, ROOT, Standard
 
 REQ = ("mandatory", "standard")
@@ -79,7 +80,7 @@ def bounds(row, upper_only=True):
 
 
 def when_ok(s, env):
-    return "when" not in s or eval(s["when"], {"__builtins__": {}}, env)
+    return "when" not in s or safe_expr.evaluate(s["when"], env)
 
 
 # ── 유량 ──

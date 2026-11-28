@@ -90,3 +90,56 @@ basis가 의미 없는 항목(최소관경, 맨홀 간격, 토피 등 기하 규
 ## 3. 비교 그룹
 
 `param_key` + `basis`(`flow`,`horizon`,`hydraulic_state`,`per`)가 같은 행끼리만 직접 비교한다. 다르면 2단계(공통 지표 환산) 또는 3단계(동일 입력 설계 결과 비교)로 넘긴다.
+
+## v1.2 추가 (2026-10-21, 유지관리 기준·문서 종류)
+
+| 키 | 추가 값 | 뜻 |
+|---|---|---|
+| `flow` | `dry_weather` | 청천시 실유량 (합류관 퇴적 판정 등) |
+| condition `flood_risk_area` | `true` | 침수우려지역(하수도정비중점관리지역·자연재해위험개선지구 중 하수 침수위험 지역 등)에서만 적용 |
+
+### 문서 종류 (`criteria/standards.json`의 `doc_type`)
+
+| 값 | 뜻 | 엔진 기본 판정 |
+|---|---|---|
+| `law` | 법률·시행령·시행규칙 | 사용 |
+| `regulation` | 고시·훈령·장관 결의(Resolución) 등 구속력 있는 행정규칙 | 사용 |
+| `design_standard` | 설계기준(KDS, Ten States, CPHEEO Manual 등) | 사용 |
+| `guideline` | 정부 지침·매뉴얼 | 채택(adopt) 시만 |
+| `legacy_commentary` | 대체된 구 기준과 해설 | 채택(adopt) 시만 |
+| `local_study` | 지자체 기본계획·연구 | 채택(adopt) 시만 |
+| `paper` | 학술 논문 | 채택(adopt) 시만 |
+
+
+## v1.4 추가 (2026-11-25, 하수처리장 기준값)
+
+처리장 행(`criteria/*_treatment_sewer.csv`)의 **condition 은 CSV 원 키 그대로** 둔다(`treatment_stage`·`process`·`unit`·`flow_basis`·`settling_type` 등). 처리장 엔진(`engine/plant.py`)과 규칙 파일이 이 키로 행을 찾기 때문이다. 정규화 파일에는 condition 을 복사해 두어 DB 적재(정규화 condition 만 씀)에서도 조건이 살아 있게 한다. basis 만 아래처럼 붙인다.
+
+| 키 | 추가 값 | 뜻 |
+|---|---|---|
+| `flow` | `dry_weather_avg` | 건기(청천시) 일평균 유량 (RAS 처리장 설계유량) |
+| `flow` | `design_monthly_max` | 설계 월최대 유량 |
+| `flow` | `design_daily_max_plus_return` | 설계 일최대 유량 + 최대 반송유량 (Ten States 이차침전지 고형물부하) |
+| `flow` | `design_peak_instantaneous` | 설계 순간최대 유량 (Ten States 정의 (e)) |
+| `flow` | 배열 | 원문이 두 유량 모두에서 판정하라고 할 때 (예: 평균·첨두 둘 다 수면부하 검토). 비교 그룹은 배열이 같은 행끼리만 |
+
+condition 의 `flow_basis` 원문 표기 → basis.flow: `average`·`average_daily`·`design_average` → `design_daily_avg`, `max_daily`·`design_maximum_day` → `design_daily_max`, `peak_hourly`·`design_peak_hourly` → `design_peak_hourly`, `peak` → `peak`, `wet_weather` → `wet_weather`.
+
+flow 를 정하지 않은 원칙: 유량과 무관한 값(치수·경사·여유고·지수·공정 상수·원단위 부하)은 `any`. 유량으로 정의되는 값(수면·월류·고형물 부하, 체류시간, HRT, F/M, 용적부하, 수로 유속, 반송비)인데 **그 조항이** 유량을 말하지 않으면 `unspecified`. 단, **같은 기준**의 다른 조항이 그 시설의 설계유량을 명시하면(예: KDS 61 50 00 표 1.1.1 「2차처리 처리시설 = 계획1일최대오수량」, RAS Art.189 3호 「일차침전지 = 시간최대」) 그 유량으로 채우고 basis.note 에 근거 조항을 적는다(2026-11-25, 14행). 시스템(분류/합류)에 따라 유량이 갈리는데 행에 그 조건이 없거나, 실측 범위·각주처럼 판정 기준이 아닌 행은 `unspecified` 로 두고 note 에 이유를 적는다. 다른 기준의 조항으로는 채우지 않는다.
+
+## v1.5 추가 (2026-11-25, 방류수질 법령값)
+
+`criteria/effluent_limits.csv`(법령 원문 표기) → `criteria/normalized/effluent/effluent_limits.jsonl`(`db/tag_effluent.py` 가 규칙으로 생성, 손 태그 없음) → DB `criteria.effluent_limit`. 설계기준 행(`criterion`)과 섞지 않는다.
+
+| 필드 | 값 | 뜻 |
+|---|---|---|
+| `param_key` | `bod` \| `bod5` \| `cbod5` \| `cod` \| `toc` \| `tss` \| `settleable_solids` \| `tn` \| `tp` \| `total_coliform` \| `fecal_coliform` \| `ph` \| `ecotoxicity_daphnia` \| `oil_grease` \| 중금속(`cadmium` …) \| `pah` \| `*_removal` | BOD 일수가 원문에 없으면 `bod`(한국·인도), 5일 명시면 `bod5` — 같은 이름으로 합치지 않는다 |
+| `limit_kind` | `max` \| `min` \| `range` | 상한 / 제거율 하한 / pH 범위 |
+| `strict` | `true` | 원문이 '<'(미만) |
+| `unit` | `mg/L` \| `count/mL` \| `MPN/100mL` \| `TU` \| `mL/L` \| `pH` \| `percent` | `mg/L O2` 는 `mg/L` |
+| `averaging` | `avg_7d` \| `avg_30d` \| `unspecified` | 원문 평균 산정기간 |
+| `legal_status` | `law` \| `regulation` \| `court_order` (+ `stayed`) | 시행규칙·법률 / 고시·CFR·Resolución / 법원 명령, 법원이 시행 정지한 규칙 |
+| condition `capacity_m3_d`, `load_bod5_kg_d` | 범위 객체 | 처리용량·BOD 부하 구간 |
+| condition `effective_from`, `effective_to` | 날짜 | 적용기간 (한국 별표 1 2029-11-30/2029-12-01 전환) |
+
+숫자 표기: 콜롬비아는 쉼표가 소수점('0,50' = 0.5), 한국·미국·인도는 쉼표가 천 단위('1,000' = 1000).
