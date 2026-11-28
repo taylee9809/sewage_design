@@ -13,6 +13,7 @@ import sys
 import psycopg
 
 from engine.design import load_project
+from engine.generic import DOC_ROLES, doc_role
 from engine.network import summarize
 from engine.pump import plan
 
@@ -105,7 +106,8 @@ def pump_section(w, plans, hidden):
 def main(pid, out_path):
     dsn = os.environ["SEWAGE_DB_DSN"]
     project = load_project(pid)
-    sids = list(project["standards"])
+    sids = sorted(project["standards"], key=lambda x: list(DOC_ROLES).index(doc_role(x)))  # 역할별로 묶어 나열
+    by_role = {r: [x for x in sids if doc_role(x) == r] for r in DOC_ROLES}
     plans = {sid: plan(pid, sid, dsn) for sid in sids}  # 펌프장 판정 포함 설계 (펌프장 없으면 자연유하 설계와 같음)
     results = {sid: p["out"] for sid, p in plans.items()}
     hidden = {}
@@ -119,11 +121,15 @@ def main(pid, out_path):
           "사업 채택값은 `criteria/projects/%s.json`에서 읽었다.\n" % ("가상 관망 —" if synth else "", pid, pid))
         # 1
         w("## 1. 적용 기준\n")
-        w("| 기준 | 판본 | 최신 | 공개 조건 | 비고 |\n|---|---|---|---|---|")
+        w("문서 역할: 설계 방법서(어떻게 설계하는가) · 심사 기준(심사기관이 무엇으로 승인하는가) · 규정(지켜야 할 최소 요건). "
+          "역할이 다른 문서의 값은 같은 표에 놓지 않는다(4·5절).\n")
+        w("| 기준 | 문서 역할 | 판본 | 최신 | 공개 조건 | 비고 |\n|---|---|---|---|---|---|")
         for sid in sids:
-            cur.execute("SELECT title, edition, is_latest, redistributable, license_note, note FROM criteria.standard WHERE standard_id=%s", (sid,))
-            t, ed, latest, red, lic, note = cur.fetchone()
-            w("| %s<br>`%s` | %s | %s | %s | %s |" % (t, sid, ed or "", "예" if latest else "아니오", red, (note or "").replace("|", "/")))
+            cur.execute("SELECT title, edition, is_latest, redistributable, license_note, note, doc_role_basis FROM criteria.standard "
+                        "WHERE standard_id=%s", (sid,))
+            t, ed, latest, red, lic, note, rb = cur.fetchone()
+            w("| %s<br>`%s` | %s<br>%s | %s | %s | %s | %s |" % (t, sid, DOC_ROLES[doc_role(sid)], (rb or "").replace("|", "/"), ed or "",
+                                                             "예" if latest else "아니오", red, (note or "").replace("|", "/")))
             hidden[sid] = red != "full_text"
         w("")
         # 2
@@ -157,30 +163,37 @@ def main(pid, out_path):
         w("## 4. 기준 비교 — 같은 정의 조건끼리만\n")
         w("값 옆 괄호는 정의 조건(유량/시점/수리 상태/분모). 정의 조건이 다르면 숫자가 같아도 같은 기준이 아니다. "
           "실제 영향은 5절의 같은 관망 설계 결과로 비교한다.\n")
-        w("| 항목 | " + " | ".join(sids) + " |\n|---|" + "---|" * len(sids))
-        for key, name in ITEMS:
-            cells = []
-            for sid in sids:
-                ssid = "KDS_61_10_00_20251001" if sid.startswith("KDS") and key in ("per_capita_wastewater", "peak_factor_hourly",
-                                                                                     "infiltration_allowance") else sid
-                cur.execute("""SELECT value_min::float, value_max::float, unit_si, value_text, basis, binding FROM criteria.criterion
-                               WHERE standard_id=%s AND param_key=%s
-                                 AND NOT (coalesce(condition,'{}'::jsonb) ?| array['exception','sewer_type','item','location','pipe_role','other'])
-                                 AND coalesce(condition->>'system','separate') IN ('separate','["separate", "combined"]')
-                               ORDER BY criterion_id LIMIT 3""", (ssid, key))
-                rs = cur.fetchall()
-                cur.execute("SELECT redistributable FROM criteria.standard WHERE standard_id=%s", (ssid,))
-                hide = cur.fetchone()[0] != "full_text"
-                cells.append("<br>".join("%s (%s)" % (fmt_val(r, hide), basis_txt(r[4])) if r[5] != "none" else "규정 없음" for r in rs) or "—")
-            w("| %s | %s |" % (name, " | ".join(c.replace("|", "/") for c in cells)))
-        w("")
+        for role, gsids in by_role.items():
+            if not gsids:
+                continue
+            w("### 4-%d. %s\n" % (list(DOC_ROLES).index(role) + 1, DOC_ROLES[role]))
+            w("| 항목 | " + " | ".join(gsids) + " |\n|---|" + "---|" * len(gsids))
+            for key, name in ITEMS:
+                cells = []
+                for sid in gsids:
+                    ssid = "KDS_61_10_00_20251001" if sid.startswith("KDS") and key in ("per_capita_wastewater", "peak_factor_hourly",
+                                                                                         "infiltration_allowance") else sid
+                    cur.execute("""SELECT value_min::float, value_max::float, unit_si, value_text, basis, binding FROM criteria.criterion
+                                   WHERE standard_id=%s AND param_key=%s
+                                     AND NOT (coalesce(condition,'{}'::jsonb) ?| array['exception','sewer_type','item','location','pipe_role','other'])
+                                     AND coalesce(condition->>'system','separate') IN ('separate','["separate", "combined"]')
+                                   ORDER BY criterion_id LIMIT 3""", (ssid, key))
+                    rs = cur.fetchall()
+                    cur.execute("SELECT redistributable FROM criteria.standard WHERE standard_id=%s", (ssid,))
+                    hide = cur.fetchone()[0] != "full_text"
+                    cells.append("<br>".join("%s (%s)" % (fmt_val(r, hide), basis_txt(r[4])) if r[5] != "none" else "규정 없음" for r in rs) or "—")
+                w("| %s | %s |" % (name, " | ".join(c.replace("|", "/") for c in cells)))
+            w("")
     # 5
     w("## 5. 같은 관망 설계 결과 (%s)\n" % pid)
-    w("| 기준 | 굴착 지표(m²) | 최대 관경 | 최대 매설깊이(m) | 추가 맨홀 | 낙차 구간 | 부관 | 플러싱 장치 | 경고 |\n|---|---|---|---|---|---|---|---|---|")
+    w("문서 역할별로 묶었다. 역할이 다른 행끼리의 차이는 기준값 차이가 아니라 문서 성격 차이일 수 있다.\n")
+    w("| 기준 | 문서 역할 | 굴착 지표(m²) | 최대 관경 | 최대 매설깊이(m) | 추가 맨홀 | 낙차 구간 | 부관 | 플러싱 장치 | 경고 |\n"
+      "|---|---|---|---|---|---|---|---|---|---|")
     for sid, out in results.items():
         s = summarize(out)
-        w("| %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (sid, s["depth_x_len_m2"], s["max_dia"], s["max_depth_m"], s["extra_manholes"],
-                                                          s["drops"], s["drop_pipes"], s["flushing_devices"], s["warnings"]))
+        w("| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (sid, DOC_ROLES[doc_role(sid)], s["depth_x_len_m2"], s["max_dia"], s["max_depth_m"],
+                                                               s["extra_manholes"], s["drops"], s["drop_pipes"], s["flushing_devices"],
+                                                               s["warnings"]))
     w("\n### 경사·관경을 결정한 조항 (구간 수)\n")
     for sid, out in results.items():
         c = collections.Counter(o["governing"].split(" — ")[0].split(" [")[0][:70] for o in out)

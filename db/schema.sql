@@ -12,6 +12,8 @@ SET search_path = criteria, public;
 CREATE TABLE standard (
   standard_id     text PRIMARY KEY,       -- KDS_61_40_00_20251001, TSS_WW_2026
   country         text NOT NULL,          -- ISO 3166 alpha-2, 국제기구는 INT
+  doc_role        text NOT NULL CHECK (doc_role IN ('design_method','review','regulation')),  -- 설계 방법서 | 심사 기준 | 규정. 비교는 같은 역할끼리
+  doc_role_basis  text,                   -- 역할 판단 근거(문서 내 서문·적용범위 조항)
   issuer          text,
   title           text,
   edition         text,

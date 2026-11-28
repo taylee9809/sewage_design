@@ -1,6 +1,8 @@
 {
  "KDS_61_40_00_20251001": {
   "country": "KR",
+  "doc_role": "design_method",
+  "doc_role_basis": "KDS 61 10 00 1.1.1: 공공하수도 하수도시설의 계획 및 설계에 적용하는 설계기준. 공정별 설계 방법·제원을 정함",
   "issuer": "국토교통부/국가건설기준센터",
   "title": "KDS 61 40 00 관로시설 설계기준",
   "edition": "2025-10-01",
@@ -13,6 +15,8 @@
  },
  "KDS_61_10_00_20251001": {
   "country": "KR",
+  "doc_role": "design_method",
+  "doc_role_basis": "KDS 61 10 00 1.1.1: 공공하수도 하수도시설의 계획 및 설계에 적용하는 설계기준. 공정별 설계 방법·제원을 정함",
   "issuer": "국토교통부/국가건설기준센터",
   "title": "KDS 61 10 00 하수도설계 일반사항",
   "edition": "2025-10-01",
@@ -25,6 +29,8 @@
  },
  "TSS_WW_2026": {
   "country": "US",
+  "doc_role": "review",
+  "doc_role_basis": "Foreword: 심사기관(reviewing authority)이 설계도·시방서를 평가할 항목의 한계값을 제시. 기준에 없는 공정은 53.2로 건별 승인",
   "issuer": "GLUMRB",
   "title": "Recommended Standards for Wastewater Facilities (Ten States Standards)",
   "edition": "2026",
@@ -38,6 +44,8 @@
  },
  "JP_YOKOHAMA_SEKKEI_202604": {
   "country": "JP",
+  "doc_role": "design_method",
+  "doc_role_basis": "요코하마시 하수도 설계지침(관거편)·해설. 지자체 설계 방법서",
   "issuer": "横浜市環境創造局",
   "title": "横浜市下水道設計指針(管きょ編)・同解説",
   "edition": "令和8年度改訂版 + 2026-04-17 正誤",
@@ -51,6 +59,8 @@
  },
  "JP_GESUIDOHO_SEKOREI_20260817": {
   "country": "JP",
+  "doc_role": "regulation",
+  "doc_role_basis": "下水道法施行令. 정령(법령)으로 구조 기준 최소 요건",
   "issuer": "国土交通省",
   "title": "下水道法施行令",
   "edition": "令和8年政令第257号",
@@ -63,6 +73,8 @@
  },
  "CPHEEO_SEW_2013": {
   "country": "IN",
+  "doc_role": "design_method",
+  "doc_role_basis": "Manual on Sewerage and Sewage Treatment Systems Part A: Engineering. 정부 설계 매뉴얼. 일부 표는 informative로 명시(예 5.18.12.4)",
   "issuer": "CPHEEO, Ministry of Housing and Urban Affairs",
   "title": "Manual on Sewerage and Sewage Treatment Systems, Part A: Engineering",
   "edition": "2013",
@@ -76,6 +88,8 @@
  },
  "CO_RAS_0330_2017_COMP2021": {
   "country": "CO",
+  "doc_role": "regulation",
+  "doc_role_basis": "Art.1·2: 계획·설계·시공·운영 단계에서 지켜야 할 기술 요건을 정하는 규정. 설계자·시공자·운영자에게 적용",
   "issuer": "Ministerio de Vivienda, Ciudad y Territorio",
   "title": "Reglamento Técnico del Sector de Agua Potable y Saneamiento Básico (RAS) — Resolución 0330 de 2017, compilado con Res. 799 y 908 de 2021",
   "edition": "Anexo 2 compilatorio (2021)",
@@ -89,6 +103,8 @@
  },
  "KDS_61_45_00_20251001": {
   "country": "KR",
+  "doc_role": "design_method",
+  "doc_role_basis": "KDS 61 10 00 1.1.1: 공공하수도 하수도시설의 계획 및 설계에 적용하는 설계기준. 공정별 설계 방법·제원을 정함",
   "issuer": "국토교통부/국가건설기준센터",
   "title": "KDS 61 45 00 펌프장시설 설계기준",
   "edition": "2025-10-01",
@@ -102,6 +118,8 @@
  },
  "KDS_61_15_00_20251001": {
   "country": "KR",
+  "doc_role": "design_method",
+  "doc_role_basis": "KDS 61 10 00 1.1.1: 공공하수도 하수도시설의 계획 및 설계에 적용하는 설계기준. 공정별 설계 방법·제원을 정함",
   "issuer": "국토교통부/국가건설기준센터",
   "title": "KDS 61 15 00 하수도 내진설계",
   "edition": "2025-10-01",
@@ -115,6 +133,8 @@
  },
  "KDS_61_31_05_20251001": {
   "country": "KR",
+  "doc_role": "design_method",
+  "doc_role_basis": "KDS 61 10 00 1.1.1: 공공하수도 하수도시설의 계획 및 설계에 적용하는 설계기준. 공정별 설계 방법·제원을 정함",
   "issuer": "국토교통부/국가건설기준센터",
   "title": "KDS 61 31 05 전기·계측제어설비 설계기준",
   "edition": "2025-10-01",
@@ -128,6 +148,8 @@
  },
  "KDS_61_50_00_20251001": {
   "country": "KR",
+  "doc_role": "design_method",
+  "doc_role_basis": "KDS 61 10 00 1.1.1: 공공하수도 하수도시설의 계획 및 설계에 적용하는 설계기준. 공정별 설계 방법·제원을 정함",
   "issuer": "국토교통부/국가건설기준센터",
   "title": "KDS 61 50 00 수처리시설 설계기준",
   "edition": "2025-10-01",
@@ -141,6 +163,8 @@
  },
  "KDS_61_55_00_20251001": {
   "country": "KR",
+  "doc_role": "design_method",
+  "doc_role_basis": "KDS 61 10 00 1.1.1: 공공하수도 하수도시설의 계획 및 설계에 적용하는 설계기준. 공정별 설계 방법·제원을 정함",
   "issuer": "국토교통부/국가건설기준센터",
   "title": "KDS 61 55 00 찌꺼기(슬러지)처리시설 설계기준",
   "edition": "2025-10-01",
@@ -154,6 +178,8 @@
  },
  "KDS_61_60_00_20251001": {
   "country": "KR",
+  "doc_role": "design_method",
+  "doc_role_basis": "KDS 61 10 00 1.1.1: 공공하수도 하수도시설의 계획 및 설계에 적용하는 설계기준. 공정별 설계 방법·제원을 정함",
   "issuer": "국토교통부/국가건설기준센터",
   "title": "KDS 61 60 00 분뇨처리시설 설계기준",
   "edition": "2025-10-01",
@@ -167,6 +193,8 @@
  },
  "KDS_61_90_05_20251001": {
   "country": "KR",
+  "doc_role": "design_method",
+  "doc_role_basis": "KDS 61 10 00 1.1.1: 공공하수도 하수도시설의 계획 및 설계에 적용하는 설계기준. 공정별 설계 방법·제원을 정함",
   "issuer": "국토교통부/국가건설기준센터",
   "title": "KDS 61 90 05 일반관리시설 및 설계시 고려사항",
   "edition": "2025-10-01",
@@ -180,6 +208,8 @@
  },
  "GB_DCG_V2_3_20231111": {
   "country": "GB",
+  "doc_role": "review",
+  "doc_role_basis": "하수도 회사가 인수(adoption)할 하수관의 설계·시공 요건(Sewerage Sector Guidance Appendix C). Local Practice 외 의무(서문 8항)",
   "issuer": "Water UK",
   "title": "Design and Construction Guidance for foul and surface water sewers (Sewerage Sector Guidance Appendix C)",
   "edition": "Approved Version 2.3",
@@ -190,5 +220,20 @@
   "note": "잉글랜드에서 전부 또는 주로 영업하는 하수도 회사 대상. 문서 전체가 Local Practice 외 의무(서문 8항)이나 조항 문형은 should라 binding은 문형 기준. Water UK 목록 페이지가 자동 접속을 막아 v2.3 이후 판 부재는 2026-11-02 검색으로만 확인",
   "redistributable": "values_only",
   "license_note": "p.2: 모든 권리 보유, 저작권자 사전 서면 동의 없는 복제·저장 금지(© Water UK). 본문은 비공개 DB에만, 공개 쪽은 값·조문번호와 자체 요약만"
+ },
+ "WA_ECY_CSWD_2023": {
+  "country": "US",
+  "doc_role": "design_method",
+  "doc_role_basis": "Purpose of Manual: 하수 관로·처리·재이용 시설 설계 지침(guide for the design)이자 주 환경부·보건부 심사의 최소 요건. 규정은 아니나 WAC 173-240-040이 이 문서와 상당한 일치를 요구 — 설계 방법서 겸 심사 기준",
+  "issuer": "Washington State Department of Ecology",
+  "title": "Criteria for Sewage Works Design (Orange Book), Publication 98-37",
+  "edition": "1998판 + 2023-05 개정(장별 개정일 상이: C1·G1 2023-05, T3 2022-01, T2·G2 2008-08)",
+  "effective_date": null,
+  "is_latest": true,
+  "access": "free",
+  "source_url": "https://apps.ecology.wa.gov/publications/documents/9837.pdf",
+  "note": "미국 주(워싱턴) 기준. 연방 차원 공식 설계 방법서가 없어 설계 방법서 칸에 사용(사용자 결정 2026-11-07). WEF MOP 8 등을 참조 문헌으로 지정",
+  "redistributable": "values_only",
+  "license_note": "문서 내 저작권·재사용 고지 없음(2026-11-07 전 페이지 검색). 이용 조건 미확인이라 본문은 비공개 DB에만, 공개 쪽은 값·조문번호와 자체 요약만"
  }
 }

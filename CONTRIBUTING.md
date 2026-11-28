@@ -23,12 +23,19 @@ Add one entry keyed by a `standard_id` of the form `<CC>_<SHORT_NAME>_<EDITION>`
 
 ```json
 "XX_EXAMPLE_2025": {
-  "country": "XX", "issuer": "...", "title": "...", "edition": "2025",
+  "country": "XX", "doc_role": "design_method",
+  "doc_role_basis": "the scope or foreword clause that says what the document is for",
+  "issuer": "...", "title": "...", "edition": "2025",
   "effective_date": "2025-01-01", "is_latest": true, "access": "free",
   "source_url": "https://...", "redistributable": "values_only",
   "license_note": "where the redistribution terms come from"
 }
 ```
+
+`doc_role` is one of `design_method` (how to design: KDS, CPHEEO manual), `review` (what a reviewing body approves against:
+Ten States, Water UK DCG) or `regulation` (minimum legal requirements: Colombia Res. 0330). Reports and the plant CLI compare
+results only within the same role, because a review standard that leaves a process to case-by-case approval is not saying the
+same thing as a design manual that gives its dimensions.
 
 ### 2. Add the values: `criteria/<country>_sewer.csv`
 
@@ -81,7 +88,7 @@ If your standard is `full_text`, add `criteria/clauses/<name>.jsonl` (one clause
 
 ## Pull request checklist
 
-- [ ] `standards.json` entry with `redistributable` set and its source explained
+- [ ] `standards.json` entry with `redistributable` set and its source explained, and `doc_role` with its basis
 - [ ] Every value row has a clause number, `source_url`, and `retrieved_at`
 - [ ] No quotes or clause text from `values_only` standards
 - [ ] Every row is tagged in `criteria/normalized/`

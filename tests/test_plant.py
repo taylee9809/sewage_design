@@ -176,3 +176,16 @@ def test_nutrient_held_where_standard_has_no_bnr_rules(std):
     j = r["effluent_judgement"]["-"]
     assert j["tn"]["limit"] == 10 and j["tp"]["limit"] == 1.0  # NGT 2019
     assert j["tn"]["ok"] is None and "고도처리" in j["tn"]["reason"]
+
+
+def test_every_standard_has_doc_role_with_basis():
+    from engine.generic import DOC_ROLES, STANDARDS
+    for sid, m in STANDARDS.items():
+        assert m["doc_role"] in DOC_ROLES, sid
+        assert m.get("doc_role_basis"), sid
+
+
+def test_plant_result_carries_doc_role(std):
+    assert pl.plant_design(std(KDS), P)["doc_role"] == "design_method"  # 처리장 기준(KDS 61 50 00)의 역할
+    assert pl.plant_design(std(TSS), P)["doc_role"] == "review"
+    assert pl.plant_design(std(CO), P)["doc_role"] == "regulation"

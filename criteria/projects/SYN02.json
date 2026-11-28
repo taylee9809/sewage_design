@@ -154,6 +154,24 @@
         "value": 0.7,
         "rationale": "펌프+전동기 효율 가정(원문 표 없음) — 비교용"
       }
+    },
+    "WA_ECY_CSWD_2023": {
+      "pipe_product": {
+        "value": "standard_ref LIKE 'ASTM D3034%' AND class_or_stiffness LIKE 'SDR 35%' OR standard_ref LIKE 'ASTM F679%' AND product_type = 'solid_wall_gravity_sewer_PSM' AND class_or_stiffness = 'PS 46'",
+        "rationale": "ASTM D3034 SDR35(≤15in) + F679 PS46(18~36in)"
+      },
+      "hazen_c": {
+        "value": 140,
+        "rationale": "C2 압송관 마찰계수 수치 없음 — PVC 140 가정(CPHEEO PVC 값·콜롬비아 사업값과 동일)"
+      },
+      "pump_efficiency": {
+        "value": 0.7,
+        "rationale": "펌프+전동기 효율 가정(원문 표 없음 또는 구간 미정리) — 비교용"
+      },
+      "lift_main_extra_m": {
+        "value": 10.0,
+        "rationale": "인라인 양수장 압송관 길이 = 실양정 + 10 m 가정"
+      }
     }
   },
   "practice": {

@@ -19,7 +19,7 @@ import os
 import re
 
 from engine import criteria_db as db
-from engine.generic import ROOT, Standard
+from engine.generic import DOC_ROLES, ROOT, Standard
 
 REQ = ("mandatory", "standard")
 USE = ("mandatory", "standard", "guide")
@@ -168,10 +168,9 @@ def clarifier(st, r, F, X=None, Qr=None):
                     continue
                 q_r = Qr[s.get("return", "design")]
                 need.append((Q + q_r) * X / 1000 / lim)
-            else:  # 체류시간 하한 → 최소 용적
-                if dlo is None or row.value_min is None:
-                    continue
-                vol.append(Q * row.value_min / 24)
+            else:  # 체류시간 하한 → 최소 용적. 상한만 있는 기준은 용적을 정하지 않고 판정만
+                if dlo is not None and row.value_min is not None:
+                    vol.append(Q * row.value_min / 24)
             items.append((kind, s, row, Q))
     if not need and not (vol and dlo):
         out["held"].append("면적을 정할 기준 없음")
@@ -195,6 +194,8 @@ def clarifier(st, r, F, X=None, Qr=None):
         elif kind == "solids":
             x, unit = (Q + Qr[s.get("return", "design")]) * X / 1000 / A, "kg/m2/d"
         else:
+            if not d:
+                continue
             x, unit = A * d / Q * 24, "h"
         lo, hi = bounds(row)
         if s.get("limit") == "min":
@@ -326,7 +327,7 @@ def pick_any(st, s):
 # ── 처리장 전체 ──
 def plant_design(st, P):
     F, finfo = flows(st, P)
-    res = {"population": P, "flows_m3d": F, "flows_src": finfo, "held": []}
+    res = {"population": P, "doc_role": st.plant_doc_role, "flows_m3d": F, "flows_src": finfo, "held": []}
     il = st.rule("INFLUENT_LOAD")
     load = {}
     for p in [x for x in ("bod", "ss", "tn", "tp") if x in il]:
@@ -443,7 +444,10 @@ def plant_design(st, P):
             if ox["kind"] == "per_bod_removed":
                 if S is None:
                     raise Held("처리수 BOD 없음")
-                aer["oxygen_kgd"] = k * Q * (S1 - S) / 1000
+                Qo = F.get(ox["load_flow"]) if "load_flow" in ox else Q  # 제거 BOD를 어떤 유량의 부하로 셀지(원문 지정 시)
+                if Qo is None:
+                    raise Held("%s 유량 정의 없음" % ox.get("load_flow", ar["flow"]))
+                aer["oxygen_kgd"] = k * Qo * (S1 - S) / 1000
             else:  # 부하 기준(첨두시간 등) — 유입 농도 일정 가정
                 aer["oxygen_kgd"] = k * F[ox["load_flow"]] * S1 / 1000
             aer["oxygen_src"] = sr
@@ -528,10 +532,16 @@ def main():
     if a.csv:
         from engine import csv_rows
         csv_rows.use_csv()
-    for sid, r in run(a.project, a.standards, a.population).items():
-        print(sid, summary(r))
-        for h in r["held"]:
-            print("   보류:", h)
+    res = run(a.project, a.standards, a.population)
+    for role, name in DOC_ROLES.items():  # 역할이 다른 문서끼리는 같은 줄에 놓지 않는다
+        group = {sid: r for sid, r in res.items() if r["doc_role"] == role}
+        if not group:
+            continue
+        print("[%s]" % name)
+        for sid, r in group.items():
+            print(sid, summary(r))
+            for h in r["held"]:
+                print("   보류:", h)
 
 
 if __name__ == "__main__":

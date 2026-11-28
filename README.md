@@ -10,11 +10,12 @@ The same 27-pipe network, designed with each standard's own clauses: excavation 
 
 ## What this is
 
-- **Standards as data.** Sewer design values from six countries, with every value traced to its source clause, its binding force (mandatory / standard / guidance), and the flow condition it is defined under.
+- **Standards as data.** Sewer design values from six countries (seven standard sets), with every value traced to its source clause, its binding force (mandatory / standard / guidance), and the flow condition it is defined under.
   | Country | Standard | Edition |
   |---|---|---|
   | Korea | KDS 61 40 00 · 61 10 00 · 61 45 00 | 2025-10-01 |
   | United States | Ten States Standards (Recommended Standards for Wastewater Facilities) | 2026 |
+  | United States (Washington) | Ecology Criteria for Sewage Works Design ("Orange Book", values only) | 1998, rev. 2023-05 |
   | Japan | Yokohama City Sewer Design Guideline · Sewerage Act Enforcement Order | 2026 |
   | India | CPHEEO Manual on Sewerage and Sewage Treatment Systems, Part A | 2013 |
   | Colombia | RAS, Resolución 0330 de 2017 (compiled 2021) | 2021 |
@@ -32,7 +33,7 @@ The same 27-pipe network, designed with each standard's own clauses: excavation 
 
 ## Status
 
-Early (first public release October 2026). The gravity sewer engine, pump stations and force mains, house connections, drop-pipe checks at manholes, extra manholes placed in the profile, the six standards above, and the report generator work. A sewage treatment plant module (`engine/plant.py`, conventional activated sludge: primary clarifier, aeration tank, secondary clarifier, effluent limits from each country's law in `criteria/effluent_limits.csv`) covers Korea, the US, India and Colombia, plus nitrogen and phosphorus removal where a standard gives design values (Korea: A2O with chemical phosphorus removal, KDS 61 50 00 7.5.1 and 7.4.5; the others have no numeric nutrient-removal design rules, so their T-N/T-P checks are held); the Yokohama guideline and the UK DCG have no treatment-plant clauses. Its values are in `criteria/*_treatment_sewer.csv` and can be run before loading the database with `py -3 -m engine.plant SYN01 --population 7845 --csv`.
+Early (first public release October 2026). The gravity sewer engine, pump stations and force mains, house connections, drop-pipe checks at manholes, extra manholes placed in the profile, the standards above, and the report generator work. Each standard is tagged with its document role (design method, review standard or regulation) and results are compared only within the same role. A sewage treatment plant module (`engine/plant.py`, conventional activated sludge: primary clarifier, aeration tank, secondary clarifier, effluent limits from each country's law in `criteria/effluent_limits.csv`) covers Korea, the US (Ten States and the Washington Orange Book), India and Colombia, plus nitrogen and phosphorus removal where a standard gives design values (Korea: A2O with chemical phosphorus removal, KDS 61 50 00 7.5.1 and 7.4.5; the others have no numeric nutrient-removal design rules, so their T-N/T-P checks are held); the Yokohama guideline and the UK DCG have no treatment-plant clauses. Its values are in `criteria/*_treatment_sewer.csv` and can be run before loading the database with `py -3 -m engine.plant SYN01 --population 7845 --csv`.
 
 ## Quick start
 
@@ -49,7 +50,7 @@ SEWAGE_DB_DSN=<public DB DSN> py -3 -m engine.report SYN01 docs/SYN01_design_cri
 
 | Path | Contents |
 |---|---|
-| `criteria/standards.json` | One entry per standard: issuer, edition, access, redistribution terms |
+| `criteria/standards.json` | One entry per standard: issuer, edition, access, redistribution terms, document role (design method / review / regulation) |
 | `criteria/<country>_sewer.csv` | Design values with clause number and binding force |
 | `criteria/normalized/*.jsonl` | Normalized conditions and `basis` tags ([vocabulary](db/vocabulary.md)) |
 | `criteria/rules/<standard_id>.json` | How the engine applies each standard, with the clause behind each resolution |
@@ -61,12 +62,13 @@ SEWAGE_DB_DSN=<public DB DSN> py -3 -m engine.report SYN01 docs/SYN01_design_cri
 
 ## Copyright of source standards
 
-Full text is published only where redistribution is permitted: Colombia RAS (official legal text), Japan's Sewerage Act Enforcement Order (statutes are not copyrighted), CPHEEO (free reproduction with attribution), and the KDS 61 series (identical to the annex of Ministry of Environment Notice No. 2025-165, a government notice excluded from copyright protection under Article 7(2) of the Korean Copyright Act). For Ten States and Yokohama, only values and clause numbers are published. Copyright in every standard remains with its issuer.
+Full text is published only where redistribution is permitted: Colombia RAS (official legal text), Japan's Sewerage Act Enforcement Order (statutes are not copyrighted), CPHEEO (free reproduction with attribution), and the KDS 61 series (identical to the annex of Ministry of Environment Notice No. 2025-165, a government notice excluded from copyright protection under Article 7(2) of the Korean Copyright Act). For Ten States, Yokohama, Water UK and the Washington Orange Book, only values and clause numbers are published. Copyright in every standard remains with its issuer.
 
 - CPHEEO, Manual on Sewerage and Sewage Treatment Systems, Part A: Engineering (2013), Ministry of Housing and Urban Affairs, Government of India.
 - Great Lakes – Upper Mississippi River Board, Recommended Standards for Wastewater Facilities, 2026 Edition.
 - Ministerio de Vivienda, Ciudad y Territorio (Colombia), Resolución 0330 de 2017 (RAS), texto compilado.
 - Water UK, Design and Construction Guidance (Sewerage Sector Guidance Appendix C), Approved Version 2.3, 2023.
+- Washington State Department of Ecology, Criteria for Sewage Works Design (Orange Book), Publication 98-37, revised May 2023.
 
 ## License
 
